@@ -1,15 +1,24 @@
 {
-  "schemaVersion": 1,
+  "dataModelId": "dceb0813-3822-4071-9591-84f58df591f6",
   "name": "Sales Analytics",
-  "description": "",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Sales-Analytics-6IRIK20roG5NRrr7I7TXiS",
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
+  "schemaVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-01-12T22:29:10.153Z",
+  "updatedAt": "2026-01-12T23:13:03.624Z",
   "pages": [
     {
-      "id": "page_1768256916420",
+      "id": "t86rT8GaEH",
       "name": "Page 1",
       "elements": [
         {
-          "id": "element_0_1768256916420",
-          "name": "D_PRODUCT - 22",
+          "id": "DAFjX0MwIU",
+          "name": "D_PRODUCT",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -22,12 +31,12 @@
           },
           "columns": [
             {
-              "id": "col_0_0_1768256916420",
+              "id": "RhQ1jBd8nq",
               "name": "Product Key",
               "formula": "[D_PRODUCT/Product Key]"
             },
             {
-              "id": "col_0_1_1768256916420",
+              "id": "4dbDqHCakj",
               "name": "Product Name",
               "formula": "[D_PRODUCT/Product Name]"
             }
@@ -35,6 +44,5 @@
         }
       ]
     }
-  ],
-  "dataModelId": "dceb0813-3822-4071-9591-84f58df591f6"
+  ]
 }
