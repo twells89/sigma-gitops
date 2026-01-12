@@ -7,7 +7,7 @@ data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
     file: data-model-quickstart-copy.json
     name: Data Model QuickStart COPY
-    last_synced: '2026-01-12T20:29:36.901069Z'
+    last_synced: '2026-01-12T20:46:48.393710Z'
   08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
     file: my-data-model.json
     name: My Data Model
