@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "name": "Sales Analytics",
+  "description": "",
+  "pages": [
+    {
+      "id": "page_1768256164735",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "element_0_1768256164735",
+          "name": "D_PRODUCT",
+          "kind": "table",
+          "source": {
+            "connectionId": "6brPdL3w9I0NioBYGK14YL",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "PLUGS_ELECTRONICS",
+              "D_PRODUCT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "col_0_0_1768256164735",
+              "name": "Product Key",
+              "formula": "[D_PRODUCT/Product Key]"
+            },
+            {
+              "id": "col_0_1_1768256164735",
+              "name": "Product Name",
+              "formula": "[D_PRODUCT/Product Name]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
