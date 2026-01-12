@@ -36,3 +36,7 @@ data_models:
     file: erica.json
     name: Erica
     last_synced: '2026-01-12T21:55:21.210498Z'
+  dceb0813-3822-4071-9591-84f58df591f6:
+    file: sales-analytics.json
+    name: Sales Analytics
+    last_synced: '2026-01-12T22:29:10.363117Z'
