@@ -21,6 +21,7 @@ env:
   SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
   SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
   SIGMA_CLOUD: ${{ vars.SIGMA_CLOUD || 'aws' }}
+  SIGMA_FOLDER_ID: ${{ vars.SIGMA_FOLDER_ID || '' }}
 
 jobs:
   validate:
@@ -119,20 +120,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Debug: listing data-models/"
-          ls -la data-models/
-          echo "Debug: git diff"
-          git diff --name-only origin/main HEAD -- 'data-models/*.json' || true
-          echo "---"
           python scripts/generate_diff_report.py > diff_report.md
-          echo "Debug: diff report content:"
-          cat diff_report.md
-          echo "---"
           if [ -s diff_report.md ]; then
             echo "## 📊 Data Model Changes" > comment.md
             echo "" >> comment.md
             cat diff_report.md >> comment.md
             gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md
           else
-            echo "No changes to report (empty file)"
+            echo "No changes to report"
           fi
