@@ -28,3 +28,7 @@ data_models:
     file: tankup!-inventory.json
     name: 'TankUp! Inventory '
     last_pulled: '2026-01-12T18:41:35.676306Z'
+  86cfe63c-99a8-4512-924d-60c51f8589d3:
+    file: test.json
+    name: Test
+    last_synced: '2026-01-12T21:48:56.461392Z'
