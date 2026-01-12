@@ -1,0 +1,92 @@
+name: Pull Changes from Sigma
+
+on:
+  # Run daily at 6 AM UTC
+  schedule:
+    - cron: '0 6 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      create_pr:
+        description: 'Create PR for changes (vs direct commit)'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  pull-from-sigma:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests pyyaml
+      
+      - name: Pull latest from Sigma
+        env:
+          SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
+          SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
+          SIGMA_CLOUD: ${{ vars.SIGMA_CLOUD || 'aws' }}
+        run: python scripts/pull_from_sigma.py
+      
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n $(git status --porcelain data-models/) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "📝 Changes detected in data models"
+            git status --porcelain data-models/
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "✓ No changes from Sigma"
+          fi
+      
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_changes == 'true' && (github.event.inputs.create_pr != 'false')
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "sync: Pull latest data model changes from Sigma"
+          title: "🔄 Sync: Data model changes from Sigma"
+          body: |
+            This PR contains data model changes that were made directly in Sigma.
+            
+            ## Changes detected
+            The following files were modified in Sigma since the last sync:
+            
+            ```
+            ${{ steps.changes.outputs.files }}
+            ```
+            
+            ## Review
+            Please review these changes before merging. If you have local changes that conflict, you may need to manually merge.
+            
+            ---
+            *This PR was automatically created by the Pull Changes from Sigma workflow.*
+          branch: sigma-sync/${{ github.run_id }}
+          delete-branch: true
+          labels: |
+            automated
+            sigma-sync
+      
+      - name: Direct commit (if PR disabled)
+        if: steps.changes.outputs.has_changes == 'true' && github.event.inputs.create_pr == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data-models/ config.yml
+          git commit -m "sync: Pull latest data model changes from Sigma"
+          git push
