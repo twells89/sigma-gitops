@@ -28,7 +28,7 @@
         },
         {
           "id": "xlTXCBG-SO",
-          "name": "Plugs Sales",
+          "name": "Plugs Sales - Test",
           "kind": "table",
           "source": {
             "kind": "join",
