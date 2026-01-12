@@ -84,17 +84,17 @@ jobs:
         if: steps.changed.outputs.changed_files != ''
         run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
       
-      - name: Update config with new IDs
+      - name: Commit updates from Sigma
         run: |
-          if git diff --quiet config.yml; then
-            echo "No config changes"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add config.yml data-models/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
           else
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
             git pull --rebase origin main || true
-            git add config.yml data-models/
-            git commit -m "chore: Update data model IDs from Sigma [skip ci]" || true
-            git push || echo "Could not push config updates (non-critical)"
+            git commit -m "chore: Sync data model versions from Sigma [skip ci]"
+            git push || echo "Could not push updates (non-critical)"
           fi
 
   diff-report:
