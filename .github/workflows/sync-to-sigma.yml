@@ -1,0 +1,130 @@
+name: Sync Data Models to Sigma
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data-models/**/*.json'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data-models/**/*.json'
+  workflow_dispatch:
+    inputs:
+      sync_all:
+        description: 'Sync all data models (not just changed ones)'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
+  SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
+  SIGMA_CLOUD: ${{ vars.SIGMA_CLOUD || 'aws' }}
+
+jobs:
+  validate:
+    name: Validate JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate JSON files
+        run: |
+          echo "Validating data model JSON files..."
+          for file in data-models/*.json; do
+            if [ -f "$file" ]; then
+              echo "Checking $file"
+              python3 -m json.tool "$file" > /dev/null || exit 1
+            fi
+          done
+          echo "✓ All JSON files are valid"
+
+  sync:
+    name: Sync to Sigma
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to detect changes
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml
+      
+      - name: Get changed files
+        id: changed
+        run: |
+          if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
+            echo "Syncing all data models..."
+            CHANGED=$(ls data-models/*.json 2>/dev/null | tr '\n' ' ')
+          else
+            echo "Detecting changed files..."
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | tr '\n' ' ')
+          fi
+          echo "changed_files=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed files: $CHANGED"
+      
+      - name: Sync to Sigma
+        if: steps.changed.outputs.changed_files != ''
+        run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
+      
+      - name: Update config with new IDs
+        run: |
+          if git diff --quiet config.yml; then
+            echo "No config changes"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add config.yml data-models/
+            git commit -m "chore: Update data model IDs from Sigma [skip ci]"
+            git push
+          fi
+
+  diff-report:
+    name: Generate Diff Report
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests pyyaml
+      
+      - name: Generate diff report
+        id: diff
+        run: |
+          python scripts/generate_diff_report.py > diff_report.md
+          echo "report<<EOF" >> $GITHUB_OUTPUT
+          cat diff_report.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = `${{ steps.diff.outputs.report }}`;
+            if (report.trim()) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: '## 📊 Data Model Changes\n\n' + report
+              });
+            }

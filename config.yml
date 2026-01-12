@@ -1,0 +1,19 @@
+# Sigma Data Models Configuration
+# This file tracks the mapping between local JSON files and Sigma data model IDs
+
+# Your Sigma cloud: aws, azure, or gcp
+sigma_cloud: aws
+
+# Data model mappings (auto-populated by sync scripts)
+# Format:
+#   <dataModelId>:
+#     file: <filename.json>
+#     name: <display name>
+#     last_synced: <timestamp>
+data_models: {}
+
+# Optional: Default folder ID for new data models
+# default_folder_id: null
+
+# Optional: Connection ID to use for new data models
+# default_connection_id: null

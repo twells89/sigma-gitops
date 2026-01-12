@@ -1,0 +1,29 @@
+{
+  "name": "New Data Model",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Main",
+      "elements": [
+        {
+          "id": "table-1",
+          "name": "Main Table",
+          "kind": "table",
+          "source": {
+            "connectionId": "YOUR_CONNECTION_ID",
+            "kind": "warehouse-table",
+            "path": ["DATABASE", "SCHEMA", "TABLE_NAME"]
+          },
+          "columns": [
+            {
+              "id": "col-1",
+              "name": "Column 1",
+              "formula": "[TABLE_NAME/COLUMN_NAME]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
