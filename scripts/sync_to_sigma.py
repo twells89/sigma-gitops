@@ -172,39 +172,7 @@ def sync_file(client, file_path, config):
     
     try:
         if data_model_id:
-            # Update existing - but first check for conflicts
-            print(f"   Checking for conflicts with Sigma...")
-            
-            try:
-                sigma_spec = client.get_data_model_spec(data_model_id)
-                sigma_version = sigma_spec.get('documentVersion', 0)
-                local_version = spec.get('documentVersion', 0)
-                
-                # If Sigma has a newer version than our local file, warn about conflict
-                if sigma_version > local_version:
-                    print(f"   ⚠️  CONFLICT DETECTED!")
-                    print(f"      Sigma version: {sigma_version}")
-                    print(f"      Local version: {local_version}")
-                    print(f"      The data model was modified in Sigma after your local copy was created.")
-                    print(f"      ")
-                    print(f"      Options:")
-                    print(f"      1. Run 'python scripts/pull_from_sigma.py' to get latest changes")
-                    print(f"      2. Set FORCE_SYNC=true to overwrite Sigma (loses Sigma changes)")
-                    
-                    if os.environ.get('FORCE_SYNC', '').lower() != 'true':
-                        raise Exception(
-                            f"Conflict: Sigma has version {sigma_version}, local has version {local_version}. "
-                            f"Pull latest changes or set FORCE_SYNC=true to overwrite."
-                        )
-                    else:
-                        print(f"   ⚠️  FORCE_SYNC enabled - overwriting Sigma changes")
-                
-            except Exception as e:
-                if "Conflict" in str(e) or "CONFLICT" in str(e):
-                    raise
-                # If we can't fetch the spec, continue anyway (might be permissions issue)
-                print(f"   Note: Could not check version (continuing anyway): {e}")
-            
+            # Update existing
             print(f"   Updating data model: {data_model_id}")
             result = client.update_data_model(data_model_id, spec)
             print(f"   ✓ Updated: {model_name}")
