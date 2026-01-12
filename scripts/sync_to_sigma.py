@@ -184,7 +184,7 @@ def sync_file(client, file_path, config):
             spec_clean = {k: v for k, v in spec.items() 
                         if k not in ['dataModelId', 'ownerId', 'createdBy', 'updatedBy', 
                                     'createdAt', 'updatedAt', 'documentVersion', 
-                                    'latestDocumentVersion']}
+                                    'latestDocumentVersion', 'url']}
             
             # Ensure schemaVersion is an integer
             if 'schemaVersion' in spec_clean:
