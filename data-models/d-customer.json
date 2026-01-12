@@ -1,0 +1,128 @@
+{
+  "dataModelId": "62d86a35-c6e4-4f9c-930b-77a97c49209f",
+  "name": "D_CUSTOMER",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/D_CUSTOMER-30w9iiLVaOXS3v9AO9h8WH",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "schemaVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2025-12-04T12:02:49.903Z",
+  "updatedAt": "2025-12-04T12:02:49.903Z",
+  "pages": [
+    {
+      "id": "le1aHixUub",
+      "name": "Data Model",
+      "elements": [
+        {
+          "id": "MQNXtkA7vl",
+          "name": "D_CUSTOMER",
+          "kind": "table",
+          "source": {
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "PLUGS_ELECTRONICS",
+              "D_CUSTOMER"
+            ]
+          },
+          "columns": [
+            {
+              "id": "Cust Key",
+              "name": "Cust Key",
+              "formula": "[D_CUSTOMER/Cust Key]"
+            },
+            {
+              "id": "Cust Name",
+              "name": "Cust Name",
+              "formula": "[D_CUSTOMER/Cust Name]"
+            },
+            {
+              "id": "Cust Address",
+              "name": "Cust Address",
+              "formula": "[D_CUSTOMER/Cust Address]"
+            },
+            {
+              "id": "Cust City",
+              "name": "Cust City",
+              "formula": "[D_CUSTOMER/Cust City]"
+            },
+            {
+              "id": "Cust State",
+              "name": "Cust State",
+              "formula": "[D_CUSTOMER/Cust State]"
+            },
+            {
+              "id": "Cust Zip Code",
+              "name": "Cust Zip Code",
+              "formula": "[D_CUSTOMER/Cust Zip Code]"
+            },
+            {
+              "id": "Cust County",
+              "name": "Cust County",
+              "formula": "[D_CUSTOMER/Cust County]"
+            },
+            {
+              "id": "Cust Region",
+              "name": "Cust Region",
+              "formula": "[D_CUSTOMER/Cust Region]"
+            },
+            {
+              "id": "Cust Since",
+              "name": "Cust Since",
+              "formula": "[D_CUSTOMER/Cust Since]"
+            },
+            {
+              "id": "Cust Type",
+              "name": "Cust Type",
+              "formula": "[D_CUSTOMER/Cust Type]"
+            },
+            {
+              "id": "Cust Gender",
+              "name": "Cust Gender",
+              "formula": "[D_CUSTOMER/Cust Gender]"
+            },
+            {
+              "id": "Cust Age",
+              "name": "Cust Age",
+              "formula": "[D_CUSTOMER/Cust Age]"
+            },
+            {
+              "id": "Age Group",
+              "name": "Age Group",
+              "formula": "[D_CUSTOMER/Age Group]"
+            },
+            {
+              "id": "Civil Status",
+              "name": "Civil Status",
+              "formula": "[D_CUSTOMER/Civil Status]"
+            },
+            {
+              "id": "Loyalty Program",
+              "name": "Loyalty Program",
+              "formula": "[D_CUSTOMER/Loyalty Program]"
+            },
+            {
+              "id": "Cust Json Field",
+              "name": "Cust Json Field",
+              "formula": "[D_CUSTOMER/Cust Json Field]"
+            },
+            {
+              "id": "Updated At",
+              "name": "Updated At",
+              "formula": "[D_CUSTOMER/Updated At]"
+            },
+            {
+              "id": "Updated By",
+              "name": "Updated By",
+              "formula": "[D_CUSTOMER/Updated By]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "dataModelId": "ca2c2619-bc35-4e45-bcfa-a538a016b5cf",
+  "name": "Relationship RLS Bug?",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Relationship-RLS-Bug-69uCOOFdqVyX0nVakrRdkX",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "schemaVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2025-06-13T16:11:27.837Z",
+  "updatedAt": "2025-06-13T16:27:31.554Z",
+  "pages": [
+    {
+      "id": "FdQuanR1v4",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "miuQPEG4nS",
+          "name": "CUSTOMERS",
+          "kind": "table",
+          "source": {
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "COMMERCE",
+              "CUSTOMERS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/CUSTOMER_ID",
+              "name": "Customer Id",
+              "formula": "[CUSTOMERS/Customer Id]"
+            },
+            {
+              "id": "Cphr0dkXrY",
+              "name": "RLS",
+              "formula": "CurrentUserAttributeText(\"customer_id\") = [Customer Id]"
+            },
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/NAME",
+              "name": "Name",
+              "formula": "[CUSTOMERS/Name]"
+            },
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/EMAIL",
+              "name": "Email",
+              "formula": "[CUSTOMERS/Email]"
+            },
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/COMPANY",
+              "name": "Company",
+              "formula": "[CUSTOMERS/Company]"
+            },
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/DOMAIN",
+              "name": "Domain",
+              "formula": "[CUSTOMERS/Domain]"
+            },
+            {
+              "id": "inode-6LtRtCxLNRdbqOwwBjTZk3/COMPANY_ID",
+              "name": "Company Id",
+              "formula": "[CUSTOMERS/Company Id]"
+            }
+          ],
+          "filters": [
+            {
+              "id": "dbdbkNN4jh",
+              "columnId": "Cphr0dkXrY",
+              "kind": "list",
+              "mode": "exclude",
+              "values": [
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ElNqjhQdit",
+          "name": "INVOICE_LINE_ITEMS",
+          "kind": "table",
+          "source": {
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "COMMERCE",
+              "INVOICE_LINE_ITEMS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/INVOICE_ID",
+              "name": "Invoice Id",
+              "formula": "[INVOICE_LINE_ITEMS/Invoice Id]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/INVOICE_DATE",
+              "name": "Invoice Date",
+              "formula": "[INVOICE_LINE_ITEMS/Invoice Date]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/STOCK_ID",
+              "name": "Stock Id",
+              "formula": "[INVOICE_LINE_ITEMS/Stock Id]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/QUANTITY",
+              "name": "Quantity",
+              "formula": "[INVOICE_LINE_ITEMS/Quantity]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/UNIT_PRICE",
+              "name": "Unit Price",
+              "formula": "[INVOICE_LINE_ITEMS/Unit Price]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/BILLING_COUNTRY",
+              "name": "Billing Country",
+              "formula": "[INVOICE_LINE_ITEMS/Billing Country]"
+            },
+            {
+              "id": "inode-65w7zmpX8yFZ2Mt9thyyEu/CUSTOMER_ID",
+              "name": "Customer Id",
+              "formula": "[INVOICE_LINE_ITEMS/Customer Id]"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "Vzz4sDX90g",
+              "targetElementId": "miuQPEG4nS",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-65w7zmpX8yFZ2Mt9thyyEu/CUSTOMER_ID",
+                  "targetColumnId": "inode-6LtRtCxLNRdbqOwwBjTZk3/CUSTOMER_ID"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,19 +1,30 @@
-# Sigma Data Models Configuration
-# This file tracks the mapping between local JSON files and Sigma data model IDs
-
-# Your Sigma cloud: aws, azure, or gcp
 sigma_cloud: aws
-
-# Data model mappings (auto-populated by sync scripts)
-# Format:
-#   <dataModelId>:
-#     file: <filename.json>
-#     name: <display name>
-#     last_synced: <timestamp>
-data_models: {}
-
-# Optional: Default folder ID for new data models
-# default_folder_id: null
-
-# Optional: Connection ID to use for new data models
-# default_connection_id: null
+data_models:
+  6d07a964-df89-4b5c-b597-702218d80f2a:
+    file: data-model-quickstart.json
+    name: Data Model QuickStart
+    last_pulled: '2026-01-12T18:41:33.182585Z'
+  07b52947-2f01-41ff-b3f4-331938ed3823:
+    file: data-model-quickstart-copy.json
+    name: Data Model QuickStart COPY
+    last_pulled: '2026-01-12T18:41:33.709778Z'
+  08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
+    file: my-data-model.json
+    name: My Data Model
+    last_pulled: '2026-01-12T18:41:34.330722Z'
+  2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
+    file: chicago-crime.json
+    name: chicago-crime
+    last_pulled: '2026-01-12T18:41:34.632370Z'
+  62d86a35-c6e4-4f9c-930b-77a97c49209f:
+    file: d-customer.json
+    name: D_CUSTOMER
+    last_pulled: '2026-01-12T18:41:35.029508Z'
+  ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
+    file: relationship-rls-bug?.json
+    name: Relationship RLS Bug?
+    last_pulled: '2026-01-12T18:41:35.350609Z'
+  e3a5f320-394e-46d6-9718-038d2abe0994:
+    file: tankup!-inventory.json
+    name: 'TankUp! Inventory '
+    last_pulled: '2026-01-12T18:41:35.676306Z'
