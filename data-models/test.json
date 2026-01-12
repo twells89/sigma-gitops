@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "name": "Test",
+  "description": "Testing creation of new data model",
+  "pages": [
+    {
+      "id": "page_1768254140406",
+      "name": "Page 1",
+      "elements": []
+    }
+  ]
+}
