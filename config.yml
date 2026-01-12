@@ -32,3 +32,7 @@ data_models:
     file: test.json
     name: Test
     last_synced: '2026-01-12T21:48:56.461392Z'
+  d85439d2-a41a-4647-b100-784bddc7cca5:
+    file: erica.json
+    name: Erica
+    last_synced: '2026-01-12T21:55:21.210498Z'
