@@ -244,6 +244,22 @@ def sync_file(client, file_path, config):
             data_model_id = result.get('dataModelId')
             print(f"   ✓ Created with ID: {data_model_id}")
         
+        # After create/update, fetch the latest spec from Sigma and write back
+        # This keeps GitHub in sync with Sigma's version numbers
+        if data_model_id:
+            print(f"   Syncing back from Sigma...")
+            try:
+                latest_spec = client.get_data_model_spec(data_model_id)
+                with open(file_path, 'w') as f:
+                    json.dump(latest_spec, f, indent=2)
+                print(f"   ✓ Updated local file with Sigma's version (v{latest_spec.get('documentVersion', '?')})")
+            except Exception as e:
+                print(f"   ⚠️  Could not sync back: {e}")
+                # Fall back to just adding the ID
+                spec['dataModelId'] = data_model_id
+                with open(file_path, 'w') as f:
+                    json.dump(spec, f, indent=2)
+        
         # Update config with the mapping
         if data_model_id:
             if 'data_models' not in config:
@@ -254,11 +270,6 @@ def sync_file(client, file_path, config):
                 'name': model_name,
                 'last_synced': datetime.utcnow().isoformat() + 'Z'
             }
-            
-            # Also update the JSON file with the ID for reference
-            spec['dataModelId'] = data_model_id
-            with open(file_path, 'w') as f:
-                json.dump(spec, f, indent=2)
         
         return True
         
