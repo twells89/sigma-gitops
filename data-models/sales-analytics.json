@@ -4,15 +4,15 @@
   "description": "",
   "pages": [
     {
-      "id": "page_1768256164735",
+      "id": "page_1768256916420",
       "name": "Page 1",
       "elements": [
         {
-          "id": "element_0_1768256164735",
+          "id": "element_0_1768256916420",
           "name": "D_PRODUCT",
           "kind": "table",
           "source": {
-            "connectionId": "6brPdL3w9I0NioBYGK14YL",
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
             "kind": "warehouse-table",
             "path": [
               "RETAIL",
@@ -22,12 +22,12 @@
           },
           "columns": [
             {
-              "id": "col_0_0_1768256164735",
+              "id": "col_0_0_1768256916420",
               "name": "Product Key",
               "formula": "[D_PRODUCT/Product Key]"
             },
             {
-              "id": "col_0_1_1768256164735",
+              "id": "col_0_1_1768256916420",
               "name": "Product Name",
               "formula": "[D_PRODUCT/Product Name]"
             }
