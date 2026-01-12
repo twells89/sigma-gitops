@@ -97,7 +97,7 @@
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
-              "name": "Cust Key",
+              "name": "Customer Key",
               "formula": "[F_SALES/Cust Key]"
             },
             {
@@ -117,7 +117,7 @@
             },
             {
               "id": "RwpvPi8D_8",
-              "name": "Cust Key (D_CUSTOMER)",
+              "name": "Customer Key (D_CUSTOMER)",
               "formula": "[D_CUSTOMER/Cust Key]"
             },
             {
