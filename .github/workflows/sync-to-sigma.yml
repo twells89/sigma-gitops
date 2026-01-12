@@ -112,17 +112,21 @@ jobs:
         id: diff
         run: |
           python scripts/generate_diff_report.py > diff_report.md
-          echo "report<<EOF" >> $GITHUB_OUTPUT
-          cat diff_report.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          if [ -s diff_report.md ]; then
+            echo "has_report=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_report=false" >> $GITHUB_OUTPUT
+          fi
       
       - name: Comment on PR
+        if: steps.diff.outputs.has_report == 'true'
         uses: actions/github-script@v7
         with:
           script: |
-            const report = `${{ steps.diff.outputs.report }}`;
+            const fs = require('fs');
+            const report = fs.readFileSync('diff_report.md', 'utf8');
             if (report.trim()) {
-              github.rest.issues.createComment({
+              await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
