@@ -1,0 +1,224 @@
+{
+  "dataModelId": "2e743cc2-b92a-48b9-8ed2-a15a7d9638bf",
+  "name": "chicago-crime",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/chicago-crime-1pELASb4ktKVkT3bxTEe0T",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "schemaVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2025-04-23T17:39:57.780Z",
+  "updatedAt": "2025-04-23T17:39:57.780Z",
+  "pages": [
+    {
+      "id": "omVojCsFy4",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "jHUOkuaXgU",
+          "name": "chicago-crime",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "bigquery-public-data",
+              "chicago_crime",
+              "crime"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/unique_key",
+              "name": "Unique Key",
+              "formula": "[crime/Unique Key]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/case_number",
+              "name": "Case Number",
+              "formula": "[crime/Case Number]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/date",
+              "name": "Date",
+              "formula": "[crime/Date]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/block",
+              "name": "Block",
+              "formula": "[crime/Block]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/iucr",
+              "name": "Iucr",
+              "formula": "[crime/Iucr]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/primary_type",
+              "name": "Primary Type",
+              "formula": "[crime/Primary Type]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/description",
+              "name": "Description",
+              "formula": "[crime/Description]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/location_description",
+              "name": "Location Description",
+              "formula": "[crime/Location Description]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/arrest",
+              "name": "Arrest",
+              "formula": "[crime/Arrest]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/domestic",
+              "name": "Domestic",
+              "formula": "[crime/Domestic]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/beat",
+              "name": "Beat",
+              "formula": "[crime/Beat]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/district",
+              "name": "District",
+              "formula": "[crime/District]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/ward",
+              "name": "Ward",
+              "formula": "[crime/Ward]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/community_area",
+              "name": "Community Area",
+              "formula": "[crime/Community Area]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/fbi_code",
+              "name": "Fbi Code",
+              "formula": "[crime/Fbi Code]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/x_coordinate",
+              "name": "X Coordinate",
+              "formula": "[crime/X Coordinate]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/y_coordinate",
+              "name": "Y Coordinate",
+              "formula": "[crime/Y Coordinate]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/year",
+              "name": "Year",
+              "formula": "[crime/Year]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/updated_on",
+              "name": "Updated On",
+              "formula": "[crime/Updated On]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/latitude",
+              "name": "Latitude",
+              "formula": "[crime/Latitude]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/longitude",
+              "name": "Longitude",
+              "formula": "[crime/Longitude]"
+            },
+            {
+              "id": "inode-55HEqap8Qw022TkraoGLKr/location",
+              "name": "Location",
+              "formula": "[crime/Location]"
+            }
+          ]
+        },
+        {
+          "kind": "control",
+          "controlId": "Domestic",
+          "id": "KH8reSuY87",
+          "filters": [
+            {
+              "source": {
+                "kind": "table",
+                "elementId": "jHUOkuaXgU"
+              },
+              "columnId": "inode-55HEqap8Qw022TkraoGLKr/domestic"
+            }
+          ],
+          "selectionMode": "multiple",
+          "controlType": "list",
+          "mode": "exclude",
+          "source": {
+            "kind": "source",
+            "source": {
+              "kind": "table",
+              "elementId": "jHUOkuaXgU"
+            },
+            "columnId": "inode-55HEqap8Qw022TkraoGLKr/domestic"
+          },
+          "values": [
+            false
+          ]
+        },
+        {
+          "kind": "control",
+          "controlId": "Arrest",
+          "id": "D0KT_XxKWD",
+          "filters": [
+            {
+              "source": {
+                "kind": "table",
+                "elementId": "jHUOkuaXgU"
+              },
+              "columnId": "inode-55HEqap8Qw022TkraoGLKr/arrest"
+            }
+          ],
+          "selectionMode": "multiple",
+          "controlType": "list",
+          "mode": "exclude",
+          "source": {
+            "kind": "source",
+            "source": {
+              "kind": "table",
+              "elementId": "jHUOkuaXgU"
+            },
+            "columnId": "inode-55HEqap8Qw022TkraoGLKr/arrest"
+          },
+          "values": [
+            false
+          ]
+        },
+        {
+          "kind": "control",
+          "controlId": "Date",
+          "id": "ZfSX9dtYgP",
+          "filters": [
+            {
+              "source": {
+                "kind": "table",
+                "elementId": "jHUOkuaXgU"
+              },
+              "columnId": "inode-55HEqap8Qw022TkraoGLKr/date"
+            }
+          ],
+          "controlType": "date-range",
+          "mode": "last",
+          "value": 60,
+          "unit": "day",
+          "includeToday": false,
+          "includeNulls": "never"
+        }
+      ]
+    }
+  ]
+}
