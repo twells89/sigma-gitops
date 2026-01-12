@@ -11,12 +11,33 @@ from pathlib import Path
 
 def get_changed_files():
     """Get list of changed data model files in the PR."""
-    result = subprocess.run(
+    import os
+    
+    # Try different git diff strategies
+    strategies = [
         ['git', 'diff', '--name-only', 'origin/main...HEAD', '--', 'data-models/*.json'],
-        capture_output=True,
-        text=True
-    )
-    return [f for f in result.stdout.strip().split('\n') if f]
+        ['git', 'diff', '--name-only', 'origin/main', 'HEAD', '--', 'data-models/*.json'],
+        ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'data-models/*.json'],
+    ]
+    
+    for cmd in strategies:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        files = [f for f in result.stdout.strip().split('\n') if f and f.endswith('.json')]
+        if files:
+            return files
+    
+    # Fallback: check GITHUB_EVENT_PATH for PR file list
+    event_path = os.environ.get('GITHUB_EVENT_PATH')
+    if event_path:
+        try:
+            with open(event_path) as f:
+                import json as json_mod
+                event = json_mod.load(f)
+                # For PRs, we can't get file list from event, but we tried git
+        except:
+            pass
+    
+    return []
 
 
 def get_file_at_ref(file_path, ref):
