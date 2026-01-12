@@ -68,44 +68,6 @@ class SigmaClient:
             'Content-Type': 'application/json'
         }
     
-    def get_personal_folder_id(self):
-        """Get the personal folder ID (My Documents) for the authenticated user."""
-        # Get current user info
-        response = requests.get(
-            f"{self.base_url}/v2/whoami",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to get user info: {response.text}")
-        
-        user_data = response.json()
-        member_id = user_data.get('memberId')
-        
-        if not member_id:
-            raise Exception("Could not determine member ID")
-        
-        # Get user's files to find personal folder
-        # The personal folder is typically returned when listing files with no parent
-        response = requests.get(
-            f"{self.base_url}/v2/files",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to list files: {response.text}")
-        
-        files_data = response.json()
-        entries = files_data.get('entries', [])
-        
-        # Look for "My Documents" or personal folder
-        for entry in entries:
-            if entry.get('name') == 'My Documents' or entry.get('type') == 'personal-folder':
-                return entry.get('id')
-        
-        # If we can't find it, return None and let the API use default
-        return None
-    
     def list_data_models(self):
         """Get all data models from Sigma."""
         response = requests.get(
@@ -234,13 +196,17 @@ def sync_file(client, file_path, config):
             
             # Add folderId if not present (required for creation)
             if 'folderId' not in spec_clean:
-                print(f"   Getting personal folder ID...")
-                folder_id = client.get_personal_folder_id()
+                # Try to get from config
+                folder_id = config.get('default_folder_id') or os.environ.get('SIGMA_FOLDER_ID')
                 if folder_id:
                     spec_clean['folderId'] = folder_id
                     print(f"   Using folder: {folder_id}")
                 else:
-                    print(f"   ⚠️  Could not determine folder ID - API will use default")
+                    raise Exception(
+                        "folderId is required for new data models. "
+                        "Set 'default_folder_id' in config.yml or SIGMA_FOLDER_ID environment variable. "
+                        "Find your folder ID in Sigma: open a folder, check the URL for the ID after /folder/"
+                    )
             
             result = client.create_data_model(spec_clean)
             data_model_id = result.get('dataModelId')
