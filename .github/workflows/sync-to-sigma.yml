@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'data-models/**/*.json'
+      - 'data-models/*.json'
   pull_request:
     branches: [main]
     paths:
-      - 'data-models/**/*.json'
+      - 'data-models/*.json'
   workflow_dispatch:
     inputs:
       sync_all:
@@ -65,10 +65,10 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
             echo "Syncing all data models..."
-            CHANGED=$(ls data-models/*.json 2>/dev/null | tr '\n' ' ')
+            CHANGED=$(ls data-models/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
           else
             echo "Detecting changed files..."
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | tr '\n' ' ')
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json' | tr '\n' ' ')
           fi
           echo "changed_files=$CHANGED" >> $GITHUB_OUTPUT
           echo "Changed files: $CHANGED"
@@ -84,9 +84,10 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
+            git pull --rebase origin main || true
             git add config.yml data-models/
-            git commit -m "chore: Update data model IDs from Sigma [skip ci]"
-            git push
+            git commit -m "chore: Update data model IDs from Sigma [skip ci]" || true
+            git push || echo "Could not push config updates (non-critical)"
           fi
 
   diff-report:
