@@ -2,18 +2,18 @@
   "dataModelId": "62d86a35-c6e4-4f9c-930b-77a97c49209f",
   "name": "D_CUSTOMER",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/D_CUSTOMER-30w9iiLVaOXS3v9AO9h8WH",
-  "documentVersion": 1,
-  "latestDocumentVersion": 1,
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-12-04T12:02:49.903Z",
-  "updatedAt": "2025-12-04T12:02:49.903Z",
+  "updatedAt": "2026-01-12T18:57:12.669Z",
   "pages": [
     {
-      "id": "le1aHixUub",
+      "id": "IBIv8M2G7T",
       "name": "Data Model",
       "elements": [
         {
