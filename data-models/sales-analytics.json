@@ -2,18 +2,18 @@
   "dataModelId": "dceb0813-3822-4071-9591-84f58df591f6",
   "name": "Sales Analytics",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Sales-Analytics-6IRIK20roG5NRrr7I7TXiS",
-  "documentVersion": 5,
-  "latestDocumentVersion": 5,
+  "documentVersion": 10,
+  "latestDocumentVersion": 10,
   "schemaVersion": 1,
   "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
   "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2026-01-12T22:29:10.153Z",
-  "updatedAt": "2026-01-12T23:31:31.470Z",
+  "updatedAt": "2026-01-13T01:49:00.631Z",
   "pages": [
     {
-      "id": "65QcLA4Plp",
+      "id": "iVn-S9wmhX",
       "name": "Page",
       "elements": [
         {
