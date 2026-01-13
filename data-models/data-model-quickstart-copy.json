@@ -22,13 +22,13 @@
           "id": "O3RyH8WQeEcon",
           "controlType": "date-range",
           "mode": "between",
-          "startDate": "2025-09-01T00:00:00Z",
-          "endDate": "2025-10-02T23:59:59Z",
+          "startDate": "2025-10-01T00:00:00Z",
+          "endDate": "2025-12-02T23:59:59Z",
           "includeNulls": "when-no-value-is-selected"
         },
         {
           "id": "xlTXCBG-SO",
-          "name": "Plugs Sales",
+          "name": "Plugs Sales - Jonny is the Best",
           "kind": "table",
           "source": {
             "kind": "join",
