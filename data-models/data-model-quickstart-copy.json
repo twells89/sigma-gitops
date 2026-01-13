@@ -2,18 +2,18 @@
   "dataModelId": "07b52947-2f01-41ff-b3f4-331938ed3823",
   "name": "Data Model QuickStart COPY",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-COPY-exJHPksbgg5WvjViqu8MP",
-  "documentVersion": 3,
-  "latestDocumentVersion": 3,
+  "documentVersion": 16,
+  "latestDocumentVersion": 16,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "5783ab89-024b-45c2-b96f-4422612ef40f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-10-23T19:39:45.821Z",
-  "updatedAt": "2026-01-12T18:24:36.683Z",
+  "updatedAt": "2026-01-13T19:04:58.510Z",
   "pages": [
     {
-      "id": "na7tX8RQIH",
+      "id": "BjhPbrURxc",
       "name": "Sales",
       "elements": [
         {
@@ -338,14 +338,14 @@
           ],
           "filters": [
             {
-              "id": "CBUz3tKr7x",
+              "id": "XgHHmDXvj5",
               "columnId": "4pghmAGtMr",
               "kind": "list",
               "mode": "exclude",
               "values": []
             },
             {
-              "id": "WWAhUBuUdO",
+              "id": "7Oocn8GEFz",
               "columnId": "_4SodcMD_1",
               "kind": "list",
               "mode": "exclude",
@@ -355,14 +355,14 @@
               ]
             },
             {
-              "id": "XZSHqm7ODf",
+              "id": "VJ3DmX4Dgu",
               "columnId": "4qJuB76uHL",
               "kind": "list",
               "mode": "include",
               "values": []
             },
             {
-              "id": "vBrXCTvMnf",
+              "id": "WqxC2Vq9va",
               "columnId": "_miS4fU34X",
               "kind": "list",
               "mode": "include",
@@ -371,7 +371,7 @@
           ],
           "folders": [
             {
-              "id": "4O0Wxnd_TR",
+              "id": "sDXj3PaS-D",
               "name": "Customer Data",
               "items": [
                 "KByEldosoO",
