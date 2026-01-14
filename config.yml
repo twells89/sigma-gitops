@@ -15,11 +15,11 @@ data_models:
   2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
     file: chicago-crime.json
     name: chicago-crime
-    last_pulled: '2026-01-12T18:41:34.632370Z'
+    last_synced: '2026-01-14T22:15:24.486978Z'
   62d86a35-c6e4-4f9c-930b-77a97c49209f:
     file: d-customer.json
     name: D_CUSTOMER
-    last_pulled: '2026-01-12T18:41:35.029508Z'
+    last_synced: '2026-01-14T22:15:25.589845Z'
   ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
     file: relationship-rls-bug?.json
     name: Relationship RLS Bug?
