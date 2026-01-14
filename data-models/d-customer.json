@@ -36,7 +36,7 @@
               "formula": "[D_CUSTOMER/Cust Key]"
             },
             {
-              "id": "Cust Name",
+              "id": "Cust Name2",
               "name": "Cust Name",
               "formula": "[D_CUSTOMER/Cust Name]"
             },
