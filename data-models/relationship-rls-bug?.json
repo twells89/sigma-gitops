@@ -2,18 +2,18 @@
   "dataModelId": "ca2c2619-bc35-4e45-bcfa-a538a016b5cf",
   "name": "Relationship RLS Bug?",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Relationship-RLS-Bug-69uCOOFdqVyX0nVakrRdkX",
-  "documentVersion": 2,
-  "latestDocumentVersion": 2,
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
   "schemaVersion": 1,
   "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-06-13T16:11:27.837Z",
-  "updatedAt": "2025-06-13T16:27:31.554Z",
+  "updatedAt": "2026-01-12T18:57:16.260Z",
   "pages": [
     {
-      "id": "FdQuanR1v4",
+      "id": "sHc93kr1lq",
       "name": "Page 1",
       "elements": [
         {
@@ -68,7 +68,7 @@
           ],
           "filters": [
             {
-              "id": "dbdbkNN4jh",
+              "id": "HZYHRhnIPI",
               "columnId": "Cphr0dkXrY",
               "kind": "list",
               "mode": "exclude",
