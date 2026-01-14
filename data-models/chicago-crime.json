@@ -32,7 +32,7 @@
           "columns": [
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/unique_key",
-              "name": "Unique Key",
+              "name": "Unique Key - 1",
               "formula": "[crime/Unique Key]"
             },
             {
