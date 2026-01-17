@@ -2,23 +2,23 @@
   "dataModelId": "ca2c2619-bc35-4e45-bcfa-a538a016b5cf",
   "name": "Relationship RLS Bug?",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Relationship-RLS-Bug-69uCOOFdqVyX0nVakrRdkX",
-  "documentVersion": 2,
-  "latestDocumentVersion": 2,
+  "documentVersion": 5,
+  "latestDocumentVersion": 5,
   "schemaVersion": 1,
   "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-06-13T16:11:27.837Z",
-  "updatedAt": "2025-06-13T16:27:31.554Z",
+  "updatedAt": "2026-01-16T18:22:01.723Z",
   "pages": [
     {
-      "id": "FdQuanR1v4",
+      "id": "1S4jdGrQ67",
       "name": "Page 1",
       "elements": [
         {
           "id": "miuQPEG4nS",
-          "name": "CUSTOMERS",
+          "name": "CUSTOMERS2",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -68,7 +68,7 @@
           ],
           "filters": [
             {
-              "id": "dbdbkNN4jh",
+              "id": "bVU6MtoYIq",
               "columnId": "Cphr0dkXrY",
               "kind": "list",
               "mode": "exclude",
@@ -76,6 +76,15 @@
                 false
               ]
             }
+          ],
+          "order": [
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/CUSTOMER_ID",
+            "Cphr0dkXrY",
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/NAME",
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/EMAIL",
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/COMPANY",
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/DOMAIN",
+            "inode-6LtRtCxLNRdbqOwwBjTZk3/COMPANY_ID"
           ]
         },
         {
@@ -139,6 +148,15 @@
                 }
               ]
             }
+          ],
+          "order": [
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/INVOICE_ID",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/INVOICE_DATE",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/STOCK_ID",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/QUANTITY",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/UNIT_PRICE",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/BILLING_COUNTRY",
+            "inode-65w7zmpX8yFZ2Mt9thyyEu/CUSTOMER_ID"
           ]
         }
       ]

@@ -140,6 +140,30 @@
               "name": "Location",
               "formula": "[crime/Location]"
             }
+          ],
+          "order": [
+            "inode-55HEqap8Qw022TkraoGLKr/unique_key",
+            "inode-55HEqap8Qw022TkraoGLKr/case_number",
+            "inode-55HEqap8Qw022TkraoGLKr/date",
+            "inode-55HEqap8Qw022TkraoGLKr/block",
+            "inode-55HEqap8Qw022TkraoGLKr/iucr",
+            "inode-55HEqap8Qw022TkraoGLKr/primary_type",
+            "inode-55HEqap8Qw022TkraoGLKr/description",
+            "inode-55HEqap8Qw022TkraoGLKr/location_description",
+            "inode-55HEqap8Qw022TkraoGLKr/arrest",
+            "inode-55HEqap8Qw022TkraoGLKr/domestic",
+            "inode-55HEqap8Qw022TkraoGLKr/beat",
+            "inode-55HEqap8Qw022TkraoGLKr/district",
+            "inode-55HEqap8Qw022TkraoGLKr/ward",
+            "inode-55HEqap8Qw022TkraoGLKr/community_area",
+            "inode-55HEqap8Qw022TkraoGLKr/fbi_code",
+            "inode-55HEqap8Qw022TkraoGLKr/x_coordinate",
+            "inode-55HEqap8Qw022TkraoGLKr/y_coordinate",
+            "inode-55HEqap8Qw022TkraoGLKr/year",
+            "inode-55HEqap8Qw022TkraoGLKr/updated_on",
+            "inode-55HEqap8Qw022TkraoGLKr/latitude",
+            "inode-55HEqap8Qw022TkraoGLKr/longitude",
+            "inode-55HEqap8Qw022TkraoGLKr/location"
           ]
         },
         {

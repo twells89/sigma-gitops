@@ -2,18 +2,18 @@
   "dataModelId": "07b52947-2f01-41ff-b3f4-331938ed3823",
   "name": "Data Model QuickStart COPY",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-COPY-exJHPksbgg5WvjViqu8MP",
-  "documentVersion": 26,
-  "latestDocumentVersion": 26,
+  "documentVersion": 33,
+  "latestDocumentVersion": 33,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "5783ab89-024b-45c2-b96f-4422612ef40f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-10-23T19:39:45.821Z",
-  "updatedAt": "2026-01-16T15:09:55.147Z",
+  "updatedAt": "2026-01-16T19:10:08.497Z",
   "pages": [
     {
-      "id": "c0UeUZsimF",
+      "id": "62xqMNpol1",
       "name": "Sales",
       "elements": [
         {
@@ -28,7 +28,7 @@
         },
         {
           "id": "xlTXCBG-SO",
-          "name": "Plugs Sales Table",
+          "name": "Plugs Sales",
           "kind": "table",
           "source": {
             "kind": "join",
@@ -96,6 +96,11 @@
               "formula": "[F_SALES/Order Number]"
             },
             {
+              "id": "_yT5JxEJgl",
+              "name": "Distinct Order Count",
+              "formula": "CountDistinct([Order Number])"
+            },
+            {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
               "name": "Customer Key",
               "formula": "[F_SALES/Cust Key]"
@@ -109,6 +114,11 @@
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
               "name": "Date",
               "formula": "[F_SALES/Date]"
+            },
+            {
+              "id": "XbehxiC6vK",
+              "name": "Distinct Customer Count",
+              "formula": "CountDistinct([Customer Key])"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
@@ -192,7 +202,7 @@
             },
             {
               "id": "GaEXPhlBc2",
-              "name": "Profit",
+              "name": "Profit2",
               "formula": "[Revenue] - ([Cost Amount] * [Sales Quantity])"
             },
             {
@@ -229,6 +239,16 @@
               "id": "hr1bnyelwh",
               "name": "Is Last Period",
               "formula": "If([Period] = \"Last Period\", True, False)"
+            },
+            {
+              "id": "wgUAtXA9sT",
+              "name": "Product Name (D_PRODUCT)",
+              "formula": "Lookup([D_PRODUCT/Product Name], [Product Key], [D_PRODUCT/Product Key (1)])"
+            },
+            {
+              "id": "4AeBc1EcNc",
+              "name": "Distinct Store City Count",
+              "formula": "CountDistinct([Store City])"
             },
             {
               "id": "KByEldosoO",
@@ -338,14 +358,14 @@
           ],
           "filters": [
             {
-              "id": "lxn69UMbGL",
+              "id": "4q6ZB1RbjZ",
               "columnId": "4pghmAGtMr",
               "kind": "list",
               "mode": "exclude",
               "values": []
             },
             {
-              "id": "NjBKkmp8Ns",
+              "id": "c3UlGi-JQc",
               "columnId": "_4SodcMD_1",
               "kind": "list",
               "mode": "exclude",
@@ -355,14 +375,14 @@
               ]
             },
             {
-              "id": "lQMHV3pE_w",
+              "id": "HyrIlI45B_",
               "columnId": "4qJuB76uHL",
               "kind": "list",
               "mode": "include",
               "values": []
             },
             {
-              "id": "RNqY8PnJD1",
+              "id": "iVWm6luWoC",
               "columnId": "_miS4fU34X",
               "kind": "list",
               "mode": "include",
@@ -371,7 +391,7 @@
           ],
           "folders": [
             {
-              "id": "aj9OHwXkDY",
+              "id": "RVwTobNBCp",
               "name": "Customer Data",
               "items": [
                 "KByEldosoO",
@@ -388,6 +408,41 @@
                 "qB10jFNVR5"
               ]
             }
+          ],
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "_yT5JxEJgl",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "XbehxiC6vK",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
+            "RwpvPi8D_8",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "9fWpFal-Rw",
+            "8GDjwxf_YX",
+            "o_uMnZmP4b",
+            "BJYdB0a4-G",
+            "gJglrhnnsb",
+            "DLhcqL0D0f",
+            "lUKb6fWfcY",
+            "cd7Z0qfHpP",
+            "fGscYfJPwf",
+            "Hr3e5cMVwH",
+            "T12SGbyCbk",
+            "TeB0rqggEj",
+            "XQT2a6XnhN",
+            "GaEXPhlBc2",
+            "9nlivhqPgs",
+            "NAokyFYPlb",
+            "_4SodcMD_1",
+            "6lt66qZx3x",
+            "4qJuB76uHL",
+            "0frT8Fo5Gg",
+            "hr1bnyelwh",
+            "wgUAtXA9sT",
+            "4AeBc1EcNc",
+            "RVwTobNBCp"
           ]
         },
         {
@@ -505,6 +560,23 @@
               "name": "Proposed Price",
               "formula": "[D_PRODUCT/Proposed Price]"
             }
+          ],
+          "order": [
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
+            "39xtXUgHw7",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE"
           ]
         },
         {
@@ -616,6 +688,27 @@
               "name": "Store Json Field",
               "formula": "[D_STORE/Store Json Field]"
             }
+          ],
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         },
         {
@@ -753,6 +846,27 @@
               "name": "Store Json Field",
               "formula": "[D_STORE/Store Json Field]"
             }
+          ],
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         }
       ]
@@ -810,6 +924,14 @@
               "name": "Purchase Method",
               "formula": "[F_SALES/Purchase Method]"
             }
+          ],
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD"
           ]
         }
       ]

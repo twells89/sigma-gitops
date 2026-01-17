@@ -120,6 +120,26 @@
               "name": "Updated By",
               "formula": "[D_CUSTOMER/Updated By]"
             }
+          ],
+          "order": [
+            "Cust Key",
+            "NCMQi0KpVn",
+            "Cust Address",
+            "Cust City",
+            "Cust State",
+            "Cust Zip Code",
+            "Cust County",
+            "Cust Region",
+            "Cust Since",
+            "Cust Type",
+            "Cust Gender",
+            "Cust Age",
+            "Age Group",
+            "Civil Status",
+            "Loyalty Program",
+            "Cust Json Field",
+            "Updated At",
+            "Updated By"
           ]
         }
       ]

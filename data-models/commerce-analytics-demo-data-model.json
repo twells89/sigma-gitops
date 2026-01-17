@@ -1,0 +1,385 @@
+{
+  "dataModelId": "0f5c482b-1ecd-4df9-9578-3f66b04499d8",
+  "name": "Commerce Analytics Demo Data Model",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Commerce-Analytics-Demo-Data-Model-sZ3Aona7xsN9OKziuzwgM",
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
+  "schemaVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "57e59735-86b9-40b0-b029-217205406f57",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2025-04-24T15:08:33.868Z",
+  "updatedAt": "2025-04-24T16:11:18.721Z",
+  "pages": [
+    {
+      "id": "MMhmiPxxKJ",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "4LrW5KWdoR",
+          "name": "accounts",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "accounts"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/account_id",
+              "name": "Account Id",
+              "formula": "[accounts/Account Id]"
+            },
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/account_name",
+              "name": "Account Name",
+              "formula": "[accounts/Account Name]"
+            },
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/industry",
+              "name": "Industry",
+              "formula": "[accounts/Industry]"
+            },
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/created_at",
+              "name": "Created At",
+              "formula": "[accounts/Created At]"
+            },
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/region",
+              "name": "Region",
+              "formula": "[accounts/Region]"
+            },
+            {
+              "id": "inode-5AHq5ZPSbp44GEWLxPDiKa/plan_tier",
+              "name": "Plan Tier",
+              "formula": "[accounts/Plan Tier]"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "YNU6L6bxhA",
+              "targetElementId": "yVUuEE6sPX",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-5AHq5ZPSbp44GEWLxPDiKa/account_id",
+                  "targetColumnId": "inode-4UU8aisuLZD5de894iPo2S/account_id"
+                }
+              ],
+              "name": "account - opps"
+            },
+            {
+              "id": "S1dRb89XpX",
+              "targetElementId": "-05pFrBNfh",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-5AHq5ZPSbp44GEWLxPDiKa/account_id",
+                  "targetColumnId": "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id"
+                }
+              ],
+              "name": "accounts subs"
+            }
+          ],
+          "order": [
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/account_id",
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/account_name",
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/industry",
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/created_at",
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/region",
+            "inode-5AHq5ZPSbp44GEWLxPDiKa/plan_tier"
+          ]
+        },
+        {
+          "id": "aBcy56E24a",
+          "name": "accounts",
+          "kind": "table",
+          "source": {
+            "elementId": "4LrW5KWdoR",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "3_h_4uEQFU",
+              "name": "Account Id",
+              "formula": "[accounts/Account Id]"
+            },
+            {
+              "id": "6RJKl5R4UH",
+              "name": "Account Name",
+              "formula": "[accounts/Account Name]"
+            },
+            {
+              "id": "3rkN_EyHYC",
+              "name": "Industry",
+              "formula": "[accounts/Industry]"
+            },
+            {
+              "id": "4lC-wV6Ib2",
+              "name": "Created At",
+              "formula": "[accounts/Created At]"
+            },
+            {
+              "id": "FqDjc9pDMF",
+              "name": "Region",
+              "formula": "[accounts/Region]"
+            },
+            {
+              "id": "0C-zDB-KhF",
+              "name": "Plan Tier",
+              "formula": "[accounts/Plan Tier]"
+            }
+          ],
+          "order": [
+            "3_h_4uEQFU",
+            "6RJKl5R4UH",
+            "3rkN_EyHYC",
+            "4lC-wV6Ib2",
+            "FqDjc9pDMF",
+            "0C-zDB-KhF"
+          ]
+        },
+        {
+          "id": "veSrGfSUL1",
+          "name": "accounts",
+          "kind": "table",
+          "source": {
+            "elementId": "4LrW5KWdoR",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "WkiCTaTO7l",
+              "name": "Account Id",
+              "formula": "[accounts/Account Id]"
+            },
+            {
+              "id": "EPZk0MrRO6",
+              "name": "Account Name",
+              "formula": "[accounts/Account Name]"
+            },
+            {
+              "id": "qhlATwwKXP",
+              "name": "Industry",
+              "formula": "[accounts/Industry]"
+            },
+            {
+              "id": "D5PZ9XhxD0",
+              "name": "Created At",
+              "formula": "[accounts/Created At]"
+            },
+            {
+              "id": "-sUo-By4-F",
+              "name": "Region",
+              "formula": "[accounts/Region]"
+            },
+            {
+              "id": "Z7zWMcL3eh",
+              "name": "Plan Tier",
+              "formula": "[accounts/Plan Tier]"
+            }
+          ],
+          "order": [
+            "WkiCTaTO7l",
+            "EPZk0MrRO6",
+            "qhlATwwKXP",
+            "D5PZ9XhxD0",
+            "-sUo-By4-F",
+            "Z7zWMcL3eh"
+          ]
+        },
+        {
+          "id": "-05pFrBNfh",
+          "name": "subscriptions",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "subscriptions"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+              "name": "Sub Id",
+              "formula": "[subscriptions/Sub Id]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
+              "name": "Account Id",
+              "formula": "[subscriptions/Account Id]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
+              "name": "Plan Tier",
+              "formula": "[subscriptions/Plan Tier]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
+              "name": "Start Date",
+              "formula": "[subscriptions/Start Date]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
+              "name": "End Date",
+              "formula": "[subscriptions/End Date]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/status",
+              "name": "Status",
+              "formula": "[subscriptions/Status]"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "vPjshHUs_T",
+              "targetElementId": "mmLlW0KK5_",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+                  "targetColumnId": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id"
+                }
+              ],
+              "name": "Subs Invoices"
+            }
+          ],
+          "order": [
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/status"
+          ]
+        },
+        {
+          "id": "yVUuEE6sPX",
+          "name": "opportunities",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "opportunities"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/opp_id",
+              "name": "Opp Id",
+              "formula": "[opportunities/Opp Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/account_id",
+              "name": "Account Id",
+              "formula": "[opportunities/Account Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
+              "name": "Owner User Id",
+              "formula": "[opportunities/Owner User Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/stage",
+              "name": "Stage",
+              "formula": "[opportunities/Stage]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
+              "name": "Amount Usd",
+              "formula": "[opportunities/Amount Usd]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/created_date",
+              "name": "Created Date",
+              "formula": "[opportunities/Created Date]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/close_date",
+              "name": "Close Date",
+              "formula": "[opportunities/Close Date]"
+            }
+          ],
+          "order": [
+            "inode-4UU8aisuLZD5de894iPo2S/opp_id",
+            "inode-4UU8aisuLZD5de894iPo2S/account_id",
+            "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
+            "inode-4UU8aisuLZD5de894iPo2S/stage",
+            "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
+            "inode-4UU8aisuLZD5de894iPo2S/created_date",
+            "inode-4UU8aisuLZD5de894iPo2S/close_date"
+          ]
+        },
+        {
+          "id": "mmLlW0KK5_",
+          "name": "invoices",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "invoices"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
+              "name": "Invoice Id",
+              "formula": "[invoices/Invoice Id]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
+              "name": "Sub Id",
+              "formula": "[invoices/Sub Id]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
+              "name": "Issued Date",
+              "formula": "[invoices/Issued Date]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
+              "name": "Amount Usd",
+              "formula": "[invoices/Amount Usd]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
+              "name": "Paid",
+              "formula": "[invoices/Paid]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
+              "name": "Due Date",
+              "formula": "[invoices/Due Date]"
+            },
+            {
+              "id": "1LLEZU-K3m",
+              "name": "Invoice Aging",
+              "formula": "If([Paid] = False, DateDiff(\"day\", Today(), [Due Date]), Null)"
+            }
+          ],
+          "order": [
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
+            "1LLEZU-K3m"
+          ]
+        }
+      ]
+    }
+  ]
+}
