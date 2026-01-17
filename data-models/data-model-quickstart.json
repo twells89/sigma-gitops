@@ -2,23 +2,23 @@
   "dataModelId": "6d07a964-df89-4b5c-b597-702218d80f2a",
   "name": "Data Model QuickStart",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-3jJFer7rxOYHKHLiIWKsNI",
-  "documentVersion": 37,
-  "latestDocumentVersion": 37,
+  "documentVersion": 48,
+  "latestDocumentVersion": 48,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "57e59735-86b9-40b0-b029-217205406f57",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "createdAt": "2025-04-24T16:23:47.331Z",
-  "updatedAt": "2026-01-12T17:35:43.879Z",
+  "updatedAt": "2026-01-16T21:03:54.503Z",
   "pages": [
     {
-      "id": "X4gVzj96RT",
+      "id": "atYJMGUik7",
       "name": "Sales",
       "elements": [
         {
           "kind": "control",
-          "controlId": "Date",
+          "controlId": "Date-1",
           "id": "O3RyH8WQeEcon",
           "controlType": "date-range",
           "mode": "between",
@@ -213,12 +213,12 @@
             {
               "id": "6lt66qZx3x",
               "name": "Count of Days",
-              "formula": "DateDiff(\"day\", [Date].start, [Date].end)"
+              "formula": "DateDiff(\"day\", [Date-1].start, [Date-1].end)"
             },
             {
               "id": "4qJuB76uHL",
               "name": "Period",
-              "formula": "If([Date] >= [Date].start and [Date] < [Date].end, \"Current Period\", [Date] >= DateAdd(\"day\", -[Count of Days], [Date].start) and [Date] < DateAdd(\"day\", -[Count of Days], [Date].end), \"Last Period\", Null)"
+              "formula": "If([Date] >= [Date-1].start and [Date] < [Date-1].end, \"Current Period\", [Date] >= DateAdd(\"day\", -[Count of Days], [Date-1].start) and [Date] < DateAdd(\"day\", -[Count of Days], [Date-1].end), \"Last Period\", Null)"
             },
             {
               "id": "0frT8Fo5Gg",
@@ -288,7 +288,7 @@
             {
               "id": "4pghmAGtMr",
               "name": "rls_region",
-              "formula": "ArrayContains(CallVariant(\"STRTOK_TO_ARRAY\", CurrentUserAttributeText(\"region\"), \",\"), [Cust Region])"
+              "formula": "CurrentUserAttributeText(\"region\") = [Cust Region]"
             },
             {
               "id": "ChqU99H2XA",
@@ -297,7 +297,7 @@
             },
             {
               "id": "A4fx0pKVvC",
-              "name": "Cust Type",
+              "name": "Cust Type -1",
               "formula": "[D_CUSTOMER/Cust Type]"
             },
             {
@@ -358,7 +358,7 @@
           ],
           "filters": [
             {
-              "id": "ASNWNfh8zF",
+              "id": "Q6SvoSW-Ep",
               "columnId": "4pghmAGtMr",
               "kind": "list",
               "mode": "exclude",
@@ -368,24 +368,14 @@
               ]
             },
             {
-              "id": "9HUD45zOk6",
-              "columnId": "_4SodcMD_1",
-              "kind": "list",
-              "mode": "exclude",
-              "values": [
-                null,
-                false
-              ]
-            },
-            {
-              "id": "Wob6MI_jM9",
+              "id": "h4OTDLmQwg",
               "columnId": "4qJuB76uHL",
               "kind": "list",
               "mode": "include",
               "values": []
             },
             {
-              "id": "vJy97Z7cJ5",
+              "id": "ucXwLn3nnj",
               "columnId": "_miS4fU34X",
               "kind": "list",
               "mode": "include",
@@ -394,7 +384,7 @@
           ],
           "folders": [
             {
-              "id": "XF1dqe2fNx",
+              "id": "-nmIh75KLY",
               "name": "Customer Data",
               "items": [
                 "KByEldosoO",
@@ -411,6 +401,41 @@
                 "qB10jFNVR5"
               ]
             }
+          ],
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
+            "RwpvPi8D_8",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "9fWpFal-Rw",
+            "8GDjwxf_YX",
+            "o_uMnZmP4b",
+            "BJYdB0a4-G",
+            "gJglrhnnsb",
+            "DLhcqL0D0f",
+            "lUKb6fWfcY",
+            "cd7Z0qfHpP",
+            "fGscYfJPwf",
+            "Hr3e5cMVwH",
+            "T12SGbyCbk",
+            "TeB0rqggEj",
+            "XQT2a6XnhN",
+            "GaEXPhlBc2",
+            "9nlivhqPgs",
+            "NAokyFYPlb",
+            "_4SodcMD_1",
+            "6lt66qZx3x",
+            "4qJuB76uHL",
+            "0frT8Fo5Gg",
+            "hr1bnyelwh",
+            "pjJfse4LWt",
+            "IVo6S1a3k8",
+            "qsLrfdiZTe",
+            "m5F6Bvf3ge",
+            "-nmIh75KLY"
           ]
         },
         {
@@ -531,7 +556,7 @@
           ],
           "folders": [
             {
-              "id": "VMi3fK1vr8",
+              "id": "k3mxs0FpbF",
               "name": "Test",
               "items": [
                 "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
@@ -539,6 +564,21 @@
                 "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY"
               ]
             }
+          ],
+          "order": [
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
+            "39xtXUgHw7",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE",
+            "k3mxs0FpbF"
           ]
         },
         {
@@ -650,6 +690,27 @@
               "name": "Store Json Field",
               "formula": "[D_STORE/Store Json Field]"
             }
+          ],
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         },
         {
@@ -787,6 +848,27 @@
               "name": "Store Json Field",
               "formula": "[D_STORE/Store Json Field]"
             }
+          ],
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         }
       ]
@@ -844,6 +926,14 @@
               "name": "Purchase Method",
               "formula": "[F_SALES/Purchase Method]"
             }
+          ],
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD"
           ]
         }
       ]
