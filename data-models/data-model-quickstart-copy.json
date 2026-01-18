@@ -2,18 +2,18 @@
   "dataModelId": "07b52947-2f01-41ff-b3f4-331938ed3823",
   "name": "Data Model QuickStart COPY",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-COPY-exJHPksbgg5WvjViqu8MP",
-  "documentVersion": 26,
-  "latestDocumentVersion": 26,
+  "documentVersion": 33,
+  "latestDocumentVersion": 33,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "5783ab89-024b-45c2-b96f-4422612ef40f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-10-23T19:39:45.821Z",
-  "updatedAt": "2026-01-16T15:09:55.147Z",
+  "updatedAt": "2026-01-16T19:10:08.497Z",
   "pages": [
     {
-      "id": "c0UeUZsimF",
+      "id": "62xqMNpol1",
       "name": "Sales",
       "elements": [
         {
@@ -28,7 +28,6 @@
         },
         {
           "id": "xlTXCBG-SO",
-          "name": "Plugs Sales Table",
           "kind": "table",
           "source": {
             "kind": "join",
@@ -92,205 +91,226 @@
           "columns": [
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
-              "name": "Order Number",
-              "formula": "[F_SALES/Order Number]"
+              "formula": "[F_SALES/Order Number]",
+              "name": "Order Number"
+            },
+            {
+              "id": "_yT5JxEJgl",
+              "formula": "CountDistinct([Order Number])",
+              "name": "Distinct Order Count"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
-              "name": "Customer Key",
-              "formula": "[F_SALES/Cust Key]"
+              "formula": "[F_SALES/Cust Key]",
+              "name": "Customer Key"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
-              "name": "Transaction Type",
-              "formula": "[F_SALES/Transaction Type]"
+              "formula": "[F_SALES/Transaction Type]",
+              "name": "Transaction Type"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
-              "name": "Date",
-              "formula": "[F_SALES/Date]"
+              "formula": "[F_SALES/Date]",
+              "name": "Date"
+            },
+            {
+              "id": "XbehxiC6vK",
+              "formula": "CountDistinct([Customer Key])",
+              "name": "Distinct Customer Count"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
-              "name": "Purchase Method",
-              "formula": "[F_SALES/Purchase Method]"
+              "formula": "[F_SALES/Purchase Method]",
+              "name": "Purchase Method"
             },
             {
               "id": "RwpvPi8D_8",
-              "name": "Customer Key (D_CUSTOMER)",
-              "formula": "[D_CUSTOMER/Cust Key]"
+              "formula": "[D_CUSTOMER/Cust Key]",
+              "name": "Customer Key (D_CUSTOMER)"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
-              "name": "Store Key",
-              "formula": "[F_SALES/Store Key]"
+              "formula": "[F_SALES/Store Key]",
+              "name": "Store Key"
             },
             {
               "id": "9fWpFal-Rw",
-              "name": "Calc",
-              "formula": ""
+              "formula": "",
+              "name": "Calc"
             },
             {
               "id": "8GDjwxf_YX",
-              "name": "Age Group",
-              "formula": "[D_CUSTOMER/Age Group]"
+              "formula": "[D_CUSTOMER/Age Group]",
+              "name": "Age Group"
             },
             {
               "id": "o_uMnZmP4b",
-              "name": "Civil Status",
-              "formula": "[D_CUSTOMER/Civil Status]"
+              "formula": "[D_CUSTOMER/Civil Status]",
+              "name": "Civil Status"
             },
             {
               "id": "BJYdB0a4-G",
-              "name": "Loyalty Program",
-              "formula": "[D_CUSTOMER/Loyalty Program]"
+              "formula": "[D_CUSTOMER/Loyalty Program]",
+              "name": "Loyalty Program"
             },
             {
               "id": "gJglrhnnsb",
-              "name": "Cust Json Field",
-              "formula": "[D_CUSTOMER/Cust Json Field]"
+              "formula": "[D_CUSTOMER/Cust Json Field]",
+              "name": "Cust Json Field"
             },
             {
               "id": "DLhcqL0D0f",
-              "name": "Updated At",
-              "formula": "[D_CUSTOMER/Updated At]"
+              "formula": "[D_CUSTOMER/Updated At]",
+              "name": "Updated At"
             },
             {
               "id": "lUKb6fWfcY",
-              "name": "Updated By",
-              "formula": "[D_CUSTOMER/Updated By]"
+              "formula": "[D_CUSTOMER/Updated By]",
+              "name": "Updated By"
             },
             {
               "id": "cd7Z0qfHpP",
-              "name": "Order Number (F_POINT_OF_SALE)",
-              "formula": "[F_POINT_OF_SALE/Order Number]"
+              "formula": "[F_POINT_OF_SALE/Order Number]",
+              "name": "Order Number (F_POINT_OF_SALE)"
             },
             {
               "id": "fGscYfJPwf",
-              "name": "Product Key",
-              "formula": "Text([F_POINT_OF_SALE/Product Key])"
+              "formula": "Text([F_POINT_OF_SALE/Product Key])",
+              "name": "Product Key"
             },
             {
               "id": "Hr3e5cMVwH",
-              "name": "Sales Quantity",
-              "formula": "[F_POINT_OF_SALE/Sales Quantity]"
+              "formula": "[F_POINT_OF_SALE/Sales Quantity]",
+              "name": "Sales Quantity"
             },
             {
               "id": "T12SGbyCbk",
-              "name": "Sales Amount",
-              "formula": "[F_POINT_OF_SALE/Sales Amount]"
+              "formula": "[F_POINT_OF_SALE/Sales Amount]",
+              "name": "Sales Amount"
             },
             {
               "id": "TeB0rqggEj",
-              "name": "Cost Amount",
-              "formula": "[F_POINT_OF_SALE/Cost Amount]"
+              "formula": "[F_POINT_OF_SALE/Cost Amount]",
+              "name": "Cost Amount"
             },
             {
               "id": "XQT2a6XnhN",
-              "name": "Revenue",
-              "formula": "[Sales Amount] * [Sales Quantity]"
+              "formula": "[Sales Amount] * [Sales Quantity]",
+              "name": "Revenue"
             },
             {
               "id": "GaEXPhlBc2",
-              "name": "Profit",
-              "formula": "[Revenue] - ([Cost Amount] * [Sales Quantity])"
+              "formula": "[Revenue] - ([Cost Amount] * [Sales Quantity])",
+              "name": "Profit2"
             },
             {
               "id": "9nlivhqPgs",
-              "name": "CurrentUserEmail",
-              "formula": "CurrentUserEmail()"
+              "formula": "CurrentUserEmail()",
+              "name": "CurrentUserEmail"
             },
             {
               "id": "NAokyFYPlb",
-              "name": "rls_admin",
-              "formula": "CurrentUserAttributeText(\"admin\") = \"true\""
+              "formula": "CurrentUserAttributeText(\"admin\") = \"true\"",
+              "name": "rls_admin"
             },
             {
               "id": "_4SodcMD_1",
-              "name": "rls_rollup",
-              "formula": "[rls_admin] or [rls_region]"
+              "formula": "[rls_admin] or [rls_region]",
+              "name": "rls_rollup"
             },
             {
               "id": "6lt66qZx3x",
-              "name": "Count of Days",
-              "formula": "DateDiff(\"day\", [Date].start, [Date].end)"
+              "formula": "DateDiff(\"day\", [Date].start, [Date].end)",
+              "name": "Count of Days"
             },
             {
               "id": "4qJuB76uHL",
-              "name": "Period",
-              "formula": "If([Date] >= [Date].start and [Date] < [Date].end, \"Current Period\", [Date] >= DateAdd(\"day\", -[Count of Days], [Date].start) and [Date] < DateAdd(\"day\", -[Count of Days], [Date].end), \"Last Period\", Null)"
+              "formula": "If([Date] >= [Date].start and [Date] < [Date].end, \"Current Period\", [Date] >= DateAdd(\"day\", -[Count of Days], [Date].start) and [Date] < DateAdd(\"day\", -[Count of Days], [Date].end), \"Last Period\", Null)",
+              "name": "Period"
             },
             {
               "id": "0frT8Fo5Gg",
-              "name": "Is Current Period",
-              "formula": "If([Period] = \"Current Period\", True, False)"
+              "formula": "If([Period] = \"Current Period\", True, False)",
+              "name": "Is Current Period"
             },
             {
               "id": "hr1bnyelwh",
-              "name": "Is Last Period",
-              "formula": "If([Period] = \"Last Period\", True, False)"
+              "formula": "If([Period] = \"Last Period\", True, False)",
+              "name": "Is Last Period"
+            },
+            {
+              "id": "wgUAtXA9sT",
+              "formula": "Lookup([D_PRODUCT/Product Name], [Product Key], [D_PRODUCT/Product Key (1)])",
+              "name": "Product Name (D_PRODUCT)"
+            },
+            {
+              "id": "4AeBc1EcNc",
+              "formula": "CountDistinct([Store City])",
+              "name": "Distinct Store City Count"
             },
             {
               "id": "KByEldosoO",
-              "name": "Cust Name",
-              "formula": "[D_CUSTOMER/Cust Name]"
+              "formula": "[D_CUSTOMER/Cust Name]",
+              "name": "Cust Name"
             },
             {
               "id": "vGSFDJO3WO",
-              "name": "Cust Address",
-              "formula": "[D_CUSTOMER/Cust Address]"
+              "formula": "[D_CUSTOMER/Cust Address]",
+              "name": "Cust Address"
             },
             {
               "id": "66h9QfCGrx",
-              "name": "Cust City",
-              "formula": "[D_CUSTOMER/Cust City]"
+              "formula": "[D_CUSTOMER/Cust City]",
+              "name": "Cust City"
             },
             {
               "id": "YnumKA8J4v",
-              "name": "Cust State",
-              "formula": "[D_CUSTOMER/Cust State]"
+              "formula": "[D_CUSTOMER/Cust State]",
+              "name": "Cust State"
             },
             {
               "id": "K8Bcm7GNSg",
-              "name": "Cust Zip Code",
-              "formula": "[D_CUSTOMER/Cust Zip Code]"
+              "formula": "[D_CUSTOMER/Cust Zip Code]",
+              "name": "Cust Zip Code"
             },
             {
               "id": "FL6_NKaxeN",
-              "name": "Cust County",
-              "formula": "[D_CUSTOMER/Cust County]"
+              "formula": "[D_CUSTOMER/Cust County]",
+              "name": "Cust County"
             },
             {
               "id": "_miS4fU34X",
-              "name": "Cust Region",
-              "formula": "[D_CUSTOMER/Cust Region]"
+              "formula": "[D_CUSTOMER/Cust Region]",
+              "name": "Cust Region"
             },
             {
               "id": "4pghmAGtMr",
-              "name": "rls_region",
-              "formula": "ArrayContains(CallVariant(\"STRTOK_TO_ARRAY\", CurrentUserAttributeText(\"region\"), \",\"), [Cust Region])"
+              "formula": "ArrayContains(CallVariant(\"STRTOK_TO_ARRAY\", CurrentUserAttributeText(\"region\"), \",\"), [Cust Region])",
+              "name": "rls_region"
             },
             {
               "id": "ChqU99H2XA",
-              "name": "Cust Since",
-              "formula": "[D_CUSTOMER/Cust Since]"
+              "formula": "[D_CUSTOMER/Cust Since]",
+              "name": "Cust Since"
             },
             {
               "id": "A4fx0pKVvC",
-              "name": "Cust Type",
-              "formula": "[D_CUSTOMER/Cust Type]"
+              "formula": "[D_CUSTOMER/Cust Type]",
+              "name": "Cust Type"
             },
             {
               "id": "momrH4u6NH",
-              "name": "Cust Gender",
-              "formula": "[D_CUSTOMER/Cust Gender]"
+              "formula": "[D_CUSTOMER/Cust Gender]",
+              "name": "Cust Gender"
             },
             {
               "id": "qB10jFNVR5",
-              "name": "Cust Age",
-              "formula": "[D_CUSTOMER/Cust Age]"
+              "formula": "[D_CUSTOMER/Cust Age]",
+              "name": "Cust Age"
             }
           ],
+          "name": "Plugs Sales",
           "metrics": [
             {
               "id": "7SQb7vYkyn",
@@ -338,14 +358,14 @@
           ],
           "filters": [
             {
-              "id": "lxn69UMbGL",
+              "id": "4q6ZB1RbjZ",
               "columnId": "4pghmAGtMr",
               "kind": "list",
               "mode": "exclude",
               "values": []
             },
             {
-              "id": "NjBKkmp8Ns",
+              "id": "c3UlGi-JQc",
               "columnId": "_4SodcMD_1",
               "kind": "list",
               "mode": "exclude",
@@ -355,14 +375,14 @@
               ]
             },
             {
-              "id": "lQMHV3pE_w",
+              "id": "HyrIlI45B_",
               "columnId": "4qJuB76uHL",
               "kind": "list",
               "mode": "include",
               "values": []
             },
             {
-              "id": "RNqY8PnJD1",
+              "id": "iVWm6luWoC",
               "columnId": "_miS4fU34X",
               "kind": "list",
               "mode": "include",
@@ -371,7 +391,7 @@
           ],
           "folders": [
             {
-              "id": "aj9OHwXkDY",
+              "id": "RVwTobNBCp",
               "name": "Customer Data",
               "items": [
                 "KByEldosoO",
@@ -388,6 +408,41 @@
                 "qB10jFNVR5"
               ]
             }
+          ],
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "_yT5JxEJgl",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "XbehxiC6vK",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
+            "RwpvPi8D_8",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "9fWpFal-Rw",
+            "8GDjwxf_YX",
+            "o_uMnZmP4b",
+            "BJYdB0a4-G",
+            "gJglrhnnsb",
+            "DLhcqL0D0f",
+            "lUKb6fWfcY",
+            "cd7Z0qfHpP",
+            "fGscYfJPwf",
+            "Hr3e5cMVwH",
+            "T12SGbyCbk",
+            "TeB0rqggEj",
+            "XQT2a6XnhN",
+            "GaEXPhlBc2",
+            "9nlivhqPgs",
+            "NAokyFYPlb",
+            "_4SodcMD_1",
+            "6lt66qZx3x",
+            "4qJuB76uHL",
+            "0frT8Fo5Gg",
+            "hr1bnyelwh",
+            "wgUAtXA9sT",
+            "4AeBc1EcNc",
+            "RVwTobNBCp"
           ]
         },
         {
@@ -418,7 +473,6 @@
         },
         {
           "id": "hTHzN675vt",
-          "name": "D_PRODUCT",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -432,84 +486,101 @@
           "columns": [
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
-              "name": "Product Key",
-              "formula": "[D_PRODUCT/Product Key]"
+              "formula": "[D_PRODUCT/Product Key]",
+              "name": "Product Key"
             },
             {
               "id": "39xtXUgHw7",
-              "name": "Product Key (1)",
-              "formula": "Text([Product Key])"
+              "formula": "Text([Product Key])",
+              "name": "Product Key (1)"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
-              "name": "Product Name",
-              "formula": "[D_PRODUCT/Product Name]"
+              "formula": "[D_PRODUCT/Product Name]",
+              "name": "Product Name"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
-              "name": "Product Type",
-              "formula": "[D_PRODUCT/Product Type]"
+              "formula": "[D_PRODUCT/Product Type]",
+              "name": "Product Type"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
-              "name": "Product Family",
-              "formula": "[D_PRODUCT/Product Family]"
+              "formula": "[D_PRODUCT/Product Family]",
+              "name": "Product Family"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
-              "name": "Product Line",
-              "formula": "[D_PRODUCT/Product Line]"
+              "formula": "[D_PRODUCT/Product Line]",
+              "name": "Product Line"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
-              "name": "Product Group",
-              "formula": "[D_PRODUCT/Product Group]"
+              "formula": "[D_PRODUCT/Product Group]",
+              "name": "Product Group"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
-              "name": "Product Description",
-              "formula": "[D_PRODUCT/Product Description]"
+              "formula": "[D_PRODUCT/Product Description]",
+              "name": "Product Description"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
-              "name": "Sku Number",
-              "formula": "[D_PRODUCT/Sku Number]"
+              "formula": "[D_PRODUCT/Sku Number]",
+              "name": "Sku Number"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
-              "name": "Price",
-              "formula": "[D_PRODUCT/Price]"
+              "formula": "[D_PRODUCT/Price]",
+              "name": "Price"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
-              "name": "Product Status",
-              "formula": "[D_PRODUCT/Product Status]"
+              "formula": "[D_PRODUCT/Product Status]",
+              "name": "Product Status"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
-              "name": "Product Notes",
-              "formula": "[D_PRODUCT/Product Notes]"
+              "formula": "[D_PRODUCT/Product Notes]",
+              "name": "Product Notes"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
-              "name": "Updated At",
-              "formula": "[D_PRODUCT/Updated At]"
+              "formula": "[D_PRODUCT/Updated At]",
+              "name": "Updated At"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
-              "name": "Updated By",
-              "formula": "[D_PRODUCT/Updated By]"
+              "formula": "[D_PRODUCT/Updated By]",
+              "name": "Updated By"
             },
             {
               "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE",
-              "name": "Proposed Price",
-              "formula": "[D_PRODUCT/Proposed Price]"
+              "formula": "[D_PRODUCT/Proposed Price]",
+              "name": "Proposed Price"
             }
+          ],
+          "name": "D_PRODUCT",
+          "order": [
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
+            "39xtXUgHw7",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE"
           ]
         },
         {
           "id": "WKfvYSkHjr",
-          "name": "D_STORE",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -523,99 +594,121 @@
           "columns": [
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
-              "name": "Store Key",
-              "formula": "[D_STORE/Store Key]"
+              "formula": "[D_STORE/Store Key]",
+              "name": "Store Key"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
-              "name": "Store Name",
-              "formula": "[D_STORE/Store Name]"
+              "formula": "[D_STORE/Store Name]",
+              "name": "Store Name"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
-              "name": "Store Address",
-              "formula": "[D_STORE/Store Address]"
+              "formula": "[D_STORE/Store Address]",
+              "name": "Store Address"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
-              "name": "Store City",
-              "formula": "[D_STORE/Store City]"
+              "formula": "[D_STORE/Store City]",
+              "name": "Store City"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
-              "name": "Store State",
-              "formula": "[D_STORE/Store State]"
+              "formula": "[D_STORE/Store State]",
+              "name": "Store State"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
-              "name": "Store Zip Code",
-              "formula": "[D_STORE/Store Zip Code]"
+              "formula": "[D_STORE/Store Zip Code]",
+              "name": "Store Zip Code"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
-              "name": "Store County",
-              "formula": "[D_STORE/Store County]"
+              "formula": "[D_STORE/Store County]",
+              "name": "Store County"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
-              "name": "Store Region",
-              "formula": "[D_STORE/Store Region]"
+              "formula": "[D_STORE/Store Region]",
+              "name": "Store Region"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
-              "name": "Store Open Date",
-              "formula": "[D_STORE/Store Open Date]"
+              "formula": "[D_STORE/Store Open Date]",
+              "name": "Store Open Date"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
-              "name": "Last Layout Update",
-              "formula": "[D_STORE/Last Layout Update]"
+              "formula": "[D_STORE/Last Layout Update]",
+              "name": "Last Layout Update"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
-              "name": "Latitude",
-              "formula": "[D_STORE/Latitude]"
+              "formula": "[D_STORE/Latitude]",
+              "name": "Latitude"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
-              "name": "Longitude",
-              "formula": "[D_STORE/Longitude]"
+              "formula": "[D_STORE/Longitude]",
+              "name": "Longitude"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
-              "name": "Store Size",
-              "formula": "[D_STORE/Store Size]"
+              "formula": "[D_STORE/Store Size]",
+              "name": "Store Size"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
-              "name": "Monthly Rent Cost",
-              "formula": "[D_STORE/Monthly Rent Cost]"
+              "formula": "[D_STORE/Monthly Rent Cost]",
+              "name": "Monthly Rent Cost"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
-              "name": "Number of Employees",
-              "formula": "[D_STORE/Number of Employees]"
+              "formula": "[D_STORE/Number of Employees]",
+              "name": "Number of Employees"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
-              "name": "Online Ordering",
-              "formula": "[D_STORE/Online Ordering]"
+              "formula": "[D_STORE/Online Ordering]",
+              "name": "Online Ordering"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
-              "name": "Selling Square Footage",
-              "formula": "[D_STORE/Selling Square Footage]"
+              "formula": "[D_STORE/Selling Square Footage]",
+              "name": "Selling Square Footage"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
-              "name": "Total Square Footage",
-              "formula": "[D_STORE/Total Square Footage]"
+              "formula": "[D_STORE/Total Square Footage]",
+              "name": "Total Square Footage"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD",
-              "name": "Store Json Field",
-              "formula": "[D_STORE/Store Json Field]"
+              "formula": "[D_STORE/Store Json Field]",
+              "name": "Store Json Field"
             }
+          ],
+          "name": "D_STORE",
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         },
         {
@@ -646,7 +739,6 @@
         },
         {
           "id": "c4UK_3bdK8",
-          "name": "D_STORE",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -660,99 +752,121 @@
           "columns": [
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
-              "name": "Store Key",
-              "formula": "[D_STORE/Store Key]"
+              "formula": "[D_STORE/Store Key]",
+              "name": "Store Key"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
-              "name": "Store Name",
-              "formula": "[D_STORE/Store Name]"
+              "formula": "[D_STORE/Store Name]",
+              "name": "Store Name"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
-              "name": "Store Address",
-              "formula": "[D_STORE/Store Address]"
+              "formula": "[D_STORE/Store Address]",
+              "name": "Store Address"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
-              "name": "Store City",
-              "formula": "[D_STORE/Store City]"
+              "formula": "[D_STORE/Store City]",
+              "name": "Store City"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
-              "name": "Store State",
-              "formula": "[D_STORE/Store State]"
+              "formula": "[D_STORE/Store State]",
+              "name": "Store State"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
-              "name": "Store Zip Code",
-              "formula": "[D_STORE/Store Zip Code]"
+              "formula": "[D_STORE/Store Zip Code]",
+              "name": "Store Zip Code"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
-              "name": "Store County",
-              "formula": "[D_STORE/Store County]"
+              "formula": "[D_STORE/Store County]",
+              "name": "Store County"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
-              "name": "Store Region",
-              "formula": "[D_STORE/Store Region]"
+              "formula": "[D_STORE/Store Region]",
+              "name": "Store Region"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
-              "name": "Store Open Date",
-              "formula": "[D_STORE/Store Open Date]"
+              "formula": "[D_STORE/Store Open Date]",
+              "name": "Store Open Date"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
-              "name": "Last Layout Update",
-              "formula": "[D_STORE/Last Layout Update]"
+              "formula": "[D_STORE/Last Layout Update]",
+              "name": "Last Layout Update"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
-              "name": "Latitude",
-              "formula": "[D_STORE/Latitude]"
+              "formula": "[D_STORE/Latitude]",
+              "name": "Latitude"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
-              "name": "Longitude",
-              "formula": "[D_STORE/Longitude]"
+              "formula": "[D_STORE/Longitude]",
+              "name": "Longitude"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
-              "name": "Store Size",
-              "formula": "[D_STORE/Store Size]"
+              "formula": "[D_STORE/Store Size]",
+              "name": "Store Size"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
-              "name": "Monthly Rent Cost",
-              "formula": "[D_STORE/Monthly Rent Cost]"
+              "formula": "[D_STORE/Monthly Rent Cost]",
+              "name": "Monthly Rent Cost"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
-              "name": "Number of Employees",
-              "formula": "[D_STORE/Number of Employees]"
+              "formula": "[D_STORE/Number of Employees]",
+              "name": "Number of Employees"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
-              "name": "Online Ordering",
-              "formula": "[D_STORE/Online Ordering]"
+              "formula": "[D_STORE/Online Ordering]",
+              "name": "Online Ordering"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
-              "name": "Selling Square Footage",
-              "formula": "[D_STORE/Selling Square Footage]"
+              "formula": "[D_STORE/Selling Square Footage]",
+              "name": "Selling Square Footage"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
-              "name": "Total Square Footage",
-              "formula": "[D_STORE/Total Square Footage]"
+              "formula": "[D_STORE/Total Square Footage]",
+              "name": "Total Square Footage"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD",
-              "name": "Store Json Field",
-              "formula": "[D_STORE/Store Json Field]"
+              "formula": "[D_STORE/Store Json Field]",
+              "name": "Store Json Field"
             }
+          ],
+          "name": "D_STORE",
+          "order": [
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
+            "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
+            "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
+            "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
+            "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD"
           ]
         }
       ]
@@ -768,7 +882,6 @@
       "elements": [
         {
           "id": "je81PRuYe2",
-          "name": "F_SALES",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -782,34 +895,43 @@
           "columns": [
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
-              "name": "Order Number",
-              "formula": "[F_SALES/Order Number]"
+              "formula": "[F_SALES/Order Number]",
+              "name": "Order Number"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
-              "name": "Cust Key",
-              "formula": "[F_SALES/Cust Key]"
+              "formula": "[F_SALES/Cust Key]",
+              "name": "Cust Key"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
-              "name": "Store Key",
-              "formula": "[F_SALES/Store Key]"
+              "formula": "[F_SALES/Store Key]",
+              "name": "Store Key"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
-              "name": "Transaction Type",
-              "formula": "[F_SALES/Transaction Type]"
+              "formula": "[F_SALES/Transaction Type]",
+              "name": "Transaction Type"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
-              "name": "Date",
-              "formula": "[F_SALES/Date]"
+              "formula": "[F_SALES/Date]",
+              "name": "Date"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
-              "name": "Purchase Method",
-              "formula": "[F_SALES/Purchase Method]"
+              "formula": "[F_SALES/Purchase Method]",
+              "name": "Purchase Method"
             }
+          ],
+          "name": "F_SALES",
+          "order": [
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD"
           ]
         }
       ]
