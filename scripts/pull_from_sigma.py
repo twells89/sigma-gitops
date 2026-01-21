@@ -8,9 +8,10 @@ Usage:
     python pull_from_sigma.py --name NAME  # Pull specific data model by name
     
 Environment variables:
-    SIGMA_CLIENT_ID - API client ID
-    SIGMA_SECRET - API client secret  
-    SIGMA_CLOUD - Cloud provider (aws, azure, gcp) - defaults to aws
+    SIGMA_CLIENT_ID - API client ID (required)
+    SIGMA_SECRET - API client secret (required)
+    SIGMA_API_URL - API base URL (optional, reads from config.yml if not set)
+    SIGMA_CLOUD - Cloud provider shorthand (optional, falls back to 'aws' if API URL not found)
 """
 
 import os
@@ -22,32 +23,73 @@ import requests
 from pathlib import Path
 from datetime import datetime
 
-# API base URLs by cloud
+# API base URLs by cloud (fallback if not in config.yml)
 CLOUD_URLS = {
     'aws': 'https://aws-api.sigmacomputing.com',
+    'gcp': 'https://api.sigmacomputing.com',
     'azure': 'https://api.us.azure.sigmacomputing.com',
-    'gcp': 'https://api.sigmacomputing.com'
+    'azure-us': 'https://api.us.azure.sigmacomputing.com',
+    'azure-eu': 'https://api.eu.azure.sigmacomputing.com',
+    'azure-ca': 'https://api.ca.azure.sigmacomputing.com',
+    'azure-uk': 'https://api.uk.azure.sigmacomputing.com',
 }
+
+
+def load_config():
+    config_path = Path('config.yml')
+    if config_path.exists():
+        with open(config_path) as f:
+            return yaml.safe_load(f) or {}
+    return {}
+
+
+def save_config(config):
+    with open('config.yml', 'w') as f:
+        yaml.dump(config, f, default_flow_style=False, sort_keys=False)
 
 
 class SigmaClient:
     def __init__(self):
         self.client_id = os.environ.get('SIGMA_CLIENT_ID')
         self.client_secret = os.environ.get('SIGMA_SECRET')
-        self.cloud = os.environ.get('SIGMA_CLOUD', 'aws').lower()
         
         if not self.client_id or not self.client_secret:
             raise ValueError("SIGMA_CLIENT_ID and SIGMA_SECRET environment variables required")
         
-        self.base_url = CLOUD_URLS.get(self.cloud)
+        # Priority order for API URL:
+        # 1. SIGMA_API_URL environment variable (explicit override)
+        # 2. config.yml sigma_api_url (set by the HTML app)
+        # 3. SIGMA_CLOUD environment variable mapped to URL
+        # 4. Default to AWS
+        
+        self.base_url = os.environ.get('SIGMA_API_URL')
+        
         if not self.base_url:
-            raise ValueError(f"Invalid SIGMA_CLOUD: {self.cloud}. Use: aws, azure, or gcp")
+            # Try to read from config.yml
+            config = load_config()
+            self.base_url = config.get('sigma_api_url')
+            
+        if not self.base_url:
+            # Fall back to cloud-based detection
+            self.cloud = os.environ.get('SIGMA_CLOUD', 'aws').lower()
+            self.base_url = CLOUD_URLS.get(self.cloud)
+            if not self.base_url:
+                raise ValueError(
+                    f"Invalid SIGMA_CLOUD: {self.cloud}. "
+                    f"Valid options: {', '.join(CLOUD_URLS.keys())} "
+                    f"Or set SIGMA_API_URL to the full URL."
+                )
+        
+        # Remove trailing slash if present
+        self.base_url = self.base_url.rstrip('/')
+        
+        print(f"🔗 Using API: {self.base_url}")
         
         self.access_token = None
         self._authenticate()
     
     def _authenticate(self):
-        print(f"🔐 Authenticating with Sigma ({self.cloud})...")
+        print(f"🔐 Authenticating with Sigma...")
         
         response = requests.post(
             f"{self.base_url}/v2/auth/token",
@@ -62,7 +104,7 @@ class SigmaClient:
             raise Exception(f"Authentication failed: {response.text}")
         
         self.access_token = response.json()['access_token']
-        print("✓ Authenticated successfully")
+        print("✅ Authenticated successfully")
     
     def _headers(self):
         return {
@@ -100,19 +142,6 @@ def sanitize_filename(name):
         replace('--', '-').strip('-')[:50] or 'unnamed'
 
 
-def load_config():
-    config_path = Path('config.yml')
-    if config_path.exists():
-        with open(config_path) as f:
-            return yaml.safe_load(f) or {}
-    return {}
-
-
-def save_config(config):
-    with open('config.yml', 'w') as f:
-        yaml.dump(config, f, default_flow_style=False, sort_keys=False)
-
-
 def pull_data_model(client, data_model_id, output_dir, config):
     """Pull a single data model and save to file."""
     print(f"\n📥 Pulling data model: {data_model_id}")
@@ -128,7 +157,7 @@ def pull_data_model(client, data_model_id, output_dir, config):
         with open(file_path, 'w') as f:
             json.dump(spec, f, indent=2)
         
-        print(f"   ✓ Saved: {file_path}")
+        print(f"   ✅ Saved: {file_path}")
         
         # Update config
         if 'data_models' not in config:
@@ -143,7 +172,7 @@ def pull_data_model(client, data_model_id, output_dir, config):
         return True
         
     except Exception as e:
-        print(f"   ✗ Error: {e}")
+        print(f"   ❌ Error: {e}")
         return False
 
 
@@ -206,8 +235,8 @@ def main():
     
     # Summary
     print("\n" + "=" * 60)
-    print(f"✓ Pulled: {success}  ✗ Failed: {failed}")
-    print(f"📁 Output: {output_dir}/")
+    print(f"✅ Pulled: {success}  ❌ Failed: {failed}")
+    print(f"📂 Output: {output_dir}/")
     print("=" * 60)
     
     if failed > 0:
