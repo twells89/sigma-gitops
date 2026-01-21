@@ -106,7 +106,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       
       - name: Fetch base branch
-        run: git fetch origin main:refs/remotes/origin/main
+        run: |
+          git fetch origin main:refs/remotes/origin/main
+          echo "Current branch:"
+          git branch -a
+          echo "Recent commits:"
+          git log --oneline -5
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -120,12 +125,23 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python scripts/generate_diff_report.py > diff_report.md
-          if [ -s diff_report.md ]; then
+          echo "Generating diff report..."
+          python scripts/generate_diff_report.py > diff_report.md 2> diff_debug.log
+          
+          echo "=== Debug Output ==="
+          cat diff_debug.log
+          echo "=== End Debug ==="
+          
+          echo "=== Diff Report Content ==="
+          cat diff_report.md
+          echo "=== End Report ==="
+          
+          if [ -s diff_report.md ] && ! grep -q "No data model changes detected" diff_report.md; then
             echo "## 📊 Data Model Changes" > comment.md
             echo "" >> comment.md
             cat diff_report.md >> comment.md
             gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md
+            echo "✅ Posted diff report to PR"
           else
-            echo "No changes to report"
+            echo "ℹ️ No changes to report or no files changed"
           fi
