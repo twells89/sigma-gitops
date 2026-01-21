@@ -106,18 +106,38 @@ def get_simple_diff(old_spec, new_spec):
 
 def compare_columns(old_cols, new_cols):
     """Compare column lists and return changes."""
-    old_names = {c.get('name', c.get('id', '')): c for c in (old_cols or [])}
-    new_names = {c.get('name', c.get('id', '')): c for c in (new_cols or [])}
+    # Use column ID as the key if available, otherwise name
+    old_dict = {}
+    for c in (old_cols or []):
+        key = c.get('id') or c.get('name', '')
+        old_dict[key] = c
     
-    added = set(new_names.keys()) - set(old_names.keys())
-    removed = set(old_names.keys()) - set(new_names.keys())
+    new_dict = {}
+    for c in (new_cols or []):
+        key = c.get('id') or c.get('name', '')
+        new_dict[key] = c
+    
+    added = set(new_dict.keys()) - set(old_dict.keys())
+    removed = set(old_dict.keys()) - set(new_dict.keys())
     
     modified = []
-    for name in set(old_names.keys()) & set(new_names.keys()):
-        if old_names[name] != new_names[name]:
-            modified.append(name)
+    renamed = []
     
-    return added, removed, modified
+    for key in set(old_dict.keys()) & set(new_dict.keys()):
+        old_col = old_dict[key]
+        new_col = new_dict[key]
+        
+        # Check if column was renamed (same ID, different name)
+        old_name = old_col.get('name', '')
+        new_name = new_col.get('name', '')
+        if old_name != new_name and old_col.get('id') == new_col.get('id'):
+            renamed.append((old_name, new_name))
+        
+        # Check if anything else changed (formula, type, etc.)
+        if old_col != new_col:
+            modified.append(new_name or new_col.get('id', key))
+    
+    return added, removed, modified, renamed
 
 
 def analyze_changes(old_spec, new_spec):
@@ -173,6 +193,12 @@ def analyze_changes(old_spec, new_spec):
         old_page = old_pages[page_id]
         new_page = new_pages[page_id]
         
+        # Check if page name changed
+        old_page_name = old_page.get('name', 'Unnamed')
+        new_page_name = new_page.get('name', 'Unnamed')
+        if old_page_name != new_page_name:
+            changes.append(f"📝 Renamed page: `{old_page_name}` → `{new_page_name}`")
+        
         old_elements = {e.get('id'): e for e in old_page.get('elements', [])}
         new_elements = {e.get('id'): e for e in new_page.get('elements', [])}
         
@@ -191,13 +217,24 @@ def analyze_changes(old_spec, new_spec):
             old_elem = old_elements[elem_id]
             new_elem = new_elements[elem_id]
             
-            added, removed, modified = compare_columns(
+            old_elem_name = old_elem.get('name', 'Unnamed')
+            new_elem_name = new_elem.get('name', 'Unnamed')
+            
+            # Check if element name changed
+            if old_elem_name != new_elem_name:
+                elem_kind = new_elem.get('kind', 'element')
+                changes.append(f"📝 Renamed {elem_kind}: `{old_elem_name}` → `{new_elem_name}`")
+            
+            added, removed, modified, renamed = compare_columns(
                 old_elem.get('columns', []),
                 new_elem.get('columns', [])
             )
             
-            elem_name = new_elem.get('name', 'Unnamed')
+            elem_name = new_elem_name
             
+            if renamed:
+                for old_name, new_name in renamed:
+                    changes.append(f"  📝 `{elem_name}`: Renamed column: `{old_name}` → `{new_name}`")
             if added:
                 changes.append(f"  ➕ `{elem_name}`: Added columns: {', '.join(f'`{c}`' for c in list(added)[:5])}")
             if removed:
