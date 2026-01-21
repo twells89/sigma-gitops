@@ -1,21 +1,8 @@
 # Sigma Computing Configuration
-# This file stores configuration for the Sigma Data Model sync workflows
+# This file is automatically managed by the Data Model Manager app
 
 # API URL for your Sigma instance
-# Change this to match your Sigma cloud region
-# Common URLs:
-#   - AWS US West:     https://aws-api.sigmacomputing.com
-#   - GCP US:          https://api.sigmacomputing.com
-#   - Azure US:        https://api.us.azure.sigmacomputing.com
-#   - Azure Europe:    https://api.eu.azure.sigmacomputing.com
-#   - Azure Canada:    https://api.ca.azure.sigmacomputing.com
-#   - Azure UK:        https://api.uk.azure.sigmacomputing.com
-sigma_api_url: https://api.sigmacomputing.com
+sigma_api_url: https://api.staging.us.aws.sigmacomputing.io
 
-# Optional: Default folder ID for new data models
-# Find this in Sigma by opening a folder and checking the URL: /folder/FOLDER_ID
-# default_folder_id: your-folder-id-here
-
-# Data model mappings (automatically managed by sync scripts)
-# Do not edit this section manually
+# Data model mappings (managed by scripts)
 data_models: {}
