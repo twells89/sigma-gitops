@@ -1,42 +1,21 @@
-sigma_cloud: aws
-data_models:
-  6d07a964-df89-4b5c-b597-702218d80f2a:
-    file: data-model-quickstart.json
-    name: Data Model QuickStart
-    last_pulled: '2026-01-12T18:41:33.182585Z'
-  07b52947-2f01-41ff-b3f4-331938ed3823:
-    file: data-model-quickstart-copy.json
-    name: Data Model QuickStart COPY
-    last_synced: '2026-01-20T22:49:04.779938Z'
-  08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
-    file: my-data-model.json
-    name: My Data Model
-    last_pulled: '2026-01-12T18:41:34.330722Z'
-  2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
-    file: chicago-crime.json
-    name: chicago-crime
-    last_synced: '2026-01-14T22:15:24.486978Z'
-  62d86a35-c6e4-4f9c-930b-77a97c49209f:
-    file: d-customer.json
-    name: D_CUSTOMER
-    last_synced: '2026-01-14T22:15:25.589845Z'
-  ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
-    file: relationship-rls-bug?.json
-    name: Relationship RLS Bug?
-    last_pulled: '2026-01-12T18:41:35.350609Z'
-  e3a5f320-394e-46d6-9718-038d2abe0994:
-    file: tankup!-inventory.json
-    name: 'TankUp! Inventory '
-    last_pulled: '2026-01-12T18:41:35.676306Z'
-  86cfe63c-99a8-4512-924d-60c51f8589d3:
-    file: test.json
-    name: Test
-    last_synced: '2026-01-12T21:48:56.461392Z'
-  d85439d2-a41a-4647-b100-784bddc7cca5:
-    file: erica.json
-    name: Erica
-    last_synced: '2026-01-12T21:55:21.210498Z'
-  dceb0813-3822-4071-9591-84f58df591f6:
-    file: sales-analytics.json
-    name: Sales Analytics
-    last_synced: '2026-01-13T01:49:01.058806Z'
+# Sigma Computing Configuration
+# This file stores configuration for the Sigma Data Model sync workflows
+
+# API URL for your Sigma instance
+# Change this to match your Sigma cloud region
+# Common URLs:
+#   - AWS US West:     https://aws-api.sigmacomputing.com
+#   - GCP US:          https://api.sigmacomputing.com
+#   - Azure US:        https://api.us.azure.sigmacomputing.com
+#   - Azure Europe:    https://api.eu.azure.sigmacomputing.com
+#   - Azure Canada:    https://api.ca.azure.sigmacomputing.com
+#   - Azure UK:        https://api.uk.azure.sigmacomputing.com
+sigma_api_url: https://api.sigmacomputing.com
+
+# Optional: Default folder ID for new data models
+# Find this in Sigma by opening a folder and checking the URL: /folder/FOLDER_ID
+# default_folder_id: your-folder-id-here
+
+# Data model mappings (automatically managed by sync scripts)
+# Do not edit this section manually
+data_models: {}
