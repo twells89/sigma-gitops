@@ -39,7 +39,7 @@ jobs:
         env:
           SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
           SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
-          SIGMA_CLOUD: ${{ vars.SIGMA_CLOUD || 'aws' }}
+          # API URL is read from config.yml (set by the HTML app)
         run: python scripts/pull_from_sigma.py
       
       - name: Check for changes
@@ -47,11 +47,11 @@ jobs:
         run: |
           if [[ -n $(git status --porcelain data-models/) ]]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "📝 Changes detected in data models"
+            echo "🔄 Changes detected in data models"
             git status --porcelain data-models/
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "✓ No changes from Sigma"
+            echo "✅ No changes from Sigma"
           fi
       
       - name: Create Pull Request
@@ -60,7 +60,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "sync: Pull latest data model changes from Sigma"
-          title: "🔄 Sync: Data model changes from Sigma"
+          title: "📄 Sync: Data model changes from Sigma"
           body: |
             This PR contains data model changes that were made directly in Sigma.
             
