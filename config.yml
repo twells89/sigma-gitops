@@ -2,7 +2,7 @@
 # This file is automatically managed by the Data Model Manager app
 
 # API URL for your Sigma instance
-sigma_api_url: https://api.staging.us.aws.sigmacomputing.io
+sigma_api_url: https://aws-api.sigmacomputing.com
 
 # Data model mappings (managed by scripts)
 data_models: {}
