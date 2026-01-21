@@ -6,53 +6,102 @@ Outputs markdown suitable for PR comments.
 
 import json
 import subprocess
+import sys
 from pathlib import Path
+
+
+def run_git_command(cmd):
+    """Run a git command and return output, with error handling."""
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        print(f"DEBUG: Running: {' '.join(cmd)}", file=sys.stderr)
+        print(f"DEBUG: Return code: {result.returncode}", file=sys.stderr)
+        print(f"DEBUG: Output: {result.stdout[:200]}", file=sys.stderr)
+        return result
+    except Exception as e:
+        print(f"DEBUG: Git command failed: {e}", file=sys.stderr)
+        return None
 
 
 def get_changed_files():
     """Get list of changed data model files in the PR."""
-    import os
+    print("DEBUG: Looking for changed files...", file=sys.stderr)
     
     # Try different git diff strategies
     strategies = [
-        ['git', 'diff', '--name-only', 'origin/main...HEAD', '--', 'data-models/*.json'],
-        ['git', 'diff', '--name-only', 'origin/main', 'HEAD', '--', 'data-models/*.json'],
-        ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'data-models/*.json'],
+        # PR context - compare PR head to base
+        ['git', 'diff', '--name-only', 'origin/main...HEAD'],
+        ['git', 'diff', '--name-only', 'origin/main', 'HEAD'],
+        # Simple HEAD comparison
+        ['git', 'diff', '--name-only', 'HEAD^', 'HEAD'],
+        ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
     ]
     
     for cmd in strategies:
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        files = [f for f in result.stdout.strip().split('\n') if f and f.endswith('.json')]
-        if files:
-            return files
+        result = run_git_command(cmd)
+        if result and result.returncode == 0:
+            all_files = [f.strip() for f in result.stdout.strip().split('\n') if f.strip()]
+            # Filter for data-models/*.json
+            json_files = [f for f in all_files if f.startswith('data-models/') and f.endswith('.json')]
+            if json_files:
+                print(f"DEBUG: Found files with strategy: {json_files}", file=sys.stderr)
+                return json_files
     
-    # Fallback: check GITHUB_EVENT_PATH for PR file list
-    event_path = os.environ.get('GITHUB_EVENT_PATH')
-    if event_path:
-        try:
-            with open(event_path) as f:
-                import json as json_mod
-                event = json_mod.load(f)
-                # For PRs, we can't get file list from event, but we tried git
-        except:
-            pass
-    
+    print("DEBUG: No changed files found with any strategy", file=sys.stderr)
     return []
 
 
 def get_file_at_ref(file_path, ref):
     """Get file contents at a specific git ref."""
+    print(f"DEBUG: Getting {file_path} at {ref}", file=sys.stderr)
     try:
         result = subprocess.run(
             ['git', 'show', f'{ref}:{file_path}'],
             capture_output=True,
-            text=True
+            text=True,
+            check=False
         )
         if result.returncode == 0:
             return json.loads(result.stdout)
-    except:
-        pass
+        else:
+            print(f"DEBUG: Could not get file at {ref}: {result.stderr[:200]}", file=sys.stderr)
+    except Exception as e:
+        print(f"DEBUG: Error getting file: {e}", file=sys.stderr)
     return None
+
+
+def get_simple_diff(old_spec, new_spec):
+    """Get a simple list of changed top-level fields."""
+    if not old_spec:
+        return [f"✨ New file created with {len(json.dumps(new_spec))} characters"]
+    
+    changes = []
+    
+    # Compare top-level fields
+    all_keys = set(old_spec.keys()) | set(new_spec.keys())
+    
+    for key in sorted(all_keys):
+        old_val = old_spec.get(key)
+        new_val = new_spec.get(key)
+        
+        if old_val != new_val:
+            if key not in old_spec:
+                changes.append(f"➕ Added field: `{key}`")
+            elif key not in new_spec:
+                changes.append(f"➖ Removed field: `{key}`")
+            else:
+                # Field modified
+                if isinstance(old_val, (dict, list)):
+                    old_len = len(json.dumps(old_val))
+                    new_len = len(json.dumps(new_val))
+                    if old_len != new_len:
+                        changes.append(f"🔄 Modified `{key}`: {old_len} → {new_len} characters")
+                elif isinstance(old_val, str) and len(str(old_val)) > 50:
+                    changes.append(f"🔄 Modified `{key}`: {len(str(old_val))} → {len(str(new_val))} characters")
+                else:
+                    changes.append(f"🔄 Modified `{key}`: `{old_val}` → `{new_val}`")
+    
+    return changes
 
 
 def compare_columns(old_cols, new_cols):
@@ -65,9 +114,7 @@ def compare_columns(old_cols, new_cols):
     
     modified = []
     for name in set(old_names.keys()) & set(new_names.keys()):
-        old_formula = old_names[name].get('formula', '')
-        new_formula = new_names[name].get('formula', '')
-        if old_formula != new_formula:
+        if old_names[name] != new_names[name]:
             modified.append(name)
     
     return added, removed, modified
@@ -78,7 +125,7 @@ def analyze_changes(old_spec, new_spec):
     changes = []
     
     if not old_spec:
-        changes.append("🆕 **New data model**")
+        changes.append("✨ **New data model**")
         if new_spec.get('name'):
             changes.append(f"- Name: `{new_spec['name']}`")
         
@@ -95,6 +142,17 @@ def analyze_changes(old_spec, new_spec):
     # Name change
     if old_spec.get('name') != new_spec.get('name'):
         changes.append(f"📝 Name: `{old_spec.get('name')}` → `{new_spec.get('name')}`")
+    
+    # Description change
+    if old_spec.get('description') != new_spec.get('description'):
+        old_desc = old_spec.get('description', '')
+        new_desc = new_spec.get('description', '')
+        if not old_desc and new_desc:
+            changes.append(f"➕ Added description: _{new_desc[:100]}_")
+        elif old_desc and not new_desc:
+            changes.append(f"➖ Removed description")
+        else:
+            changes.append(f"🔄 Modified description")
     
     # Compare pages and elements
     old_pages = {p.get('id'): p for p in old_spec.get('pages', [])}
@@ -141,47 +199,61 @@ def analyze_changes(old_spec, new_spec):
             elem_name = new_elem.get('name', 'Unnamed')
             
             if added:
-                changes.append(f"  ➕ `{elem_name}`: Added columns: {', '.join(f'`{c}`' for c in added)}")
+                changes.append(f"  ➕ `{elem_name}`: Added columns: {', '.join(f'`{c}`' for c in list(added)[:5])}")
             if removed:
-                changes.append(f"  ➖ `{elem_name}`: Removed columns: {', '.join(f'`{c}`' for c in removed)}")
+                changes.append(f"  ➖ `{elem_name}`: Removed columns: {', '.join(f'`{c}`' for c in list(removed)[:5])}")
             if modified:
-                changes.append(f"  📝 `{elem_name}`: Modified columns: {', '.join(f'`{c}`' for c in modified)}")
+                changes.append(f"  🔄 `{elem_name}`: Modified columns: {', '.join(f'`{c}`' for c in list(modified)[:5])}")
     
     return changes
 
 
 def main():
+    print("DEBUG: Starting diff report generation", file=sys.stderr)
+    
     changed_files = get_changed_files()
     
     if not changed_files:
+        print("DEBUG: No changed files detected", file=sys.stderr)
         print("No data model changes detected.")
         return
     
-    print(f"**{len(changed_files)} data model(s) changed:**\n")
+    print(f"**{len(changed_files)} data model file(s) changed:**\n")
     
     for file_path in changed_files:
         if not file_path:
             continue
-            
+        
+        print(f"DEBUG: Processing {file_path}", file=sys.stderr)
         file_name = Path(file_path).name
-        print(f"### `{file_name}`\n")
+        print(f"### 📄 `{file_name}`\n")
         
         old_spec = get_file_at_ref(file_path, 'origin/main')
+        if not old_spec:
+            # Try alternative ref
+            old_spec = get_file_at_ref(file_path, 'HEAD^')
         
         try:
             with open(file_path) as f:
                 new_spec = json.load(f)
-        except:
-            print("⚠️ Could not parse JSON\n")
+        except Exception as e:
+            print(f"⚠️ Could not parse JSON: {e}\n")
+            print(f"DEBUG: JSON parse error: {e}", file=sys.stderr)
             continue
         
+        # Try detailed analysis first
         changes = analyze_changes(old_spec, new_spec)
+        
+        # Fallback to simple diff if no changes detected but files are different
+        if not changes and old_spec != new_spec:
+            print("DEBUG: Using simple diff fallback", file=sys.stderr)
+            changes = get_simple_diff(old_spec, new_spec)
         
         if changes:
             for change in changes:
                 print(change)
         else:
-            print("_No structural changes detected_")
+            print("_No structural changes detected (version numbers may have changed)_")
         
         print()
 
