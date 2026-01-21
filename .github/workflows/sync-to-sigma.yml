@@ -20,8 +20,6 @@ on:
 env:
   SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
   SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
-  # API URL is read from config.yml (set by the HTML app)
-  # No need to set SIGMA_CLOUD variable anymore!
 
 jobs:
   validate:
@@ -50,7 +48,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # Need previous commit to detect changes
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -80,16 +79,42 @@ jobs:
       
       - name: Commit updates from Sigma
         run: |
+          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add config.yml data-models/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git pull --rebase origin main || true
-            git commit -m "chore: Sync data model versions from Sigma [skip ci]"
-            git push || echo "Could not push updates (non-critical)"
+          
+          # Check if there are any changes
+          if [[ -z $(git status --porcelain config.yml data-models/) ]]; then
+            echo "✅ No changes to commit"
+            exit 0
           fi
+          
+          echo "📝 Changes detected, committing..."
+          
+          # Pull latest changes first (before staging)
+          git pull --rebase origin main || {
+            echo "⚠️ Pull failed, will force push (this is safe for bot commits)"
+          }
+          
+          # Stage changes
+          git add config.yml data-models/
+          
+          # Commit
+          git commit -m "chore: Sync data model versions from Sigma [skip ci]"
+          
+          # Push with retry
+          for i in {1..3}; do
+            if git push origin main; then
+              echo "✅ Successfully pushed changes"
+              exit 0
+            else
+              echo "⚠️ Push failed (attempt $i/3), retrying..."
+              git pull --rebase origin main || true
+              sleep 2
+            fi
+          done
+          
+          echo "⚠️ Could not push after 3 attempts (non-critical)"
 
   diff-report:
     name: Generate Diff Report
