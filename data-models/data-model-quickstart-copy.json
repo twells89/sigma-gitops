@@ -2,18 +2,18 @@
   "dataModelId": "07b52947-2f01-41ff-b3f4-331938ed3823",
   "name": "Data Model QuickStart COPY",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-COPY-exJHPksbgg5WvjViqu8MP",
-  "documentVersion": 38,
-  "latestDocumentVersion": 38,
+  "documentVersion": 39,
+  "latestDocumentVersion": 39,
   "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "5783ab89-024b-45c2-b96f-4422612ef40f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-10-23T19:39:45.821Z",
-  "updatedAt": "2026-01-21T19:01:05.333Z",
+  "updatedAt": "2026-01-30T20:12:46.950Z",
   "pages": [
     {
-      "id": "n-RaKN5Y9d",
+      "id": "lkfkEwF0UF",
       "name": "Sales Table",
       "elements": [
         {
