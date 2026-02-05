@@ -434,9 +434,10 @@
               "columnId": "vGSFDJO3WO"
             }
           ],
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "include",
+          "selectionMode": "multiple",
+          "values": [],
           "source": {
             "kind": "source",
             "source": {
@@ -444,8 +445,7 @@
               "elementId": "xlTXCBG-SO"
             },
             "columnId": "vGSFDJO3WO"
-          },
-          "values": []
+          }
         },
         {
           "id": "hTHzN675vt",
@@ -700,9 +700,10 @@
               "columnId": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY"
             }
           ],
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "include",
+          "selectionMode": "multiple",
+          "values": [],
           "source": {
             "kind": "source",
             "source": {
@@ -710,8 +711,7 @@
               "elementId": "WKfvYSkHjr"
             },
             "columnId": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY"
-          },
-          "values": []
+          }
         },
         {
           "id": "c4UK_3bdK8",
