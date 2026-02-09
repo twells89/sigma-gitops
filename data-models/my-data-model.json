@@ -2,19 +2,19 @@
   "dataModelId": "08df90e7-0ec4-46b5-b312-7ce09bfad6e8",
   "name": "My Data Model",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/My-Data-Model-gK6JmvkpwRcAtdYTvwoJi",
-  "documentVersion": 1,
-  "latestDocumentVersion": 1,
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
   "schemaVersion": 1,
   "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-08-12T13:45:07.737Z",
-  "updatedAt": "2025-08-12T13:45:07.737Z",
+  "updatedAt": "2026-01-12T18:57:15.600Z",
   "pages": [
     {
-      "id": "f3z1H3NMRH",
-      "name": "Page Jake -1y",
+      "id": "Co237yDF3R",
+      "name": "Page 1",
       "elements": []
     }
   ]
