@@ -268,7 +268,8 @@
             {
               "id": "YnumKA8J4v",
               "name": "Cust State",
-              "formula": "[D_CUSTOMER/Cust State]"
+              "formula": "[D_CUSTOMER/Cust State]",
+              "description": "Customer State"
             },
             {
               "id": "K8Bcm7GNSg",
