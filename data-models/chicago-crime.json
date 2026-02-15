@@ -18,7 +18,6 @@
       "elements": [
         {
           "id": "jHUOkuaXgU",
-          "name": "chicago-crime",
           "kind": "table",
           "source": {
             "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
@@ -32,123 +31,151 @@
           "columns": [
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/unique_key",
-              "name": "Unique Key - 1",
-              "formula": "[crime/Unique Key]"
+              "formula": "[crime/Unique Key]",
+              "name": "Unique Key - 1"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/case_number",
-              "name": "Case Number",
-              "formula": "[crime/Case Number]"
+              "formula": "[crime/Case Number]",
+              "name": "Case Number"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/date",
-              "name": "Date",
-              "formula": "[crime/Date]"
+              "formula": "[crime/Date]",
+              "name": "Date"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/block",
-              "name": "Block",
-              "formula": "[crime/Block]"
+              "formula": "[crime/Block]",
+              "name": "Block"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/iucr",
-              "name": "Iucr",
-              "formula": "[crime/Iucr]"
+              "formula": "[crime/Iucr]",
+              "name": "Iucr"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/primary_type",
-              "name": "Primary Type",
-              "formula": "[crime/Primary Type]"
+              "formula": "[crime/Primary Type]",
+              "name": "Primary Type"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/description",
-              "name": "Description",
-              "formula": "[crime/Description]"
+              "formula": "[crime/Description]",
+              "name": "Description"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/location_description",
-              "name": "Location Description",
-              "formula": "[crime/Location Description]"
+              "formula": "[crime/Location Description]",
+              "name": "Location Description"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/arrest",
-              "name": "Arrest",
-              "formula": "[crime/Arrest]"
+              "formula": "[crime/Arrest]",
+              "name": "Arrest"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/domestic",
-              "name": "Domestic",
-              "formula": "[crime/Domestic]"
+              "formula": "[crime/Domestic]",
+              "name": "Domestic"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/beat",
-              "name": "Beat",
-              "formula": "[crime/Beat]"
+              "formula": "[crime/Beat]",
+              "name": "Beat"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/district",
-              "name": "District",
-              "formula": "[crime/District]"
+              "formula": "[crime/District]",
+              "name": "District"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/ward",
-              "name": "Ward",
-              "formula": "[crime/Ward]"
+              "formula": "[crime/Ward]",
+              "name": "Ward"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/community_area",
-              "name": "Community Area",
-              "formula": "[crime/Community Area]"
+              "formula": "[crime/Community Area]",
+              "name": "Community Area"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/fbi_code",
-              "name": "Fbi Code",
-              "formula": "[crime/Fbi Code]"
+              "formula": "[crime/Fbi Code]",
+              "name": "Fbi Code"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/x_coordinate",
-              "name": "X Coordinate",
-              "formula": "[crime/X Coordinate]"
+              "formula": "[crime/X Coordinate]",
+              "name": "X Coordinate"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/y_coordinate",
-              "name": "Y Coordinate",
-              "formula": "[crime/Y Coordinate]"
+              "formula": "[crime/Y Coordinate]",
+              "name": "Y Coordinate"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/year",
-              "name": "Year",
-              "formula": "[crime/Year]"
+              "formula": "[crime/Year]",
+              "name": "Year"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/updated_on",
-              "name": "Updated On",
-              "formula": "[crime/Updated On]"
+              "formula": "[crime/Updated On]",
+              "name": "Updated On"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/latitude",
-              "name": "Latitude",
-              "formula": "[crime/Latitude]"
+              "formula": "[crime/Latitude]",
+              "name": "Latitude"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/longitude",
-              "name": "Longitude",
-              "formula": "[crime/Longitude]"
+              "formula": "[crime/Longitude]",
+              "name": "Longitude"
             },
             {
               "id": "inode-55HEqap8Qw022TkraoGLKr/location",
-              "name": "Location",
-              "formula": "[crime/Location]"
+              "formula": "[crime/Location]",
+              "name": "Location"
             }
+          ],
+          "name": "chicago-crime",
+          "order": [
+            "inode-55HEqap8Qw022TkraoGLKr/unique_key",
+            "inode-55HEqap8Qw022TkraoGLKr/case_number",
+            "inode-55HEqap8Qw022TkraoGLKr/date",
+            "inode-55HEqap8Qw022TkraoGLKr/block",
+            "inode-55HEqap8Qw022TkraoGLKr/iucr",
+            "inode-55HEqap8Qw022TkraoGLKr/primary_type",
+            "inode-55HEqap8Qw022TkraoGLKr/description",
+            "inode-55HEqap8Qw022TkraoGLKr/location_description",
+            "inode-55HEqap8Qw022TkraoGLKr/arrest",
+            "inode-55HEqap8Qw022TkraoGLKr/domestic",
+            "inode-55HEqap8Qw022TkraoGLKr/beat",
+            "inode-55HEqap8Qw022TkraoGLKr/district",
+            "inode-55HEqap8Qw022TkraoGLKr/ward",
+            "inode-55HEqap8Qw022TkraoGLKr/community_area",
+            "inode-55HEqap8Qw022TkraoGLKr/fbi_code",
+            "inode-55HEqap8Qw022TkraoGLKr/x_coordinate",
+            "inode-55HEqap8Qw022TkraoGLKr/y_coordinate",
+            "inode-55HEqap8Qw022TkraoGLKr/year",
+            "inode-55HEqap8Qw022TkraoGLKr/updated_on",
+            "inode-55HEqap8Qw022TkraoGLKr/latitude",
+            "inode-55HEqap8Qw022TkraoGLKr/longitude",
+            "inode-55HEqap8Qw022TkraoGLKr/location"
           ]
         },
         {
           "kind": "control",
           "controlId": "Domestic",
           "id": "KH8reSuY87",
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "exclude",
+          "selectionMode": "multiple",
+          "values": [
+            false
+          ],
           "source": {
             "kind": "source",
             "source": {
@@ -156,18 +183,18 @@
               "elementId": "jHUOkuaXgU"
             },
             "columnId": "inode-55HEqap8Qw022TkraoGLKr/domestic"
-          },
-          "values": [
-            false
-          ]
+          }
         },
         {
           "kind": "control",
           "controlId": "Arrest",
           "id": "D0KT_XxKWD",
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "exclude",
+          "selectionMode": "multiple",
+          "values": [
+            false
+          ],
           "source": {
             "kind": "source",
             "source": {
@@ -175,10 +202,7 @@
               "elementId": "jHUOkuaXgU"
             },
             "columnId": "inode-55HEqap8Qw022TkraoGLKr/arrest"
-          },
-          "values": [
-            false
-          ]
+          }
         },
         {
           "kind": "control",
