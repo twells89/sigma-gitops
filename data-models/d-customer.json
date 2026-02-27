@@ -4,13 +4,13 @@
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/D_CUSTOMER-30w9iiLVaOXS3v9AO9h8WH",
   "documentVersion": 4,
   "latestDocumentVersion": 4,
-  "schemaVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-12-04T12:02:49.903Z",
   "updatedAt": "2026-01-14T22:15:24.820Z",
+  "schemaVersion": 1,
   "pages": [
     {
       "id": "00YhX2oFlj",
@@ -18,7 +18,6 @@
       "elements": [
         {
           "id": "MQNXtkA7vl",
-          "name": "D_CUSTOMER",
           "kind": "table",
           "source": {
             "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
@@ -32,94 +31,115 @@
           "columns": [
             {
               "id": "Cust Key",
-              "name": "Cust Key",
-              "formula": "[D_CUSTOMER/Cust Key]"
+              "formula": "[D_CUSTOMER/Cust Key]",
+              "name": "Cust Key"
             },
             {
               "id": "NCMQi0KpVn",
-              "name": "Cust Name",
-              "formula": "[D_CUSTOMER/Cust Name]"
+              "formula": "[D_CUSTOMER/Cust Name]",
+              "name": "Cust Name"
             },
             {
               "id": "Cust Address",
-              "name": "Cust Address",
-              "formula": "[D_CUSTOMER/Cust Address]"
+              "formula": "[D_CUSTOMER/Cust Address]",
+              "name": "Cust Address"
             },
             {
               "id": "Cust City",
-              "name": "Cust City",
-              "formula": "[D_CUSTOMER/Cust City]"
+              "formula": "[D_CUSTOMER/Cust City]",
+              "name": "Cust City"
             },
             {
               "id": "Cust State",
-              "name": "Cust State",
-              "formula": "[D_CUSTOMER/Cust State]"
+              "formula": "[D_CUSTOMER/Cust State]",
+              "name": "Cust State"
             },
             {
               "id": "Cust Zip Code",
-              "name": "Cust Zip Code",
-              "formula": "[D_CUSTOMER/Cust Zip Code]"
+              "formula": "[D_CUSTOMER/Cust Zip Code]",
+              "name": "Cust Zip Code"
             },
             {
               "id": "Cust County",
-              "name": "Cust County",
-              "formula": "[D_CUSTOMER/Cust County]"
+              "formula": "[D_CUSTOMER/Cust County]",
+              "name": "Cust County"
             },
             {
               "id": "Cust Region",
-              "name": "Cust Region",
-              "formula": "[D_CUSTOMER/Cust Region]"
+              "formula": "[D_CUSTOMER/Cust Region]",
+              "name": "Cust Region"
             },
             {
               "id": "Cust Since",
-              "name": "Cust Since",
-              "formula": "[D_CUSTOMER/Cust Since]"
+              "formula": "[D_CUSTOMER/Cust Since]",
+              "name": "Cust Since"
             },
             {
               "id": "Cust Type",
-              "name": "Cust Type",
-              "formula": "[D_CUSTOMER/Cust Type]"
+              "formula": "[D_CUSTOMER/Cust Type]",
+              "name": "Cust Type"
             },
             {
               "id": "Cust Gender",
-              "name": "Cust Gender",
-              "formula": "[D_CUSTOMER/Cust Gender]"
+              "formula": "[D_CUSTOMER/Cust Gender]",
+              "name": "Cust Gender"
             },
             {
               "id": "Cust Age",
-              "name": "Cust Age",
-              "formula": "[D_CUSTOMER/Cust Age]"
+              "formula": "[D_CUSTOMER/Cust Age]",
+              "name": "Cust Age"
             },
             {
               "id": "Age Group",
-              "name": "Age Group",
-              "formula": "[D_CUSTOMER/Age Group]"
+              "formula": "[D_CUSTOMER/Age Group]",
+              "name": "Age Group"
             },
             {
               "id": "Civil Status",
-              "name": "Civil Status",
-              "formula": "[D_CUSTOMER/Civil Status]"
+              "formula": "[D_CUSTOMER/Civil Status]",
+              "name": "Civil Status"
             },
             {
               "id": "Loyalty Program",
-              "name": "Loyalty Program",
-              "formula": "[D_CUSTOMER/Loyalty Program]"
+              "formula": "[D_CUSTOMER/Loyalty Program]",
+              "name": "Loyalty Program"
             },
             {
               "id": "Cust Json Field",
-              "name": "Cust Json Field",
-              "formula": "[D_CUSTOMER/Cust Json Field]"
+              "formula": "[D_CUSTOMER/Cust Json Field]",
+              "name": "Cust Json Field"
             },
             {
               "id": "Updated At",
-              "name": "Updated At",
-              "formula": "[D_CUSTOMER/Updated At]"
+              "formula": "[D_CUSTOMER/Updated At]",
+              "name": "Updated At"
             },
             {
               "id": "Updated By",
-              "name": "Updated By",
-              "formula": "[D_CUSTOMER/Updated By]"
+              "formula": "[D_CUSTOMER/Updated By]",
+              "name": "Updated By"
             }
+          ],
+          "name": "D_CUSTOMER",
+          "order": [
+            "Cust Key",
+            "NCMQi0KpVn",
+            "Cust Address",
+            "Cust City",
+            "Cust State",
+            "Cust Zip Code",
+            "Cust County",
+            "Cust Region",
+            "Cust Since",
+            "Cust Type",
+            "Cust Gender",
+            "Cust Age",
+            "Age Group",
+            "Civil Status",
+            "Loyalty Program",
+            "Cust Json Field",
+            "Updated At",
+            "Updated By"
           ]
         }
       ]
