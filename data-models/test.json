@@ -1,13 +1,22 @@
 {
-  "schemaVersion": 1,
+  "dataModelId": "86cfe63c-99a8-4512-924d-60c51f8589d3",
   "name": "Test",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Test-46nYT9BYnlDuAIitjlwmKD",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-01-12T21:48:56.247Z",
+  "updatedAt": "2026-01-12T21:48:56.247Z",
   "description": "Testing creation of new data model",
+  "schemaVersion": 1,
   "pages": [
     {
-      "id": "page_1768254140406",
+      "id": "QR5fMbpAKg",
       "name": "Page 1",
       "elements": []
     }
-  ],
-  "dataModelId": "86cfe63c-99a8-4512-924d-60c51f8589d3"
+  ]
 }
