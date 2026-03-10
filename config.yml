@@ -3,8 +3,52 @@ data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
     file: data-model-quickstart-copy.json
     name: Data Model QuickStart COPY
-    last_synced: '2026-02-04T19:46:32.908779Z'
+    last_pulled: '2026-03-10T06:57:02.941497Z'
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
-    last_synced: '2026-02-11T14:48:10.124627Z'
+    last_pulled: '2026-03-10T06:57:02.517763Z'
+  08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
+    file: my-data-model.json
+    name: My Data Model
+    last_pulled: '2026-03-10T06:57:03.635851Z'
+  0f5c482b-1ecd-4df9-9578-3f66b04499d8:
+    file: commerce-analytics-demo-data-model.json
+    name: Commerce Analytics Demo Data Model
+    last_pulled: '2026-03-10T06:57:04.019626Z'
+  2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
+    file: chicago-crime.json
+    name: chicago-crime
+    last_pulled: '2026-03-10T06:57:04.392669Z'
+  62d86a35-c6e4-4f9c-930b-77a97c49209f:
+    file: d-customer.json
+    name: D_CUSTOMER
+    last_pulled: '2026-03-10T06:57:04.771843Z'
+  85e4d156-f529-46db-b8a2-474b2258527f:
+    file: test-2.json
+    name: Test 2
+    last_pulled: '2026-03-10T06:57:05.302208Z'
+  86cfe63c-99a8-4512-924d-60c51f8589d3:
+    file: test.json
+    name: Test
+    last_pulled: '2026-03-10T06:57:05.643848Z'
+  ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
+    file: relationship-rls-bug?.json
+    name: Relationship RLS Bug?
+    last_pulled: '2026-03-10T06:57:05.990105Z'
+  d85439d2-a41a-4647-b100-784bddc7cca5:
+    file: erica.json
+    name: Erica
+    last_pulled: '2026-03-10T06:57:06.292936Z'
+  dceb0813-3822-4071-9591-84f58df591f6:
+    file: sales-analytics.json
+    name: Sales Analytics
+    last_pulled: '2026-03-10T06:57:06.672335Z'
+  e3a5f320-394e-46d6-9718-038d2abe0994:
+    file: tankup!-inventory.json
+    name: 'TankUp! Inventory '
+    last_pulled: '2026-03-10T06:57:06.945827Z'
+  eedef070-f7f3-42fa-b456-9455173aae78:
+    file: sales-analytics-2.json
+    name: Sales Analytics 2
+    last_pulled: '2026-03-10T06:57:07.279438Z'
