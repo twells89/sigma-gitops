@@ -1,13 +1,21 @@
 {
-  "schemaVersion": 1,
+  "dataModelId": "d85439d2-a41a-4647-b100-784bddc7cca5",
   "name": "Erica",
-  "description": "",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Erica-6AcPHJTfAtx8O2WRQeYvyJ",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-01-12T21:55:21.074Z",
+  "updatedAt": "2026-01-12T21:55:21.074Z",
+  "schemaVersion": 1,
   "pages": [
     {
-      "id": "page_1768254862884",
+      "id": "AMQq82swml",
       "name": "Erica",
       "elements": []
     }
-  ],
-  "dataModelId": "d85439d2-a41a-4647-b100-784bddc7cca5"
+  ]
 }
