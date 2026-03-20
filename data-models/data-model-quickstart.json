@@ -92,7 +92,7 @@
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
               "formula": "[F_SALES/Order Number]",
-              "name": "Order Number"
+              "name": "Order Number Test"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
