@@ -1,0 +1,106 @@
+{
+  "dataModelId": "5339404b-9bc6-4110-8a54-fee06f2be472",
+  "name": "Retail Analytics Looker 5",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Retail-Analytics-Looker-5-2x2wFKx7Izwgt4qKk9vo66",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-03-19T15:55:57.637Z",
+  "updatedAt": "2026-03-19T15:55:57.637Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "h2nRIR6t1I",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "fMTF-2AEKo",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": []
+        },
+        {
+          "id": "jdtmzbk6ZJ",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": []
+        },
+        {
+          "id": "N0X6ytSrdP",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PRODUCT_DIM"
+            ]
+          },
+          "columns": []
+        },
+        {
+          "id": "A0xHDuEd7H",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PROMO_DIM"
+            ]
+          },
+          "columns": []
+        },
+        {
+          "id": "BjpgUAQdSa",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "STORE_DIM"
+            ]
+          },
+          "columns": []
+        },
+        {
+          "id": "BCcIkNoAxZ",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "DATE_DIM"
+            ]
+          },
+          "columns": []
+        }
+      ]
+    }
+  ]
+}
