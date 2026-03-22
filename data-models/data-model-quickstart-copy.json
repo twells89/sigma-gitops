@@ -2,19 +2,19 @@
   "dataModelId": "07b52947-2f01-41ff-b3f4-331938ed3823",
   "name": "Data Model QuickStart COPY",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Data-Model-QuickStart-COPY-exJHPksbgg5WvjViqu8MP",
-  "documentVersion": 40,
-  "latestDocumentVersion": 40,
-  "schemaVersion": 1,
+  "documentVersion": 46,
+  "latestDocumentVersion": 46,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "5783ab89-024b-45c2-b96f-4422612ef40f",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-10-23T19:39:45.821Z",
-  "updatedAt": "2026-02-04T19:46:32.337Z",
+  "updatedAt": "2026-03-21T23:48:13.346Z",
+  "schemaVersion": 1,
   "pages": [
     {
-      "id": "xiLc1p4Uck",
-      "name": "Sales Table Test",
+      "id": "JD7TiAyFi5",
+      "name": "Sales",
       "elements": [
         {
           "kind": "control",
@@ -25,6 +25,129 @@
           "startDate": "2025-10-01T00:00:00Z",
           "endDate": "2025-12-02T23:59:59Z",
           "includeNulls": "when-no-value-is-selected"
+        },
+        {
+          "id": "hTHzN675vt",
+          "kind": "table",
+          "source": {
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "PLUGS_ELECTRONICS",
+              "D_PRODUCT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
+              "formula": "[D_PRODUCT/Product Key]",
+              "name": "Product Key",
+              "description": "Unique surrogate key for each product record"
+            },
+            {
+              "id": "39xtXUgHw7",
+              "formula": "Text([Product Key])",
+              "name": "Product Key (1)"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
+              "formula": "[D_PRODUCT/Product Name]",
+              "name": "Product Name",
+              "description": "Full commercial name of the product"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
+              "formula": "[D_PRODUCT/Product Type]",
+              "name": "Product Type",
+              "description": "High-level classification of the product (e.g. Hardware"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
+              "formula": "[D_PRODUCT/Product Family]",
+              "name": "Product Family",
+              "description": "Grouping of related product types within a category"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
+              "formula": "[D_PRODUCT/Product Line]",
+              "name": "Product Line",
+              "description": "Brand or sub-brand line the product belongs to"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
+              "formula": "[D_PRODUCT/Product Group]",
+              "name": "Product Group",
+              "description": "Operational grouping used for reporting and planning"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
+              "formula": "[D_PRODUCT/Product Description]",
+              "name": "Product Description",
+              "description": "Long-form description of the product's features and specifications"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
+              "formula": "[D_PRODUCT/Sku Number]",
+              "name": "SKU Number",
+              "description": "Stock keeping unit identifier used for inventory tracking"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
+              "formula": "[D_PRODUCT/Price]",
+              "name": "List Price",
+              "description": "Standard retail list price of the product"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
+              "formula": "[D_PRODUCT/Product Status]",
+              "name": "Product Status",
+              "description": "Current lifecycle status of the product (e.g. Active"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
+              "formula": "[D_PRODUCT/Product Notes]",
+              "name": "Product Notes",
+              "description": "Free-text field for internal notes or flags on the product record"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
+              "formula": "[D_PRODUCT/Updated At]",
+              "name": "Last Updated At",
+              "description": "Timestamp of the most recent update to the product record"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
+              "formula": "[D_PRODUCT/Updated By]",
+              "name": "Last Updated By",
+              "description": "User or process that last modified the product record"
+            },
+            {
+              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE",
+              "formula": "[D_PRODUCT/Proposed Price]",
+              "name": "Proposed Price",
+              "description": "Pending price change submitted for approval \u2014 not yet in effect"
+            }
+          ],
+          "name": "D_PRODUCT",
+          "order": [
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
+            "39xtXUgHw7",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
+            "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE"
+          ],
+          "visibleAsSource": false
         },
         {
           "id": "xlTXCBG-SO",
@@ -86,43 +209,71 @@
                 ],
                 "joinType": "left-outer"
               }
-            ]
+            ],
+            "primarySource": {
+              "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+              "kind": "warehouse-table",
+              "path": [
+                "RETAIL",
+                "PLUGS_ELECTRONICS",
+                "F_SALES"
+              ]
+            }
           },
           "columns": [
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
               "formula": "[F_SALES/Order Number]",
-              "name": "Order Number"
+              "name": "Order Number",
+              "description": "Unique identifier for each sales transaction order"
+            },
+            {
+              "id": "_yT5JxEJgl",
+              "formula": "CountDistinct([Order Number])",
+              "name": "Distinct Order Count",
+              "description": "Count of distinct order numbers."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
               "formula": "[F_SALES/Cust Key]",
-              "name": "Customer Key"
+              "name": "Customer Key",
+              "description": "Foreign key linking to the customer dimension table"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
               "formula": "[F_SALES/Transaction Type]",
-              "name": "Transaction Type"
+              "name": "Transaction Type",
+              "description": "Indicates whether the transaction was a sale or return"
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
               "formula": "[F_SALES/Date]",
-              "name": "Date"
+              "name": "Transaction Date",
+              "description": "Date the sales transaction was recorded"
+            },
+            {
+              "id": "XbehxiC6vK",
+              "formula": "CountDistinct([Customer Key])",
+              "name": "Distinct Customer Count",
+              "description": "Count of distinct customer keys."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
               "formula": "[F_SALES/Purchase Method]",
-              "name": "Purchase Method"
+              "name": "Purchase Method",
+              "description": "Channel used to complete the purchase (e.g. online"
             },
             {
               "id": "RwpvPi8D_8",
               "formula": "[D_CUSTOMER/Cust Key]",
-              "name": "Customer Key (D_CUSTOMER)"
+              "name": "Customer Key (D_CUSTOMER)",
+              "description": "Customer Key from the D_CUSTOMER table."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
               "formula": "[F_SALES/Store Key]",
-              "name": "Store Key"
+              "name": "Store Key",
+              "description": "Foreign key linking to the store dimension table"
             },
             {
               "id": "9fWpFal-Rw",
@@ -132,165 +283,209 @@
             {
               "id": "8GDjwxf_YX",
               "formula": "[D_CUSTOMER/Age Group]",
-              "name": "Age Group"
+              "name": "Age Group",
+              "description": "Age group of the customer."
             },
             {
               "id": "o_uMnZmP4b",
               "formula": "[D_CUSTOMER/Civil Status]",
-              "name": "Civil Status"
+              "name": "Civil Status",
+              "description": "Civil status of the customer."
             },
             {
               "id": "BJYdB0a4-G",
               "formula": "[D_CUSTOMER/Loyalty Program]",
-              "name": "Loyalty Program"
+              "name": "Loyalty Program",
+              "description": "Loyalty program of the customer."
             },
             {
               "id": "gJglrhnnsb",
               "formula": "[D_CUSTOMER/Cust Json Field]",
-              "name": "Cust Json Field"
+              "name": "Cust Json Field",
+              "description": "JSON field containing customer data."
             },
             {
               "id": "DLhcqL0D0f",
               "formula": "[D_CUSTOMER/Updated At]",
-              "name": "Updated At"
+              "name": "Updated At",
+              "description": "Timestamp of the most recent update to the customer record."
             },
             {
               "id": "lUKb6fWfcY",
               "formula": "[D_CUSTOMER/Updated By]",
-              "name": "Updated By"
+              "name": "Updated By",
+              "description": "User or process that last modified the customer record."
             },
             {
               "id": "cd7Z0qfHpP",
               "formula": "[F_POINT_OF_SALE/Order Number]",
-              "name": "Order Number (F_POINT_OF_SALE)"
+              "name": "Order Number (F_POINT_OF_SALE)",
+              "description": "Order number from the F_POINT_OF_SALE table."
             },
             {
               "id": "fGscYfJPwf",
               "formula": "Text([F_POINT_OF_SALE/Product Key])",
-              "name": "Product Key"
+              "name": "Product Key",
+              "description": "Product key from the F_POINT_OF_SALE table."
             },
             {
               "id": "Hr3e5cMVwH",
               "formula": "[F_POINT_OF_SALE/Sales Quantity]",
-              "name": "Sales Quantity"
+              "name": "Sales Quantity",
+              "description": "Sales quantity of the product."
             },
             {
               "id": "T12SGbyCbk",
               "formula": "[F_POINT_OF_SALE/Sales Amount]",
-              "name": "Sales Amount"
+              "name": "Sales Amount",
+              "description": "Sales amount of the product."
             },
             {
               "id": "TeB0rqggEj",
               "formula": "[F_POINT_OF_SALE/Cost Amount]",
-              "name": "Cost Amount"
+              "name": "Cost Amount",
+              "description": "Cost amount of the product."
             },
             {
               "id": "XQT2a6XnhN",
               "formula": "[Sales Amount] * [Sales Quantity]",
-              "name": "Revenue"
+              "name": "Revenue",
+              "description": "Calculated revenue based on sales amount and quantity."
             },
             {
               "id": "GaEXPhlBc2",
               "formula": "[Revenue] - ([Cost Amount] * [Sales Quantity])",
-              "name": "Profit"
+              "name": "Profit2",
+              "description": "Calculated profit based on revenue and cost amount."
             },
             {
               "id": "9nlivhqPgs",
               "formula": "CurrentUserEmail()",
-              "name": "CurrentUserEmail"
+              "name": "CurrentUserEmail",
+              "description": "Email of the current user."
             },
             {
               "id": "NAokyFYPlb",
               "formula": "CurrentUserAttributeText(\"admin\") = \"true\"",
-              "name": "rls_admin"
+              "name": "rls_admin",
+              "description": "Indicates if the current user is an admin."
             },
             {
               "id": "_4SodcMD_1",
               "formula": "[rls_admin] or [rls_region]",
-              "name": "rls_rollup"
+              "name": "rls_rollup",
+              "description": "Indicates if the current user has rollup permissions."
             },
             {
               "id": "6lt66qZx3x",
               "formula": "DateDiff(\"day\", [Date].start, [Date].end)",
-              "name": "Count of Days"
+              "name": "Count of Days",
+              "description": "Count of days between the start and end dates."
             },
             {
               "id": "4qJuB76uHL",
               "formula": "If([Date] >= [Date].start and [Date] < [Date].end, \"Current Period\", [Date] >= DateAdd(\"day\", -[Count of Days], [Date].start) and [Date] < DateAdd(\"day\", -[Count of Days], [Date].end), \"Last Period\", Null)",
-              "name": "Period"
+              "name": "Period",
+              "description": "Indicates the period (Current Period or Last Period) based on the selected date range."
             },
             {
               "id": "0frT8Fo5Gg",
               "formula": "If([Period] = \"Current Period\", True, False)",
-              "name": "Is Current Period"
+              "name": "Is Current Period",
+              "description": "Indicates if the period is the current period."
             },
             {
               "id": "hr1bnyelwh",
               "formula": "If([Period] = \"Last Period\", True, False)",
-              "name": "Is Last Period"
+              "name": "Is Last Period",
+              "description": "Indicates if the period is the last period."
+            },
+            {
+              "id": "wgUAtXA9sT",
+              "formula": "Lookup([D_PRODUCT/Product Name], [Product Key], [D_PRODUCT/Product Key (1)])",
+              "name": "Product Name (D_PRODUCT)",
+              "description": "Product name from the D_PRODUCT table."
+            },
+            {
+              "id": "4AeBc1EcNc",
+              "formula": "CountDistinct([Store City])",
+              "name": "Distinct Store City Count",
+              "description": "Count of distinct store cities."
             },
             {
               "id": "KByEldosoO",
               "formula": "[D_CUSTOMER/Cust Name]",
-              "name": "Cust Name"
+              "name": "Cust Name",
+              "description": "Name of the customer."
             },
             {
               "id": "vGSFDJO3WO",
               "formula": "[D_CUSTOMER/Cust Address]",
-              "name": "Cust Address"
+              "name": "Cust Address",
+              "description": "Address of the customer."
             },
             {
               "id": "66h9QfCGrx",
               "formula": "[D_CUSTOMER/Cust City]",
-              "name": "Cust City"
+              "name": "Cust City",
+              "description": "City of the customer."
             },
             {
               "id": "YnumKA8J4v",
               "formula": "[D_CUSTOMER/Cust State]",
-              "name": "Cust State"
+              "name": "Cust State",
+              "description": "State of the customer."
             },
             {
               "id": "K8Bcm7GNSg",
               "formula": "[D_CUSTOMER/Cust Zip Code]",
-              "name": "Cust Zip Code"
+              "name": "Cust Zip Code",
+              "description": "Zip code of the customer."
             },
             {
               "id": "FL6_NKaxeN",
               "formula": "[D_CUSTOMER/Cust County]",
-              "name": "Cust County"
+              "name": "Cust County",
+              "description": "County of the customer."
             },
             {
               "id": "_miS4fU34X",
               "formula": "[D_CUSTOMER/Cust Region]",
-              "name": "Cust Region"
+              "name": "Cust Region",
+              "description": "Region of the customer."
             },
             {
               "id": "4pghmAGtMr",
               "formula": "ArrayContains(CallVariant(\"STRTOK_TO_ARRAY\", CurrentUserAttributeText(\"region\"), \",\"), [Cust Region])",
-              "name": "rls_region"
+              "name": "rls_region",
+              "description": "Indicates if the current user's region matches the customer's region."
             },
             {
               "id": "ChqU99H2XA",
               "formula": "[D_CUSTOMER/Cust Since]",
-              "name": "Cust Since"
+              "name": "Cust Since",
+              "description": "Date the customer became a customer."
             },
             {
               "id": "A4fx0pKVvC",
               "formula": "[D_CUSTOMER/Cust Type]",
-              "name": "Cust Type"
+              "name": "Cust Type",
+              "description": "Type of customer."
             },
             {
               "id": "momrH4u6NH",
               "formula": "[D_CUSTOMER/Cust Gender]",
-              "name": "Cust Gender"
+              "name": "Cust Gender",
+              "description": "Gender of the customer."
             },
             {
               "id": "qB10jFNVR5",
               "formula": "[D_CUSTOMER/Cust Age]",
-              "name": "Cust Age"
+              "name": "Cust Age",
+              "description": "Age of the customer."
             }
           ],
-          "name": "Plugs Sales Table",
+          "name": "Plugs Sales",
           "metrics": [
             {
               "id": "7SQb7vYkyn",
@@ -308,6 +503,24 @@
               "id": "hSciSXavit",
               "formula": "Sum([Revenue] - [Cost Amount]) / Sum([Revenue])",
               "name": "Margin"
+            },
+            {
+              "id": "LGAKknzk7M",
+              "formula": "Average([Sales Quantity])",
+              "name": "Average Sales Quantity",
+              "description": "Average quantity of products sold per transaction."
+            },
+            {
+              "id": "3oGNjw_qrt",
+              "formula": "Sum([Cost Amount] * [Sales Quantity])",
+              "name": "Total Cost Amount",
+              "description": "Total cost of goods sold."
+            },
+            {
+              "id": "F3FIpxzbnN",
+              "formula": "Average([Sales Amount] - [Cost Amount]) / Average([Sales Amount])",
+              "name": "Average Discount Rate",
+              "description": "Average percentage discount applied to sales."
             }
           ],
           "relationships": [
@@ -338,14 +551,14 @@
           ],
           "filters": [
             {
-              "id": "s09QEzssLR",
+              "id": "4q6ZB1RbjZ",
               "columnId": "4pghmAGtMr",
               "kind": "list",
               "mode": "exclude",
               "values": []
             },
             {
-              "id": "V4BIrA0IjD",
+              "id": "c3UlGi-JQc",
               "columnId": "_4SodcMD_1",
               "kind": "list",
               "mode": "exclude",
@@ -355,14 +568,14 @@
               ]
             },
             {
-              "id": "8CaMtZI8bT",
+              "id": "HyrIlI45B_",
               "columnId": "4qJuB76uHL",
               "kind": "list",
               "mode": "include",
               "values": []
             },
             {
-              "id": "jeLzeO3o0d",
+              "id": "iVWm6luWoC",
               "columnId": "_miS4fU34X",
               "kind": "list",
               "mode": "include",
@@ -371,7 +584,7 @@
           ],
           "folders": [
             {
-              "id": "vVjxP00Yr1",
+              "id": "RVwTobNBCp",
               "name": "Customer Data",
               "items": [
                 "KByEldosoO",
@@ -391,9 +604,11 @@
           ],
           "order": [
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
+            "_yT5JxEJgl",
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
+            "XbehxiC6vK",
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
             "RwpvPi8D_8",
             "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
@@ -418,7 +633,9 @@
             "4qJuB76uHL",
             "0frT8Fo5Gg",
             "hr1bnyelwh",
-            "vVjxP00Yr1"
+            "wgUAtXA9sT",
+            "4AeBc1EcNc",
+            "RVwTobNBCp"
           ]
         },
         {
@@ -434,9 +651,10 @@
               "columnId": "vGSFDJO3WO"
             }
           ],
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "include",
+          "selectionMode": "multiple",
+          "values": [],
           "source": {
             "kind": "source",
             "source": {
@@ -444,116 +662,7 @@
               "elementId": "xlTXCBG-SO"
             },
             "columnId": "vGSFDJO3WO"
-          },
-          "values": []
-        },
-        {
-          "id": "hTHzN675vt",
-          "kind": "table",
-          "source": {
-            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
-            "kind": "warehouse-table",
-            "path": [
-              "RETAIL",
-              "PLUGS_ELECTRONICS",
-              "D_PRODUCT"
-            ]
-          },
-          "columns": [
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
-              "formula": "[D_PRODUCT/Product Key]",
-              "name": "Product Key"
-            },
-            {
-              "id": "39xtXUgHw7",
-              "formula": "Text([Product Key])",
-              "name": "Product Key (1)"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
-              "formula": "[D_PRODUCT/Product Name]",
-              "name": "Product Name"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
-              "formula": "[D_PRODUCT/Product Type]",
-              "name": "Product Type"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
-              "formula": "[D_PRODUCT/Product Family]",
-              "name": "Product Family"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
-              "formula": "[D_PRODUCT/Product Line]",
-              "name": "Product Line"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
-              "formula": "[D_PRODUCT/Product Group]",
-              "name": "Product Group"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
-              "formula": "[D_PRODUCT/Product Description]",
-              "name": "Product Description"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
-              "formula": "[D_PRODUCT/Sku Number]",
-              "name": "Sku Number"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
-              "formula": "[D_PRODUCT/Price]",
-              "name": "Price"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
-              "formula": "[D_PRODUCT/Product Status]",
-              "name": "Product Status"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
-              "formula": "[D_PRODUCT/Product Notes]",
-              "name": "Product Notes"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
-              "formula": "[D_PRODUCT/Updated At]",
-              "name": "Updated At"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
-              "formula": "[D_PRODUCT/Updated By]",
-              "name": "Updated By"
-            },
-            {
-              "id": "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE",
-              "formula": "[D_PRODUCT/Proposed Price]",
-              "name": "Proposed Price"
-            }
-          ],
-          "name": "D_PRODUCT",
-          "order": [
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_KEY",
-            "39xtXUgHw7",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NAME",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_TYPE",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_FAMILY",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_LINE",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_GROUP",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_DESCRIPTION",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/SKU_NUMBER",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRICE",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_STATUS",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PRODUCT_NOTES",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_AT",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/UPDATED_BY",
-            "inode-3f9zrIcfA93Wyv5iBQS2y5/PROPOSED_PRICE"
-          ]
+          }
         },
         {
           "id": "WKfvYSkHjr",
@@ -571,97 +680,116 @@
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
               "formula": "[D_STORE/Store Key]",
-              "name": "Store Key"
+              "name": "Store Key",
+              "description": "Unique surrogate key for each store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
               "formula": "[D_STORE/Store Name]",
-              "name": "Store Name"
+              "name": "Store Name",
+              "description": "Official trading name of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
               "formula": "[D_STORE/Store Address]",
-              "name": "Store Address"
+              "name": "Store Address",
+              "description": "Street address of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
               "formula": "[D_STORE/Store City]",
-              "name": "Store City"
+              "name": "Store City",
+              "description": "City where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
               "formula": "[D_STORE/Store State]",
-              "name": "Store State"
+              "name": "Store State",
+              "description": "State or province where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
               "formula": "[D_STORE/Store Zip Code]",
-              "name": "Store Zip Code"
+              "name": "Store Zip Code",
+              "description": "Postal code for the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
               "formula": "[D_STORE/Store County]",
-              "name": "Store County"
+              "name": "Store County",
+              "description": "County or district where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
               "formula": "[D_STORE/Store Region]",
-              "name": "Store Region"
+              "name": "Store Region",
+              "description": "Sales region the store is assigned to (e.g. East"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
               "formula": "[D_STORE/Store Open Date]",
-              "name": "Store Open Date"
+              "name": "Store Open Date",
+              "description": "Date the store first opened for business"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
               "formula": "[D_STORE/Last Layout Update]",
-              "name": "Last Layout Update"
+              "name": "Last Layout Update",
+              "description": "Date the store's floor layout was last reconfigured"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
               "formula": "[D_STORE/Latitude]",
-              "name": "Latitude"
+              "name": "Latitude",
+              "description": "Geographic latitude coordinate of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
               "formula": "[D_STORE/Longitude]",
-              "name": "Longitude"
+              "name": "Longitude",
+              "description": "Geographic longitude coordinate of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
               "formula": "[D_STORE/Store Size]",
-              "name": "Store Size"
+              "name": "Store Size",
+              "description": "Size classification of the store (e.g. Small"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
               "formula": "[D_STORE/Monthly Rent Cost]",
-              "name": "Monthly Rent Cost"
+              "name": "Monthly Rent Cost",
+              "description": "Monthly lease cost for the store premises in USD"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
               "formula": "[D_STORE/Number of Employees]",
-              "name": "Number of Employees"
+              "name": "Number of Employees",
+              "description": "Current headcount of employees at the store"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
               "formula": "[D_STORE/Online Ordering]",
-              "name": "Online Ordering"
+              "name": "Online Ordering Enabled",
+              "description": "Flag indicating whether the store supports online order pickup"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
               "formula": "[D_STORE/Selling Square Footage]",
-              "name": "Selling Square Footage"
+              "name": "Selling Square Footage",
+              "description": "Total floor area dedicated to retail selling space in square feet"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
               "formula": "[D_STORE/Total Square Footage]",
-              "name": "Total Square Footage"
+              "name": "Total Square Footage",
+              "description": "Total floor area of the store including back-of-house in square feet"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD",
               "formula": "[D_STORE/Store Json Field]",
-              "name": "Store Json Field"
+              "name": "Store Metadata",
+              "description": "Semi-structured JSON field containing additional store attributes"
             }
           ],
           "name": "D_STORE",
@@ -700,9 +828,10 @@
               "columnId": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY"
             }
           ],
-          "selectionMode": "multiple",
           "controlType": "list",
           "mode": "include",
+          "selectionMode": "multiple",
+          "values": [],
           "source": {
             "kind": "source",
             "source": {
@@ -710,8 +839,7 @@
               "elementId": "WKfvYSkHjr"
             },
             "columnId": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY"
-          },
-          "values": []
+          }
         },
         {
           "id": "c4UK_3bdK8",
@@ -729,97 +857,116 @@
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_KEY",
               "formula": "[D_STORE/Store Key]",
-              "name": "Store Key"
+              "name": "Store Key",
+              "description": "Unique surrogate key for each store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_NAME",
               "formula": "[D_STORE/Store Name]",
-              "name": "Store Name"
+              "name": "Store Name",
+              "description": "Official trading name of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ADDRESS",
               "formula": "[D_STORE/Store Address]",
-              "name": "Store Address"
+              "name": "Store Address",
+              "description": "Street address of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_CITY",
               "formula": "[D_STORE/Store City]",
-              "name": "Store City"
+              "name": "Store City",
+              "description": "City where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_STATE",
               "formula": "[D_STORE/Store State]",
-              "name": "Store State"
+              "name": "Store State",
+              "description": "State or province where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_ZIP_CODE",
               "formula": "[D_STORE/Store Zip Code]",
-              "name": "Store Zip Code"
+              "name": "Store Zip Code",
+              "description": "Postal code for the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_COUNTY",
               "formula": "[D_STORE/Store County]",
-              "name": "Store County"
+              "name": "Store County",
+              "description": "County or district where the store is located"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_REGION",
               "formula": "[D_STORE/Store Region]",
-              "name": "Store Region"
+              "name": "Store Region",
+              "description": "Sales region the store is assigned to (e.g. East"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_OPEN_DATE",
               "formula": "[D_STORE/Store Open Date]",
-              "name": "Store Open Date"
+              "name": "Store Open Date",
+              "description": "Date the store first opened for business"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LAST_LAYOUT_UPDATE",
               "formula": "[D_STORE/Last Layout Update]",
-              "name": "Last Layout Update"
+              "name": "Last Layout Update",
+              "description": "Date the store's floor layout was last reconfigured"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LATITUDE",
               "formula": "[D_STORE/Latitude]",
-              "name": "Latitude"
+              "name": "Latitude",
+              "description": "Geographic latitude coordinate of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/LONGITUDE",
               "formula": "[D_STORE/Longitude]",
-              "name": "Longitude"
+              "name": "Longitude",
+              "description": "Geographic longitude coordinate of the store location"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_SIZE",
               "formula": "[D_STORE/Store Size]",
-              "name": "Store Size"
+              "name": "Store Size",
+              "description": "Size classification of the store (e.g. Small"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/MONTHLY_RENT_COST",
               "formula": "[D_STORE/Monthly Rent Cost]",
-              "name": "Monthly Rent Cost"
+              "name": "Monthly Rent Cost",
+              "description": "Monthly lease cost for the store premises in USD"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/NUMBER_OF_EMPLOYEES",
               "formula": "[D_STORE/Number of Employees]",
-              "name": "Number of Employees"
+              "name": "Number of Employees",
+              "description": "Current headcount of employees at the store"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/ONLINE_ORDERING",
               "formula": "[D_STORE/Online Ordering]",
-              "name": "Online Ordering"
+              "name": "Online Ordering Enabled",
+              "description": "Flag indicating whether the store supports online order pickup"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/SELLING_SQUARE_FOOTAGE",
               "formula": "[D_STORE/Selling Square Footage]",
-              "name": "Selling Square Footage"
+              "name": "Selling Square Footage",
+              "description": "Total floor area dedicated to retail selling space in square feet"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/TOTAL_SQUARE_FOOTAGE",
               "formula": "[D_STORE/Total Square Footage]",
-              "name": "Total Square Footage"
+              "name": "Total Square Footage",
+              "description": "Total floor area of the store including back-of-house in square feet"
             },
             {
               "id": "inode-38YtKgvQvOHImV2ANzz4pg/STORE_JSON_FIELD",
               "formula": "[D_STORE/Store Json Field]",
-              "name": "Store Json Field"
+              "name": "Store Metadata",
+              "description": "Semi-structured JSON field containing additional store attributes"
             }
           ],
           "name": "D_STORE",
@@ -872,32 +1019,38 @@
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/ORDER_NUMBER",
               "formula": "[F_SALES/Order Number]",
-              "name": "Order Number"
+              "name": "Order Number",
+              "description": "Unique identifier for each sales transaction order."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/CUST_KEY",
               "formula": "[F_SALES/Cust Key]",
-              "name": "Cust Key"
+              "name": "Customer Key",
+              "description": "Foreign key linking to the customer dimension table."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/STORE_KEY",
               "formula": "[F_SALES/Store Key]",
-              "name": "Store Key"
+              "name": "Store Key",
+              "description": "Foreign key linking to the store dimension table."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/TRANSACTION_TYPE",
               "formula": "[F_SALES/Transaction Type]",
-              "name": "Transaction Type"
+              "name": "Transaction Type",
+              "description": "Indicates whether the transaction was a sale or return."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/DATE",
               "formula": "[F_SALES/Date]",
-              "name": "Date"
+              "name": "Transaction Date",
+              "description": "Date the sales transaction was recorded."
             },
             {
               "id": "inode-1Tv4QFmVqPLZaLcTdgSkEn/PURCHASE_METHOD",
               "formula": "[F_SALES/Purchase Method]",
-              "name": "Purchase Method"
+              "name": "Purchase Method",
+              "description": "Channel used to complete the purchase (e.g. online)."
             }
           ],
           "name": "F_SALES",
