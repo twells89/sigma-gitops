@@ -1,9 +1,9 @@
 sigma_api_url: https://aws-api.sigmacomputing.com
 data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
-    file: data-model-quickstart-copy.json
-    name: Data Model QuickStart COPY
-    last_synced: '2026-02-04T19:46:32.908779Z'
+    file: data-model-quickstart-copy-test.json
+    name: Data Model QuickStart COPY - Test
+    last_synced: '2026-03-25T19:09:48.822127Z'
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
