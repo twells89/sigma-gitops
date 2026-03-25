@@ -1,20 +1,20 @@
 {
   "dataModelId": "8c6e32eb-e650-41a3-b45d-0ae47e394108",
-  "name": "CSA.TJ Order Analysis - Carine",
+  "name": "CSA.TJ Order Analysis",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/CSA-TJ-Order-Analysis-4gZhMxDIyoORxayiPutTFC",
-  "documentVersion": 11,
-  "latestDocumentVersion": 11,
+  "documentVersion": 12,
+  "latestDocumentVersion": 12,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2026-03-24T12:44:33.138Z",
-  "updatedAt": "2026-03-25T18:57:14.894Z",
+  "updatedAt": "2026-03-25T19:12:17.348Z",
   "description": "Comprehensive order analysis model with customer, product, store, promotion, and date dimensions",
   "schemaVersion": 1,
   "pages": [
     {
-      "id": "rWdJzvemfS",
+      "id": "hh-Bsbgp7y",
       "name": "Page Test",
       "elements": [
         {
