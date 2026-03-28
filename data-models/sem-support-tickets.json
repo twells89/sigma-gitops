@@ -1,0 +1,79 @@
+{
+  "dataModelId": "09e337b7-15a0-48e9-8a26-654906c2e1a1",
+  "name": "Sem Support Tickets",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Sem-Support-Tickets-iELIHucG5vCtAP4RYg265",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-03-18T15:50:33.003Z",
+  "updatedAt": "2026-03-18T15:50:33.003Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "D46F2osHMG",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "Xw4p2fm3bV",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "SUPPORT_TICKETS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "osooIJvupj",
+              "formula": "[SUPPORT_TICKETS/Ticket Id]"
+            },
+            {
+              "id": "_0MvZu4eqs",
+              "formula": "[SUPPORT_TICKETS/Subject]"
+            },
+            {
+              "id": "LD9Sn9Rv7D",
+              "formula": "[SUPPORT_TICKETS/Description]"
+            },
+            {
+              "id": "WKQGcwxHML",
+              "formula": "[SUPPORT_TICKETS/Current Status]"
+            },
+            {
+              "id": "YF4ryHRfeF",
+              "formula": "[SUPPORT_TICKETS/Customer Name]"
+            },
+            {
+              "id": "nB5uNHUqA1",
+              "formula": "[SUPPORT_TICKETS/Customer Tier]"
+            },
+            {
+              "id": "qV6yp6ltE1",
+              "formula": "[SUPPORT_TICKETS/Product Area]"
+            },
+            {
+              "id": "wcxhwiP7Jk",
+              "formula": "[SUPPORT_TICKETS/Submitted Date]"
+            }
+          ],
+          "order": [
+            "osooIJvupj",
+            "_0MvZu4eqs",
+            "LD9Sn9Rv7D",
+            "WKQGcwxHML",
+            "YF4ryHRfeF",
+            "nB5uNHUqA1",
+            "qV6yp6ltE1",
+            "wcxhwiP7Jk"
+          ]
+        }
+      ]
+    }
+  ]
+}
