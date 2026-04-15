@@ -1,0 +1,37 @@
+{
+  "dataModelId": "85e4d156-f529-46db-b8a2-474b2258527f",
+  "name": "Test 2",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Test-2-44Ey4dMO8rx0maDIXYhGer",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "57e59735-86b9-40b0-b029-217205406f57",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-01-13T14:44:32.318Z",
+  "updatedAt": "2026-02-20T18:28:49.062Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "n1gow6q28P",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "1Vouw4wXJV",
+          "kind": "table",
+          "source": {
+            "connectionId": "362d859b-f432-4657-8e58-efc8535aa354",
+            "kind": "warehouse-table",
+            "path": [
+              "RETAIL",
+              "PLUGS_ELECTRONICS",
+              "F_SALES"
+            ]
+          },
+          "columns": [],
+          "name": "F_SALES"
+        }
+      ]
+    }
+  ]
+}
