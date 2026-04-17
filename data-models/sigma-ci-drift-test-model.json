@@ -1,0 +1,44 @@
+{
+  "dataModelId": "ad334730-b4bb-4214-95fa-546c7d8c1279",
+  "name": "sigma-ci Drift Test Model",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/sigma-ci-Drift-Test-Model-5gP6CelsJQ1SL61CAy4zH3",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-16T23:40:29.442Z",
+  "updatedAt": "2026-04-16T23:40:29.442Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "G8vnFzA9NN",
+      "name": "Test",
+      "elements": [
+        {
+          "id": "n8isOcvZIQ",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "enDGEiHNi9",
+              "formula": "[ORDER_FACT/Order Id]"
+            }
+          ],
+          "order": [
+            "enDGEiHNi9"
+          ]
+        }
+      ]
+    }
+  ]
+}
