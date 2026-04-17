@@ -1,0 +1,692 @@
+{
+  "dataModelId": "14433663-e516-4cc6-a711-3aadb2fe5158",
+  "name": "Cust Testing",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Cust-Testing-CeyT64S5CBnKLa2uvGgfm",
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "57e59735-86b9-40b0-b029-217205406f57",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-03-19T23:28:27.762Z",
+  "updatedAt": "2026-03-20T10:46:50.819Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "1zKcECIeDQ",
+      "name": "Page 1",
+      "elements": [
+        {
+          "kind": "control",
+          "controlId": "p-Order-Date-Range",
+          "id": "RfuKUyzdVC",
+          "controlType": "date-range",
+          "mode": "last",
+          "value": 500,
+          "unit": "day",
+          "includeToday": true,
+          "includeNulls": "when-no-value-is-selected"
+        },
+        {
+          "id": "VNKGNImT66",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n    d.CUSTOMER_KEY,\n    f.ORDER_ID,\n    f.ORDER_LINE,\n    f.ORDER_CHANNEL,\n    f.ORDER_STATUS,\n    f.SHIP_METHOD,\n    f.UNIT_PRICE,\n    f.UNIT_COST,\n    f.QUANTITY_ORDERED,\n    f.QUANTITY_RETURNED,\n    f.GROSS_REVENUE,\n    f.NET_REVENUE,\n    f.DISCOUNT_AMOUNT,\n    f.TAX_AMOUNT,\n    f.SHIPPING_AMOUNT,\n    f.GROSS_PROFIT,\n    f.NET_PROFIT,\n    f.DAYS_TO_SHIP,\n    f.IS_FIRST_ORDER,\n    f.IS_RETURNED,\n    f.IS_CANCELLED,\n    f.ORDER_STORE_KEY,\n    f.SHIP_STORE_KEY,\n    od.FULL_DATE     AS ORDER_DATE,\n    od.YEAR          AS ORDER_YEAR,\n    od.QUARTER       AS ORDER_QUARTER,\n    od.MONTH_NUMBER  AS ORDER_MONTH_NUM,\n    od.MONTH_NAME    AS ORDER_MONTH_NAME,\n    od.DAY_OF_WEEK   AS ORDER_DOW,\n    od.IS_WEEKEND    AS ORDER_IS_WEEKEND,\n    od.IS_HOLIDAY    AS ORDER_IS_HOLIDAY,\n    od.FISCAL_PERIOD AS ORDER_FISCAL_PERIOD,\n    sd.FULL_DATE     AS SHIP_DATE,\n    rd.FULL_DATE     AS RETURN_DATE,\n    c.CUSTOMER_ID,\n    c.FIRST_NAME,\n    c.LAST_NAME,\n    c.EMAIL,\n    c.CITY           AS CUSTOMER_CITY,\n    c.STATE          AS CUSTOMER_STATE,\n    c.REGION         AS CUSTOMER_REGION,\n    c.CUSTOMER_SEGMENT,\n    c.LOYALTY_TIER,\n    c.ACQUISITION_CHANNEL,\n    p.PRODUCT_ID,\n    p.PRODUCT_NAME,\n    p.CATEGORY,\n    p.SUBCATEGORY,\n    p.BRAND,\n    os.STORE_NAME    AS ORDER_STORE_NAME,\n    os.STORE_TYPE    AS ORDER_STORE_TYPE,\n    os.CITY          AS ORDER_STORE_CITY,\n    os.STATE         AS ORDER_STORE_STATE,\n    os.REGION        AS ORDER_STORE_REGION,\n    ss.STORE_NAME    AS SHIP_STORE_NAME,\n    ss.REGION        AS SHIP_STORE_REGION,\n    pr.PROMO_ID,\n    pr.PROMO_NAME,\n    pr.PROMO_TYPE,\n    pr.DISCOUNT_PCT  AS PROMO_DISCOUNT_PCT\n\nFROM CSA.TJ.ORDER_FACT f\n\n    INNER JOIN CSA.TJ.DATE_DIM      od ON f.ORDER_DATE_KEY  = od.DATE_KEY\n    LEFT  JOIN CSA.TJ.DATE_DIM      sd ON f.SHIP_DATE_KEY   = sd.DATE_KEY\n    LEFT  JOIN CSA.TJ.DATE_DIM      rd ON f.RETURN_DATE_KEY = rd.DATE_KEY\n    LEFT  JOIN CSA.TJ.CUSTOMER_DIM   c ON f.CUSTOMER_KEY    = c.CUSTOMER_KEY\n    LEFT  JOIN CSA.TJ.PRODUCT_DIM    p ON f.PRODUCT_KEY     = p.PRODUCT_KEY\n    LEFT  JOIN CSA.TJ.STORE_DIM     os ON f.ORDER_STORE_KEY = os.STORE_KEY\n    LEFT  JOIN CSA.TJ.STORE_DIM     ss ON f.SHIP_STORE_KEY  = ss.STORE_KEY\n    LEFT  JOIN CSA.TJ.PROMO_DIM     pr ON f.PROMO_KEY       = pr.PROMO_KEY\n    INNER JOIN CSA.TJ.CUSTOMER_DIM   d ON f.CUSTOMER_KEY    = d.CUSTOMER_KEY\n\nWHERE\n    (\n        'admin' IN ({{system::CurrentUserAttributeText::customer_segment}})\n        OR\n        c.CUSTOMER_SEGMENT IN ({{system::CurrentUserAttributeText::customer_segment}})\n    )\nAND od.FULL_DATE BETWEEN\n    TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:start))\n    AND TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:end))",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "CUSTOMER_KEY",
+              "formula": "[Custom SQL/CUSTOMER_KEY]"
+            },
+            {
+              "id": "ORDER_ID",
+              "formula": "[Custom SQL/ORDER_ID]"
+            },
+            {
+              "id": "ORDER_LINE",
+              "formula": "[Custom SQL/ORDER_LINE]"
+            },
+            {
+              "id": "ORDER_CHANNEL",
+              "formula": "[Custom SQL/ORDER_CHANNEL]"
+            },
+            {
+              "id": "ORDER_STATUS",
+              "formula": "[Custom SQL/ORDER_STATUS]",
+              "name": "Order Status Test"
+            },
+            {
+              "id": "SHIP_METHOD",
+              "formula": "[Custom SQL/SHIP_METHOD]",
+              "name": "Ship Method Test"
+            },
+            {
+              "id": "UNIT_PRICE",
+              "formula": "[Custom SQL/UNIT_PRICE]"
+            },
+            {
+              "id": "UNIT_COST",
+              "formula": "[Custom SQL/UNIT_COST]"
+            },
+            {
+              "id": "QUANTITY_ORDERED",
+              "formula": "[Custom SQL/QUANTITY_ORDERED]"
+            },
+            {
+              "id": "QUANTITY_RETURNED",
+              "formula": "[Custom SQL/QUANTITY_RETURNED]"
+            },
+            {
+              "id": "GROSS_REVENUE",
+              "formula": "[Custom SQL/GROSS_REVENUE]"
+            },
+            {
+              "id": "NET_REVENUE",
+              "formula": "[Custom SQL/NET_REVENUE]"
+            },
+            {
+              "id": "DISCOUNT_AMOUNT",
+              "formula": "[Custom SQL/DISCOUNT_AMOUNT]"
+            },
+            {
+              "id": "TAX_AMOUNT",
+              "formula": "[Custom SQL/TAX_AMOUNT]"
+            },
+            {
+              "id": "SHIPPING_AMOUNT",
+              "formula": "[Custom SQL/SHIPPING_AMOUNT]"
+            },
+            {
+              "id": "GROSS_PROFIT",
+              "formula": "[Custom SQL/GROSS_PROFIT]"
+            },
+            {
+              "id": "NET_PROFIT",
+              "formula": "[Custom SQL/NET_PROFIT]"
+            },
+            {
+              "id": "DAYS_TO_SHIP",
+              "formula": "[Custom SQL/DAYS_TO_SHIP]"
+            },
+            {
+              "id": "IS_FIRST_ORDER",
+              "formula": "[Custom SQL/IS_FIRST_ORDER]"
+            },
+            {
+              "id": "IS_RETURNED",
+              "formula": "[Custom SQL/IS_RETURNED]"
+            },
+            {
+              "id": "IS_CANCELLED",
+              "formula": "[Custom SQL/IS_CANCELLED]"
+            },
+            {
+              "id": "ORDER_STORE_KEY",
+              "formula": "[Custom SQL/ORDER_STORE_KEY]"
+            },
+            {
+              "id": "SHIP_STORE_KEY",
+              "formula": "[Custom SQL/SHIP_STORE_KEY]"
+            },
+            {
+              "id": "ORDER_DATE",
+              "formula": "[Custom SQL/ORDER_DATE]"
+            },
+            {
+              "id": "ORDER_YEAR",
+              "formula": "[Custom SQL/ORDER_YEAR]"
+            },
+            {
+              "id": "ORDER_QUARTER",
+              "formula": "[Custom SQL/ORDER_QUARTER]"
+            },
+            {
+              "id": "ORDER_MONTH_NUM",
+              "formula": "[Custom SQL/ORDER_MONTH_NUM]"
+            },
+            {
+              "id": "ORDER_MONTH_NAME",
+              "formula": "[Custom SQL/ORDER_MONTH_NAME]"
+            },
+            {
+              "id": "ORDER_DOW",
+              "formula": "[Custom SQL/ORDER_DOW]"
+            },
+            {
+              "id": "ORDER_IS_WEEKEND",
+              "formula": "[Custom SQL/ORDER_IS_WEEKEND]"
+            },
+            {
+              "id": "ORDER_IS_HOLIDAY",
+              "formula": "[Custom SQL/ORDER_IS_HOLIDAY]"
+            },
+            {
+              "id": "ORDER_FISCAL_PERIOD",
+              "formula": "[Custom SQL/ORDER_FISCAL_PERIOD]"
+            },
+            {
+              "id": "SHIP_DATE",
+              "formula": "[Custom SQL/SHIP_DATE]"
+            },
+            {
+              "id": "RETURN_DATE",
+              "formula": "[Custom SQL/RETURN_DATE]"
+            },
+            {
+              "id": "CUSTOMER_ID",
+              "formula": "[Custom SQL/CUSTOMER_ID]"
+            },
+            {
+              "id": "FIRST_NAME",
+              "formula": "[Custom SQL/FIRST_NAME]"
+            },
+            {
+              "id": "LAST_NAME",
+              "formula": "[Custom SQL/LAST_NAME]"
+            },
+            {
+              "id": "EMAIL",
+              "formula": "[Custom SQL/EMAIL]"
+            },
+            {
+              "id": "CUSTOMER_CITY",
+              "formula": "[Custom SQL/CUSTOMER_CITY]"
+            },
+            {
+              "id": "CUSTOMER_STATE",
+              "formula": "[Custom SQL/CUSTOMER_STATE]"
+            },
+            {
+              "id": "CUSTOMER_REGION",
+              "formula": "[Custom SQL/CUSTOMER_REGION]"
+            },
+            {
+              "id": "CUSTOMER_SEGMENT",
+              "formula": "[Custom SQL/CUSTOMER_SEGMENT]"
+            },
+            {
+              "id": "LOYALTY_TIER",
+              "formula": "[Custom SQL/LOYALTY_TIER]"
+            },
+            {
+              "id": "ACQUISITION_CHANNEL",
+              "formula": "[Custom SQL/ACQUISITION_CHANNEL]"
+            },
+            {
+              "id": "PRODUCT_ID",
+              "formula": "[Custom SQL/PRODUCT_ID]"
+            },
+            {
+              "id": "PRODUCT_NAME",
+              "formula": "[Custom SQL/PRODUCT_NAME]"
+            },
+            {
+              "id": "CATEGORY",
+              "formula": "[Custom SQL/CATEGORY]"
+            },
+            {
+              "id": "SUBCATEGORY",
+              "formula": "[Custom SQL/SUBCATEGORY]"
+            },
+            {
+              "id": "BRAND",
+              "formula": "[Custom SQL/BRAND]"
+            },
+            {
+              "id": "ORDER_STORE_NAME",
+              "formula": "[Custom SQL/ORDER_STORE_NAME]"
+            },
+            {
+              "id": "ORDER_STORE_TYPE",
+              "formula": "[Custom SQL/ORDER_STORE_TYPE]"
+            },
+            {
+              "id": "ORDER_STORE_CITY",
+              "formula": "[Custom SQL/ORDER_STORE_CITY]"
+            },
+            {
+              "id": "ORDER_STORE_STATE",
+              "formula": "[Custom SQL/ORDER_STORE_STATE]"
+            },
+            {
+              "id": "ORDER_STORE_REGION",
+              "formula": "[Custom SQL/ORDER_STORE_REGION]"
+            },
+            {
+              "id": "SHIP_STORE_NAME",
+              "formula": "[Custom SQL/SHIP_STORE_NAME]"
+            },
+            {
+              "id": "SHIP_STORE_REGION",
+              "formula": "[Custom SQL/SHIP_STORE_REGION]"
+            },
+            {
+              "id": "PROMO_ID",
+              "formula": "[Custom SQL/PROMO_ID]"
+            },
+            {
+              "id": "PROMO_NAME",
+              "formula": "[Custom SQL/PROMO_NAME]"
+            },
+            {
+              "id": "PROMO_TYPE",
+              "formula": "[Custom SQL/PROMO_TYPE]"
+            },
+            {
+              "id": "PROMO_DISCOUNT_PCT",
+              "formula": "[Custom SQL/PROMO_DISCOUNT_PCT]"
+            }
+          ],
+          "name": "Order Detail",
+          "order": [
+            "CUSTOMER_KEY",
+            "ORDER_ID",
+            "ORDER_LINE",
+            "ORDER_CHANNEL",
+            "ORDER_STATUS",
+            "SHIP_METHOD",
+            "UNIT_PRICE",
+            "UNIT_COST",
+            "QUANTITY_ORDERED",
+            "QUANTITY_RETURNED",
+            "GROSS_REVENUE",
+            "NET_REVENUE",
+            "DISCOUNT_AMOUNT",
+            "TAX_AMOUNT",
+            "SHIPPING_AMOUNT",
+            "GROSS_PROFIT",
+            "NET_PROFIT",
+            "DAYS_TO_SHIP",
+            "IS_FIRST_ORDER",
+            "IS_RETURNED",
+            "IS_CANCELLED",
+            "ORDER_STORE_KEY",
+            "SHIP_STORE_KEY",
+            "ORDER_DATE",
+            "ORDER_YEAR",
+            "ORDER_QUARTER",
+            "ORDER_MONTH_NUM",
+            "ORDER_MONTH_NAME",
+            "ORDER_DOW",
+            "ORDER_IS_WEEKEND",
+            "ORDER_IS_HOLIDAY",
+            "ORDER_FISCAL_PERIOD",
+            "SHIP_DATE",
+            "RETURN_DATE",
+            "CUSTOMER_ID",
+            "FIRST_NAME",
+            "LAST_NAME",
+            "EMAIL",
+            "CUSTOMER_CITY",
+            "CUSTOMER_STATE",
+            "CUSTOMER_REGION",
+            "CUSTOMER_SEGMENT",
+            "LOYALTY_TIER",
+            "ACQUISITION_CHANNEL",
+            "PRODUCT_ID",
+            "PRODUCT_NAME",
+            "CATEGORY",
+            "SUBCATEGORY",
+            "BRAND",
+            "ORDER_STORE_NAME",
+            "ORDER_STORE_TYPE",
+            "ORDER_STORE_CITY",
+            "ORDER_STORE_STATE",
+            "ORDER_STORE_REGION",
+            "SHIP_STORE_NAME",
+            "SHIP_STORE_REGION",
+            "PROMO_ID",
+            "PROMO_NAME",
+            "PROMO_TYPE",
+            "PROMO_DISCOUNT_PCT"
+          ]
+        },
+        {
+          "id": "tDsrMW40OX",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n    f.ORDER_CHANNEL,\n    f.ORDER_STATUS,\n    f.SHIP_METHOD,\n    f.ORDER_STORE_KEY,\n    f.SHIP_STORE_KEY,\n    f.PRODUCT_KEY,\n    f.PROMO_KEY,\n    od.FULL_DATE        AS ORDER_DATE,\n    od.YEAR             AS ORDER_YEAR,\n    od.QUARTER          AS ORDER_QUARTER,\n    od.MONTH_NUMBER     AS ORDER_MONTH_NUM,\n    od.MONTH_NAME       AS ORDER_MONTH_NAME,\n    od.FISCAL_PERIOD    AS ORDER_FISCAL_PERIOD,\n    c.CUSTOMER_SEGMENT,\n    c.LOYALTY_TIER,\n    c.REGION            AS CUSTOMER_REGION,\n    p.CATEGORY,\n    p.SUBCATEGORY,\n    p.BRAND,\n    os.STORE_NAME       AS ORDER_STORE_NAME,\n    os.REGION           AS ORDER_STORE_REGION,\n    pr.PROMO_TYPE,\n    COUNT(*)                 AS ORDER_LINE_COUNT,\n    SUM(f.GROSS_REVENUE)     AS TOTAL_GROSS_REVENUE,\n    SUM(f.NET_REVENUE)       AS TOTAL_NET_REVENUE,\n    SUM(f.GROSS_PROFIT)      AS TOTAL_GROSS_PROFIT,\n    SUM(f.NET_PROFIT)        AS TOTAL_NET_PROFIT,\n    SUM(f.DISCOUNT_AMOUNT)   AS TOTAL_DISCOUNT,\n    SUM(f.QUANTITY_ORDERED)  AS TOTAL_QTY_ORDERED,\n    SUM(f.QUANTITY_RETURNED) AS TOTAL_QTY_RETURNED,\n    AVG(f.DAYS_TO_SHIP)      AS AVG_DAYS_TO_SHIP,\n    SUM(f.IS_RETURNED)       AS RETURN_COUNT,\n    SUM(f.IS_CANCELLED)      AS CANCEL_COUNT,\n    SUM(f.IS_FIRST_ORDER)    AS NEW_CUSTOMER_ORDERS\n\nFROM CSA.TJ.ORDER_FACT f\n\n    INNER JOIN CSA.TJ.DATE_DIM     od ON f.ORDER_DATE_KEY  = od.DATE_KEY\n    LEFT  JOIN CSA.TJ.CUSTOMER_DIM  c ON f.CUSTOMER_KEY    = c.CUSTOMER_KEY\n    LEFT  JOIN CSA.TJ.PRODUCT_DIM   p ON f.PRODUCT_KEY     = p.PRODUCT_KEY\n    LEFT  JOIN CSA.TJ.STORE_DIM    os ON f.ORDER_STORE_KEY = os.STORE_KEY\n    LEFT  JOIN CSA.TJ.PROMO_DIM    pr ON f.PROMO_KEY       = pr.PROMO_KEY\n\nWHERE\n    (\n        'admin' IN ({{system::CurrentUserAttributeText::customer_segment}})\n        OR\n        c.CUSTOMER_SEGMENT IN ({{system::CurrentUserAttributeText::customer_segment}})\n    )\nAND od.FULL_DATE BETWEEN\n    TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:start))\n    AND TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:end))\n\nGROUP BY ALL",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "ORDER_CHANNEL",
+              "formula": "[Custom SQL/ORDER_CHANNEL]"
+            },
+            {
+              "id": "ORDER_STATUS",
+              "formula": "[Custom SQL/ORDER_STATUS]"
+            },
+            {
+              "id": "SHIP_METHOD",
+              "formula": "[Custom SQL/SHIP_METHOD]"
+            },
+            {
+              "id": "ORDER_STORE_KEY",
+              "formula": "[Custom SQL/ORDER_STORE_KEY]"
+            },
+            {
+              "id": "SHIP_STORE_KEY",
+              "formula": "[Custom SQL/SHIP_STORE_KEY]"
+            },
+            {
+              "id": "PRODUCT_KEY",
+              "formula": "[Custom SQL/PRODUCT_KEY]"
+            },
+            {
+              "id": "PROMO_KEY",
+              "formula": "[Custom SQL/PROMO_KEY]"
+            },
+            {
+              "id": "ORDER_DATE",
+              "formula": "[Custom SQL/ORDER_DATE]"
+            },
+            {
+              "id": "ORDER_YEAR",
+              "formula": "[Custom SQL/ORDER_YEAR]"
+            },
+            {
+              "id": "ORDER_QUARTER",
+              "formula": "[Custom SQL/ORDER_QUARTER]"
+            },
+            {
+              "id": "ORDER_MONTH_NUM",
+              "formula": "[Custom SQL/ORDER_MONTH_NUM]"
+            },
+            {
+              "id": "ORDER_MONTH_NAME",
+              "formula": "[Custom SQL/ORDER_MONTH_NAME]"
+            },
+            {
+              "id": "ORDER_FISCAL_PERIOD",
+              "formula": "[Custom SQL/ORDER_FISCAL_PERIOD]"
+            },
+            {
+              "id": "CUSTOMER_SEGMENT",
+              "formula": "[Custom SQL/CUSTOMER_SEGMENT]"
+            },
+            {
+              "id": "LOYALTY_TIER",
+              "formula": "[Custom SQL/LOYALTY_TIER]"
+            },
+            {
+              "id": "CUSTOMER_REGION",
+              "formula": "[Custom SQL/CUSTOMER_REGION]"
+            },
+            {
+              "id": "CATEGORY",
+              "formula": "[Custom SQL/CATEGORY]"
+            },
+            {
+              "id": "SUBCATEGORY",
+              "formula": "[Custom SQL/SUBCATEGORY]"
+            },
+            {
+              "id": "BRAND",
+              "formula": "[Custom SQL/BRAND]"
+            },
+            {
+              "id": "ORDER_STORE_NAME",
+              "formula": "[Custom SQL/ORDER_STORE_NAME]"
+            },
+            {
+              "id": "ORDER_STORE_REGION",
+              "formula": "[Custom SQL/ORDER_STORE_REGION]"
+            },
+            {
+              "id": "PROMO_TYPE",
+              "formula": "[Custom SQL/PROMO_TYPE]"
+            },
+            {
+              "id": "ORDER_LINE_COUNT",
+              "formula": "[Custom SQL/ORDER_LINE_COUNT]"
+            },
+            {
+              "id": "TOTAL_GROSS_REVENUE",
+              "formula": "[Custom SQL/TOTAL_GROSS_REVENUE]"
+            },
+            {
+              "id": "TOTAL_NET_REVENUE",
+              "formula": "[Custom SQL/TOTAL_NET_REVENUE]"
+            },
+            {
+              "id": "TOTAL_GROSS_PROFIT",
+              "formula": "[Custom SQL/TOTAL_GROSS_PROFIT]"
+            },
+            {
+              "id": "TOTAL_NET_PROFIT",
+              "formula": "[Custom SQL/TOTAL_NET_PROFIT]"
+            },
+            {
+              "id": "TOTAL_DISCOUNT",
+              "formula": "[Custom SQL/TOTAL_DISCOUNT]"
+            },
+            {
+              "id": "TOTAL_QTY_ORDERED",
+              "formula": "[Custom SQL/TOTAL_QTY_ORDERED]"
+            },
+            {
+              "id": "TOTAL_QTY_RETURNED",
+              "formula": "[Custom SQL/TOTAL_QTY_RETURNED]"
+            },
+            {
+              "id": "AVG_DAYS_TO_SHIP",
+              "formula": "[Custom SQL/AVG_DAYS_TO_SHIP]"
+            },
+            {
+              "id": "RETURN_COUNT",
+              "formula": "[Custom SQL/RETURN_COUNT]"
+            },
+            {
+              "id": "CANCEL_COUNT",
+              "formula": "[Custom SQL/CANCEL_COUNT]"
+            },
+            {
+              "id": "NEW_CUSTOMER_ORDERS",
+              "formula": "[Custom SQL/NEW_CUSTOMER_ORDERS]"
+            }
+          ],
+          "name": "Order Summary",
+          "order": [
+            "ORDER_CHANNEL",
+            "ORDER_STATUS",
+            "SHIP_METHOD",
+            "ORDER_STORE_KEY",
+            "SHIP_STORE_KEY",
+            "PRODUCT_KEY",
+            "PROMO_KEY",
+            "ORDER_DATE",
+            "ORDER_YEAR",
+            "ORDER_QUARTER",
+            "ORDER_MONTH_NUM",
+            "ORDER_MONTH_NAME",
+            "ORDER_FISCAL_PERIOD",
+            "CUSTOMER_SEGMENT",
+            "LOYALTY_TIER",
+            "CUSTOMER_REGION",
+            "CATEGORY",
+            "SUBCATEGORY",
+            "BRAND",
+            "ORDER_STORE_NAME",
+            "ORDER_STORE_REGION",
+            "PROMO_TYPE",
+            "ORDER_LINE_COUNT",
+            "TOTAL_GROSS_REVENUE",
+            "TOTAL_NET_REVENUE",
+            "TOTAL_GROSS_PROFIT",
+            "TOTAL_NET_PROFIT",
+            "TOTAL_DISCOUNT",
+            "TOTAL_QTY_ORDERED",
+            "TOTAL_QTY_RETURNED",
+            "AVG_DAYS_TO_SHIP",
+            "RETURN_COUNT",
+            "CANCEL_COUNT",
+            "NEW_CUSTOMER_ORDERS"
+          ]
+        },
+        {
+          "id": "5Sw0mvxwEA",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n    f.ORDER_ID,\n    f.ORDER_LINE,\n    f.ORDER_CHANNEL,\n    f.ORDER_STATUS,\n    f.SHIP_METHOD,\n    f.GROSS_REVENUE,\n    f.NET_REVENUE,\n    f.DISCOUNT_AMOUNT,\n    f.QUANTITY_ORDERED,\n    f.IS_RETURNED,\n    f.IS_CANCELLED,\n    od.FULL_DATE     AS ORDER_DATE,\n    sd.FULL_DATE     AS SHIP_DATE,\n    c.CUSTOMER_ID,\n    c.FIRST_NAME,\n    c.LAST_NAME,\n    c.CUSTOMER_SEGMENT,\n    c.LOYALTY_TIER,\n    c.REGION         AS CUSTOMER_REGION,\n    p.PRODUCT_ID,\n    p.PRODUCT_NAME,\n    p.CATEGORY,\n    p.SUBCATEGORY,\n    p.BRAND,\n    os.STORE_NAME    AS ORDER_STORE_NAME,\n    os.REGION        AS ORDER_STORE_REGION,\n    pr.PROMO_NAME,\n    pr.PROMO_TYPE,\n    pr.DISCOUNT_PCT  AS PROMO_DISCOUNT_PCT\n\nFROM CSA.TJ.ORDER_FACT f\n\n    INNER JOIN CSA.TJ.DATE_DIM     od ON f.ORDER_DATE_KEY  = od.DATE_KEY\n    LEFT  JOIN CSA.TJ.DATE_DIM     sd ON f.SHIP_DATE_KEY   = sd.DATE_KEY\n    LEFT  JOIN CSA.TJ.CUSTOMER_DIM  c ON f.CUSTOMER_KEY    = c.CUSTOMER_KEY\n    LEFT  JOIN CSA.TJ.PRODUCT_DIM   p ON f.PRODUCT_KEY     = p.PRODUCT_KEY\n    LEFT  JOIN CSA.TJ.STORE_DIM    os ON f.ORDER_STORE_KEY = os.STORE_KEY\n    LEFT  JOIN CSA.TJ.PROMO_DIM    pr ON f.PROMO_KEY       = pr.PROMO_KEY\n\nWHERE\n    (\n        'admin' IN ({{system::CurrentUserAttributeText::customer_segment}})\n        OR\n        c.CUSTOMER_SEGMENT IN ({{system::CurrentUserAttributeText::customer_segment}})\n    )\nAND od.FULL_DATE BETWEEN\n    TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:start))\n    AND TO_DATE(TO_TIMESTAMP({{p-Order-Date-Range}}:end))",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "ORDER_ID",
+              "formula": "[Custom SQL/ORDER_ID]"
+            },
+            {
+              "id": "ORDER_LINE",
+              "formula": "[Custom SQL/ORDER_LINE]"
+            },
+            {
+              "id": "ORDER_CHANNEL",
+              "formula": "[Custom SQL/ORDER_CHANNEL]"
+            },
+            {
+              "id": "ORDER_STATUS",
+              "formula": "[Custom SQL/ORDER_STATUS]"
+            },
+            {
+              "id": "SHIP_METHOD",
+              "formula": "[Custom SQL/SHIP_METHOD]"
+            },
+            {
+              "id": "GROSS_REVENUE",
+              "formula": "[Custom SQL/GROSS_REVENUE]"
+            },
+            {
+              "id": "NET_REVENUE",
+              "formula": "[Custom SQL/NET_REVENUE]"
+            },
+            {
+              "id": "DISCOUNT_AMOUNT",
+              "formula": "[Custom SQL/DISCOUNT_AMOUNT]"
+            },
+            {
+              "id": "QUANTITY_ORDERED",
+              "formula": "[Custom SQL/QUANTITY_ORDERED]"
+            },
+            {
+              "id": "IS_RETURNED",
+              "formula": "[Custom SQL/IS_RETURNED]"
+            },
+            {
+              "id": "IS_CANCELLED",
+              "formula": "[Custom SQL/IS_CANCELLED]"
+            },
+            {
+              "id": "ORDER_DATE",
+              "formula": "[Custom SQL/ORDER_DATE]"
+            },
+            {
+              "id": "SHIP_DATE",
+              "formula": "[Custom SQL/SHIP_DATE]"
+            },
+            {
+              "id": "CUSTOMER_ID",
+              "formula": "[Custom SQL/CUSTOMER_ID]"
+            },
+            {
+              "id": "FIRST_NAME",
+              "formula": "[Custom SQL/FIRST_NAME]"
+            },
+            {
+              "id": "LAST_NAME",
+              "formula": "[Custom SQL/LAST_NAME]"
+            },
+            {
+              "id": "CUSTOMER_SEGMENT",
+              "formula": "[Custom SQL/CUSTOMER_SEGMENT]"
+            },
+            {
+              "id": "LOYALTY_TIER",
+              "formula": "[Custom SQL/LOYALTY_TIER]"
+            },
+            {
+              "id": "CUSTOMER_REGION",
+              "formula": "[Custom SQL/CUSTOMER_REGION]"
+            },
+            {
+              "id": "PRODUCT_ID",
+              "formula": "[Custom SQL/PRODUCT_ID]"
+            },
+            {
+              "id": "PRODUCT_NAME",
+              "formula": "[Custom SQL/PRODUCT_NAME]"
+            },
+            {
+              "id": "CATEGORY",
+              "formula": "[Custom SQL/CATEGORY]"
+            },
+            {
+              "id": "SUBCATEGORY",
+              "formula": "[Custom SQL/SUBCATEGORY]"
+            },
+            {
+              "id": "BRAND",
+              "formula": "[Custom SQL/BRAND]"
+            },
+            {
+              "id": "ORDER_STORE_NAME",
+              "formula": "[Custom SQL/ORDER_STORE_NAME]"
+            },
+            {
+              "id": "ORDER_STORE_REGION",
+              "formula": "[Custom SQL/ORDER_STORE_REGION]"
+            },
+            {
+              "id": "PROMO_NAME",
+              "formula": "[Custom SQL/PROMO_NAME]"
+            },
+            {
+              "id": "PROMO_TYPE",
+              "formula": "[Custom SQL/PROMO_TYPE]"
+            },
+            {
+              "id": "PROMO_DISCOUNT_PCT",
+              "formula": "[Custom SQL/PROMO_DISCOUNT_PCT]"
+            }
+          ],
+          "name": "Order Lookup",
+          "order": [
+            "ORDER_ID",
+            "ORDER_LINE",
+            "ORDER_CHANNEL",
+            "ORDER_STATUS",
+            "SHIP_METHOD",
+            "GROSS_REVENUE",
+            "NET_REVENUE",
+            "DISCOUNT_AMOUNT",
+            "QUANTITY_ORDERED",
+            "IS_RETURNED",
+            "IS_CANCELLED",
+            "ORDER_DATE",
+            "SHIP_DATE",
+            "CUSTOMER_ID",
+            "FIRST_NAME",
+            "LAST_NAME",
+            "CUSTOMER_SEGMENT",
+            "LOYALTY_TIER",
+            "CUSTOMER_REGION",
+            "PRODUCT_ID",
+            "PRODUCT_NAME",
+            "CATEGORY",
+            "SUBCATEGORY",
+            "BRAND",
+            "ORDER_STORE_NAME",
+            "ORDER_STORE_REGION",
+            "PROMO_NAME",
+            "PROMO_TYPE",
+            "PROMO_DISCOUNT_PCT"
+          ]
+        }
+      ]
+    }
+  ]
+}
