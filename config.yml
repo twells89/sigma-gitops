@@ -40,3 +40,7 @@ data_models:
     file: retail-analytics-lod2.json
     name: Retail Analytics LOD2
     last_synced: '2026-04-17T10:30:01.298332Z'
+  8fdc3bf2-264f-4aa6-a91e-1dcef1a91aa0:
+    file: retail-analytics-semantic-view.json
+    name: Retail Analytics Semantic View
+    last_synced: '2026-04-17T10:30:26.983801Z'
