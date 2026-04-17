@@ -44,3 +44,7 @@ data_models:
     file: retail-analytics-semantic-view.json
     name: Retail Analytics Semantic View
     last_synced: '2026-04-17T10:30:26.983801Z'
+  3c1780a0-43b0-4884-9929-a4fb50d037a3:
+    file: retail-analytics-tabl.json
+    name: Retail Analytics Tabl
+    last_synced: '2026-04-17T10:30:50.164106Z'
