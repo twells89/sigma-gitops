@@ -1,0 +1,508 @@
+{
+  "dataModelId": "86105751-c09a-4f84-98ce-de7277af6f8b",
+  "name": "WANDA",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/WANDA-44YrggzPhx4Y56mErV2xJ1",
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-08T10:56:13.706Z",
+  "updatedAt": "2026-04-08T11:20:24.433Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "i34rRhXHDy",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "IrKx0hu9cc",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "LABOR_COSTS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "Cz864b50j7",
+              "formula": "[LABOR_COSTS/Cost Id]",
+              "name": "COST_ID"
+            },
+            {
+              "id": "6S9R8hM-8f",
+              "formula": "[LABOR_COSTS/Month]",
+              "name": "MONTH"
+            },
+            {
+              "id": "tb0_iJu4_R",
+              "formula": "[LABOR_COSTS/Location]",
+              "name": "LOCATION"
+            },
+            {
+              "id": "waBBjq9y6u",
+              "formula": "[LABOR_COSTS/Department]",
+              "name": "DEPARTMENT"
+            },
+            {
+              "id": "gdYbjTq1cK",
+              "formula": "[LABOR_COSTS/Headcount]",
+              "name": "HEADCOUNT"
+            },
+            {
+              "id": "Z0jT7OF1Rq",
+              "formula": "[LABOR_COSTS/Base Payroll]",
+              "name": "BASE_PAYROLL"
+            },
+            {
+              "id": "a8rUqfLVUE",
+              "formula": "[LABOR_COSTS/Overtime Cost]",
+              "name": "OVERTIME_COST"
+            },
+            {
+              "id": "SzpjIvUsu3",
+              "formula": "[LABOR_COSTS/Temp Worker Cost]",
+              "name": "TEMP_WORKER_COST"
+            },
+            {
+              "id": "NtjDUJgOj3",
+              "formula": "[LABOR_COSTS/Benefits Cost]",
+              "name": "BENEFITS_COST"
+            },
+            {
+              "id": "ei5IkPHMc0",
+              "formula": "[LABOR_COSTS/Total Labor Cost]",
+              "name": "TOTAL_LABOR_COST"
+            }
+          ],
+          "name": "Labor costs",
+          "metrics": [
+            {
+              "id": "FYMG6yitNv",
+              "formula": "Sum([TOTAL_LABOR_COST])",
+              "name": "Total Labor Cost",
+              "description": "Sum of all labor costs across all months, locations, and departments.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "h5-vesDzis",
+              "formula": "Sum([BASE_PAYROLL])",
+              "name": "Total Base Payroll",
+              "description": "Total base payroll expenditure across all periods and locations.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "F5YJ1LEPpk",
+              "formula": "Sum([OVERTIME_COST])",
+              "name": "Total Overtime Cost",
+              "description": "Total overtime pay costs incurred across all departments and locations.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "N-1IyYuaVT",
+              "formula": "Sum([TEMP_WORKER_COST])",
+              "name": "Total Temp Worker Cost",
+              "description": "Total spend on temporary workers across all periods.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "0vQ3cDGSXq",
+              "formula": "Sum([BENEFITS_COST])",
+              "name": "Total Benefits Cost",
+              "description": "Total employee benefits cost across all departments and locations.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "K2MZ25Hsm0",
+              "formula": "Avg([HEADCOUNT])",
+              "name": "Avg Headcount",
+              "description": "Average headcount per period across all locations and departments.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1f"
+              }
+            },
+            {
+              "id": "YO3hGQdSLA",
+              "formula": "Sum([HEADCOUNT])",
+              "name": "Total Headcount",
+              "description": "Sum of headcount figures across all recorded periods, locations, and departments.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "8FG1slbr1l",
+              "formula": "Sum([TOTAL_LABOR_COST]) / Sum([HEADCOUNT])",
+              "name": "Cost Per Head",
+              "description": "Average total labor cost per employee headcount unit across all periods.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "HaDZlT7EM_",
+              "formula": "Sum([OVERTIME_COST]) / Sum([TOTAL_LABOR_COST])",
+              "name": "Overtime % of Total Labor Cost",
+              "description": "Overtime cost as a share of total labor cost, indicating reliance on overtime.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            }
+          ],
+          "order": [
+            "Cz864b50j7",
+            "6S9R8hM-8f",
+            "tb0_iJu4_R",
+            "waBBjq9y6u",
+            "gdYbjTq1cK",
+            "Z0jT7OF1Rq",
+            "a8rUqfLVUE",
+            "SzpjIvUsu3",
+            "NtjDUJgOj3",
+            "ei5IkPHMc0"
+          ]
+        },
+        {
+          "id": "VVegsoMZ60",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ABSENCE_RECORDS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "LjyMXrCfoI",
+              "formula": "[ABSENCE_RECORDS/Absence Id]",
+              "name": "ABSENCE_ID"
+            },
+            {
+              "id": "8y0wRdvshD",
+              "formula": "[ABSENCE_RECORDS/Employee Id]",
+              "name": "EMPLOYEE_ID"
+            },
+            {
+              "id": "xbVUkCPdrU",
+              "formula": "[ABSENCE_RECORDS/Employee Id]",
+              "name": "EMPLOYEE_ID - link"
+            },
+            {
+              "id": "IfOSeI8tLd",
+              "formula": "[ABSENCE_RECORDS/Date]",
+              "name": "DATE"
+            },
+            {
+              "id": "DkEM1S4y-b",
+              "formula": "[ABSENCE_RECORDS/Absence Type]",
+              "name": "ABSENCE_TYPE"
+            },
+            {
+              "id": "FhMEs8CZo4",
+              "formula": "[ABSENCE_RECORDS/Hours]",
+              "name": "HOURS"
+            },
+            {
+              "id": "qISogocbxe",
+              "formula": "[ABSENCE_RECORDS/Approved]",
+              "name": "APPROVED"
+            },
+            {
+              "id": "kHwJZa_hHb",
+              "formula": "[ABSENCE_RECORDS/Day of Week]",
+              "name": "DAY_OF_WEEK"
+            },
+            {
+              "id": "cYRSLhyysP",
+              "formula": "[ABSENCE_RECORDS/Department]",
+              "name": "DEPARTMENT"
+            },
+            {
+              "id": "6PsqtfaVUL",
+              "formula": "[ABSENCE_RECORDS/Location]",
+              "name": "LOCATION"
+            }
+          ],
+          "name": "Absence records",
+          "metrics": [
+            {
+              "id": "HPLybKrRtM",
+              "formula": "Sum([HOURS])",
+              "name": "Total Absence Hours",
+              "description": "Total number of absence hours recorded across all absence records.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1f"
+              }
+            },
+            {
+              "id": "Q99qGIK7Ry",
+              "formula": "Count([ABSENCE_ID])",
+              "name": "Total Absences",
+              "description": "Total count of individual absence events logged."
+            },
+            {
+              "id": "9hhiWHvEcu",
+              "formula": "CountDistinct([EMPLOYEE_ID])",
+              "name": "Unique Employees Absent",
+              "description": "Number of distinct employees who have at least one absence record."
+            },
+            {
+              "id": "8PDfr3mxKE",
+              "formula": "CountIf([APPROVED] = True)",
+              "name": "Approved Absences",
+              "description": "Count of absence records that have been approved."
+            },
+            {
+              "id": "0G0z842vOT",
+              "formula": "CountIf([APPROVED] = True) / Count([ABSENCE_ID])",
+              "name": "Approval Rate",
+              "description": "Percentage of absence records that were approved out of all absences.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            },
+            {
+              "id": "nd7Bs8J31U",
+              "formula": "Avg([HOURS])",
+              "name": "Avg Absence Hours per Event",
+              "description": "Average number of hours per individual absence event.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.2f"
+              }
+            }
+          ],
+          "order": [
+            "LjyMXrCfoI",
+            "8y0wRdvshD",
+            "xbVUkCPdrU",
+            "IfOSeI8tLd",
+            "DkEM1S4y-b",
+            "FhMEs8CZo4",
+            "qISogocbxe",
+            "kHwJZa_hHb",
+            "cYRSLhyysP",
+            "6PsqtfaVUL"
+          ]
+        },
+        {
+          "id": "1r0yXxFok0",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "EMPLOYEES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "Y4risZLWmt",
+              "formula": "[EMPLOYEES/Employee Id]",
+              "name": "EMPLOYEE_ID"
+            },
+            {
+              "id": "sAfDiaNcsl",
+              "formula": "[EMPLOYEES/First Name]",
+              "name": "FIRST_NAME"
+            },
+            {
+              "id": "becheuHkLR",
+              "formula": "[EMPLOYEES/Last Name]",
+              "name": "LAST_NAME"
+            },
+            {
+              "id": "-TLuZvLUFd",
+              "formula": "[EMPLOYEES/Email]",
+              "name": "EMAIL"
+            },
+            {
+              "id": "JekK3jViSY",
+              "formula": "[EMPLOYEES/Department]",
+              "name": "DEPARTMENT"
+            },
+            {
+              "id": "L-tL7YNLUN",
+              "formula": "[EMPLOYEES/Role]",
+              "name": "ROLE"
+            },
+            {
+              "id": "zxRFcb4Hv5",
+              "formula": "[EMPLOYEES/Location]",
+              "name": "LOCATION"
+            },
+            {
+              "id": "qazZe6G5P0",
+              "formula": "[EMPLOYEES/Hire Date]",
+              "name": "HIRE_DATE"
+            },
+            {
+              "id": "8Fuv96XkSO",
+              "formula": "[EMPLOYEES/Status]",
+              "name": "STATUS"
+            },
+            {
+              "id": "I9Ud6Gsv15",
+              "formula": "[EMPLOYEES/Termination Date]",
+              "name": "TERMINATION_DATE"
+            },
+            {
+              "id": "nS1xHoCQtf",
+              "formula": "[EMPLOYEES/Termination Reason]",
+              "name": "TERMINATION_REASON"
+            },
+            {
+              "id": "7IIeQG2roW",
+              "formula": "[EMPLOYEES/Manager Id]",
+              "name": "MANAGER_ID"
+            },
+            {
+              "id": "yl2kh21yAv",
+              "formula": "[EMPLOYEES/Annual Salary]",
+              "name": "ANNUAL_SALARY"
+            },
+            {
+              "id": "SL7K7blKH6",
+              "formula": "[EMPLOYEES/Employment Type]",
+              "name": "EMPLOYMENT_TYPE"
+            },
+            {
+              "id": "h4BnxTLSv4",
+              "formula": "[EMPLOYEES/Shift]",
+              "name": "SHIFT"
+            }
+          ],
+          "name": "Employees",
+          "metrics": [
+            {
+              "id": "I0bDPOxkoc",
+              "formula": "CountDistinct([EMPLOYEE_ID])",
+              "name": "Total Employees",
+              "description": "Total number of distinct employees in the workforce."
+            },
+            {
+              "id": "iqZaqnM1ox",
+              "formula": "CountIf([STATUS] = \"Active\")",
+              "name": "Active Employees",
+              "description": "Count of employees currently in an active employment status."
+            },
+            {
+              "id": "5CDMLk5ymv",
+              "formula": "CountIf([STATUS] = \"Terminated\")",
+              "name": "Terminated Employees",
+              "description": "Count of employees who have been terminated."
+            },
+            {
+              "id": "KtnQ1BqjNP",
+              "formula": "Avg([ANNUAL_SALARY])",
+              "name": "Avg Annual Salary",
+              "description": "Average annual salary across all employees.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "mWGTCycDPV",
+              "formula": "Sum([ANNUAL_SALARY])",
+              "name": "Total Annual Salary",
+              "description": "Total annual salary payroll obligation across all employees.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "dGYJ2qqIsG",
+              "formula": "Avg(DateDiff(\"day\", [HIRE_DATE], Coalesce([TERMINATION_DATE], Today())))",
+              "name": "Avg Tenure (Days)",
+              "description": "Average number of days employees have been (or were) employed, using termination date if available or today's date.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "SghwgyiACk",
+              "formula": "CountIf([STATUS] = \"Terminated\") / CountDistinct([EMPLOYEE_ID])",
+              "name": "Turnover Rate",
+              "description": "Proportion of employees who have been terminated relative to the total headcount.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            },
+            {
+              "id": "0w-7bbn4Cp",
+              "formula": "CountIf([EMPLOYMENT_TYPE] = \"Full-Time\")",
+              "name": "Full-Time Employees",
+              "description": "Count of employees classified as full-time."
+            },
+            {
+              "id": "T44b-7JMNx",
+              "formula": "CountIf([EMPLOYMENT_TYPE] = \"Part-Time\")",
+              "name": "Part-Time Employees",
+              "description": "Count of employees classified as part-time."
+            }
+          ],
+          "order": [
+            "Y4risZLWmt",
+            "sAfDiaNcsl",
+            "becheuHkLR",
+            "-TLuZvLUFd",
+            "JekK3jViSY",
+            "L-tL7YNLUN",
+            "zxRFcb4Hv5",
+            "qazZe6G5P0",
+            "8Fuv96XkSO",
+            "I9Ud6Gsv15",
+            "nS1xHoCQtf",
+            "7IIeQG2roW",
+            "yl2kh21yAv",
+            "SL7K7blKH6",
+            "h4BnxTLSv4"
+          ]
+        }
+      ]
+    }
+  ]
+}
