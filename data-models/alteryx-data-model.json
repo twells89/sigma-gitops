@@ -2,14 +2,14 @@
   "dataModelId": "c1151b68-79df-4eac-b402-e919b3665f86",
   "name": "Alteryx Data Model",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Alteryx-Data-Model-5SlaevauT1Lnciz3qlUrzg",
-  "documentVersion": 3,
-  "latestDocumentVersion": 3,
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2026-03-30T22:23:37.171Z",
-  "updatedAt": "2026-04-03T19:46:52.944Z",
+  "updatedAt": "2026-04-17T10:27:37.594Z",
   "schemaVersion": 1,
   "pages": [
     {
@@ -236,7 +236,7 @@
             {
               "id": "oeqPTNFmPy",
               "formula": "[DATE_DIM/Quarter]",
-              "description": "Calendar quarter number (1–4) in which this date falls."
+              "description": "Calendar quarter number (1\u20134) in which this date falls."
             },
             {
               "id": "WeEURXGHaw",
@@ -375,7 +375,7 @@
             {
               "id": "A7rJVXSU8f",
               "formula": "[ORDER_FACT/Gross Revenue]",
-              "description": "Total revenue before discounts, returns, or adjustments (Quantity × Unit Price)."
+              "description": "Total revenue before discounts, returns, or adjustments (Quantity \u00d7 Unit Price)."
             },
             {
               "id": "iCHNdNQ4se",
@@ -408,7 +408,7 @@
               "id": "tppMbhGwLw",
               "formula": "If([Net Revenue] >= 500, \"High\", If([Net Revenue] >= 100, \"Medium\", \"Low\"))",
               "name": "Revenue Tier",
-              "description": "Categorizes each order line by net revenue into 'High' (≥$500), 'Medium' (≥$100), or 'Low' tiers."
+              "description": "Categorizes each order line by net revenue into 'High' (\u2265$500), 'Medium' (\u2265$100), or 'Low' tiers."
             }
           ],
           "metrics": [

@@ -12,3 +12,7 @@ data_models:
     file: csa-tj-order-analysis-carine.json
     name: CSA.TJ Order Analysis - Carine
     last_synced: '2026-03-25T19:12:18.270258Z'
+  c1151b68-79df-4eac-b402-e919b3665f86:
+    file: alteryx-data-model.json
+    name: Alteryx Data Model
+    last_synced: '2026-04-17T10:27:38.084685Z'
