@@ -16,3 +16,7 @@ data_models:
     file: alteryx-data-model.json
     name: Alteryx Data Model
     last_synced: '2026-04-17T10:27:38.084685Z'
+  339130f6-cb22-4900-bfb8-69936a4aec3b:
+    file: dbt-semantic-models-2.json
+    name: Dbt Semantic Models 2
+    last_synced: '2026-04-17T10:27:59.074496Z'
