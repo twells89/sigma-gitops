@@ -1,0 +1,133 @@
+{
+  "dataModelId": "2fa3b231-159d-488d-a17b-3189b6fc135f",
+  "name": "Order Analysis",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Order-Analysis-1rTrOIqgMaynUOOdUpHabl",
+  "documentVersion": 5,
+  "latestDocumentVersion": 5,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-03-23T11:01:55.205Z",
+  "updatedAt": "2026-03-30T15:22:14.434Z",
+  "description": "Order fact table with revenue and gross profit metrics",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "dhAzi0A4Cf",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "UpXqakH2NN",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "z7gXRfCh9x",
+              "formula": "[ORDER_FACT/Order Id]",
+              "name": "ORDER_ID"
+            },
+            {
+              "id": "1plRAgCYE9",
+              "formula": "[ORDER_FACT/Order Line]",
+              "name": "ORDER_LINE"
+            },
+            {
+              "id": "KdCZowhWHM",
+              "formula": "[ORDER_FACT/Customer Key]",
+              "name": "CUSTOMER_KEY"
+            },
+            {
+              "id": "kaLnRg_2eg",
+              "formula": "[ORDER_FACT/Product Key]",
+              "name": "PRODUCT_KEY"
+            },
+            {
+              "id": "IrVN54dCbs",
+              "formula": "[ORDER_FACT/Order Store Key]",
+              "name": "ORDER_STORE_KEY"
+            },
+            {
+              "id": "KjPC4avTBr",
+              "formula": "[ORDER_FACT/Order Date Key]",
+              "name": "ORDER_DATE_KEY"
+            },
+            {
+              "id": "wCAARE7iUS",
+              "formula": "[ORDER_FACT/Order Channel]",
+              "name": "ORDER_CHANNEL"
+            },
+            {
+              "id": "uF7e0yagGN",
+              "formula": "[ORDER_FACT/Order Status]",
+              "name": "ORDER_STATUS"
+            },
+            {
+              "id": "QThU-M6NKR",
+              "formula": "[ORDER_FACT/Quantity Ordered]",
+              "name": "QUANTITY_ORDERED"
+            },
+            {
+              "id": "tFPkXOjGg2",
+              "formula": "[ORDER_FACT/Quantity Returned]",
+              "name": "QUANTITY_RETURNED"
+            },
+            {
+              "id": "zXomIVTF8C",
+              "formula": "[ORDER_FACT/Net Revenue]",
+              "name": "NET_REVENUE"
+            },
+            {
+              "id": "XOwje8vExr",
+              "formula": "[ORDER_FACT/Gross Profit]",
+              "name": "GROSS_PROFIT"
+            }
+          ],
+          "name": "Orders",
+          "metrics": [
+            {
+              "id": "cHfx5m8RF7",
+              "formula": "Sum([Net Revenue])",
+              "name": "Total Revenue",
+              "description": "Sum of net revenue across all order lines after applying discounts and adjustments"
+            },
+            {
+              "id": "NdAKANyfJB",
+              "formula": "Sum([Gross Profit])",
+              "name": "Total Gross Profit",
+              "description": "Total profit margin calculated as net revenue minus cost of goods sold"
+            },
+            {
+              "id": "7upHkyLfIh",
+              "formula": "Avg([Net Revenue])",
+              "name": "Average Order Value",
+              "description": "Mean revenue value per order line, useful for understanding typical transaction size"
+            }
+          ],
+          "order": [
+            "z7gXRfCh9x",
+            "1plRAgCYE9",
+            "KdCZowhWHM",
+            "kaLnRg_2eg",
+            "IrVN54dCbs",
+            "KjPC4avTBr",
+            "wCAARE7iUS",
+            "uF7e0yagGN",
+            "QThU-M6NKR",
+            "tFPkXOjGg2",
+            "zXomIVTF8C",
+            "XOwje8vExr"
+          ]
+        }
+      ]
+    }
+  ]
+}
