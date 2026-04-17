@@ -48,3 +48,7 @@ data_models:
     file: retail-analytics-tabl.json
     name: Retail Analytics Tabl
     last_synced: '2026-04-17T10:30:50.164106Z'
+  4018adeb-77f6-4b2e-a074-e82cae6b633f:
+    file: retail-analytics-all-2.json
+    name: retail_analytics ALL 2
+    last_synced: '2026-04-17T10:31:15.455612Z'
