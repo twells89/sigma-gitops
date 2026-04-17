@@ -1,0 +1,1634 @@
+{
+  "dataModelId": "4018adeb-77f6-4b2e-a074-e82cae6b633f",
+  "name": "retail_analytics ALL 2",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/retail_analytics-ALL-2-1WWMOTfWRg1jYEMimZTSeH",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-11T11:46:19.705Z",
+  "updatedAt": "2026-04-11T11:46:19.705Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "MerDnSkcpH",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "zozm5dpXpK",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "Ti3o5O2pqJ",
+              "formula": "[CUSTOMER_DIM/Customer Key]",
+              "hidden": true
+            },
+            {
+              "id": "VrWUPU79np",
+              "formula": "[CUSTOMER_DIM/Customer Id]"
+            },
+            {
+              "id": "zgdnUkrScB",
+              "formula": "[CUSTOMER_DIM/First Name]"
+            },
+            {
+              "id": "kJdyFFfWF2",
+              "formula": "[CUSTOMER_DIM/Last Name]"
+            },
+            {
+              "id": "o6q3OjRp2V",
+              "formula": "[CUSTOMER_DIM/Email]"
+            },
+            {
+              "id": "GezI_xJybr",
+              "formula": "[CUSTOMER_DIM/Phone]"
+            },
+            {
+              "id": "1VNYQhcAP7",
+              "formula": "[CUSTOMER_DIM/City]"
+            },
+            {
+              "id": "fArpybjZNW",
+              "formula": "[CUSTOMER_DIM/State]"
+            },
+            {
+              "id": "PZP2W83zez",
+              "formula": "[CUSTOMER_DIM/Zip Code]"
+            },
+            {
+              "id": "o_Eqjo0ueY",
+              "formula": "[CUSTOMER_DIM/Region]"
+            },
+            {
+              "id": "-aXrb4hak1",
+              "formula": "[CUSTOMER_DIM/Customer Segment]"
+            },
+            {
+              "id": "eJd4ls2MWd",
+              "formula": "[CUSTOMER_DIM/Loyalty Tier]"
+            },
+            {
+              "id": "Zj2qwfZ7FK",
+              "formula": "[CUSTOMER_DIM/Acquisition Channel]"
+            },
+            {
+              "id": "Fw9NlnLfN7",
+              "formula": "[CUSTOMER_DIM/Is Active]"
+            },
+            {
+              "id": "H2No0LtIAv",
+              "formula": "[Is Active] = 1",
+              "name": "Is Active (T/F)"
+            },
+            {
+              "id": "NOlkT-Cds_",
+              "formula": "[CUSTOMER_DIM/Is Email Opt In]"
+            },
+            {
+              "id": "nE9k7Cq5fh",
+              "formula": "[Is Email Opt In] = 1",
+              "name": "Email Opt-In (T/F)"
+            },
+            {
+              "id": "9Vpl_e79JU",
+              "formula": "[CUSTOMER_DIM/Lifetime Order Count]"
+            },
+            {
+              "id": "CTuxMN303T",
+              "formula": "[CUSTOMER_DIM/Lifetime Revenue]"
+            },
+            {
+              "id": "lk0aTbBtUI",
+              "formula": "If([Lifetime Revenue] >= 10000, \"10000 or Above\", If([Lifetime Revenue] >= 5000, \"5000 to 9999\", If([Lifetime Revenue] >= 1000, \"1000 to 4999\", If([Lifetime Revenue] >= 500, \"500 to 999\", If([Lifetime Revenue] >= 100, \"100 to 499\", If([Lifetime Revenue] >= 0, \"0 to 99\", \"Below 0\"))))))",
+              "name": "Lifetime Revenue Tier"
+            },
+            {
+              "id": "uTGZnHCpew",
+              "formula": "Concat([First Name], \" \", [Last Name])",
+              "name": "Full Name"
+            },
+            {
+              "id": "KBXF0vM1w6",
+              "formula": "In([Loyalty Tier], \"Gold\", \"Silver\")",
+              "name": "Is Premium Customer"
+            },
+            {
+              "id": "WRep_TCqYY",
+              "formula": "If([Loyalty Tier] = \"Gold\" and [Lifetime Revenue] >= 5000, \"VIP\", If(In([Loyalty Tier], \"Gold\", \"Silver\"), \"Loyal\", \"Standard\"))",
+              "name": "Customer Value Segment"
+            },
+            {
+              "id": "8h7IyhBdVa",
+              "formula": "If(([Is Active] = 1) and ([Is Email Opt In] = 1), \"Active + Opted In\", If(([Is Active] = 1) and Not ([Is Email Opt In] = 1), \"Active, No Email\", \"Inactive\"))",
+              "name": "Engagement Label"
+            },
+            {
+              "id": "kw7C-o9Hsq",
+              "formula": "[CUSTOMER_DIM/First Order Date]",
+              "name": "First Order Raw"
+            },
+            {
+              "id": "40z7tZThzt",
+              "formula": "DateTrunc(\"day\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Date"
+            },
+            {
+              "id": "44qw7T9-9b",
+              "formula": "DateTrunc(\"week\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Week"
+            },
+            {
+              "id": "LFaqC5xiLB",
+              "formula": "DateTrunc(\"month\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Month"
+            },
+            {
+              "id": "BoL7gQLn_U",
+              "formula": "DateTrunc(\"quarter\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Quarter"
+            },
+            {
+              "id": "2RSaEp6yHC",
+              "formula": "DateTrunc(\"year\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Year"
+            },
+            {
+              "id": "d8mJ3bHkJu",
+              "formula": "DatePart(\"weekday\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Day Of Week"
+            },
+            {
+              "id": "pMWmLvNGax",
+              "formula": "DatePart(\"day\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Day Of Month"
+            },
+            {
+              "id": "u5b6KdG7Fq",
+              "formula": "DatePart(\"week\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Week Of Year"
+            },
+            {
+              "id": "4e5S4Rv-VJ",
+              "formula": "DatePart(\"month\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Month Num"
+            },
+            {
+              "id": "eE617LpCFF",
+              "formula": "DatePart(\"quarter\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Quarter Of Year"
+            },
+            {
+              "id": "wsIPz7dMYF",
+              "formula": "DatePart(\"hour\", [CUSTOMER_DIM/First Order Date])",
+              "name": "First Order Hour Of Day"
+            },
+            {
+              "id": "U7ppj7atGD",
+              "formula": "DateAdd(\"minute\", Floor(DatePart(\"minute\", [CUSTOMER_DIM/First Order Date]) / 15) * 15, DateTrunc(\"hour\", [CUSTOMER_DIM/First Order Date]))",
+              "name": "First Order Minute15"
+            },
+            {
+              "id": "NfHE4ilERi",
+              "formula": "DateAdd(\"hour\", Floor(DatePart(\"hour\", [CUSTOMER_DIM/First Order Date]) / 4) * 4, DateTrunc(\"day\", [CUSTOMER_DIM/First Order Date]))",
+              "name": "First Order Hour4"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "pmyxxFhirW",
+              "formula": "Count()",
+              "name": "Customer Count"
+            },
+            {
+              "id": "HdH2lw9N5o",
+              "formula": "Avg([Lifetime Revenue])",
+              "name": "Avg Lifetime Revenue"
+            },
+            {
+              "id": "jd7y-ZSuZ-",
+              "formula": "Sum([Lifetime Revenue])",
+              "name": "Total Lifetime Revenue"
+            },
+            {
+              "id": "h6lP1rpDzy",
+              "formula": "Max([Lifetime Revenue])",
+              "name": "Top Customer Revenue"
+            }
+          ],
+          "folders": [
+            {
+              "id": "14roM38sLC",
+              "name": "First Order",
+              "items": [
+                "kw7C-o9Hsq",
+                "40z7tZThzt",
+                "44qw7T9-9b",
+                "LFaqC5xiLB",
+                "BoL7gQLn_U",
+                "2RSaEp6yHC",
+                "d8mJ3bHkJu",
+                "pMWmLvNGax",
+                "u5b6KdG7Fq",
+                "4e5S4Rv-VJ",
+                "eE617LpCFF",
+                "wsIPz7dMYF",
+                "U7ppj7atGD",
+                "NfHE4ilERi"
+              ]
+            }
+          ],
+          "order": [
+            "Ti3o5O2pqJ",
+            "VrWUPU79np",
+            "zgdnUkrScB",
+            "kJdyFFfWF2",
+            "o6q3OjRp2V",
+            "GezI_xJybr",
+            "1VNYQhcAP7",
+            "fArpybjZNW",
+            "PZP2W83zez",
+            "o_Eqjo0ueY",
+            "-aXrb4hak1",
+            "eJd4ls2MWd",
+            "Zj2qwfZ7FK",
+            "Fw9NlnLfN7",
+            "H2No0LtIAv",
+            "NOlkT-Cds_",
+            "nE9k7Cq5fh",
+            "9Vpl_e79JU",
+            "CTuxMN303T",
+            "lk0aTbBtUI",
+            "uTGZnHCpew",
+            "KBXF0vM1w6",
+            "WRep_TCqYY",
+            "8h7IyhBdVa",
+            "14roM38sLC"
+          ]
+        },
+        {
+          "id": "HMMsgrXRzH",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PRODUCT_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "61GWzMuYVA",
+              "formula": "[PRODUCT_DIM/Product Key]",
+              "hidden": true
+            },
+            {
+              "id": "HSa58vDfoj",
+              "formula": "[PRODUCT_DIM/Product Id]"
+            },
+            {
+              "id": "HaCVg75mFm",
+              "formula": "[PRODUCT_DIM/Product Name]"
+            },
+            {
+              "id": "yxbwiDBKVR",
+              "formula": "[PRODUCT_DIM/Category]"
+            },
+            {
+              "id": "tYH1QaPsqP",
+              "formula": "[PRODUCT_DIM/Subcategory]"
+            },
+            {
+              "id": "kDioRQZnC2",
+              "formula": "[PRODUCT_DIM/Brand]"
+            },
+            {
+              "id": "uy5YfXSLBI",
+              "formula": "[PRODUCT_DIM/Unit Cost]"
+            },
+            {
+              "id": "DWPBDGQHvR",
+              "formula": "[PRODUCT_DIM/Unit Price]"
+            },
+            {
+              "id": "nxrRqNpKOm",
+              "formula": "[PRODUCT_DIM/Weight Lbs]"
+            },
+            {
+              "id": "nYaD8FfMW2",
+              "formula": "Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1)",
+              "name": "List Margin %"
+            },
+            {
+              "id": "b1LRNiSzP-",
+              "formula": "[PRODUCT_DIM/Is Active]"
+            },
+            {
+              "id": "aBCftkLZHJ",
+              "formula": "[Is Active] = 1",
+              "name": "Is Active (T/F)"
+            },
+            {
+              "id": "icIOOOdSXP",
+              "formula": "[PRODUCT_DIM/Is Private Label]"
+            },
+            {
+              "id": "TcEetax-VV",
+              "formula": "[Is Private Label] = 1",
+              "name": "Is Private Label (T/F)"
+            },
+            {
+              "id": "gXJHT8rTfR",
+              "formula": "[PRODUCT_DIM/Is Seasonal]"
+            },
+            {
+              "id": "2q9tSTVd7d",
+              "formula": "[Is Seasonal] = 1",
+              "name": "Is Seasonal (T/F)"
+            },
+            {
+              "id": "5jSjFeeLmu",
+              "formula": "If(Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1) >= 80, \"80 or Above\", If(Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1) >= 60, \"60 to 79\", If(Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1) >= 40, \"40 to 59\", If(Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1) >= 20, \"20 to 39\", If(Round(([Unit Price] - [Unit Cost]) / If([Unit Price] = 0, Null, [Unit Price]) * 100, 1) >= 0, \"0 to 19\", \"Below 0\")))))",
+              "name": "Margin Band"
+            },
+            {
+              "id": "P7i6P2JXEI",
+              "formula": "If([Unit Price] >= 100, \"Premium\", If([Unit Price] >= 50, \"Mid-Range\", \"Value\"))",
+              "name": "Price Band"
+            },
+            {
+              "id": "a0U-O6KWCf",
+              "formula": "If([List Margin %] >= 50, \"High Margin\", If([List Margin %] >= 30, \"Mid Margin\", \"Low Margin\"))",
+              "name": "Margin Quality"
+            },
+            {
+              "id": "n2UdQJCmTo",
+              "formula": "Concat([Brand], \" - \", [Category])",
+              "name": "Brand / Category"
+            },
+            {
+              "id": "6CUdsZbU3u",
+              "formula": "DateTrunc(\"day\", [PRODUCT_DIM/Launch Date])",
+              "name": "Launch Date"
+            },
+            {
+              "id": "PwAYlQUWIB",
+              "formula": "DateTrunc(\"month\", [PRODUCT_DIM/Launch Date])",
+              "name": "Launch Month"
+            },
+            {
+              "id": "zbh9ViR1uk",
+              "formula": "DateTrunc(\"year\", [PRODUCT_DIM/Launch Date])",
+              "name": "Launch Year"
+            },
+            {
+              "id": "cIQLmDYtUS",
+              "formula": "DateTrunc(\"day\", [PRODUCT_DIM/Discontinue Date])",
+              "name": "Discontinue Date"
+            },
+            {
+              "id": "ak2qAxoX0E",
+              "formula": "DateTrunc(\"month\", [PRODUCT_DIM/Discontinue Date])",
+              "name": "Discontinue Month"
+            },
+            {
+              "id": "8PNLbZlNNq",
+              "formula": "DateTrunc(\"year\", [PRODUCT_DIM/Discontinue Date])",
+              "name": "Discontinue Year"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "Nans3pyyxc",
+              "formula": "Count()",
+              "name": "Product Count"
+            },
+            {
+              "id": "qCZBY2yLhU",
+              "formula": "Avg([Unit Price])",
+              "name": "Avg List Price"
+            },
+            {
+              "id": "y006kuWPyq",
+              "formula": "Avg([Unit Cost])",
+              "name": "Avg Unit Cost"
+            },
+            {
+              "id": "fNtl1pPiSB",
+              "formula": "Max([Unit Price])",
+              "name": "Max List Price"
+            }
+          ],
+          "folders": [
+            {
+              "id": "P6xPAKXz4M",
+              "name": "Launch",
+              "items": [
+                "6CUdsZbU3u",
+                "PwAYlQUWIB",
+                "zbh9ViR1uk"
+              ]
+            },
+            {
+              "id": "pFeGnYcI0D",
+              "name": "Discontinue",
+              "items": [
+                "cIQLmDYtUS",
+                "ak2qAxoX0E",
+                "8PNLbZlNNq"
+              ]
+            }
+          ],
+          "order": [
+            "61GWzMuYVA",
+            "HSa58vDfoj",
+            "HaCVg75mFm",
+            "yxbwiDBKVR",
+            "tYH1QaPsqP",
+            "kDioRQZnC2",
+            "uy5YfXSLBI",
+            "DWPBDGQHvR",
+            "nxrRqNpKOm",
+            "nYaD8FfMW2",
+            "b1LRNiSzP-",
+            "aBCftkLZHJ",
+            "icIOOOdSXP",
+            "TcEetax-VV",
+            "gXJHT8rTfR",
+            "2q9tSTVd7d",
+            "5jSjFeeLmu",
+            "P7i6P2JXEI",
+            "a0U-O6KWCf",
+            "n2UdQJCmTo",
+            "P6xPAKXz4M",
+            "pFeGnYcI0D"
+          ]
+        },
+        {
+          "id": "Dpa1KzI9oy",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "STORE_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "yaTHUbRgC8",
+              "formula": "[STORE_DIM/Store Key]",
+              "hidden": true
+            },
+            {
+              "id": "0zOH1RfIim",
+              "formula": "[STORE_DIM/Store Id]"
+            },
+            {
+              "id": "gpFqc9W3Nq",
+              "formula": "[STORE_DIM/Store Name]"
+            },
+            {
+              "id": "V6krIESXWH",
+              "formula": "[STORE_DIM/Store Type]"
+            },
+            {
+              "id": "BsAJt4Rdsl",
+              "formula": "[STORE_DIM/City]"
+            },
+            {
+              "id": "K83vnxCCRG",
+              "formula": "[STORE_DIM/State]"
+            },
+            {
+              "id": "7-H7rpSA43",
+              "formula": "[STORE_DIM/Region]"
+            },
+            {
+              "id": "Wq9WH7JEWr",
+              "formula": "[STORE_DIM/District]"
+            },
+            {
+              "id": "4cD3os51yt",
+              "formula": "[STORE_DIM/Square Footage]"
+            },
+            {
+              "id": "0wuAIzSQx4",
+              "formula": "[STORE_DIM/Annual Lease Cost]"
+            },
+            {
+              "id": "v4Wo0BeJrF",
+              "formula": "Round([Annual Lease Cost] / If([Square Footage] = 0, Null, [Square Footage]), 2)",
+              "name": "Lease Cost / Sq Ft"
+            },
+            {
+              "id": "R6Ml8mGQ79",
+              "formula": "[STORE_DIM/Manager Name]"
+            },
+            {
+              "id": "1r-Z1SQYvM",
+              "formula": "[STORE_DIM/Store Phone]"
+            },
+            {
+              "id": "ib2FMZbxm-",
+              "formula": "[STORE_DIM/Is Active]"
+            },
+            {
+              "id": "Pyf-oFLCYg",
+              "formula": "[Is Active] = 1",
+              "name": "Is Active (T/F)"
+            },
+            {
+              "id": "Zjys4d4nmM",
+              "formula": "[STORE_DIM/Has Cafe]"
+            },
+            {
+              "id": "7NFdXbwUpH",
+              "formula": "[Has Cafe] = 1",
+              "name": "Has Cafe (T/F)"
+            },
+            {
+              "id": "37Oyev_YPH",
+              "formula": "[STORE_DIM/Has Curbside]"
+            },
+            {
+              "id": "rO5t7D17nc",
+              "formula": "[Has Curbside] = 1",
+              "name": "Has Curbside (T/F)"
+            },
+            {
+              "id": "Ju8CEAKMzV",
+              "formula": "If([Square Footage] >= 20000, \"20000 or Above\", If([Square Footage] >= 10000, \"10000 to 19999\", If([Square Footage] >= 5000, \"5000 to 9999\", If([Square Footage] >= 2000, \"2000 to 4999\", If([Square Footage] >= 0, \"0 to 1999\", \"Below 0\")))))",
+              "name": "Size Tier"
+            },
+            {
+              "id": "pTUztTBMgR",
+              "formula": "If(In([Store Type], \"Flagship\", \"Outlet\"), \"Full Format\", If([Store Type] = \"Express\", \"Small Format\", \"Temporary\"))",
+              "name": "Store Format"
+            },
+            {
+              "id": "Xx1RZwjJ_4",
+              "formula": "If([Annual Lease Cost] / NullIf([Square Footage], 0) < 20, \"Efficient\", \"High Cost\")",
+              "name": "Cost Efficiency"
+            },
+            {
+              "id": "elS7VIunwm",
+              "formula": "Concat(If(([Has Cafe] = 1), \"Cafe \", \"\"), If(([Has Curbside] = 1), \"Curbside\", \"\"))",
+              "name": "Amenity Summary"
+            },
+            {
+              "id": "0fcZNeTKQA",
+              "formula": "DateTrunc(\"day\", [STORE_DIM/Open Date])",
+              "name": "Open Date"
+            },
+            {
+              "id": "IgKupGM9Bo",
+              "formula": "DateTrunc(\"month\", [STORE_DIM/Open Date])",
+              "name": "Open Month"
+            },
+            {
+              "id": "58IG8UeF_N",
+              "formula": "DateTrunc(\"year\", [STORE_DIM/Open Date])",
+              "name": "Open Year"
+            },
+            {
+              "id": "4eIcVPGGs1",
+              "formula": "DateTrunc(\"day\", [STORE_DIM/Close Date])",
+              "name": "Close Date"
+            },
+            {
+              "id": "W7_qjzzPgo",
+              "formula": "DateTrunc(\"month\", [STORE_DIM/Close Date])",
+              "name": "Close Month"
+            },
+            {
+              "id": "QHT7ymYcft",
+              "formula": "DateTrunc(\"year\", [STORE_DIM/Close Date])",
+              "name": "Close Year"
+            },
+            {
+              "id": "cJ21BNLq3Q",
+              "formula": "DateDiff(\"day\", [STORE_DIM/Open Date], [STORE_DIM/Close Date])",
+              "name": "Store Tenure Days"
+            },
+            {
+              "id": "IyupOOBaY2",
+              "formula": "DateDiff(\"month\", [STORE_DIM/Open Date], [STORE_DIM/Close Date])",
+              "name": "Store Tenure Months"
+            },
+            {
+              "id": "Cjm9QUlJQ0",
+              "formula": "DateDiff(\"year\", [STORE_DIM/Open Date], [STORE_DIM/Close Date])",
+              "name": "Store Tenure Years"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "gCa0qcfwqd",
+              "formula": "Count()",
+              "name": "Store Count"
+            },
+            {
+              "id": "MTxCtJg47I",
+              "formula": "Avg([Square Footage])",
+              "name": "Avg Square Footage"
+            },
+            {
+              "id": "pV33G8Vd9J",
+              "formula": "Sum([Annual Lease Cost])",
+              "name": "Total Annual Lease Cost"
+            },
+            {
+              "id": "Go3rg20VT5",
+              "formula": "Max([Annual Lease Cost])",
+              "name": "Highest Lease Cost"
+            }
+          ],
+          "folders": [
+            {
+              "id": "Jh_zQkNlDw",
+              "name": "Open",
+              "items": [
+                "0fcZNeTKQA",
+                "IgKupGM9Bo",
+                "58IG8UeF_N"
+              ]
+            },
+            {
+              "id": "nzGloG0Kff",
+              "name": "Close",
+              "items": [
+                "4eIcVPGGs1",
+                "W7_qjzzPgo",
+                "QHT7ymYcft"
+              ]
+            },
+            {
+              "id": "cKhgiC_-ZJ",
+              "name": "Store Tenure",
+              "items": [
+                "cJ21BNLq3Q",
+                "IyupOOBaY2",
+                "Cjm9QUlJQ0"
+              ]
+            }
+          ],
+          "order": [
+            "yaTHUbRgC8",
+            "0zOH1RfIim",
+            "gpFqc9W3Nq",
+            "V6krIESXWH",
+            "BsAJt4Rdsl",
+            "K83vnxCCRG",
+            "7-H7rpSA43",
+            "Wq9WH7JEWr",
+            "4cD3os51yt",
+            "0wuAIzSQx4",
+            "v4Wo0BeJrF",
+            "R6Ml8mGQ79",
+            "1r-Z1SQYvM",
+            "ib2FMZbxm-",
+            "Pyf-oFLCYg",
+            "Zjys4d4nmM",
+            "7NFdXbwUpH",
+            "37Oyev_YPH",
+            "rO5t7D17nc",
+            "Ju8CEAKMzV",
+            "pTUztTBMgR",
+            "Xx1RZwjJ_4",
+            "elS7VIunwm",
+            "Jh_zQkNlDw",
+            "nzGloG0Kff",
+            "cKhgiC_-ZJ"
+          ]
+        },
+        {
+          "id": "xdWD76ciJ9",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "DATE_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "cH9CqFkygz",
+              "formula": "[DATE_DIM/Date Key]",
+              "hidden": true
+            },
+            {
+              "id": "Ia6vXxzjCa",
+              "formula": "[DATE_DIM/Day of Week]"
+            },
+            {
+              "id": "_XPZNKjNum",
+              "formula": "[DATE_DIM/Day of Month]"
+            },
+            {
+              "id": "rJGfKCFfrc",
+              "formula": "[DATE_DIM/Week of Year]"
+            },
+            {
+              "id": "souSkMgBwH",
+              "formula": "[DATE_DIM/Month Number]"
+            },
+            {
+              "id": "BD9NvPxUvP",
+              "formula": "[DATE_DIM/Month Name]"
+            },
+            {
+              "id": "0CstFFTyzH",
+              "formula": "[DATE_DIM/Quarter]"
+            },
+            {
+              "id": "JQHyb8Y4RH",
+              "formula": "[DATE_DIM/Year]"
+            },
+            {
+              "id": "dXMn_DM2HX",
+              "formula": "[DATE_DIM/Fiscal Period]"
+            },
+            {
+              "id": "rXOQZiUD38",
+              "formula": "[DATE_DIM/Is Weekend]"
+            },
+            {
+              "id": "CMbbFhkaMg",
+              "formula": "[Is Weekend] = 1",
+              "name": "Is Weekend (T/F)"
+            },
+            {
+              "id": "sCo7WmDnb8",
+              "formula": "[DATE_DIM/Is Holiday]"
+            },
+            {
+              "id": "XQYMDYk5uR",
+              "formula": "[Is Holiday] = 1",
+              "name": "Is Holiday (T/F)"
+            },
+            {
+              "id": "J26Wo1LUOC",
+              "formula": "If(In(Month([Full Date]), 11, 12), \"Holiday\", If(In(Month([Full Date]), 6, 7, 8), \"Summer\", If(In(Month([Full Date]), 3, 4, 5), \"Spring\", \"Winter\")))",
+              "name": "Retail Season"
+            },
+            {
+              "id": "4nlyLEtIcu",
+              "formula": "If(([Is Holiday] = 1), \"Holiday\", If(([Is Weekend] = 1), \"Weekend\", \"Weekday\"))",
+              "name": "Day Type"
+            },
+            {
+              "id": "YskafjKAz8",
+              "formula": "Concat(\"Q\", Text([Quarter]), \" \", Text([Year]))",
+              "name": "Quarter Label"
+            },
+            {
+              "id": "BvO9WWJ0Da",
+              "formula": "[DATE_DIM/Full Date]",
+              "name": "Full Raw"
+            },
+            {
+              "id": "hoy9CWshNZ",
+              "formula": "DateTrunc(\"day\", [DATE_DIM/Full Date])",
+              "name": "Full Date"
+            },
+            {
+              "id": "J9PBds4M67",
+              "formula": "DatePart(\"weekday\", [DATE_DIM/Full Date])",
+              "name": "Full Day Of Week"
+            },
+            {
+              "id": "iViTZSErtC",
+              "formula": "DatePart(\"day\", [DATE_DIM/Full Date])",
+              "name": "Full Day Of Month"
+            },
+            {
+              "id": "Feh2IYnjbp",
+              "formula": "DatePart(\"weekday\", [DATE_DIM/Full Date])",
+              "name": "Full Day Of Week Index"
+            },
+            {
+              "id": "L1qbg2uFOT",
+              "formula": "DateTrunc(\"week\", [DATE_DIM/Full Date])",
+              "name": "Full Week"
+            },
+            {
+              "id": "kTZvfPq4S7",
+              "formula": "DatePart(\"week\", [DATE_DIM/Full Date])",
+              "name": "Full Week Of Year"
+            },
+            {
+              "id": "y61bh2sjpq",
+              "formula": "DateTrunc(\"month\", [DATE_DIM/Full Date])",
+              "name": "Full Month"
+            },
+            {
+              "id": "tRYKoRFHoB",
+              "formula": "DatePart(\"month\", [DATE_DIM/Full Date])",
+              "name": "Full Month Num"
+            },
+            {
+              "id": "2IjR795DgY",
+              "formula": "DateTrunc(\"quarter\", [DATE_DIM/Full Date])",
+              "name": "Full Quarter"
+            },
+            {
+              "id": "6LsZ1Cd7hb",
+              "formula": "DatePart(\"quarter\", [DATE_DIM/Full Date])",
+              "name": "Full Quarter Of Year"
+            },
+            {
+              "id": "uEmeDsb5IB",
+              "formula": "DateTrunc(\"year\", [DATE_DIM/Full Date])",
+              "name": "Full Year"
+            },
+            {
+              "id": "BeILco40-g",
+              "formula": "DateTrunc(\"hour\", [DATE_DIM/Full Date])",
+              "name": "Full Hour"
+            },
+            {
+              "id": "E7VT2v-oXE",
+              "formula": "DateTrunc(\"minute\", [DATE_DIM/Full Date])",
+              "name": "Full Minute"
+            },
+            {
+              "id": "McdsdgGoIf",
+              "formula": "DatePart(\"hour\", [DATE_DIM/Full Date])",
+              "name": "Full Hour Of Day"
+            },
+            {
+              "id": "qz94i8Bhzm",
+              "formula": "DateAdd(\"minute\", Floor(DatePart(\"minute\", [DATE_DIM/Full Date]) / 15) * 15, DateTrunc(\"hour\", [DATE_DIM/Full Date]))",
+              "name": "Full Minute15"
+            },
+            {
+              "id": "77mO7CTzRy",
+              "formula": "DateAdd(\"hour\", Floor(DatePart(\"hour\", [DATE_DIM/Full Date]) / 4) * 4, DateTrunc(\"day\", [DATE_DIM/Full Date]))",
+              "name": "Full Hour4"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "mjxIbtwJ1C",
+              "formula": "Count()",
+              "name": "Day Count"
+            }
+          ],
+          "folders": [
+            {
+              "id": "K_tLqzMFfI",
+              "name": "Full",
+              "items": [
+                "BvO9WWJ0Da",
+                "hoy9CWshNZ",
+                "J9PBds4M67",
+                "iViTZSErtC",
+                "Feh2IYnjbp",
+                "L1qbg2uFOT",
+                "kTZvfPq4S7",
+                "y61bh2sjpq",
+                "tRYKoRFHoB",
+                "2IjR795DgY",
+                "6LsZ1Cd7hb",
+                "uEmeDsb5IB",
+                "BeILco40-g",
+                "E7VT2v-oXE",
+                "McdsdgGoIf",
+                "qz94i8Bhzm",
+                "77mO7CTzRy"
+              ]
+            }
+          ],
+          "order": [
+            "cH9CqFkygz",
+            "Ia6vXxzjCa",
+            "_XPZNKjNum",
+            "rJGfKCFfrc",
+            "souSkMgBwH",
+            "BD9NvPxUvP",
+            "0CstFFTyzH",
+            "JQHyb8Y4RH",
+            "dXMn_DM2HX",
+            "rXOQZiUD38",
+            "CMbbFhkaMg",
+            "sCo7WmDnb8",
+            "XQYMDYk5uR",
+            "J26Wo1LUOC",
+            "4nlyLEtIcu",
+            "YskafjKAz8",
+            "K_tLqzMFfI"
+          ]
+        },
+        {
+          "id": "xG1Co9opcg",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PROMO_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "PJuRxkEcan",
+              "formula": "[PROMO_DIM/Promo Key]",
+              "hidden": true
+            },
+            {
+              "id": "ziFQpF1pMC",
+              "formula": "[PROMO_DIM/Promo Id]"
+            },
+            {
+              "id": "HvZVpjlAy6",
+              "formula": "[PROMO_DIM/Promo Name]"
+            },
+            {
+              "id": "CXBfFSVJJs",
+              "formula": "[PROMO_DIM/Promo Type]"
+            },
+            {
+              "id": "am_yYjd5QN",
+              "formula": "[PROMO_DIM/Channel]"
+            },
+            {
+              "id": "LJhcG-bQRG",
+              "formula": "[PROMO_DIM/Discount Pct]"
+            },
+            {
+              "id": "YrVeVNIfQQ",
+              "formula": "[PROMO_DIM/Min Order Amount]"
+            },
+            {
+              "id": "AahQd3r86n",
+              "formula": "[PROMO_DIM/Promo Cost]"
+            },
+            {
+              "id": "1gwKq5PBvN",
+              "formula": "[PROMO_DIM/Target Segment]"
+            },
+            {
+              "id": "6VdAqWvcU0",
+              "formula": "[PROMO_DIM/Is Stackable]"
+            },
+            {
+              "id": "Z3PpipcH9V",
+              "formula": "[Is Stackable] = 1",
+              "name": "Is Stackable (T/F)"
+            },
+            {
+              "id": "rbNCsSGhi7",
+              "formula": "DateDiff(\"day\", [PROMO_DIM/Start Date], [PROMO_DIM/End Date])",
+              "name": "Promo Duration (Days)"
+            },
+            {
+              "id": "JNtV5CR7fp",
+              "formula": "If([Discount Pct] >= 75, \"75 or Above\", If([Discount Pct] >= 50, \"50 to 74\", If([Discount Pct] >= 25, \"25 to 49\", If([Discount Pct] >= 10, \"10 to 24\", If([Discount Pct] >= 0, \"0 to 9\", \"Below 0\")))))",
+              "name": "Discount Tier"
+            },
+            {
+              "id": "6YqVTTW2ca",
+              "formula": "[Discount Pct] >= 25",
+              "name": "Is High Discount"
+            },
+            {
+              "id": "mEUzpIlSv4",
+              "formula": "If([Promo Type] = \"BOGO\" or [Discount Pct] >= 50, \"High Value\", If([Discount Pct] >= 25, \"Moderate\", \"Low Value\"))",
+              "name": "Promo Value Tier"
+            },
+            {
+              "id": "IFgl4IvYXb",
+              "formula": "If(In([Channel], \"Email\", \"SMS\"), \"Digital Direct\", If([Channel] = \"Social\", \"Social Media\", If(In([Channel], \"Print\", \"Radio\"), \"Traditional\", \"Other\")))",
+              "name": "Channel Type"
+            },
+            {
+              "id": "f-Osxy_TDh",
+              "formula": "If([Min Order Amount] > 0 and [Promo Cost] / NullIf([Min Order Amount], 0) < 0.1, \"Efficient\", \"Review Needed\")",
+              "name": "Promo ROI Flag"
+            },
+            {
+              "id": "O6baBzROZu",
+              "formula": "DateTrunc(\"day\", [PROMO_DIM/Start Date])",
+              "name": "Promo Start Date"
+            },
+            {
+              "id": "CYEDGOVZKf",
+              "formula": "DateTrunc(\"month\", [PROMO_DIM/Start Date])",
+              "name": "Promo Start Month"
+            },
+            {
+              "id": "GM9SEa50Wi",
+              "formula": "DateTrunc(\"year\", [PROMO_DIM/Start Date])",
+              "name": "Promo Start Year"
+            },
+            {
+              "id": "fyJ9QOyZ23",
+              "formula": "DateTrunc(\"day\", [PROMO_DIM/End Date])",
+              "name": "Promo End Date"
+            },
+            {
+              "id": "bfxX-txm57",
+              "formula": "DateTrunc(\"month\", [PROMO_DIM/End Date])",
+              "name": "Promo End Month"
+            },
+            {
+              "id": "gdLWKM35m3",
+              "formula": "DateTrunc(\"year\", [PROMO_DIM/End Date])",
+              "name": "Promo End Year"
+            },
+            {
+              "id": "SbdrBNAbd_",
+              "formula": "DateDiff(\"day\", [PROMO_DIM/Start Date], [PROMO_DIM/End Date])",
+              "name": "Promo Length Days"
+            },
+            {
+              "id": "d4JKCOzUX9",
+              "formula": "DateDiff(\"week\", [PROMO_DIM/Start Date], [PROMO_DIM/End Date])",
+              "name": "Promo Length Weeks"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "cckq3JHTla",
+              "formula": "Count()",
+              "name": "Promo Count"
+            },
+            {
+              "id": "Uzr6sbp8IM",
+              "formula": "Avg([Discount Pct])",
+              "name": "Avg Discount %"
+            },
+            {
+              "id": "u42N98g95d",
+              "formula": "Sum([Promo Cost])",
+              "name": "Total Promo Cost"
+            },
+            {
+              "id": "jaTkepJnSe",
+              "formula": "Max([Discount Pct])",
+              "name": "Max Discount %"
+            }
+          ],
+          "folders": [
+            {
+              "id": "WMi92g9l2W",
+              "name": "Promo Start",
+              "items": [
+                "O6baBzROZu",
+                "CYEDGOVZKf",
+                "GM9SEa50Wi"
+              ]
+            },
+            {
+              "id": "npke_QiGpP",
+              "name": "Promo End",
+              "items": [
+                "fyJ9QOyZ23",
+                "bfxX-txm57",
+                "gdLWKM35m3"
+              ]
+            },
+            {
+              "id": "8szNv4rBN3",
+              "name": "Promo Length",
+              "items": [
+                "SbdrBNAbd_",
+                "d4JKCOzUX9"
+              ]
+            }
+          ],
+          "order": [
+            "PJuRxkEcan",
+            "ziFQpF1pMC",
+            "HvZVpjlAy6",
+            "CXBfFSVJJs",
+            "am_yYjd5QN",
+            "LJhcG-bQRG",
+            "YrVeVNIfQQ",
+            "AahQd3r86n",
+            "1gwKq5PBvN",
+            "6VdAqWvcU0",
+            "Z3PpipcH9V",
+            "rbNCsSGhi7",
+            "JNtV5CR7fp",
+            "6YqVTTW2ca",
+            "mEUzpIlSv4",
+            "IFgl4IvYXb",
+            "f-Osxy_TDh",
+            "WMi92g9l2W",
+            "npke_QiGpP",
+            "8szNv4rBN3"
+          ]
+        },
+        {
+          "id": "Cqhf2Fd0Zc",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n        DATE_TRUNC('month', TO_DATE(o.ORDER_DATE_KEY::VARCHAR, 'YYYYMMDD'))   AS SALE_MONTH,\n        c.CUSTOMER_SEGMENT,\n        p.CATEGORY,\n        s.REGION,\n        COUNT(DISTINCT o.ORDER_ID)                    AS ORDER_COUNT,\n        COUNT(DISTINCT o.CUSTOMER_KEY)                AS CUSTOMER_COUNT,\n        SUM(o.GROSS_REVENUE)                          AS TOTAL_GROSS_REVENUE,\n        SUM(o.NET_REVENUE)                            AS TOTAL_NET_REVENUE,\n        SUM(o.GROSS_PROFIT)                           AS TOTAL_GROSS_PROFIT,\n        SUM(o.DISCOUNT_AMOUNT)                        AS TOTAL_DISCOUNTS,\n        AVG(o.NET_REVENUE)                            AS AVG_ORDER_VALUE,\n        SUM(o.QUANTITY_ORDERED)                       AS TOTAL_UNITS\n      FROM CSA.TJ.ORDER_FACT o\n      LEFT JOIN CSA.TJ.CUSTOMER_DIM c ON o.CUSTOMER_KEY = c.CUSTOMER_KEY\n      LEFT JOIN CSA.TJ.PRODUCT_DIM p  ON o.PRODUCT_KEY  = p.PRODUCT_KEY\n      LEFT JOIN CSA.TJ.STORE_DIM s    ON o.ORDER_STORE_KEY = s.STORE_KEY\n      WHERE o.IS_CANCELLED = 0\n        AND o.NET_REVENUE > 0\n      GROUP BY 1, 2, 3, 4",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "xU3PDeRkFS",
+              "formula": "[Custom SQL/SALE_MONTH]"
+            },
+            {
+              "id": "_fMSqdhSWP",
+              "formula": "[Custom SQL/CUSTOMER_SEGMENT]"
+            },
+            {
+              "id": "y8bMIGW7gA",
+              "formula": "[Custom SQL/CATEGORY]"
+            },
+            {
+              "id": "KYWKIySEL6",
+              "formula": "[Custom SQL/REGION]"
+            },
+            {
+              "id": "t8bz7Rt1Q5",
+              "formula": "[Custom SQL/ORDER_COUNT]"
+            },
+            {
+              "id": "X_5Aw_sx-X",
+              "formula": "[Custom SQL/CUSTOMER_COUNT]"
+            },
+            {
+              "id": "sPQ8RwpOfW",
+              "formula": "[Custom SQL/TOTAL_GROSS_REVENUE]"
+            },
+            {
+              "id": "CGFLVZT_0D",
+              "formula": "[Custom SQL/TOTAL_NET_REVENUE]"
+            },
+            {
+              "id": "RZb2xcZEk-",
+              "formula": "[Custom SQL/TOTAL_GROSS_PROFIT]"
+            },
+            {
+              "id": "A1X0-DtjQL",
+              "formula": "[Custom SQL/TOTAL_DISCOUNTS]"
+            },
+            {
+              "id": "kVa9_xGrfN",
+              "formula": "[Custom SQL/AVG_ORDER_VALUE]"
+            },
+            {
+              "id": "xeGlqsbK2f",
+              "formula": "[Custom SQL/TOTAL_UNITS]"
+            },
+            {
+              "id": "_g8lNmX_rJ",
+              "formula": "[Total Net Revenue] / NullIf([Order Count], 0)",
+              "name": "Revenue per Order"
+            },
+            {
+              "id": "-B5QnZICZK",
+              "formula": "Round([Total Gross Profit] / NullIf([Total Gross Revenue], 0) * 100, 1)",
+              "name": "Margin %"
+            },
+            {
+              "id": "fuPnIagAG2",
+              "formula": "Round([Total Discounts] / NullIf([Total Gross Revenue], 0) * 100, 1)",
+              "name": "Discount Rate %"
+            },
+            {
+              "id": "1swIPz4O12",
+              "formula": "Concat([Customer Segment], \" | \", [Region], \" | \", [Category])",
+              "name": "Segment / Region / Category"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "ipP_eA3nsj",
+              "formula": "Sum([Total Net Revenue])",
+              "name": "Sum of Monthly Net Revenue"
+            },
+            {
+              "id": "ITtUHJr3aj",
+              "formula": "Sum([Total Gross Profit])",
+              "name": "Sum of Monthly Gross Profit"
+            },
+            {
+              "id": "x2obhJcpIX",
+              "formula": "Count()",
+              "name": "Month Count"
+            },
+            {
+              "id": "nyaoicFBg_",
+              "formula": "Avg([Total Net Revenue])",
+              "name": "Avg Monthly Revenue"
+            }
+          ],
+          "order": [
+            "xU3PDeRkFS",
+            "_fMSqdhSWP",
+            "y8bMIGW7gA",
+            "KYWKIySEL6",
+            "t8bz7Rt1Q5",
+            "X_5Aw_sx-X",
+            "sPQ8RwpOfW",
+            "CGFLVZT_0D",
+            "RZb2xcZEk-",
+            "A1X0-DtjQL",
+            "kVa9_xGrfN",
+            "xeGlqsbK2f",
+            "_g8lNmX_rJ",
+            "-B5QnZICZK",
+            "fuPnIagAG2",
+            "1swIPz4O12"
+          ]
+        },
+        {
+          "id": "_HDa4DlPFh",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "UulSpgQGLl",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "cmP9FEbQF0",
+              "formula": "[ORDER_FACT/Order Line]"
+            },
+            {
+              "id": "HjVvMnSOuU",
+              "formula": "[ORDER_FACT/Customer Key]",
+              "hidden": true
+            },
+            {
+              "id": "3mDEttxtlr",
+              "formula": "[ORDER_FACT/Product Key]",
+              "hidden": true
+            },
+            {
+              "id": "eRf0FxLg6W",
+              "formula": "[ORDER_FACT/Order Store Key]",
+              "hidden": true
+            },
+            {
+              "id": "uRzYe6F0W6",
+              "formula": "[ORDER_FACT/Ship Store Key]",
+              "hidden": true
+            },
+            {
+              "id": "jCt4S_YgbT",
+              "formula": "[ORDER_FACT/Promo Key]",
+              "hidden": true
+            },
+            {
+              "id": "BZdVgM9wAy",
+              "formula": "[ORDER_FACT/Order Date Key]",
+              "hidden": true
+            },
+            {
+              "id": "5mBKitpUlT",
+              "formula": "[ORDER_FACT/Ship Date Key]",
+              "hidden": true
+            },
+            {
+              "id": "VcQRkxnAwj",
+              "formula": "[ORDER_FACT/Return Date Key]",
+              "hidden": true
+            },
+            {
+              "id": "rJt5Rb081F",
+              "formula": "[ORDER_FACT/Order Channel]"
+            },
+            {
+              "id": "vMerbLGfl-",
+              "formula": "[ORDER_FACT/Ship Method]"
+            },
+            {
+              "id": "Yx9X-oKQUZ",
+              "formula": "[ORDER_FACT/Order Status]"
+            },
+            {
+              "id": "3jYKCF0hIg",
+              "formula": "[ORDER_FACT/Quantity Ordered]"
+            },
+            {
+              "id": "mPIG_kVuWv",
+              "formula": "[ORDER_FACT/Quantity Returned]"
+            },
+            {
+              "id": "TOLLUBU1lm",
+              "formula": "[ORDER_FACT/Unit Price]"
+            },
+            {
+              "id": "n2pf6uCGQx",
+              "formula": "[ORDER_FACT/Unit Cost]"
+            },
+            {
+              "id": "jACUDqzuoe",
+              "formula": "[ORDER_FACT/Discount Amount]"
+            },
+            {
+              "id": "6uTYeaGpM6",
+              "formula": "[ORDER_FACT/Shipping Amount]"
+            },
+            {
+              "id": "N7kVusNeVC",
+              "formula": "[ORDER_FACT/Tax Amount]"
+            },
+            {
+              "id": "d4f3JP9zGl",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "tR-K_1MOuE",
+              "formula": "[ORDER_FACT/Net Revenue]"
+            },
+            {
+              "id": "4feN-SGOgA",
+              "formula": "[ORDER_FACT/Gross Profit]"
+            },
+            {
+              "id": "hqzhPVKETb",
+              "formula": "[ORDER_FACT/Net Profit]"
+            },
+            {
+              "id": "if-1FCyK5K",
+              "formula": "[ORDER_FACT/Days to Ship]"
+            },
+            {
+              "id": "YcUgfYg9x5",
+              "formula": "[ORDER_FACT/Is First Order]"
+            },
+            {
+              "id": "YtyO7S93sj",
+              "formula": "[Is First Order] = 1",
+              "name": "Is First Order (T/F)"
+            },
+            {
+              "id": "2T7nCeqzzm",
+              "formula": "[ORDER_FACT/Is Returned]"
+            },
+            {
+              "id": "Rmzf9_1_44",
+              "formula": "[Is Returned] = 1",
+              "name": "Is Returned (T/F)"
+            },
+            {
+              "id": "h1fqRs1TOR",
+              "formula": "[ORDER_FACT/Is Cancelled]"
+            },
+            {
+              "id": "yHaT7UqurP",
+              "formula": "[Is Cancelled] = 1",
+              "name": "Is Cancelled (T/F)"
+            },
+            {
+              "id": "_F9Jk0mKbu",
+              "formula": "Round([Gross Profit] / If([Gross Revenue] = 0, Null, [Gross Revenue]) * 100, 2)",
+              "name": "Gross Margin %"
+            },
+            {
+              "id": "jagRDBTOOx",
+              "formula": "If([Quantity Ordered] >= 10, \"Bulk\", If([Quantity Ordered] >= 3, \"Multi-Unit\", \"Single\"))",
+              "name": "Order Size Category"
+            },
+            {
+              "id": "7m-fGoXC03",
+              "formula": "If(In([Order Channel], \"Online\", \"Mobile\") and [Ship Method] = \"Pickup\", \"BOPIS\", If(In([Order Channel], \"Online\", \"Mobile\"), \"Ship to Home\", \"In-Store\"))",
+              "name": "Fulfillment Type"
+            },
+            {
+              "id": "kEUQHfolTT",
+              "formula": "[Net Revenue] >= 500",
+              "name": "Is High Value Order"
+            },
+            {
+              "id": "9Bf30eplMz",
+              "formula": "If([Gross Profit] / NullIf([Gross Revenue], 0) >= 0.5, \"High Margin\", If([Gross Profit] / NullIf([Gross Revenue], 0) >= 0.25, \"Mid Margin\", \"Low Margin\"))",
+              "name": "Order Profit Band"
+            },
+            {
+              "id": "2GjZPrgXpg",
+              "formula": "CumulativeSum([Net Revenue])",
+              "name": "Revenue Running Total"
+            },
+            {
+              "id": "Qkk96psNoz",
+              "formula": "Sum([Net Revenue]) / GrandTotal(Sum([Net Revenue]))",
+              "name": "Revenue % of Total"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "7MIRxGccwp",
+              "formula": "Count()",
+              "name": "Order Count"
+            },
+            {
+              "id": "ozcsNBcgVa",
+              "formula": "CountDistinct([Customer Key])",
+              "name": "Unique Customers"
+            },
+            {
+              "id": "rRcg5GDY02",
+              "formula": "CountDistinct([Product Key])",
+              "name": "Unique Products Sold"
+            },
+            {
+              "id": "qtEwcyw80C",
+              "formula": "Sum([Gross Revenue])",
+              "name": "Total Gross Revenue"
+            },
+            {
+              "id": "2736VI5dqa",
+              "formula": "Sum([Net Revenue])",
+              "name": "Total Net Revenue"
+            },
+            {
+              "id": "9iU-qCDj3n",
+              "formula": "Sum([Gross Profit])",
+              "name": "Total Gross Profit"
+            },
+            {
+              "id": "eok2q31QsM",
+              "formula": "Sum([Net Profit])",
+              "name": "Total Net Profit"
+            },
+            {
+              "id": "VTQ4t8knrt",
+              "formula": "Sum([Discount Amount])",
+              "name": "Total Discounts"
+            },
+            {
+              "id": "1PoQjPgP7y",
+              "formula": "Sum([Shipping Amount])",
+              "name": "Total Shipping Revenue"
+            },
+            {
+              "id": "kGVnudMqyM",
+              "formula": "Sum([Quantity Ordered])",
+              "name": "Total Units Ordered"
+            },
+            {
+              "id": "EMZg0dIl26",
+              "formula": "Sum([Quantity Returned])",
+              "name": "Total Units Returned"
+            },
+            {
+              "id": "K0P6X7zPm6",
+              "formula": "Avg([Net Revenue])",
+              "name": "Avg Order Value"
+            },
+            {
+              "id": "ROpE3qDNQh",
+              "formula": "Avg([Days to Ship])",
+              "name": "Avg Days to Ship"
+            },
+            {
+              "id": "PJFMYt_Mfw",
+              "formula": "Max([Net Revenue])",
+              "name": "Largest Order"
+            },
+            {
+              "id": "2B2CTRPYub",
+              "formula": "Min([Net Revenue])",
+              "name": "Smallest Order"
+            },
+            {
+              "id": "1qJO_zwMbJ",
+              "formula": "Median([Net Revenue])",
+              "name": "Median Order Value"
+            },
+            {
+              "id": "_TJAUqzspm",
+              "formula": "SumIf([Net Revenue], [Order Channel] = \"Online\")",
+              "name": "Online Revenue"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "WVQ0SHRpN2",
+              "targetElementId": "zozm5dpXpK",
+              "keys": [
+                {
+                  "sourceColumnId": "HjVvMnSOuU",
+                  "targetColumnId": "Ti3o5O2pqJ"
+                }
+              ],
+              "name": "customer_dim"
+            },
+            {
+              "id": "plExnufyWi",
+              "targetElementId": "HMMsgrXRzH",
+              "keys": [
+                {
+                  "sourceColumnId": "3mDEttxtlr",
+                  "targetColumnId": "61GWzMuYVA"
+                }
+              ],
+              "name": "product_dim"
+            },
+            {
+              "id": "Asmnt5rlRg",
+              "targetElementId": "Dpa1KzI9oy",
+              "keys": [
+                {
+                  "sourceColumnId": "eRf0FxLg6W",
+                  "targetColumnId": "yaTHUbRgC8"
+                }
+              ],
+              "name": "order_store"
+            },
+            {
+              "id": "g-EJ74q1SY",
+              "targetElementId": "xdWD76ciJ9",
+              "keys": [
+                {
+                  "sourceColumnId": "BZdVgM9wAy",
+                  "targetColumnId": "cH9CqFkygz"
+                }
+              ],
+              "name": "order_date"
+            },
+            {
+              "id": "zbU4aB_GuV",
+              "targetElementId": "xG1Co9opcg",
+              "keys": [
+                {
+                  "sourceColumnId": "jCt4S_YgbT",
+                  "targetColumnId": "PJuRxkEcan"
+                }
+              ],
+              "name": "promo_dim"
+            }
+          ],
+          "order": [
+            "UulSpgQGLl",
+            "cmP9FEbQF0",
+            "HjVvMnSOuU",
+            "3mDEttxtlr",
+            "eRf0FxLg6W",
+            "uRzYe6F0W6",
+            "jCt4S_YgbT",
+            "BZdVgM9wAy",
+            "5mBKitpUlT",
+            "VcQRkxnAwj",
+            "rJt5Rb081F",
+            "vMerbLGfl-",
+            "Yx9X-oKQUZ",
+            "3jYKCF0hIg",
+            "mPIG_kVuWv",
+            "TOLLUBU1lm",
+            "n2pf6uCGQx",
+            "jACUDqzuoe",
+            "6uTYeaGpM6",
+            "N7kVusNeVC",
+            "d4f3JP9zGl",
+            "tR-K_1MOuE",
+            "4feN-SGOgA",
+            "hqzhPVKETb",
+            "if-1FCyK5K",
+            "YcUgfYg9x5",
+            "YtyO7S93sj",
+            "2T7nCeqzzm",
+            "Rmzf9_1_44",
+            "h1fqRs1TOR",
+            "yHaT7UqurP",
+            "_F9Jk0mKbu",
+            "jagRDBTOOx",
+            "7m-fGoXC03",
+            "kEUQHfolTT",
+            "9Bf30eplMz",
+            "2GjZPrgXpg",
+            "Qkk96psNoz"
+          ]
+        }
+      ]
+    }
+  ]
+}
