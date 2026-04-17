@@ -20,3 +20,7 @@ data_models:
     file: dbt-semantic-models-2.json
     name: Dbt Semantic Models 2
     last_synced: '2026-04-17T10:27:59.074496Z'
+  138248c1-3bfe-4d2e-b254-460b46875db4:
+    file: my-data-model.json
+    name: My Data Model
+    last_synced: '2026-04-17T10:28:23.359000Z'
