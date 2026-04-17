@@ -28,3 +28,7 @@ data_models:
     file: order-analysis-looker-text-test.json
     name: Order Analysis Looker - Text test
     last_synced: '2026-04-17T10:28:48.424750Z'
+  cfa98e9e-4ebd-49db-a6f2-8392dbac3849:
+    file: order-analysistst.json
+    name: Order AnalysisTST
+    last_synced: '2026-04-17T10:29:11.505819Z'
