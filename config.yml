@@ -32,3 +32,7 @@ data_models:
     file: order-analysistst.json
     name: Order AnalysisTST
     last_synced: '2026-04-17T10:29:11.505819Z'
+  66d2125c-343a-4c54-b870-ed45181819c3:
+    file: power-bi-import-4.json
+    name: Power BI Import 4
+    last_synced: '2026-04-17T10:29:33.777639Z'
