@@ -52,3 +52,7 @@ data_models:
     file: retail-analytics-all-2.json
     name: retail_analytics ALL 2
     last_synced: '2026-04-17T10:31:15.455612Z'
+  85e4d156-f529-46db-b8a2-474b2258527f:
+    file: test-2.json
+    name: Test 2
+    last_synced: '2026-04-17T10:31:38.810549Z'
