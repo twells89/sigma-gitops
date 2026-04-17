@@ -1,0 +1,84 @@
+{
+  "dataModelId": "550c3514-29e8-452b-b84b-cbbfeb109987",
+  "name": "Fix With AI Test Model",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Fix-With-AI-Test-Model-2AtVrHZluHe6FeDH0wsXdl",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-03-31T12:35:16.243Z",
+  "updatedAt": "2026-03-31T12:35:16.243Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "X7HZEmlfTI",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "gY_fHNmrI1",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "AfFPZZG7R-",
+              "formula": "[CUSTOMER_DIM/Region]"
+            }
+          ],
+          "order": [
+            "AfFPZZG7R-"
+          ]
+        },
+        {
+          "id": "m2dcz0Uud7",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "08MbQg5KO5",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "GFMwdgQKdQ",
+              "formula": "[ORDER_FACT/Net Revenue]"
+            },
+            {
+              "id": "EgNxQ3d2UY",
+              "formula": "[Gross Revenue] - [Net Revenue]",
+              "name": "Revenue Diff"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "lCGYOCNHj8",
+              "formula": "Sum([Gross Revenue])",
+              "name": "Total Revenue"
+            }
+          ],
+          "order": [
+            "08MbQg5KO5",
+            "GFMwdgQKdQ",
+            "EgNxQ3d2UY"
+          ]
+        }
+      ]
+    }
+  ]
+}
