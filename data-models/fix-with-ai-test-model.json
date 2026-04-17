@@ -1,45 +1,23 @@
 {
-  "dataModelId": "550c3514-29e8-452b-b84b-cbbfeb109987",
+  "dataModelId": "82ea392a-0162-48d7-a220-451a1c631070",
   "name": "Fix With AI Test Model",
-  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Fix-With-AI-Test-Model-2AtVrHZluHe6FeDH0wsXdl",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Fix-With-AI-Test-Model-3Z22EJmWlC2IChASPcfS92",
   "documentVersion": 1,
   "latestDocumentVersion": 1,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "createdAt": "2026-03-31T12:35:16.243Z",
-  "updatedAt": "2026-03-31T12:35:16.243Z",
+  "createdAt": "2026-03-31T12:10:48.994Z",
+  "updatedAt": "2026-03-31T12:10:48.994Z",
   "schemaVersion": 1,
   "pages": [
     {
-      "id": "X7HZEmlfTI",
+      "id": "yU4r8Xs1ck",
       "name": "Page 1",
       "elements": [
         {
-          "id": "gY_fHNmrI1",
-          "kind": "table",
-          "source": {
-            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
-            "kind": "warehouse-table",
-            "path": [
-              "CSA",
-              "TJ",
-              "CUSTOMER_DIM"
-            ]
-          },
-          "columns": [
-            {
-              "id": "AfFPZZG7R-",
-              "formula": "[CUSTOMER_DIM/Region]"
-            }
-          ],
-          "order": [
-            "AfFPZZG7R-"
-          ]
-        },
-        {
-          "id": "m2dcz0Uud7",
+          "id": "8_l1klK12j",
           "kind": "table",
           "source": {
             "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
@@ -52,30 +30,62 @@
           },
           "columns": [
             {
-              "id": "08MbQg5KO5",
+              "id": "pTWvIlGPMG",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "bezN9op-Hd",
+              "formula": "[ORDER_FACT/Customer Key]"
+            },
+            {
+              "id": "vkGcjyFDR8",
               "formula": "[ORDER_FACT/Gross Revenue]"
             },
             {
-              "id": "GFMwdgQKdQ",
+              "id": "trCXrKmPid",
               "formula": "[ORDER_FACT/Net Revenue]"
             },
             {
-              "id": "EgNxQ3d2UY",
-              "formula": "[Gross Revenue] - [Net Revenue]",
-              "name": "Revenue Diff"
+              "id": "0mpPj1ysGg",
+              "formula": "[ORDER_FACT/Discount Amount]"
+            },
+            {
+              "id": "-8kpYlV2fK",
+              "formula": "[Gross Revenue] - [Discount Amount]",
+              "name": "Profit"
+            },
+            {
+              "id": "C3NS_g88NT",
+              "formula": "[Profit] + [Adjusted Profit]",
+              "name": "Combined Profit"
+            },
+            {
+              "id": "pcp3CY4VnI",
+              "formula": "[Combined Profit] * 0.9",
+              "name": "Adjusted Profit"
             }
           ],
           "metrics": [
             {
-              "id": "lCGYOCNHj8",
+              "id": "rhcYrREkDD",
               "formula": "Sum([Gross Revenue])",
               "name": "Total Revenue"
+            },
+            {
+              "id": "31bl0y5QfW",
+              "formula": "Sum([Combined Profit])",
+              "name": "Total Combined Profit"
             }
           ],
           "order": [
-            "08MbQg5KO5",
-            "GFMwdgQKdQ",
-            "EgNxQ3d2UY"
+            "pTWvIlGPMG",
+            "bezN9op-Hd",
+            "vkGcjyFDR8",
+            "trCXrKmPid",
+            "0mpPj1ysGg",
+            "-8kpYlV2fK",
+            "C3NS_g88NT",
+            "pcp3CY4VnI"
           ]
         }
       ]
