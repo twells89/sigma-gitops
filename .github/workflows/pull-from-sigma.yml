@@ -1,11 +1,8 @@
 name: Pull Changes from Sigma
 
 on:
-  # Run daily at 6 AM UTC
   schedule:
     - cron: '0 6 * * *'
-  
-  # Allow manual trigger
   workflow_dispatch:
     inputs:
       create_pr:
@@ -20,68 +17,111 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: pip install requests pyyaml
-      
+
       - name: Pull latest from Sigma
         env:
           SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
           SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
-          # API URL is read from config.yml (set by the HTML app)
         run: python scripts/pull_from_sigma.py
-      
+
       - name: Check for changes
         id: changes
         run: |
           if [[ -n $(git status --porcelain data-models/) ]]; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            CHANGED_LIST=$(git status --porcelain data-models/ | awk '{print $2}' | xargs -I{} basename {} | tr '\n' '\n')
+            echo "changed_files<<EOF" >> "$GITHUB_OUTPUT"
+            echo "$CHANGED_LIST" >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
             echo "🔄 Changes detected in data models"
-            git status --porcelain data-models/
           else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "✅ No changes from Sigma"
           fi
-      
-      - name: Create Pull Request
-        if: steps.changes.outputs.has_changes == 'true' && (github.event.inputs.create_pr != 'false')
-        uses: peter-evans/create-pull-request@v5
+
+      # Run sigma-ci drift check across all models after pulling
+      - name: Run Sigma CI drift check
+        id: sigma-ci
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: twells89/sigma-ci@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "sync: Pull latest data model changes from Sigma"
-          title: "📄 Sync: Data model changes from Sigma"
-          body: |
-            This PR contains data model changes that were made directly in Sigma.
-            
-            ## Changes detected
-            The following files were modified in Sigma since the last sync:
-            
-            ```
-            ${{ steps.changes.outputs.files }}
-            ```
-            
-            ## Review
-            Please review these changes before merging. If you have local changes that conflict, you may need to manually merge.
-            
-            ---
-            *This PR was automatically created by the Pull Changes from Sigma workflow.*
-          branch: sigma-sync/${{ github.run_id }}
-          delete-branch: true
-          labels: |
-            automated
-            sigma-sync
-      
+          sigma-client-id: ${{ secrets.SIGMA_CLIENT_ID }}
+          sigma-client-secret: ${{ secrets.SIGMA_SECRET }}
+          model-ids: ''        # empty = validate all models
+          fail-on-drift: 'false'   # don't block the PR; just surface the info
+
+      - name: Build PR body
+        id: pr-body
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          SIGMA_REPORT: ${{ steps.sigma-ci.outputs.report-markdown }}
+          HAS_DRIFT: ${{ steps.sigma-ci.outputs.has-drift }}
+        run: |
+          {
+            echo "## 📄 Data model changes pulled from Sigma"
+            echo ""
+            echo "The following files were updated by the daily sync:"
+            echo ""
+            echo '```'
+            echo "${{ steps.changes.outputs.changed_files }}"
+            echo '```'
+            echo ""
+            echo "Review these changes before merging. If they conflict with local work, merge manually."
+            echo ""
+
+            if [ -n "$SIGMA_REPORT" ]; then
+              echo "---"
+              echo ""
+              echo "## Sigma CI — Model Health"
+              echo ""
+              echo "$SIGMA_REPORT"
+              echo ""
+              if [ "$HAS_DRIFT" = "true" ]; then
+                echo "> ⚠️  **Schema drift found.** Consider fixing drift before merging."
+              fi
+            fi
+
+            echo "---"
+            echo ""
+            echo "_Automatically created by the Pull Changes from Sigma workflow._"
+          } > pr_body.md
+
+          echo "body_file=pr_body.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_changes == 'true' && github.event.inputs.create_pr != 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="sigma-sync/${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data-models/ config.yml
+          git commit -m "sync: Pull latest data model changes from Sigma"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "📄 Sync: Data model changes from Sigma" \
+            --body-file pr_body.md \
+            --base main \
+            --head "$BRANCH" \
+            --label "automated,sigma-sync"
+
       - name: Direct commit (if PR disabled)
         if: steps.changes.outputs.has_changes == 'true' && github.event.inputs.create_pr == 'false'
         run: |

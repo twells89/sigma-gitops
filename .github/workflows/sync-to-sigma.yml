@@ -22,12 +22,13 @@ env:
   SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
 
 jobs:
+  # ── 1. JSON syntax check (unchanged) ─────────────────────────────────────────
   validate:
     name: Validate JSON
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      
+      - uses: actions/checkout@v4
+
       - name: Validate JSON files
         run: |
           echo "Validating data model JSON files..."
@@ -39,76 +40,88 @@ jobs:
           done
           echo "✅ All JSON files are valid"
 
-  sync:
-    name: Sync to Sigma
+  # ── 2. Sigma CI — drift + blast radius (PRs only) ────────────────────────────
+  sigma-validate:
+    name: "Sigma CI — Drift & Blast Radius"
     runs-on: ubuntu-latest
     needs: validate
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
+          fetch-depth: 0
+
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-      
-      - name: Install dependencies
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install pyyaml
+
+      - name: Resolve model IDs for changed files
+        id: models
         run: |
-          pip install requests pyyaml
-      
-      - name: Get changed files
-        id: changed
-        run: |
-          if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
-            echo "Syncing all data models..."
-            CHANGED=$(ls data-models/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
-          else
-            echo "Detecting changed files..."
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json' | tr '\n' ' ')
-          fi
-          echo "changed_files=$CHANGED" >> $GITHUB_OUTPUT
-          echo "Changed files: $CHANGED"
-      
-      - name: Sync to Sigma
-        if: steps.changed.outputs.changed_files != ''
-        run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
-      
-      - name: Commit updates from Sigma
-        run: |
-          # Configure git
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Check if there are any changes to commit
-          if [[ -z $(git status --porcelain config.yml data-models/) ]]; then
-            echo "✅ No changes to commit"
+          CHANGED=$(git diff --name-only origin/main...HEAD -- 'data-models/*.json' \
+            | grep -v '_template.json' \
+            | xargs -I{} basename {} \
+            | tr '\n' ' ')
+
+          if [ -z "$CHANGED" ]; then
+            echo "model_ids=" >> "$GITHUB_OUTPUT"
+            echo "No changed data model files found — skipping sigma-ci"
             exit 0
           fi
-          
-          echo "📝 Changes detected, committing..."
-          
-          # Stage and commit FIRST (before pulling — avoids "unstaged changes" error)
-          git add config.yml data-models/
-          git commit -m "chore: Sync data model versions from Sigma [skip ci]"
-          
-          # Now rebase on top of any remote changes and push
-          for i in {1..3}; do
-            git pull --rebase origin main || true
-            if git push origin main; then
-              echo "✅ Successfully pushed changes"
-              exit 0
-            else
-              echo "⚠️ Push failed (attempt $i/3), retrying..."
-              sleep 2
-            fi
-          done
-          
-          echo "⚠️ Could not push after 3 attempts (non-critical)"
 
+          MODEL_IDS=$(python3 scripts/get_model_ids.py $CHANGED)
+          echo "model_ids=$MODEL_IDS" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$MODEL_IDS" ]; then
+            echo "⚠️  Changed files not yet mapped in config.yml (new models). Skipping sigma-ci."
+          else
+            echo "Validating model IDs: $MODEL_IDS"
+          fi
+
+      - name: Run Sigma CI validation
+        id: sigma-ci
+        if: steps.models.outputs.model_ids != ''
+        uses: twells89/sigma-ci@main
+        with:
+          sigma-client-id: ${{ secrets.SIGMA_CLIENT_ID }}
+          sigma-client-secret: ${{ secrets.SIGMA_SECRET }}
+          model-ids: ${{ steps.models.outputs.model_ids }}
+          fail-on-drift: 'true'
+
+      - name: Post validation result as PR comment
+        # Run even when sigma-ci fails (drift detected) so the PR shows the report
+        if: always() && steps.models.outputs.model_ids != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HAS_DRIFT: ${{ steps.sigma-ci.outputs.has-drift }}
+          SIGMA_REPORT: ${{ steps.sigma-ci.outputs.report-markdown }}
+        run: |
+          if [ "$HAS_DRIFT" = "true" ]; then
+            HEADER="## ❌ Sigma CI — Drift Detected (merge blocked)"
+          else
+            HEADER="## ✅ Sigma CI — Validation Passed"
+          fi
+
+          {
+            echo "$HEADER"
+            echo ""
+            echo "$SIGMA_REPORT"
+            echo ""
+            echo "---"
+            echo "*Validated by [sigma-ci](https://github.com/twells89/sigma-ci)*"
+          } > sigma_ci_comment.md
+
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file sigma_ci_comment.md
+
+  # ── 3. Spec diff report (PRs only, unchanged) ────────────────────────────────
   diff-report:
     name: Generate Diff Report
     runs-on: ubuntu-latest
@@ -116,50 +129,95 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    
+
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-      
+
       - name: Fetch base branch
-        run: |
-          git fetch origin main:refs/remotes/origin/main
-          echo "Current branch:"
-          git branch -a
-          echo "Recent commits:"
-          git log --oneline -5
-      
+        run: git fetch origin main:refs/remotes/origin/main
+
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-      
+          python-version: '3.11'
+
       - name: Install dependencies
         run: pip install pyyaml
-      
+
       - name: Generate and post diff report
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Generating diff report..."
           python scripts/generate_diff_report.py > diff_report.md 2> diff_debug.log
-          
-          echo "=== Debug Output ==="
-          cat diff_debug.log
-          echo "=== End Debug ==="
-          
-          echo "=== Diff Report Content ==="
-          cat diff_report.md
-          echo "=== End Report ==="
-          
+          cat diff_debug.log >&2
+
           if [ -s diff_report.md ] && ! grep -q "No data model changes detected" diff_report.md; then
-            echo "## 📊 Data Model Changes" > comment.md
-            echo "" >> comment.md
-            cat diff_report.md >> comment.md
-            gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md
-            echo "✅ Posted diff report to PR"
-          else
-            echo "ℹ️ No changes to report or no files changed"
+            {
+              echo "## 📊 Data Model Changes"
+              echo ""
+              cat diff_report.md
+            } > comment.md
+            gh pr comment "${{ github.event.pull_request.number }}" --body-file comment.md
           fi
+
+  # ── 4. Sync to Sigma (push / manual only) ────────────────────────────────────
+  sync:
+    name: Sync to Sigma
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Get changed files
+        id: changed
+        run: |
+          if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
+            CHANGED=$(ls data-models/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
+          else
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json' | tr '\n' ' ')
+          fi
+          echo "changed_files=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "Changed files: $CHANGED"
+
+      - name: Sync to Sigma
+        if: steps.changed.outputs.changed_files != ''
+        run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
+
+      - name: Commit updates from Sigma
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [[ -z $(git status --porcelain config.yml data-models/) ]]; then
+            echo "✅ No changes to commit"
+            exit 0
+          fi
+
+          git pull --rebase origin main || true
+          git add config.yml data-models/
+          git commit -m "chore: Sync data model versions from Sigma [skip ci]"
+
+          for i in {1..3}; do
+            if git push origin main; then
+              echo "✅ Pushed successfully"
+              exit 0
+            fi
+            git pull --rebase origin main || true
+          done
+          echo "⚠️  Could not push after 3 attempts (non-critical)"
