@@ -1,0 +1,36 @@
+{
+  "dataModelId": "195621d8-d0c6-4fed-954d-6ac4505c40f2",
+  "name": "Order Fact Test",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Order-Fact-Test-LOaAccjDg2Bqtep6XOQ26",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-06T17:20:29.881Z",
+  "updatedAt": "2026-04-16T14:23:11.617Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "zusYcR1uaO",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "Y6ku8nawEg",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": []
+        }
+      ]
+    }
+  ]
+}
