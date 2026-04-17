@@ -1,0 +1,863 @@
+{
+  "dataModelId": "755bd0ea-6453-42ea-ae70-110bc914ee2a",
+  "name": "Retail Order Analysis",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Retail-Order-Analysis-3zs3Rz0hzovjUScWfQg5fk",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-03-24T10:56:31.788Z",
+  "updatedAt": "2026-03-24T10:56:31.788Z",
+  "description": "Comprehensive retail analytics model with order transactions, customer demographics, product catalog, store operations, promotions, and time-based analysis",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "eN2Q6Z9JtX",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "NGWJOH7qea",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "3pPhQW53VJ",
+              "formula": "[ORDER_FACT/Order Id]",
+              "name": "ORDER_ID"
+            },
+            {
+              "id": "oLEtvENhY_",
+              "formula": "[ORDER_FACT/Order Line]",
+              "name": "ORDER_LINE"
+            },
+            {
+              "id": "62RcIQvFvX",
+              "formula": "[ORDER_FACT/Customer Key]",
+              "name": "CUSTOMER_KEY"
+            },
+            {
+              "id": "2coRq3xPto",
+              "formula": "[ORDER_FACT/Product Key]",
+              "name": "PRODUCT_KEY"
+            },
+            {
+              "id": "CJiLxcLpSm",
+              "formula": "[ORDER_FACT/Order Store Key]",
+              "name": "ORDER_STORE_KEY"
+            },
+            {
+              "id": "dZyQnMgeUL",
+              "formula": "[ORDER_FACT/Ship Store Key]",
+              "name": "SHIP_STORE_KEY"
+            },
+            {
+              "id": "3dwFsKR81N",
+              "formula": "[ORDER_FACT/Promo Key]",
+              "name": "PROMO_KEY"
+            },
+            {
+              "id": "nsEW0yIXtB",
+              "formula": "[ORDER_FACT/Order Date Key]",
+              "name": "ORDER_DATE_KEY"
+            },
+            {
+              "id": "YCeQnPU4fx",
+              "formula": "[ORDER_FACT/Ship Date Key]",
+              "name": "SHIP_DATE_KEY"
+            },
+            {
+              "id": "tftYHag6r-",
+              "formula": "[ORDER_FACT/Return Date Key]",
+              "name": "RETURN_DATE_KEY"
+            },
+            {
+              "id": "Sq9uwUWtEm",
+              "formula": "[ORDER_FACT/Order Channel]",
+              "name": "ORDER_CHANNEL"
+            },
+            {
+              "id": "6Vnf8i66sb",
+              "formula": "[ORDER_FACT/Ship Method]",
+              "name": "SHIP_METHOD"
+            },
+            {
+              "id": "gBtMBOhmTd",
+              "formula": "[ORDER_FACT/Order Status]",
+              "name": "ORDER_STATUS"
+            },
+            {
+              "id": "dEVOPyIELJ",
+              "formula": "[ORDER_FACT/Quantity Ordered]",
+              "name": "QUANTITY_ORDERED"
+            },
+            {
+              "id": "vDAE-cMUd1",
+              "formula": "[ORDER_FACT/Quantity Returned]",
+              "name": "QUANTITY_RETURNED"
+            },
+            {
+              "id": "hXxjjU9Use",
+              "formula": "[ORDER_FACT/Unit Price]",
+              "name": "UNIT_PRICE"
+            },
+            {
+              "id": "TVcyoMND61",
+              "formula": "[ORDER_FACT/Unit Cost]",
+              "name": "UNIT_COST"
+            },
+            {
+              "id": "3oWMy0fu4f",
+              "formula": "[ORDER_FACT/Discount Amount]",
+              "name": "DISCOUNT_AMOUNT"
+            },
+            {
+              "id": "7zpKew8hp2",
+              "formula": "[ORDER_FACT/Shipping Amount]",
+              "name": "SHIPPING_AMOUNT"
+            },
+            {
+              "id": "-c4HGkJA5a",
+              "formula": "[ORDER_FACT/Tax Amount]",
+              "name": "TAX_AMOUNT"
+            },
+            {
+              "id": "Y1CxTBVYld",
+              "formula": "[ORDER_FACT/Gross Revenue]",
+              "name": "GROSS_REVENUE"
+            },
+            {
+              "id": "RMib6udCCt",
+              "formula": "[ORDER_FACT/Net Revenue]",
+              "name": "NET_REVENUE"
+            },
+            {
+              "id": "_s60yBOsSz",
+              "formula": "[ORDER_FACT/Gross Profit]",
+              "name": "GROSS_PROFIT"
+            },
+            {
+              "id": "altNtQLy7o",
+              "formula": "[ORDER_FACT/Net Profit]",
+              "name": "NET_PROFIT"
+            },
+            {
+              "id": "5LUMhB1I0X",
+              "formula": "[ORDER_FACT/Is First Order]",
+              "name": "IS_FIRST_ORDER"
+            },
+            {
+              "id": "8UjQfPla4G",
+              "formula": "[ORDER_FACT/Is Returned]",
+              "name": "IS_RETURNED"
+            },
+            {
+              "id": "5UjTJnM1aV",
+              "formula": "[ORDER_FACT/Is Cancelled]",
+              "name": "IS_CANCELLED"
+            },
+            {
+              "id": "q7BRzaB8zU",
+              "formula": "[ORDER_FACT/Days to Ship]",
+              "name": "DAYS_TO_SHIP"
+            }
+          ],
+          "name": "Orders",
+          "metrics": [
+            {
+              "id": "kBK2SuVrQz",
+              "formula": "Sum([NET_REVENUE])",
+              "name": "Total Revenue",
+              "description": "Sum of net revenue from all orders"
+            },
+            {
+              "id": "oE2rn4H664",
+              "formula": "CountDistinct([ORDER_ID])",
+              "name": "Total Orders",
+              "description": "Count of unique orders"
+            },
+            {
+              "id": "AfU51eARQy",
+              "formula": "Sum([NET_REVENUE]) / CountDistinct([ORDER_ID])",
+              "name": "Average Order Value",
+              "description": "Average revenue per order"
+            },
+            {
+              "id": "42BoWeb8BC",
+              "formula": "Sum([NET_PROFIT])",
+              "name": "Total Profit",
+              "description": "Sum of net profit from all orders"
+            },
+            {
+              "id": "4CLZkIibM7",
+              "formula": "Sum([NET_PROFIT]) / Sum([NET_REVENUE])",
+              "name": "Profit Margin",
+              "description": "Net profit as a percentage of net revenue"
+            },
+            {
+              "id": "LF5hN0eFGn",
+              "formula": "Sum([IS_RETURNED]) / Count([ORDER_ID])",
+              "name": "Return Rate",
+              "description": "Percentage of order lines that were returned"
+            },
+            {
+              "id": "v23nNP_bTP",
+              "formula": "Sum([QUANTITY_ORDERED])",
+              "name": "Units Sold",
+              "description": "Total quantity of units ordered"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "oFDoWMI18r",
+              "targetElementId": "od2Bc9-nS5",
+              "keys": [
+                {
+                  "sourceColumnId": "62RcIQvFvX",
+                  "targetColumnId": "cBO498MN_b"
+                }
+              ]
+            },
+            {
+              "id": "zoRbSAmmX0",
+              "targetElementId": "9qw06KvDO7",
+              "keys": [
+                {
+                  "sourceColumnId": "2coRq3xPto",
+                  "targetColumnId": "2mf6NMk7aw"
+                }
+              ]
+            },
+            {
+              "id": "3NFpab1Nrs",
+              "targetElementId": "EueXSUiajS",
+              "keys": [
+                {
+                  "sourceColumnId": "CJiLxcLpSm",
+                  "targetColumnId": "g_93VFW-9H"
+                }
+              ]
+            },
+            {
+              "id": "3MX5bfGh3Z",
+              "targetElementId": "EueXSUiajS",
+              "keys": [
+                {
+                  "sourceColumnId": "dZyQnMgeUL",
+                  "targetColumnId": "g_93VFW-9H"
+                }
+              ]
+            },
+            {
+              "id": "IX4stqBxcm",
+              "targetElementId": "TQ_9ATLucI",
+              "keys": [
+                {
+                  "sourceColumnId": "nsEW0yIXtB",
+                  "targetColumnId": "aR3AnR-Yv9"
+                }
+              ]
+            },
+            {
+              "id": "4vXFPVnoMP",
+              "targetElementId": "TQ_9ATLucI",
+              "keys": [
+                {
+                  "sourceColumnId": "YCeQnPU4fx",
+                  "targetColumnId": "aR3AnR-Yv9"
+                }
+              ]
+            },
+            {
+              "id": "Rhvd2DIVcl",
+              "targetElementId": "TQ_9ATLucI",
+              "keys": [
+                {
+                  "sourceColumnId": "tftYHag6r-",
+                  "targetColumnId": "aR3AnR-Yv9"
+                }
+              ]
+            },
+            {
+              "id": "O12IEnwhld",
+              "targetElementId": "-NqCMFyreB",
+              "keys": [
+                {
+                  "sourceColumnId": "3dwFsKR81N",
+                  "targetColumnId": "n61LBukiBt"
+                }
+              ]
+            }
+          ],
+          "order": [
+            "3pPhQW53VJ",
+            "oLEtvENhY_",
+            "62RcIQvFvX",
+            "2coRq3xPto",
+            "CJiLxcLpSm",
+            "dZyQnMgeUL",
+            "3dwFsKR81N",
+            "nsEW0yIXtB",
+            "YCeQnPU4fx",
+            "tftYHag6r-",
+            "Sq9uwUWtEm",
+            "6Vnf8i66sb",
+            "gBtMBOhmTd",
+            "dEVOPyIELJ",
+            "vDAE-cMUd1",
+            "hXxjjU9Use",
+            "TVcyoMND61",
+            "3oWMy0fu4f",
+            "7zpKew8hp2",
+            "-c4HGkJA5a",
+            "Y1CxTBVYld",
+            "RMib6udCCt",
+            "_s60yBOsSz",
+            "altNtQLy7o",
+            "5LUMhB1I0X",
+            "8UjQfPla4G",
+            "5UjTJnM1aV",
+            "q7BRzaB8zU"
+          ]
+        },
+        {
+          "id": "od2Bc9-nS5",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "cBO498MN_b",
+              "formula": "[CUSTOMER_DIM/Customer Key]",
+              "name": "CUSTOMER_KEY"
+            },
+            {
+              "id": "6R2xVqAld5",
+              "formula": "[CUSTOMER_DIM/Customer Id]",
+              "name": "CUSTOMER_ID"
+            },
+            {
+              "id": "Mzak_Ykl0i",
+              "formula": "[CUSTOMER_DIM/First Name]",
+              "name": "FIRST_NAME"
+            },
+            {
+              "id": "HOfsXQtzbF",
+              "formula": "[CUSTOMER_DIM/Last Name]",
+              "name": "LAST_NAME"
+            },
+            {
+              "id": "I81liSBVhe",
+              "formula": "[CUSTOMER_DIM/Email]",
+              "name": "EMAIL"
+            },
+            {
+              "id": "iBQ-366qyo",
+              "formula": "[CUSTOMER_DIM/Phone]",
+              "name": "PHONE"
+            },
+            {
+              "id": "rsrU2Djvlz",
+              "formula": "[CUSTOMER_DIM/City]",
+              "name": "CITY"
+            },
+            {
+              "id": "ak1W1vjGyc",
+              "formula": "[CUSTOMER_DIM/State]",
+              "name": "STATE"
+            },
+            {
+              "id": "VGHQHv5NbY",
+              "formula": "[CUSTOMER_DIM/Zip Code]",
+              "name": "ZIP_CODE"
+            },
+            {
+              "id": "2R6Dxwnbap",
+              "formula": "[CUSTOMER_DIM/Region]",
+              "name": "REGION"
+            },
+            {
+              "id": "gcs0xolFWc",
+              "formula": "[CUSTOMER_DIM/Customer Segment]",
+              "name": "CUSTOMER_SEGMENT"
+            },
+            {
+              "id": "Kcbbyx7FxM",
+              "formula": "[CUSTOMER_DIM/Loyalty Tier]",
+              "name": "LOYALTY_TIER"
+            },
+            {
+              "id": "l9m6X-hzCM",
+              "formula": "[CUSTOMER_DIM/Acquisition Channel]",
+              "name": "ACQUISITION_CHANNEL"
+            },
+            {
+              "id": "kn7IQmQYHe",
+              "formula": "[CUSTOMER_DIM/First Order Date]",
+              "name": "FIRST_ORDER_DATE"
+            },
+            {
+              "id": "gVNMIjm1hQ",
+              "formula": "[CUSTOMER_DIM/Is Active]",
+              "name": "IS_ACTIVE"
+            },
+            {
+              "id": "k_F9m3NfAV",
+              "formula": "[CUSTOMER_DIM/Is Email Opt In]",
+              "name": "IS_EMAIL_OPT_IN"
+            },
+            {
+              "id": "tzs8dqENKM",
+              "formula": "[CUSTOMER_DIM/Lifetime Order Count]",
+              "name": "LIFETIME_ORDER_COUNT"
+            },
+            {
+              "id": "CMUFR4uUmV",
+              "formula": "[CUSTOMER_DIM/Lifetime Revenue]",
+              "name": "LIFETIME_REVENUE"
+            }
+          ],
+          "name": "Customers",
+          "order": [
+            "cBO498MN_b",
+            "6R2xVqAld5",
+            "Mzak_Ykl0i",
+            "HOfsXQtzbF",
+            "I81liSBVhe",
+            "iBQ-366qyo",
+            "rsrU2Djvlz",
+            "ak1W1vjGyc",
+            "VGHQHv5NbY",
+            "2R6Dxwnbap",
+            "gcs0xolFWc",
+            "Kcbbyx7FxM",
+            "l9m6X-hzCM",
+            "kn7IQmQYHe",
+            "gVNMIjm1hQ",
+            "k_F9m3NfAV",
+            "tzs8dqENKM",
+            "CMUFR4uUmV"
+          ]
+        },
+        {
+          "id": "9qw06KvDO7",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PRODUCT_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "2mf6NMk7aw",
+              "formula": "[PRODUCT_DIM/Product Key]",
+              "name": "PRODUCT_KEY"
+            },
+            {
+              "id": "bJ3epmfXgZ",
+              "formula": "[PRODUCT_DIM/Product Id]",
+              "name": "PRODUCT_ID"
+            },
+            {
+              "id": "N2GUwOmHi1",
+              "formula": "[PRODUCT_DIM/Product Name]",
+              "name": "PRODUCT_NAME"
+            },
+            {
+              "id": "zqQUOgfvXZ",
+              "formula": "[PRODUCT_DIM/Category]",
+              "name": "CATEGORY"
+            },
+            {
+              "id": "ksI024M_ch",
+              "formula": "[PRODUCT_DIM/Subcategory]",
+              "name": "SUBCATEGORY"
+            },
+            {
+              "id": "IrKiymznyT",
+              "formula": "[PRODUCT_DIM/Brand]",
+              "name": "BRAND"
+            },
+            {
+              "id": "jEYZqs-kLs",
+              "formula": "[PRODUCT_DIM/Unit Cost]",
+              "name": "UNIT_COST"
+            },
+            {
+              "id": "ZB1THx2hkP",
+              "formula": "[PRODUCT_DIM/Unit Price]",
+              "name": "UNIT_PRICE"
+            },
+            {
+              "id": "IevfG57ZKL",
+              "formula": "[PRODUCT_DIM/Weight Lbs]",
+              "name": "WEIGHT_LBS"
+            },
+            {
+              "id": "7ufFPRuMZ7",
+              "formula": "[PRODUCT_DIM/Is Active]",
+              "name": "IS_ACTIVE"
+            },
+            {
+              "id": "ZZl1IvZNAI",
+              "formula": "[PRODUCT_DIM/Is Private Label]",
+              "name": "IS_PRIVATE_LABEL"
+            },
+            {
+              "id": "r25WeF_Xs3",
+              "formula": "[PRODUCT_DIM/Is Seasonal]",
+              "name": "IS_SEASONAL"
+            },
+            {
+              "id": "vejrKc2pUJ",
+              "formula": "[PRODUCT_DIM/Launch Date]",
+              "name": "LAUNCH_DATE"
+            },
+            {
+              "id": "UAiCpfXanW",
+              "formula": "[PRODUCT_DIM/Discontinue Date]",
+              "name": "DISCONTINUE_DATE"
+            }
+          ],
+          "name": "Products",
+          "order": [
+            "2mf6NMk7aw",
+            "bJ3epmfXgZ",
+            "N2GUwOmHi1",
+            "zqQUOgfvXZ",
+            "ksI024M_ch",
+            "IrKiymznyT",
+            "jEYZqs-kLs",
+            "ZB1THx2hkP",
+            "IevfG57ZKL",
+            "7ufFPRuMZ7",
+            "ZZl1IvZNAI",
+            "r25WeF_Xs3",
+            "vejrKc2pUJ",
+            "UAiCpfXanW"
+          ]
+        },
+        {
+          "id": "EueXSUiajS",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "STORE_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "g_93VFW-9H",
+              "formula": "[STORE_DIM/Store Key]",
+              "name": "STORE_KEY"
+            },
+            {
+              "id": "flYa_j0zwj",
+              "formula": "[STORE_DIM/Store Id]",
+              "name": "STORE_ID"
+            },
+            {
+              "id": "02aIRq85Ti",
+              "formula": "[STORE_DIM/Store Name]",
+              "name": "STORE_NAME"
+            },
+            {
+              "id": "0p061YlsXy",
+              "formula": "[STORE_DIM/Store Type]",
+              "name": "STORE_TYPE"
+            },
+            {
+              "id": "yPGfiLIm1j",
+              "formula": "[STORE_DIM/Square Footage]",
+              "name": "SQUARE_FOOTAGE"
+            },
+            {
+              "id": "pdzI4upf-J",
+              "formula": "[STORE_DIM/City]",
+              "name": "CITY"
+            },
+            {
+              "id": "ag-zTX_U4j",
+              "formula": "[STORE_DIM/State]",
+              "name": "STATE"
+            },
+            {
+              "id": "ZIn6bG-kyX",
+              "formula": "[STORE_DIM/Region]",
+              "name": "REGION"
+            },
+            {
+              "id": "JWmagvXtmk",
+              "formula": "[STORE_DIM/District]",
+              "name": "DISTRICT"
+            },
+            {
+              "id": "IoUYzmYQ9K",
+              "formula": "[STORE_DIM/Open Date]",
+              "name": "OPEN_DATE"
+            },
+            {
+              "id": "eaCQ1_Cjne",
+              "formula": "[STORE_DIM/Close Date]",
+              "name": "CLOSE_DATE"
+            },
+            {
+              "id": "W01qY5UmUA",
+              "formula": "[STORE_DIM/Is Active]",
+              "name": "IS_ACTIVE"
+            },
+            {
+              "id": "mFCgQ5Y7b-",
+              "formula": "[STORE_DIM/Has Cafe]",
+              "name": "HAS_CAFE"
+            },
+            {
+              "id": "LyoEt8YDwN",
+              "formula": "[STORE_DIM/Has Curbside]",
+              "name": "HAS_CURBSIDE"
+            },
+            {
+              "id": "26uB81mS_C",
+              "formula": "[STORE_DIM/Manager Name]",
+              "name": "MANAGER_NAME"
+            },
+            {
+              "id": "_XtYUa5w-w",
+              "formula": "[STORE_DIM/Store Phone]",
+              "name": "STORE_PHONE"
+            },
+            {
+              "id": "XN4T-Ybz3i",
+              "formula": "[STORE_DIM/Annual Lease Cost]",
+              "name": "ANNUAL_LEASE_COST"
+            }
+          ],
+          "name": "Stores",
+          "order": [
+            "g_93VFW-9H",
+            "flYa_j0zwj",
+            "02aIRq85Ti",
+            "0p061YlsXy",
+            "yPGfiLIm1j",
+            "pdzI4upf-J",
+            "ag-zTX_U4j",
+            "ZIn6bG-kyX",
+            "JWmagvXtmk",
+            "IoUYzmYQ9K",
+            "eaCQ1_Cjne",
+            "W01qY5UmUA",
+            "mFCgQ5Y7b-",
+            "LyoEt8YDwN",
+            "26uB81mS_C",
+            "_XtYUa5w-w",
+            "XN4T-Ybz3i"
+          ]
+        },
+        {
+          "id": "TQ_9ATLucI",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "DATE_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "aR3AnR-Yv9",
+              "formula": "[DATE_DIM/Date Key]",
+              "name": "DATE_KEY"
+            },
+            {
+              "id": "dpi_Bcb6Z_",
+              "formula": "[DATE_DIM/Full Date]",
+              "name": "FULL_DATE"
+            },
+            {
+              "id": "SUsvjfxiEq",
+              "formula": "[DATE_DIM/Day of Week]",
+              "name": "DAY_OF_WEEK"
+            },
+            {
+              "id": "liVMeLllhE",
+              "formula": "[DATE_DIM/Month Name]",
+              "name": "MONTH_NAME"
+            },
+            {
+              "id": "v6lWPbyulN",
+              "formula": "[DATE_DIM/Day of Month]",
+              "name": "DAY_OF_MONTH"
+            },
+            {
+              "id": "xDM2lgSzcI",
+              "formula": "[DATE_DIM/Week of Year]",
+              "name": "WEEK_OF_YEAR"
+            },
+            {
+              "id": "qLVxwydKhP",
+              "formula": "[DATE_DIM/Month Number]",
+              "name": "MONTH_NUMBER"
+            },
+            {
+              "id": "Y8uBgDT7H3",
+              "formula": "[DATE_DIM/Quarter]",
+              "name": "QUARTER"
+            },
+            {
+              "id": "Cyb6LrdFWT",
+              "formula": "[DATE_DIM/Year]",
+              "name": "YEAR"
+            },
+            {
+              "id": "B611MWyIaY",
+              "formula": "[DATE_DIM/Is Weekend]",
+              "name": "IS_WEEKEND"
+            },
+            {
+              "id": "Q64-dbMroK",
+              "formula": "[DATE_DIM/Is Holiday]",
+              "name": "IS_HOLIDAY"
+            },
+            {
+              "id": "qkiEcHpby1",
+              "formula": "[DATE_DIM/Fiscal Period]",
+              "name": "FISCAL_PERIOD"
+            }
+          ],
+          "name": "Dates",
+          "order": [
+            "aR3AnR-Yv9",
+            "dpi_Bcb6Z_",
+            "SUsvjfxiEq",
+            "liVMeLllhE",
+            "v6lWPbyulN",
+            "xDM2lgSzcI",
+            "qLVxwydKhP",
+            "Y8uBgDT7H3",
+            "Cyb6LrdFWT",
+            "B611MWyIaY",
+            "Q64-dbMroK",
+            "qkiEcHpby1"
+          ]
+        },
+        {
+          "id": "-NqCMFyreB",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "PROMO_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "n61LBukiBt",
+              "formula": "[PROMO_DIM/Promo Key]",
+              "name": "PROMO_KEY"
+            },
+            {
+              "id": "-PLPkVj_Ky",
+              "formula": "[PROMO_DIM/Promo Id]",
+              "name": "PROMO_ID"
+            },
+            {
+              "id": "BtMzRUPLzy",
+              "formula": "[PROMO_DIM/Promo Name]",
+              "name": "PROMO_NAME"
+            },
+            {
+              "id": "fXlpzjio4W",
+              "formula": "[PROMO_DIM/Promo Type]",
+              "name": "PROMO_TYPE"
+            },
+            {
+              "id": "7meaFV4gN-",
+              "formula": "[PROMO_DIM/Channel]",
+              "name": "CHANNEL"
+            },
+            {
+              "id": "opYVrku1DO",
+              "formula": "[PROMO_DIM/Discount Pct]",
+              "name": "DISCOUNT_PCT"
+            },
+            {
+              "id": "3nk5yooVGL",
+              "formula": "[PROMO_DIM/Min Order Amount]",
+              "name": "MIN_ORDER_AMOUNT"
+            },
+            {
+              "id": "BlwZd1mfah",
+              "formula": "[PROMO_DIM/Start Date]",
+              "name": "START_DATE"
+            },
+            {
+              "id": "anoOjJEbr6",
+              "formula": "[PROMO_DIM/End Date]",
+              "name": "END_DATE"
+            },
+            {
+              "id": "frC6HpFkwz",
+              "formula": "[PROMO_DIM/Is Stackable]",
+              "name": "IS_STACKABLE"
+            },
+            {
+              "id": "ryxKucTCYn",
+              "formula": "[PROMO_DIM/Target Segment]",
+              "name": "TARGET_SEGMENT"
+            },
+            {
+              "id": "ORN42rd_oS",
+              "formula": "[PROMO_DIM/Promo Cost]",
+              "name": "PROMO_COST"
+            }
+          ],
+          "name": "Promotions",
+          "order": [
+            "n61LBukiBt",
+            "-PLPkVj_Ky",
+            "BtMzRUPLzy",
+            "fXlpzjio4W",
+            "7meaFV4gN-",
+            "opYVrku1DO",
+            "3nk5yooVGL",
+            "BlwZd1mfah",
+            "anoOjJEbr6",
+            "frC6HpFkwz",
+            "ryxKucTCYn",
+            "ORN42rd_oS"
+          ]
+        }
+      ]
+    }
+  ]
+}
