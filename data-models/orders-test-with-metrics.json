@@ -1,0 +1,76 @@
+{
+  "dataModelId": "cf67dc6a-d0ed-4470-9988-3d806e854a9b",
+  "name": "Orders Test With Metrics",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Orders-Test-With-Metrics-6jmSkunF1sONWLJXjwVRb5",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-03-23T10:42:00.012Z",
+  "updatedAt": "2026-03-23T10:42:00.012Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "JZ8912HUfY",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "e9QNBybhSQ",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "j4nR1sA98n",
+              "formula": "[ORDER_FACT/Order Id]",
+              "name": "ORDER_ID"
+            },
+            {
+              "id": "Qqj_5Hvhuk",
+              "formula": "[ORDER_FACT/Customer Key]",
+              "name": "CUSTOMER_KEY"
+            },
+            {
+              "id": "zOBRMtJftZ",
+              "formula": "[ORDER_FACT/Net Revenue]",
+              "name": "NET_REVENUE"
+            },
+            {
+              "id": "R42QZgIjj0",
+              "formula": "[ORDER_FACT/Gross Profit]",
+              "name": "GROSS_PROFIT"
+            }
+          ],
+          "name": "Orders",
+          "metrics": [
+            {
+              "id": "v9REJ8Ui1k",
+              "formula": "Sum([Net Revenue])",
+              "name": "Total Revenue"
+            },
+            {
+              "id": "JDRxeGpfUv",
+              "formula": "Sum([Gross Profit])",
+              "name": "Total Profit"
+            }
+          ],
+          "order": [
+            "j4nR1sA98n",
+            "Qqj_5Hvhuk",
+            "zOBRMtJftZ",
+            "R42QZgIjj0"
+          ]
+        }
+      ]
+    }
+  ]
+}
