@@ -1,0 +1,97 @@
+{
+  "dataModelId": "6407c7f2-2bbf-4311-9aea-110a3ab77e54",
+  "name": "Channel Summary DT",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Channel-Summary-DT-32KMTxObgkNn7onIXJpG28",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "d4470d98-184e-443c-8884-48e9a2116801",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-03T18:37:19.978Z",
+  "updatedAt": "2026-04-03T18:37:19.978Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "XPmtK7uyNQ",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "IBYQ45g5oj",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n  o.ORDER_CHANNEL,\n  d.YEAR,\n  d.MONTH_NUMBER,\n  COUNT(DISTINCT o.ORDER_ID)          AS order_count,\n  COUNT(DISTINCT o.CUSTOMER_KEY)      AS customer_count,\n  SUM(o.GROSS_REVENUE)                AS gross_revenue,\n  SUM(o.NET_REVENUE)                  AS net_revenue,\n  SUM(o.GROSS_PROFIT)                 AS gross_profit,\n  SUM(o.DISCOUNT_AMOUNT)              AS discount_amount,\n  SUM(o.QUANTITY_ORDERED)             AS units_ordered,\n  ROUND(SUM(o.GROSS_PROFIT) / NULLIF(SUM(o.GROSS_REVENUE), 0) * 100, 2) AS gross_margin_pct\nFROM CSA.TJ.ORDER_FACT o\nLEFT JOIN CSA.TJ.DATE_DIM d ON o.ORDER_DATE_KEY = d.DATE_KEY\nWHERE o.ORDER_STATUS NOT IN ('Cancelled', 'Returned')\nGROUP BY 1, 2, 3",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "NiwyDwI8bT",
+              "formula": "[Custom SQL/ORDER_CHANNEL]",
+              "name": "Order Channel"
+            },
+            {
+              "id": "mtQZmyRJvN",
+              "formula": "[Custom SQL/YEAR]",
+              "name": "Year"
+            },
+            {
+              "id": "0_8WV0FDja",
+              "formula": "[Custom SQL/MONTH_NUMBER]",
+              "name": "Month Number"
+            },
+            {
+              "id": "q5EPulTUPn",
+              "formula": "[Custom SQL/GROSS_MARGIN_PCT]",
+              "name": "Gross Margin %"
+            }
+          ],
+          "name": "Channel Summary",
+          "metrics": [
+            {
+              "id": "TiC-r_Jc1N",
+              "formula": "Sum([Custom SQL/ORDER_COUNT])",
+              "name": "Total Orders"
+            },
+            {
+              "id": "emazVBP4UA",
+              "formula": "Sum([Custom SQL/CUSTOMER_COUNT])",
+              "name": "Total Customers"
+            },
+            {
+              "id": "KuvogL3xbM",
+              "formula": "Sum([Custom SQL/GROSS_REVENUE])",
+              "name": "Total Gross Revenue"
+            },
+            {
+              "id": "Squ5Lpkv1f",
+              "formula": "Sum([Custom SQL/NET_REVENUE])",
+              "name": "Total Net Revenue"
+            },
+            {
+              "id": "aW3c4Ls_UR",
+              "formula": "Sum([Custom SQL/GROSS_PROFIT])",
+              "name": "Total Gross Profit"
+            },
+            {
+              "id": "bhAHePaHUg",
+              "formula": "Sum([Custom SQL/DISCOUNT_AMOUNT])",
+              "name": "Total Discounts"
+            },
+            {
+              "id": "vFA4Ny8092",
+              "formula": "Sum([Custom SQL/UNITS_ORDERED])",
+              "name": "Total Units Ordered"
+            }
+          ],
+          "order": [
+            "NiwyDwI8bT",
+            "mtQZmyRJvN",
+            "0_8WV0FDja",
+            "q5EPulTUPn"
+          ]
+        }
+      ]
+    }
+  ]
+}
