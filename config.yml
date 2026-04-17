@@ -24,3 +24,7 @@ data_models:
     file: my-data-model.json
     name: My Data Model
     last_synced: '2026-04-17T10:28:23.359000Z'
+  8397d772-46e5-4241-95cd-cc2d12aaaa37:
+    file: order-analysis-looker-text-test.json
+    name: Order Analysis Looker - Text test
+    last_synced: '2026-04-17T10:28:48.424750Z'
