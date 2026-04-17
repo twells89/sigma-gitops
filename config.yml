@@ -7,7 +7,7 @@ data_models:
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
-    last_synced: '2026-03-20T11:43:04.357051Z'
+    last_synced: '2026-04-17T10:27:54.531912Z'
   8c6e32eb-e650-41a3-b45d-0ae47e394108:
     file: csa-tj-order-analysis-carine.json
     name: CSA.TJ Order Analysis - Carine
