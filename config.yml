@@ -36,3 +36,7 @@ data_models:
     file: power-bi-import-4.json
     name: Power BI Import 4
     last_synced: '2026-04-17T10:29:33.777639Z'
+  83356c91-c9c5-4d25-8e50-ff9ca391981c:
+    file: retail-analytics-lod2.json
+    name: Retail Analytics LOD2
+    last_synced: '2026-04-17T10:30:01.298332Z'
