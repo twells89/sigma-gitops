@@ -1,0 +1,296 @@
+{
+  "dataModelId": "aacc392d-27bf-4cb8-ab65-d7a5ca343ebd",
+  "name": "Superstore Datasource",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Superstore-Datasource-5ci1BCPO131fzXCHEstyQ5",
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-22T10:05:13.679Z",
+  "updatedAt": "2026-04-22T10:10:22.698Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "a7e9I5_gaP",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "Gxa8fKdge3",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "Tableau Test",
+              "PEOPLE"
+            ]
+          },
+          "columns": [
+            {
+              "id": "lmUSytyeMk",
+              "formula": "[PEOPLE/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "XFPIDBS1VL",
+              "formula": "[PEOPLE/Regional Manager]",
+              "name": "Regional Manager"
+            }
+          ],
+          "name": "People",
+          "order": [
+            "lmUSytyeMk",
+            "XFPIDBS1VL"
+          ]
+        },
+        {
+          "id": "A_I5aEtH67",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "Tableau Test",
+              "RETURNS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "NxTKkcXMJE",
+              "formula": "[RETURNS/Order Id]",
+              "name": "Order ID"
+            },
+            {
+              "id": "OK-1SRZdfO",
+              "formula": "[RETURNS/Returned]",
+              "name": "Returned"
+            }
+          ],
+          "name": "Returns",
+          "order": [
+            "NxTKkcXMJE",
+            "OK-1SRZdfO"
+          ]
+        },
+        {
+          "id": "Cm-jZ-u0U1",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "Tableau Test",
+              "ORDERS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "1wRkgmPH2y",
+              "formula": "[ORDERS/Row Id]",
+              "name": "Row ID"
+            },
+            {
+              "id": "2a9P3E9_05",
+              "formula": "[ORDERS/Order Id]",
+              "name": "Order ID"
+            },
+            {
+              "id": "rXT5dj7b53",
+              "formula": "[ORDERS/Order Date]",
+              "name": "Order Date"
+            },
+            {
+              "id": "X04688-94T",
+              "formula": "[ORDERS/Ship Date]",
+              "name": "Ship Date"
+            },
+            {
+              "id": "8AR-eKh0r2",
+              "formula": "[ORDERS/Ship Mode]",
+              "name": "Ship Mode"
+            },
+            {
+              "id": "u8AFZjIJhV",
+              "formula": "[ORDERS/Customer Id]",
+              "name": "Customer ID"
+            },
+            {
+              "id": "OzKIrm2Mg8",
+              "formula": "[ORDERS/Customer Name]",
+              "name": "Customer Name"
+            },
+            {
+              "id": "6b5BOaM5Jy",
+              "formula": "[ORDERS/Segment]",
+              "name": "Segment"
+            },
+            {
+              "id": "tbhuB0YFBn",
+              "formula": "[ORDERS/Country Region]",
+              "name": "Country/Region"
+            },
+            {
+              "id": "-JNoLFo8MG",
+              "formula": "[ORDERS/City]",
+              "name": "City"
+            },
+            {
+              "id": "2D9i_EEWSE",
+              "formula": "[ORDERS/State Province]",
+              "name": "State/Province"
+            },
+            {
+              "id": "AJAqNTvFrO",
+              "formula": "[ORDERS/Postal Code]",
+              "name": "Postal Code"
+            },
+            {
+              "id": "P4jbq9tJH1",
+              "formula": "[ORDERS/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "LHvTLxjp8H",
+              "formula": "[ORDERS/Product Id]",
+              "name": "Product ID"
+            },
+            {
+              "id": "zb_QC9YWN7",
+              "formula": "[ORDERS/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "h1mwbqKKLj",
+              "formula": "[ORDERS/Sub Category]",
+              "name": "Sub-Category"
+            },
+            {
+              "id": "9HPsKVU3uU",
+              "formula": "[ORDERS/Product Name]",
+              "name": "Product Name"
+            },
+            {
+              "id": "H8v-LL1eQG",
+              "formula": "[ORDERS/Sales]",
+              "name": "Sales"
+            },
+            {
+              "id": "QZDH_3lcko",
+              "formula": "[ORDERS/Quantity]",
+              "name": "Quantity"
+            },
+            {
+              "id": "etn47KrKVe",
+              "formula": "[ORDERS/Discount]",
+              "name": "Discount"
+            },
+            {
+              "id": "T4E4y9lYlw",
+              "formula": "[ORDERS/Profit]",
+              "name": "Profit"
+            }
+          ],
+          "name": "Orders",
+          "metrics": [
+            {
+              "id": "X3te4QFvIn",
+              "formula": "Sum([Sales])",
+              "name": "Total Sales",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "UMUUENn8Yq",
+              "formula": "Sum([Profit])",
+              "name": "Total Profit",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "SGGqqdHMWv",
+              "formula": "Sum([Discount])",
+              "name": "Total Discount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "n4FAlpaR_X",
+              "formula": "Sum([Quantity])",
+              "name": "Total Quantity"
+            },
+            {
+              "id": "lxVwpJh7Nl",
+              "formula": "Sum([Profit]) / Sum([Sales])",
+              "name": "Profit Ratio",
+              "format": {
+                "kind": "number",
+                "formatString": ",.2%"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "OPok7dh2Hl",
+              "targetElementId": "Gxa8fKdge3",
+              "keys": [
+                {
+                  "sourceColumnId": "P4jbq9tJH1",
+                  "targetColumnId": "lmUSytyeMk"
+                }
+              ],
+              "name": "Orders to People"
+            },
+            {
+              "id": "fCkZDju7WZ",
+              "targetElementId": "A_I5aEtH67",
+              "keys": [
+                {
+                  "sourceColumnId": "2a9P3E9_05",
+                  "targetColumnId": "NxTKkcXMJE"
+                }
+              ],
+              "name": "Orders to Returns"
+            }
+          ],
+          "order": [
+            "1wRkgmPH2y",
+            "2a9P3E9_05",
+            "rXT5dj7b53",
+            "X04688-94T",
+            "8AR-eKh0r2",
+            "u8AFZjIJhV",
+            "OzKIrm2Mg8",
+            "6b5BOaM5Jy",
+            "tbhuB0YFBn",
+            "-JNoLFo8MG",
+            "2D9i_EEWSE",
+            "AJAqNTvFrO",
+            "P4jbq9tJH1",
+            "LHvTLxjp8H",
+            "zb_QC9YWN7",
+            "h1mwbqKKLj",
+            "9HPsKVU3uU",
+            "H8v-LL1eQG",
+            "QZDH_3lcko",
+            "etn47KrKVe",
+            "T4E4y9lYlw"
+          ]
+        }
+      ]
+    }
+  ]
+}
