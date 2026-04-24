@@ -16,6 +16,7 @@ Environment variables:
 import os
 import sys
 import json
+import time
 import yaml
 import requests
 from pathlib import Path
@@ -115,27 +116,47 @@ class SigmaClient:
     
     def list_data_models(self):
         """Get all data models from Sigma."""
-        response = requests.get(
-            f"{self.base_url}/v2/datamodels",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to list data models: {response.text}")
-        
-        return response.json().get('entries', [])
+        entries = []
+        params = {'limit': 1000}
+        while True:
+            response = requests.get(
+                f"{self.base_url}/v2/datamodels",
+                headers=self._headers(),
+                params=params,
+            )
+            if response.status_code != 200:
+                raise Exception(f"Failed to list data models: {response.text}")
+            body = response.json()
+            entries.extend(body.get('entries', []))
+            next_page = body.get('nextPage')
+            if not next_page:
+                break
+            params['page'] = next_page
+        return entries
     
     def get_data_model_spec(self, data_model_id):
         """Get the JSON representation of a data model."""
-        response = requests.get(
-            f"{self.base_url}/v3alpha/datamodels/{data_model_id}/spec",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to get data model spec: {response.text}")
-        
-        return response.json()
+        last_error = None
+        for attempt in range(4):
+            try:
+                response = requests.get(
+                    f"{self.base_url}/v3alpha/datamodels/{data_model_id}/spec",
+                    headers=self._headers(),
+                    timeout=30,
+                )
+            except requests.RequestException as e:
+                last_error = f"Network error: {e}"
+            else:
+                if response.status_code == 200:
+                    return response.json()
+                if response.status_code < 500:
+                    raise Exception(f"Failed to get data model spec: {response.text}")
+                last_error = f"HTTP {response.status_code}: {response.text}"
+
+            if attempt < 3:
+                time.sleep(2 ** attempt)
+
+        raise Exception(f"Failed to get data model spec after retries: {last_error}")
     
     def create_data_model(self, spec):
         """Create a new data model from a JSON spec."""
@@ -330,7 +351,8 @@ def main():
     print(f"✅ Synced: {success}  ❌ Failed: {failed}")
     print("=" * 60)
     
-    if failed > 0:
+    max_failures = int(os.environ.get('SIGMA_SYNC_MAX_FAILURES', '0'))
+    if failed > max_failures:
         sys.exit(1)
 
 

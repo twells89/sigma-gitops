@@ -17,6 +17,7 @@ Environment variables:
 import os
 import sys
 import json
+import time
 import yaml
 import argparse
 import requests
@@ -113,31 +114,52 @@ class SigmaClient:
         }
     
     def list_data_models(self):
-        response = requests.get(
-            f"{self.base_url}/v2/datamodels",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to list data models: {response.text}")
-        
-        return response.json().get('entries', [])
+        entries = []
+        params = {'limit': 1000}
+        while True:
+            response = requests.get(
+                f"{self.base_url}/v2/datamodels",
+                headers=self._headers(),
+                params=params,
+            )
+            if response.status_code != 200:
+                raise Exception(f"Failed to list data models: {response.text}")
+            body = response.json()
+            entries.extend(body.get('entries', []))
+            next_page = body.get('nextPage')
+            if not next_page:
+                break
+            params['page'] = next_page
+        return entries
     
     def get_data_model_spec(self, data_model_id):
-        response = requests.get(
-            f"{self.base_url}/v3alpha/datamodels/{data_model_id}/spec",
-            headers=self._headers()
-        )
-        
-        if response.status_code != 200:
-            raise Exception(f"Failed to get data model spec: {response.text}")
-        
-        return response.json()
+        last_error = None
+        for attempt in range(4):
+            try:
+                response = requests.get(
+                    f"{self.base_url}/v3alpha/datamodels/{data_model_id}/spec",
+                    headers=self._headers(),
+                    timeout=30,
+                )
+            except requests.RequestException as e:
+                last_error = f"Network error: {e}"
+            else:
+                if response.status_code == 200:
+                    return response.json()
+                if response.status_code < 500:
+                    raise Exception(f"Failed to get data model spec: {response.text}")
+                last_error = f"HTTP {response.status_code}: {response.text}"
+
+            if attempt < 3:
+                time.sleep(2 ** attempt)
+
+        raise Exception(f"Failed to get data model spec after retries: {last_error}")
 
 
 def sanitize_filename(name):
     """Convert name to a safe filename."""
-    return name.lower().replace(' ', '-').replace('_', '-').\
+    return name.replace('/', '-').replace('\\', '-').\
+        lower().replace(' ', '-').replace('_', '-').\
         encode('ascii', 'ignore').decode().\
         replace('--', '-').strip('-')[:50] or 'unnamed'
 
@@ -239,7 +261,8 @@ def main():
     print(f"📂 Output: {output_dir}/")
     print("=" * 60)
     
-    if failed > 0:
+    max_failures = int(os.environ.get('SIGMA_PULL_MAX_FAILURES', '0'))
+    if failed > max_failures:
         sys.exit(1)
 
 
