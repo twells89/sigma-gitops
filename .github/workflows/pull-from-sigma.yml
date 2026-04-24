@@ -36,6 +36,9 @@ jobs:
         env:
           SIGMA_CLIENT_ID: ${{ secrets.SIGMA_CLIENT_ID }}
           SIGMA_SECRET: ${{ secrets.SIGMA_SECRET }}
+          # Set SIGMA_PULL_MAX_FAILURES in repo vars to tolerate N persistently-broken
+          # models without blocking the PR for healthy ones (default 0 = strict).
+          SIGMA_PULL_MAX_FAILURES: ${{ vars.SIGMA_PULL_MAX_FAILURES || '0' }}
         run: python scripts/pull_from_sigma.py
 
       - name: Check for changes
