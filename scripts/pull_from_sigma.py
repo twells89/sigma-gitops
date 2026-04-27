@@ -125,7 +125,7 @@ class SigmaClient:
     
     def get_data_model_spec(self, data_model_id):
         response = requests.get(
-            f"{self.base_url}/v3alpha/datamodels/{data_model_id}/spec",
+            f"{self.base_url}/v2/datamodels/{data_model_id}/spec",
             headers=self._headers()
         )
         
