@@ -1,13 +1,13 @@
 sigma_api_url: https://aws-api.sigmacomputing.com
 data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
-    file: data-model-quickstart-copy-test.json
-    name: Data Model QuickStart COPY - Test
-    last_synced: '2026-03-25T19:09:48.822127Z'
+    file: data-model-quickstart-copy.json
+    name: Data Model QuickStart COPY
+    last_pulled: '2026-05-02T07:50:02.372444Z'
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
-    last_synced: '2026-04-17T10:27:54.531912Z'
+    last_pulled: '2026-05-02T07:50:02.133854Z'
   8c6e32eb-e650-41a3-b45d-0ae47e394108:
     file: csa-tj-order-analysis-carine.json
     name: CSA.TJ Order Analysis - Carine
@@ -19,7 +19,7 @@ data_models:
   339130f6-cb22-4900-bfb8-69936a4aec3b:
     file: dbt-semantic-models-2.json
     name: Dbt Semantic Models 2
-    last_synced: '2026-04-17T10:27:59.074496Z'
+    last_pulled: '2026-05-02T07:50:06.472024Z'
   138248c1-3bfe-4d2e-b254-460b46875db4:
     file: my-data-model.json
     name: My Data Model
@@ -55,8 +55,132 @@ data_models:
   85e4d156-f529-46db-b8a2-474b2258527f:
     file: test-2.json
     name: Test 2
-    last_synced: '2026-04-17T10:31:38.810549Z'
+    last_pulled: '2026-05-02T07:50:09.264628Z'
   eee771b0-a22b-4960-8276-d618a363977a:
     file: twohop.json
     name: twohop
     last_synced: '2026-04-17T10:32:06.967978Z'
+  08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
+    file: my-data-model.json
+    name: My Data Model
+    last_pulled: '2026-05-02T07:50:02.630470Z'
+  09e337b7-15a0-48e9-8a26-654906c2e1a1:
+    file: sem-support-tickets.json
+    name: Sem Support Tickets
+    last_pulled: '2026-05-02T07:50:02.993676Z'
+  0f5c482b-1ecd-4df9-9578-3f66b04499d8:
+    file: commerce-analytics-demo-data-model.json
+    name: Commerce Analytics Demo Data Model
+    last_pulled: '2026-05-02T07:50:03.348702Z'
+  13ae488b-56c8-4a7c-8d36-76c181bca909:
+    file: test-cross-el-calc.json
+    name: test_cross_el_calc
+    last_pulled: '2026-05-02T07:50:04.434253Z'
+  1e8386a0-6715-4067-bb37-930988f3963b:
+    file: retail-analytics-sv.json
+    name: Retail Analytics Sv
+    last_pulled: '2026-05-02T07:50:04.734468Z'
+  21596362-2d55-4227-90f8-5271136d074c:
+    file: retail-analytics-sv.json
+    name: Retail Analytics Sv
+    last_pulled: '2026-05-02T07:50:04.993323Z'
+  2a000cef-eb60-4833-ac95-96624ebdab31:
+    file: superstore-(tableau-import).json
+    name: Superstore (Tableau Import)
+    last_pulled: '2026-05-02T07:50:05.331787Z'
+  2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
+    file: chicago-crime.json
+    name: chicago-crime
+    last_pulled: '2026-05-02T07:50:05.574885Z'
+  317683ff-ea14-406b-a2a3-594c7e6cfecb:
+    file: retail-analytics-sv.json
+    name: Retail Analytics Sv
+    last_pulled: '2026-05-02T07:50:05.975308Z'
+  33894412-e886-489b-a6d4-1f50b73d7b97:
+    file: order-fact-lookml-test.json
+    name: Order Fact LookML Test
+    last_pulled: '2026-05-02T07:50:06.226710Z'
+  36430f60-2064-457c-8b52-ba7f3927438a:
+    file: looker.json
+    name: Looker
+    last_pulled: '2026-05-02T07:50:06.766104Z'
+  3ab29163-47b3-458b-be89-a027f6153730:
+    file: retail-analytics-sv-test-2.json
+    name: Retail Analytics Sv Test 2
+    last_pulled: '2026-05-02T07:50:07.043496Z'
+  4702a2a6-e779-4d8e-9bb1-ec1ef31e66e0:
+    file: test-upload.json
+    name: Test Upload
+    last_pulled: '2026-05-02T07:50:07.332280Z'
+  506cbbfa-72ff-49ce-9d79-2b74b4412034:
+    file: twohoptst.json
+    name: twohoptst
+    last_pulled: '2026-05-02T07:50:07.634333Z'
+  62d86a35-c6e4-4f9c-930b-77a97c49209f:
+    file: d-customer.json
+    name: D_CUSTOMER
+    last_pulled: '2026-05-02T07:50:08.086664Z'
+  666fcaea-a635-4ee5-9c65-9ca9b6e60c59:
+    file: retail-analytics.json
+    name: Retail Analytics
+    last_pulled: '2026-05-02T07:50:08.403216Z'
+  86cfe63c-99a8-4512-924d-60c51f8589d3:
+    file: test.json
+    name: Test
+    last_pulled: '2026-05-02T07:50:09.486006Z'
+  97cf839e-4bf7-4c3c-81a0-3ceff1d3aae3:
+    file: retail-analytics-sv.json
+    name: Retail Analytics Sv
+    last_pulled: '2026-05-02T07:50:09.846519Z'
+  9ca30dcb-cc47-4fbc-b048-953829a85da6:
+    file: superstore-(tableau-import)-lookup-test.json
+    name: Superstore (Tableau Import) Lookup Test
+    last_pulled: '2026-05-02T07:50:10.069833Z'
+  a8cda164-a101-4494-aa9b-bb5153a0bdef:
+    file: retail-analytics-looker.json
+    name: Retail Analytics Looker
+    last_pulled: '2026-05-02T07:50:10.301132Z'
+  aacc392d-27bf-4cb8-ab65-d7a5ca343ebd:
+    file: superstore-datasource.json
+    name: Superstore Datasource
+    last_pulled: '2026-05-02T07:50:10.517358Z'
+  ab4a1619-1b27-4db8-8e94-34167546e692:
+    file: retail-analytics-test-5.json
+    name: Retail Analytics Test 5
+    last_pulled: '2026-05-02T07:50:10.880123Z'
+  ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
+    file: relationship-rls-bug?.json
+    name: Relationship RLS Bug?
+    last_pulled: '2026-05-02T07:50:11.083261Z'
+  cc3dd7c0-c5e8-487d-9802-d56c1a758e82:
+    file: dbt-semantic-models.json
+    name: Dbt Semantic Models
+    last_pulled: '2026-05-02T07:50:11.352099Z'
+  d85439d2-a41a-4647-b100-784bddc7cca5:
+    file: erica.json
+    name: Erica
+    last_pulled: '2026-05-02T07:50:12.095906Z'
+  dceb0813-3822-4071-9591-84f58df591f6:
+    file: sales-analytics.json
+    name: Sales Analytics
+    last_pulled: '2026-05-02T07:50:13.007382Z'
+  e3a5f320-394e-46d6-9718-038d2abe0994:
+    file: tankup!-inventory.json
+    name: 'TankUp! Inventory '
+    last_pulled: '2026-05-02T07:50:13.185268Z'
+  eedef070-f7f3-42fa-b456-9455173aae78:
+    file: sales-analytics-2.json
+    name: Sales Analytics 2
+    last_pulled: '2026-05-02T07:50:13.380646Z'
+  ef0fee30-9699-421e-8ad2-b4978acced9c:
+    file: retail-analytics-sv.json
+    name: Retail Analytics Sv
+    last_pulled: '2026-05-02T07:50:13.728813Z'
+  f0b9ac61-ea86-4330-a5db-487526c27882:
+    file: retail-analytics-with-derived-table.json
+    name: Retail Analytics with derived Table
+    last_pulled: '2026-05-02T07:50:13.959955Z'
+  faeaab6a-0a95-416e-8a8f-3997274e292d:
+    file: retail-analytics-sv-test-4.json
+    name: Retail Analytics Sv Test 4
+    last_pulled: '2026-05-02T07:50:14.240638Z'
