@@ -7,7 +7,7 @@ data_models:
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
-    last_synced: '2026-04-17T10:27:54.531912Z'
+    last_pulled: '2026-05-23T08:24:26.407966Z'
   8c6e32eb-e650-41a3-b45d-0ae47e394108:
     file: csa-tj-order-analysis-carine.json
     name: CSA.TJ Order Analysis - Carine
@@ -19,7 +19,7 @@ data_models:
   339130f6-cb22-4900-bfb8-69936a4aec3b:
     file: dbt-semantic-models-2.json
     name: Dbt Semantic Models 2
-    last_synced: '2026-04-17T10:27:59.074496Z'
+    last_pulled: '2026-05-23T08:24:28.936367Z'
   138248c1-3bfe-4d2e-b254-460b46875db4:
     file: my-data-model.json
     name: My Data Model
@@ -55,8 +55,68 @@ data_models:
   85e4d156-f529-46db-b8a2-474b2258527f:
     file: test-2.json
     name: Test 2
-    last_synced: '2026-04-17T10:31:38.810549Z'
+    last_pulled: '2026-05-23T08:24:30.670662Z'
   eee771b0-a22b-4960-8276-d618a363977a:
     file: twohop.json
     name: twohop
     last_synced: '2026-04-17T10:32:06.967978Z'
+  08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
+    file: my-data-model.json
+    name: My Data Model
+    last_pulled: '2026-05-23T08:24:26.645198Z'
+  0f5c482b-1ecd-4df9-9578-3f66b04499d8:
+    file: commerce-analytics-demo-data-model.json
+    name: Commerce Analytics Demo Data Model
+    last_pulled: '2026-05-23T08:24:26.906594Z'
+  13ae488b-56c8-4a7c-8d36-76c181bca909:
+    file: test-cross-el-calc.json
+    name: test_cross_el_calc
+    last_pulled: '2026-05-23T08:24:27.540219Z'
+  2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
+    file: chicago-crime.json
+    name: chicago-crime
+    last_pulled: '2026-05-23T08:24:27.919443Z'
+  33894412-e886-489b-a6d4-1f50b73d7b97:
+    file: order-fact-lookml-test.json
+    name: Order Fact LookML Test
+    last_pulled: '2026-05-23T08:24:28.454520Z'
+  36430f60-2064-457c-8b52-ba7f3927438a:
+    file: looker.json
+    name: Looker
+    last_pulled: '2026-05-23T08:24:29.478554Z'
+  3ab29163-47b3-458b-be89-a027f6153730:
+    file: retail-analytics-sv-test-2.json
+    name: Retail Analytics Sv Test 2
+    last_pulled: '2026-05-23T08:24:30.106663Z'
+  62d86a35-c6e4-4f9c-930b-77a97c49209f:
+    file: d-customer.json
+    name: D_CUSTOMER
+    last_pulled: '2026-05-23T08:24:30.386076Z'
+  86cfe63c-99a8-4512-924d-60c51f8589d3:
+    file: test.json
+    name: Test
+    last_pulled: '2026-05-23T08:24:30.922940Z'
+  8a15cfc3-7265-44c7-bc13-3f9fe9aa1863:
+    file: employee-analytics.json
+    name: Employee Analytics
+    last_pulled: '2026-05-23T08:24:31.233072Z'
+  ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
+    file: relationship-rls-bug?.json
+    name: Relationship RLS Bug?
+    last_pulled: '2026-05-23T08:24:31.519550Z'
+  d85439d2-a41a-4647-b100-784bddc7cca5:
+    file: erica.json
+    name: Erica
+    last_pulled: '2026-05-23T08:24:31.947602Z'
+  dceb0813-3822-4071-9591-84f58df591f6:
+    file: sales-analytics.json
+    name: Sales Analytics
+    last_pulled: '2026-05-23T08:24:32.228427Z'
+  e3a5f320-394e-46d6-9718-038d2abe0994:
+    file: tankup!-inventory.json
+    name: 'TankUp! Inventory '
+    last_pulled: '2026-05-23T08:24:32.602364Z'
+  eedef070-f7f3-42fa-b456-9455173aae78:
+    file: sales-analytics-2.json
+    name: Sales Analytics 2
+    last_pulled: '2026-05-23T08:24:32.992516Z'
