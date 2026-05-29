@@ -1,0 +1,175 @@
+{
+  "dataModelId": "33894412-e886-489b-a6d4-1f50b73d7b97",
+  "name": "Order Fact LookML Test",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Order-Fact-LookML-Test-1zfl2ym7wReX5UeAIhq37p",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "94ccc09e-3eaa-442d-a16a-bad89d041a00",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-28T12:17:27.842Z",
+  "updatedAt": "2026-05-02T13:24:32.917Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "vhWDpyivnJ",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "yPI5BooP1R",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "hufy3EngHW",
+              "formula": "[CUSTOMER_DIM/Customer Key]"
+            },
+            {
+              "id": "Nws0Hq26ic",
+              "formula": "[CUSTOMER_DIM/Customer Segment]"
+            },
+            {
+              "id": "ciRLWdM4Ym",
+              "formula": "[CUSTOMER_DIM/Loyalty Tier]"
+            },
+            {
+              "id": "rFD77xsQ-y",
+              "formula": "[CUSTOMER_DIM/Region]"
+            }
+          ],
+          "order": [
+            "hufy3EngHW",
+            "Nws0Hq26ic",
+            "ciRLWdM4Ym",
+            "rFD77xsQ-y"
+          ]
+        },
+        {
+          "id": "lZNchRXqAF",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "-fU1kD5d5R",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "Bht8M8LR-P",
+              "formula": "[ORDER_FACT/Customer Key]"
+            },
+            {
+              "id": "UUfWgWPYgc",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "ort-q2CTN0",
+              "formula": "[ORDER_FACT/Gross Profit]"
+            },
+            {
+              "id": "lp9B4HPUsh",
+              "formula": "Round([Gross Profit] / If([Gross Revenue] = 0, Null, [Gross Revenue]) * 100, 2)",
+              "name": "Gross Margin %"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "U62vRpMQHd",
+              "formula": "Sum([Gross Revenue])",
+              "name": "Total Gross Revenue"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "jVegBDJAie",
+              "targetElementId": "yPI5BooP1R",
+              "keys": [
+                {
+                  "sourceColumnId": "Bht8M8LR-P",
+                  "targetColumnId": "hufy3EngHW"
+                }
+              ],
+              "name": "customer_dim"
+            }
+          ],
+          "order": [
+            "-fU1kD5d5R",
+            "Bht8M8LR-P",
+            "UUfWgWPYgc",
+            "ort-q2CTN0",
+            "lp9B4HPUsh"
+          ]
+        },
+        {
+          "id": "leUD0Qfvq-",
+          "kind": "table",
+          "source": {
+            "elementId": "lZNchRXqAF",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "CwwWBZx5yl",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "Ck17BmcN1H",
+              "formula": "[ORDER_FACT/Customer Key]"
+            },
+            {
+              "id": "KqxWLpB-R2",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "c46JA2pe-l",
+              "formula": "[ORDER_FACT/Gross Profit]"
+            },
+            {
+              "id": "Xd6qe4F157",
+              "formula": "[ORDER_FACT/customer_dim/Customer Key]"
+            },
+            {
+              "id": "hvw6pCW7bP",
+              "formula": "[ORDER_FACT/customer_dim/Customer Segment]"
+            },
+            {
+              "id": "Z3T_owf3Kd",
+              "formula": "[ORDER_FACT/customer_dim/Loyalty Tier]"
+            },
+            {
+              "id": "oZ60CYhVzS",
+              "formula": "[ORDER_FACT/customer_dim/Region]"
+            }
+          ],
+          "name": "Order Fact",
+          "order": [
+            "CwwWBZx5yl",
+            "Ck17BmcN1H",
+            "KqxWLpB-R2",
+            "c46JA2pe-l",
+            "Xd6qe4F157",
+            "hvw6pCW7bP",
+            "Z3T_owf3Kd",
+            "oZ60CYhVzS"
+          ]
+        }
+      ]
+    }
+  ]
+}
