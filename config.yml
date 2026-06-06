@@ -1,4 +1,20 @@
 sigma_api_url: https://aws-api.sigmacomputing.com
+
+# ── Workbooks as code (optional) ──────────────────────────────────────────────
+# Off by default. When true, the pull/sync workflows also manage workbooks that
+# were *created through the spec* (POST /v2/workbooks/spec) and are tracked
+# below under `workbooks:`. UI-built workbooks are never auto-discovered, since
+# UI-only features (trellis, tooltip, …) don't round-trip through the spec API.
+# (Note: these comments are stripped the first time a script rewrites this file;
+# see README "Workbooks as code" for the authoritative docs.)
+manage_workbooks: false
+# Folder path(s) new spec-created workbooks are scoped to / live in (display
+# paths, prefix match incl. subfolders). A scope guard, not a scraper.
+workbook_folders:
+  - Inventory Workbooks
+# Populated automatically by the pull/sync scripts; mirrors `data_models:`.
+workbooks: {}
+
 data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
     file: data-model-quickstart-copy-test.json
