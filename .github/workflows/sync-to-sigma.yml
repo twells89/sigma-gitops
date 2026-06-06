@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - 'data-models/*.json'
+      - 'workbooks/*.json'
   pull_request:
     branches: [main]
     paths:
       - 'data-models/*.json'
+      - 'workbooks/*.json'
   workflow_dispatch:
     inputs:
       sync_all:
@@ -31,8 +33,8 @@ jobs:
 
       - name: Validate JSON files
         run: |
-          echo "Validating data model JSON files..."
-          for file in data-models/*.json; do
+          echo "Validating data model and workbook JSON files..."
+          for file in data-models/*.json workbooks/*.json; do
             if [ -f "$file" ]; then
               echo "Checking $file"
               python3 -m json.tool "$file" > /dev/null || exit 1
@@ -189,29 +191,37 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
             CHANGED=$(ls data-models/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
+            CHANGED_WB=$(ls workbooks/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
           else
             CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json' | tr '\n' ' ')
+            CHANGED_WB=$(git diff --name-only HEAD~1 HEAD -- 'workbooks/*.json' | grep -v '_template.json' | tr '\n' ' ')
           fi
           echo "changed_files=$CHANGED" >> "$GITHUB_OUTPUT"
-          echo "Changed files: $CHANGED"
+          echo "changed_workbooks=$CHANGED_WB" >> "$GITHUB_OUTPUT"
+          echo "Changed data models: $CHANGED"
+          echo "Changed workbooks: $CHANGED_WB"
 
-      - name: Sync to Sigma
+      - name: Sync data models to Sigma
         if: steps.changed.outputs.changed_files != ''
         run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
+
+      - name: Sync workbooks to Sigma (spec-created only)
+        if: steps.changed.outputs.changed_workbooks != ''
+        run: python scripts/sync_workbooks_to_sigma.py ${{ steps.changed.outputs.changed_workbooks }}
 
       - name: Commit updates from Sigma
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          if [[ -z $(git status --porcelain config.yml data-models/) ]]; then
+          if [[ -z $(git status --porcelain config.yml data-models/ workbooks/) ]]; then
             echo "✅ No changes to commit"
             exit 0
           fi
 
           git pull --rebase origin main || true
-          git add config.yml data-models/
-          git commit -m "chore: Sync data model versions from Sigma [skip ci]"
+          git add config.yml data-models/ workbooks/
+          git commit -m "chore: Sync versions from Sigma [skip ci]"
 
           for i in {1..3}; do
             if git push origin main; then

@@ -1,0 +1,25 @@
+{
+  "name": "New Workbook",
+  "folderId": "YOUR_FOLDER_ID",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "table-1",
+          "name": "Main Table",
+          "kind": "table",
+          "source": {
+            "kind": "dataModel",
+            "dataModelId": "YOUR_DATA_MODEL_ID",
+            "elementName": "Element Name In Data Model"
+          },
+          "columns": []
+        }
+      ]
+    }
+  ],
+  "layout": ""
+}
