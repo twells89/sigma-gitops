@@ -1,0 +1,218 @@
+{
+  "workbookId": "cc5c9e73-50b7-40eb-b51a-60cbf54aa9c2",
+  "name": "Regional Sales (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/Regional-Sales-from-ThoughtSpot-6dCLdUeYEHRMfgvFVCEZJE",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T05:16:52.764Z",
+  "updatedAt": "2026-06-05T20:08:08.683Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p-data",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "m-ofv",
+          "kind": "table",
+          "source": {
+            "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+            "elementId": "9goVoIu3vD",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "ofv-0",
+              "formula": "[Order Fact View/Region (CUSTOMER_DIM)]",
+              "name": "Region"
+            },
+            {
+              "id": "ofv-1",
+              "formula": "[Order Fact View/Net Revenue]",
+              "name": "Net Revenue"
+            },
+            {
+              "id": "ofv-2",
+              "formula": "[Order Fact View/State (CUSTOMER_DIM)]",
+              "name": "State"
+            },
+            {
+              "id": "ofv-3",
+              "formula": "[Order Fact View/Gross Profit]",
+              "name": "Gross Profit"
+            },
+            {
+              "id": "ofv-4",
+              "formula": "[Order Fact View/Quantity Ordered]",
+              "name": "Quantity Ordered"
+            }
+          ],
+          "name": "OFV",
+          "order": [
+            "ofv-0",
+            "ofv-1",
+            "ofv-2",
+            "ofv-3",
+            "ofv-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p-main",
+      "name": "Regional Sales",
+      "elements": [
+        {
+          "id": "el-ov08abwz",
+          "kind": "kpi-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "c-jzhzdshk-v",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "value": {
+            "columnId": "c-jzhzdshk-v"
+          },
+          "name": "Total Net Revenue"
+        },
+        {
+          "id": "el-yku02zo3",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-cwtzvl8o",
+              "formula": "[OFV/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "y-d9e31np6",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-d9e31np6"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-cwtzvl8o"
+          },
+          "name": "Net Revenue by Region"
+        },
+        {
+          "id": "el-s05qdfzc",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-54tcqppi",
+              "formula": "[OFV/State]",
+              "name": "State"
+            },
+            {
+              "id": "y-tcrjbz4m",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-tcrjbz4m"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-54tcqppi"
+          },
+          "name": "Net Revenue by State"
+        },
+        {
+          "id": "el-hj4yuq25",
+          "kind": "table",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "d-4dhak54l",
+              "formula": "[OFV/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "m-ugebtk2t",
+              "formula": "Sum([OFV/Gross Profit])",
+              "name": "Gross Profit",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-ehz3p03n",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-qs4c0g1w",
+              "formula": "Sum([OFV/Quantity Ordered])",
+              "name": "Quantity Ordered",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "name": "Region Detail",
+          "groupings": [
+            {
+              "id": "el-j7dgcw44",
+              "groupBy": [
+                "d-4dhak54l"
+              ],
+              "calculations": [
+                "m-ugebtk2t",
+                "m-ehz3p03n",
+                "m-qs4c0g1w"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-ov08abwz\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-yku02zo3\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-s05qdfzc\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-hj4yuq25\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+}

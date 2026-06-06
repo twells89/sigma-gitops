@@ -1,20 +1,138 @@
 sigma_api_url: https://aws-api.sigmacomputing.com
-
-# ── Workbooks as code (optional) ──────────────────────────────────────────────
-# Off by default. When true, the pull/sync workflows also manage workbooks that
-# were *created through the spec* (POST /v2/workbooks/spec) and are tracked
-# below under `workbooks:`. UI-built workbooks are never auto-discovered, since
-# UI-only features (trellis, tooltip, …) don't round-trip through the spec API.
-# (Note: these comments are stripped the first time a script rewrites this file;
-# see README "Workbooks as code" for the authoritative docs.)
-manage_workbooks: false
-# Folder path(s) new spec-created workbooks are scoped to / live in (display
-# paths, prefix match incl. subfolders). A scope guard, not a scraper.
+manage_workbooks: true
 workbook_folders:
-  - Inventory Workbooks
-# Populated automatically by the pull/sync scripts; mirrors `data_models:`.
-workbooks: {}
-
+- My Documents/Test
+workbooks:
+  022006fa-6f42-4698-ac0e-b38cbbb1b050:
+    file: retail-orders-overview-(from-qlik).json
+    name: "Retail Orders \u2014 Overview (from Qlik)"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:01.361439Z'
+  025246e7-72f7-474c-a613-21ea13089ad0:
+    file: store-operations-(from-thoughtspot).json
+    name: Store Operations (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:01.744128Z'
+  2657e965-cf4a-46d8-9d3d-2250e272ff35:
+    file: exec-overview-(qlik)-sigma.json
+    name: "Exec Overview (Qlik) \u2192 Sigma"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:02.118106Z'
+  2c4e5d07-940c-420b-a0a1-9465aebddd3f:
+    file: retail-orders-overview-(from-qlik)-2c4e5d07.json
+    name: "Retail Orders \u2014 Overview (from Qlik)"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:02.698722Z'
+  34c84faa-a877-4635-be2c-2ca297924c6a:
+    file: a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5-(from-thought.json
+    name: a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5 (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:02.898933Z'
+  34e16b0c-60ab-40db-b6b3-661a64030ef8:
+    file: retail-orders-(qliksigma).json
+    name: "Retail Orders (Qlik\u2192Sigma)"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:04.107623Z'
+  38122b15-6b76-48a8-ba1f-e480810ac774:
+    file: sales-overview-(from-thoughtspot).json
+    name: Sales Overview (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:04.502824Z'
+  384651d2-e801-445d-b40c-4ebfab8caabb:
+    file: regional-sales-(qlik)-sigma.json
+    name: "Regional Sales (Qlik) \u2192 Sigma"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:04.811953Z'
+  53df581d-f74a-46d5-8da7-cfade1155eb2:
+    file: customer-insights-(from-thoughtspot).json
+    name: Customer Insights (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:05.224072Z'
+  5fb4f075-6802-4086-a9ce-b7bf0cd27536:
+    file: promotions-(from-thoughtspot).json
+    name: Promotions (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:05.566719Z'
+  62df6f0e-54fe-4427-8fb0-52e9bc4b8f5e:
+    file: category-insights-(qlik)-sigma.json
+    name: "Category Insights (Qlik) \u2192 Sigma"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:05.910452Z'
+  67f3076c-3906-47f2-aa8b-b0f78fec17be:
+    file: time-trends-(from-thoughtspot).json
+    name: Time Trends (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:06.262279Z'
+  697f3521-76ab-4270-a3d4-e3bedfcae44d:
+    file: csa-tj-demo-(from-looker).json
+    name: CSA TJ Demo (from Looker)
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:06.523674Z'
+  6b46f6bb-9651-4c1d-9d81-0b725f926e1d:
+    file: inventory-snapshot-(qlik)-sigma.json
+    name: "Inventory Snapshot (Qlik) \u2192 Sigma"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:06.901885Z'
+  70040e4b-fcb7-4426-af5c-aad3f2b0d66f:
+    file: drill-down.json
+    name: Drill down
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:07.309545Z'
+  7cbb68b6-82d6-4f29-a29a-ec614645e406:
+    file: channel-report-(qlik)-sigma.json
+    name: "Channel Report (Qlik) \u2192 Sigma"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:07.716878Z'
+  9270993c-8a84-48aa-9ae6-1f35cc1444ff:
+    file: returns-&-quality-(from-thoughtspot).json
+    name: Returns & Quality (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:08.121592Z'
+  9674f92d-78fa-4f81-aebf-f7e5b00ee8cc:
+    file: retail-orders-(qliksigma)-9674f92d.json
+    name: "Retail Orders (Qlik\u2192Sigma)"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:08.420086Z'
+  9b5d8e9b-0823-4f36-b17e-f109f5d7d633:
+    file: 6e52edc8-1811-4dd9-b6e7-eeb9b60d6b13-(from-thought.json
+    name: 6e52edc8-1811-4dd9-b6e7-eeb9b60d6b13 (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:08.810261Z'
+  ba6b2d3b-c95a-4b47-b96f-5ec9601f54d2:
+    file: executive-kpis-(from-thoughtspot).json
+    name: Executive KPIs (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:09.277232Z'
+  cc5c9e73-50b7-40eb-b51a-60cbf54aa9c2:
+    file: regional-sales-(from-thoughtspot).json
+    name: Regional Sales (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:10.186212Z'
+  d658ebbe-c044-4e69-893f-b4af93627635:
+    file: loyalty-&-segments-(from-thoughtspot).json
+    name: Loyalty & Segments (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:10.585209Z'
+  db5697ed-a997-4083-bd24-9ba663b75da2:
+    file: retail-analytics-(from-qlik)-4-themes.json
+    name: "Retail Analytics (from Qlik) \u2014 4 Themes"
+    path: My Documents/Test
+    last_pulled: '2026-06-06T16:43:10.897956Z'
+  dd480479-ea4e-4d09-8da9-0e43834cb3a0:
+    file: retail-analytics-(from-thoughtspot).json
+    name: Retail Analytics (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:11.226708Z'
+  e19eff3a-b4aa-46f6-8a76-ec9372b919c8:
+    file: channel-analysis-(from-thoughtspot).json
+    name: Channel Analysis (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:11.609261Z'
+  f642de9c-ae28-4704-a694-ba7f89c1fe5a:
+    file: product-performance-(from-thoughtspot).json
+    name: Product Performance (from ThoughtSpot)
+    path: My Documents/Test/ThoughtSpot Migrations
+    last_pulled: '2026-06-06T16:43:12.085677Z'
 data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
     file: data-model-quickstart-copy-test.json

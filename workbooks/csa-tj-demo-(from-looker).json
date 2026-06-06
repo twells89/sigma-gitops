@@ -1,0 +1,55 @@
+{
+  "workbookId": "697f3521-76ab-4270-a3d4-e3bedfcae44d",
+  "name": "CSA TJ Demo (from Looker)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/CSA-TJ-Demo-from-Looker-3d4km9gfy8TWhFjTPIOxQx",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "9ca9bf60-6a33-43dd-967d-1ba6352c54bb",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-04T23:06:01.234Z",
+  "updatedAt": "2026-06-04T23:06:01.234Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-data",
+      "name": "Data",
+      "elements": []
+    },
+    {
+      "id": "page-dash",
+      "name": "CSA TJ Demo",
+      "elements": [
+        {
+          "kind": "control",
+          "controlId": "region",
+          "id": "ctrl-05bmgm6z",
+          "name": "Region",
+          "filters": [
+            {
+              "source": {
+                "kind": "table",
+                "elementId": "m-master"
+              },
+              "columnId": "col-hc1tctoi"
+            }
+          ],
+          "controlType": "list",
+          "mode": "include",
+          "selectionMode": "multiple",
+          "values": [],
+          "source": {
+            "kind": "source",
+            "source": {
+              "kind": "table",
+              "elementId": "m-master"
+            },
+            "columnId": "col-hc1tctoi"
+          }
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-dash\">\n  <LayoutElement elementId=\"ctrl-05bmgm6z\" gridColumn=\"1 / 9\" gridRow=\"16 / 19\"/>\n</Page>\n"
+}

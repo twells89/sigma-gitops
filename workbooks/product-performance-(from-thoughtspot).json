@@ -1,0 +1,214 @@
+{
+  "workbookId": "f642de9c-ae28-4704-a694-ba7f89c1fe5a",
+  "name": "Product Performance (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/Product-Performance-from-ThoughtSpot-7uGFERGhrpxJ8cdDNu26dI",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T05:16:30.073Z",
+  "updatedAt": "2026-06-05T20:08:15.510Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p-data",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "m-ofv",
+          "kind": "table",
+          "source": {
+            "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+            "elementId": "9goVoIu3vD",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "ofv-0",
+              "formula": "[Order Fact View/Quantity Ordered]",
+              "name": "Quantity Ordered"
+            },
+            {
+              "id": "ofv-1",
+              "formula": "[Order Fact View/Brand (PRODUCT_DIM)]",
+              "name": "Brand"
+            },
+            {
+              "id": "ofv-2",
+              "formula": "[Order Fact View/Net Revenue]",
+              "name": "Net Revenue"
+            },
+            {
+              "id": "ofv-3",
+              "formula": "[Order Fact View/Subcategory (PRODUCT_DIM)]",
+              "name": "Subcategory"
+            },
+            {
+              "id": "ofv-4",
+              "formula": "[Order Fact View/Category (PRODUCT_DIM)]",
+              "name": "Category"
+            },
+            {
+              "id": "ofv-5",
+              "formula": "[Order Fact View/Gross Profit]",
+              "name": "Gross Profit"
+            }
+          ],
+          "name": "OFV",
+          "order": [
+            "ofv-0",
+            "ofv-1",
+            "ofv-2",
+            "ofv-3",
+            "ofv-4",
+            "ofv-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p-main",
+      "name": "Product Performance",
+      "elements": [
+        {
+          "id": "el-jjhts837",
+          "kind": "kpi-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "c-06g1zg2b-v",
+              "formula": "Sum([OFV/Quantity Ordered])",
+              "name": "Quantity Ordered",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "value": {
+            "columnId": "c-06g1zg2b-v"
+          },
+          "name": "Total Quantity Ordered"
+        },
+        {
+          "id": "el-qpfl4cxr",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-r5w7n2cz",
+              "formula": "[OFV/Brand]",
+              "name": "Brand"
+            },
+            {
+              "id": "y-mw1o1evd",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-mw1o1evd"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-r5w7n2cz"
+          },
+          "name": "Net Revenue by Brand"
+        },
+        {
+          "id": "el-q4xs924g",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-w4z93wbd",
+              "formula": "[OFV/Subcategory]",
+              "name": "Subcategory"
+            },
+            {
+              "id": "y-lzlqdcrq",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-lzlqdcrq"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-w4z93wbd"
+          },
+          "name": "Net Revenue by Subcategory"
+        },
+        {
+          "id": "el-s3nk6ai4",
+          "kind": "table",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "d-h3q6b9gu",
+              "formula": "[OFV/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "m-araa0a7m",
+              "formula": "Sum([OFV/Gross Profit])",
+              "name": "Gross Profit",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-oyeoagox",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "name": "Category Detail",
+          "groupings": [
+            {
+              "id": "el-ofzlcqm0",
+              "groupBy": [
+                "d-h3q6b9gu"
+              ],
+              "calculations": [
+                "m-araa0a7m",
+                "m-oyeoagox"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-jjhts837\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-qpfl4cxr\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-q4xs924g\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-s3nk6ai4\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+}

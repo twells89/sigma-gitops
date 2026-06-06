@@ -1,0 +1,195 @@
+{
+  "workbookId": "5fb4f075-6802-4086-a9ce-b7bf0cd27536",
+  "name": "Promotions (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/Promotions-from-ThoughtSpot-2UAXymd4Ruh5FxM0kPzoCa",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T05:16:47.770Z",
+  "updatedAt": "2026-06-05T20:07:59.389Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p-data",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "m-ofv",
+          "kind": "table",
+          "source": {
+            "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+            "elementId": "9goVoIu3vD",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "ofv-0",
+              "formula": "[Order Fact View/Promo Type (PROMO_DIM)]",
+              "name": "Promo Type"
+            },
+            {
+              "id": "ofv-1",
+              "formula": "[Order Fact View/Net Revenue]",
+              "name": "Net Revenue"
+            },
+            {
+              "id": "ofv-2",
+              "formula": "[Order Fact View/Promo Name (PROMO_DIM)]",
+              "name": "Promo Name"
+            },
+            {
+              "id": "ofv-3",
+              "formula": "[Order Fact View/Discount Amount]",
+              "name": "Discount Amount"
+            },
+            {
+              "id": "ofv-4",
+              "formula": "[Order Fact View/Month Name (DATE_DIM)]",
+              "name": "Month Name"
+            }
+          ],
+          "name": "OFV",
+          "order": [
+            "ofv-0",
+            "ofv-1",
+            "ofv-2",
+            "ofv-3",
+            "ofv-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p-main",
+      "name": "Promotions",
+      "elements": [
+        {
+          "id": "el-7qj2qbd5",
+          "kind": "kpi-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "c-0jxikw44-v",
+              "formula": "Sum([OFV/Discount Amount])",
+              "name": "Discount Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "value": {
+            "columnId": "c-0jxikw44-v"
+          },
+          "name": "Total Discount"
+        },
+        {
+          "id": "el-i1e1lpvy",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-n826n2bu",
+              "formula": "[OFV/Promo Type]",
+              "name": "Promo Type"
+            },
+            {
+              "id": "y-zudmxp3z",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-zudmxp3z"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-n826n2bu"
+          },
+          "name": "Revenue by Promo Type"
+        },
+        {
+          "id": "el-peft1twf",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-j91lr6n5",
+              "formula": "[OFV/Promo Name]",
+              "name": "Promo Name"
+            },
+            {
+              "id": "y-trgla3vm",
+              "formula": "Sum([OFV/Discount Amount])",
+              "name": "Discount Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-trgla3vm"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-j91lr6n5"
+          },
+          "name": "Discount by Promo"
+        },
+        {
+          "id": "el-2o4znxn8",
+          "kind": "line-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-2dpk43cl",
+              "formula": "[OFV/Month Name]",
+              "name": "Month Name"
+            },
+            {
+              "id": "y-wfcejcef",
+              "formula": "Sum([OFV/Discount Amount])",
+              "name": "Discount Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-wfcejcef"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-2dpk43cl"
+          },
+          "name": "Discount by Month"
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-7qj2qbd5\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-i1e1lpvy\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-peft1twf\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-2o4znxn8\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+}

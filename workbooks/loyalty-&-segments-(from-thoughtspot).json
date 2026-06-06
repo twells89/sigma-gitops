@@ -1,0 +1,218 @@
+{
+  "workbookId": "d658ebbe-c044-4e69-893f-b4af93627635",
+  "name": "Loyalty & Segments (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/Loyalty-and-Segments-from-ThoughtSpot-6wsZGvOS1eu1nslAe6cGjP",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T05:17:12.496Z",
+  "updatedAt": "2026-06-05T20:08:10.421Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p-data",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "m-ofv",
+          "kind": "table",
+          "source": {
+            "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+            "elementId": "9goVoIu3vD",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "ofv-0",
+              "formula": "[Order Fact View/Loyalty Tier (CUSTOMER_DIM)]",
+              "name": "Loyalty Tier"
+            },
+            {
+              "id": "ofv-1",
+              "formula": "[Order Fact View/Net Revenue]",
+              "name": "Net Revenue"
+            },
+            {
+              "id": "ofv-2",
+              "formula": "[Order Fact View/Customer Segment (CUSTOMER_DIM)]",
+              "name": "Customer Segment"
+            },
+            {
+              "id": "ofv-3",
+              "formula": "[Order Fact View/Gross Profit]",
+              "name": "Gross Profit"
+            },
+            {
+              "id": "ofv-4",
+              "formula": "[Order Fact View/Acquisition Channel (CUSTOMER_DIM)]",
+              "name": "Acquisition Channel"
+            }
+          ],
+          "name": "OFV",
+          "order": [
+            "ofv-0",
+            "ofv-1",
+            "ofv-2",
+            "ofv-3",
+            "ofv-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p-main",
+      "name": "Loyalty & Segments",
+      "elements": [
+        {
+          "id": "el-vuls2vac",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-zki4d7cd",
+              "formula": "[OFV/Loyalty Tier]",
+              "name": "Loyalty Tier"
+            },
+            {
+              "id": "y-18y0ycxx",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-18y0ycxx"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-zki4d7cd"
+          },
+          "name": "Revenue by Loyalty Tier"
+        },
+        {
+          "id": "el-4uta899b",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-nxrrpvxm",
+              "formula": "[OFV/Customer Segment]",
+              "name": "Customer Segment"
+            },
+            {
+              "id": "y-ezcpybbg",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-ezcpybbg"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-nxrrpvxm"
+          },
+          "name": "Revenue Share by Segment"
+        },
+        {
+          "id": "el-p2dfd5df",
+          "kind": "table",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "d-j3frgtpy",
+              "formula": "[OFV/Customer Segment]",
+              "name": "Customer Segment"
+            },
+            {
+              "id": "m-m5zwv11t",
+              "formula": "Sum([OFV/Gross Profit])",
+              "name": "Gross Profit",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-dwlv2tzo",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "name": "Segment Detail",
+          "groupings": [
+            {
+              "id": "el-c3bl2owo",
+              "groupBy": [
+                "d-j3frgtpy"
+              ],
+              "calculations": [
+                "m-m5zwv11t",
+                "m-dwlv2tzo"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "el-6eihnie0",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "x-kh6y6oge",
+              "formula": "[OFV/Acquisition Channel]",
+              "name": "Acquisition Channel"
+            },
+            {
+              "id": "y-teqlc1wd",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "y-teqlc1wd"
+            ]
+          },
+          "xAxis": {
+            "columnId": "x-kh6y6oge"
+          },
+          "name": "Revenue by Acquisition Channel"
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-vuls2vac\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-4uta899b\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-p2dfd5df\" gridColumn=\"1 / 13\" gridRow=\"17 / 28\"/>\n  <LayoutElement elementId=\"el-6eihnie0\" gridColumn=\"13 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+}

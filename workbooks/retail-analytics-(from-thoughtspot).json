@@ -1,0 +1,253 @@
+{
+  "workbookId": "dd480479-ea4e-4d09-8da9-0e43834cb3a0",
+  "name": "Retail Analytics (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/Retail-Analytics-from-ThoughtSpot-6JydpDvdss0murlnn4eYDe",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T05:05:08.332Z",
+  "updatedAt": "2026-06-05T20:08:12.093Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-data",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "m-ofv",
+          "kind": "table",
+          "source": {
+            "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+            "elementId": "9goVoIu3vD",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "ofv-0",
+              "formula": "[Order Fact View/Net Revenue]",
+              "name": "Net Revenue"
+            },
+            {
+              "id": "ofv-1",
+              "formula": "[Order Fact View/Gross Profit]",
+              "name": "Gross Profit"
+            },
+            {
+              "id": "ofv-2",
+              "formula": "[Order Fact View/Order Id]",
+              "name": "Order Id"
+            },
+            {
+              "id": "ofv-3",
+              "formula": "[Order Fact View/Category (PRODUCT_DIM)]",
+              "name": "Category"
+            },
+            {
+              "id": "ofv-4",
+              "formula": "[Order Fact View/Month Name (DATE_DIM)]",
+              "name": "Month Name"
+            },
+            {
+              "id": "ofv-5",
+              "formula": "[Order Fact View/Customer Segment (CUSTOMER_DIM)]",
+              "name": "Customer Segment"
+            },
+            {
+              "id": "ofv-6",
+              "formula": "[Order Fact View/Region (CUSTOMER_DIM)]",
+              "name": "Region"
+            }
+          ],
+          "name": "OFV",
+          "order": [
+            "ofv-0",
+            "ofv-1",
+            "ofv-2",
+            "ofv-3",
+            "ofv-4",
+            "ofv-5",
+            "ofv-6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page-overview",
+      "name": "Overview",
+      "elements": [
+        {
+          "id": "el-zm2vlvfm",
+          "kind": "kpi-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "el-mugkojnv-v",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Total Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            }
+          ],
+          "value": {
+            "columnId": "el-mugkojnv-v"
+          },
+          "name": "Total Net Revenue"
+        },
+        {
+          "id": "el-a8f5hp04",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "el-pcpq6rjo-x",
+              "formula": "[OFV/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "el-w6nmxxze-y",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "el-w6nmxxze-y"
+            ]
+          },
+          "xAxis": {
+            "columnId": "el-pcpq6rjo-x"
+          },
+          "name": "Net Revenue by Category"
+        },
+        {
+          "id": "el-2rp5hr9u",
+          "kind": "line-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "el-id6r1wd8-x",
+              "formula": "[OFV/Month Name]",
+              "name": "Month"
+            },
+            {
+              "id": "el-ip4osh6t-y",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "el-ip4osh6t-y"
+            ]
+          },
+          "xAxis": {
+            "columnId": "el-id6r1wd8-x"
+          },
+          "name": "Net Revenue by Month"
+        },
+        {
+          "id": "el-dopvzn1j",
+          "kind": "bar-chart",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "el-1lwrmox3-x",
+              "formula": "[OFV/Customer Segment]",
+              "name": "Segment"
+            },
+            {
+              "id": "el-e3yxlhet-y",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "yAxis": {
+            "columnIds": [
+              "el-e3yxlhet-y"
+            ]
+          },
+          "xAxis": {
+            "columnId": "el-1lwrmox3-x"
+          },
+          "name": "Net Revenue by Customer Segment"
+        },
+        {
+          "id": "el-y520uhn1",
+          "kind": "table",
+          "source": {
+            "elementId": "m-ofv",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "el-he74muna-d",
+              "formula": "[OFV/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "el-itji3e3v-m",
+              "formula": "Sum([OFV/Net Revenue])",
+              "name": "Net Revenue",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "el-vo1dlnth-m",
+              "formula": "Sum([OFV/Gross Profit])",
+              "name": "Gross Profit",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "name": "Region Performance",
+          "groupings": [
+            {
+              "id": "el-ybyhqsnm",
+              "groupBy": [
+                "el-he74muna-d"
+              ],
+              "calculations": [
+                "el-itji3e3v-m",
+                "el-vo1dlnth-m"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-overview\">\n  <LayoutElement elementId=\"el-zm2vlvfm\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-a8f5hp04\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-2rp5hr9u\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-dopvzn1j\" gridColumn=\"1 / 13\" gridRow=\"17 / 28\"/>\n  <LayoutElement elementId=\"el-y520uhn1\" gridColumn=\"13 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+}

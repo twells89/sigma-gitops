@@ -1,0 +1,27 @@
+{
+  "workbookId": "34c84faa-a877-4635-be2c-2ca297924c6a",
+  "name": "a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5 (from ThoughtSpot)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/workbook/a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5-from-ThoughtSpot-1BB8TwtIFLcBLP3PEuRpr4",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "01765905-aa4a-4b21-bbb4-921bc917b51a",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-05T14:12:14.026Z",
+  "updatedAt": "2026-06-05T20:07:54.346Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p-data",
+      "name": "Data",
+      "elements": []
+    },
+    {
+      "id": "p-main",
+      "name": "a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5",
+      "elements": []
+    }
+  ],
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\"/>\n"
+}
