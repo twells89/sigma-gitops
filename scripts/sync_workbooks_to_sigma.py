@@ -2,6 +2,13 @@
 """
 Sync workbook JSON files to Sigma Computing via the API ("workbooks as code").
 
+On update, a round-trip safety check runs first: the live workbook spec is
+fetched and compared against the incoming spec, and the push is BLOCKED if it
+would remove pages, elements, or top-level fields that exist live (a spec the
+workbook's spec doesn't fully represent, or a stale local copy). This prevents
+silently destroying content. Override intentionally with
+ALLOW_WORKBOOK_REMOVALS=true.
+
 Usage:
     python sync_workbooks_to_sigma.py workbooks/sales-dashboard.json ...
     python sync_workbooks_to_sigma.py --all
@@ -12,6 +19,7 @@ Environment variables:
     SIGMA_API_URL - API base URL (optional, reads from config.yml if not set)
     SIGMA_CLOUD - Cloud provider shorthand (optional, falls back to 'aws' if API URL not found)
     SIGMA_FOLDER_ID - Default folder for newly-created workbooks (optional)
+    ALLOW_WORKBOOK_REMOVALS - 'true' to bypass the round-trip removal guard
 """
 
 import os
@@ -38,6 +46,49 @@ CREATE_STRIP_FIELDS = [
     'workbookId', 'ownerId', 'createdBy', 'updatedBy', 'createdAt', 'updatedAt',
     'documentVersion', 'latestDocumentVersion', 'url', 'path',
 ]
+
+# Volatile / response-only fields ignored when comparing live vs incoming specs.
+VOLATILE_FIELDS = {
+    'documentVersion', 'latestDocumentVersion', 'url', 'createdAt', 'updatedAt',
+    'createdBy', 'updatedBy', 'ownerId', 'path', 'workbookId',
+}
+
+
+def _elem_key(e):
+    return e.get('elementId') or e.get('id') or e.get('name')
+
+
+def roundtrip_removals(live, incoming):
+    """
+    Round-trip safety check. Returns a list of human-readable descriptions of
+    content present in the LIVE workbook that the INCOMING spec would remove.
+
+    Because Sigma exposes no "spec coverage" flag, this guards the real danger:
+    pushing a spec that's missing pages/elements/fields the live workbook has
+    (whether from a spec-coverage gap or a stale base) silently destroys them.
+    Pure value edits are allowed; only removals are flagged.
+    """
+    issues = []
+
+    for k in live:
+        if k in VOLATILE_FIELDS:
+            continue
+        if k not in incoming:
+            issues.append(f"top-level field '{k}'")
+
+    live_pages = {_elem_key(p): p for p in live.get('pages', [])}
+    inc_pages = {_elem_key(p): p for p in incoming.get('pages', [])}
+    for pid, p in live_pages.items():
+        if pid not in inc_pages:
+            issues.append(f"page '{p.get('name', pid)}'")
+            continue
+        live_elems = {_elem_key(e): e for e in p.get('elements', [])}
+        inc_elems = {_elem_key(e): e for e in inc_pages[pid].get('elements', [])}
+        for eid, e in live_elems.items():
+            if eid not in inc_elems:
+                issues.append(f"element '{e.get('name', eid)}' on page '{p.get('name', pid)}'")
+
+    return issues
 
 
 def load_config():
@@ -171,6 +222,30 @@ def sync_file(client, file_path, config):
 
     try:
         if workbook_id:
+            # Round-trip safety check: never silently overwrite live content the
+            # incoming spec doesn't represent.
+            try:
+                live = client.get_workbook_spec(workbook_id)
+                removals = roundtrip_removals(live, spec)
+            except Exception as e:
+                print(f"   ⚠️  Could not run round-trip check ({e}); proceeding")
+                removals = []
+
+            allow_removals = os.environ.get('ALLOW_WORKBOOK_REMOVALS', '').lower() == 'true'
+            if removals and not allow_removals:
+                print(f"   🛑 Round-trip safety check FAILED for {wb_name}.")
+                print(f"      Pushing this spec would REMOVE {len(removals)} item(s) present in the live workbook:")
+                for r in removals[:20]:
+                    print(f"        - {r}")
+                if len(removals) > 20:
+                    print(f"        … and {len(removals) - 20} more")
+                print("      This usually means the spec doesn't fully represent the live workbook")
+                print("      (spec-coverage gap) or your local copy is stale. Re-pull and reconcile,")
+                print("      or set ALLOW_WORKBOOK_REMOVALS=true to override intentionally.")
+                return False
+            elif removals:
+                print(f"   ⚠️  Overriding round-trip check — {len(removals)} removal(s) allowed via ALLOW_WORKBOOK_REMOVALS")
+
             print(f"   Updating workbook: {workbook_id}")
             client.update_workbook(workbook_id, spec)
             print(f"   ✅ Updated: {wb_name}")

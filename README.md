@@ -156,13 +156,20 @@ spec via `GET /v2/workbooks/{id}/spec` and accepts one via `POST /v2/workbooks/s
 
 This is **off by default** and scoped deliberately:
 
-- **Only workbooks created through the spec are managed.** The repo never scrapes
-  arbitrary UI-built workbooks — UI-only features (trellis, tooltip, …) don't
-  round-trip through the spec API and would silently lose fidelity. A workbook
-  enters management only by being created via `POST /v2/workbooks/spec` (the sync
-  path records it) or explicitly adopted with `--id`.
+- **Folder selection is the trust boundary.** Sigma exposes no "created via API
+  vs UI" flag, so discovery is folder-scoped: `pull_workbooks_from_sigma.py`
+  pulls every workbook whose folder path is within one of your
+  `workbook_folders`. Point it only at folders you know are built through the
+  spec — UI-only features (trellis, tooltip, …) don't round-trip through the
+  spec API.
+- **A round-trip guard protects post-back.** On update, `sync_workbooks_to_sigma.py`
+  fetches the live spec and **blocks the push if it would remove pages,
+  elements, or top-level fields present in the live workbook** (the signature of
+  a spec-coverage gap or a stale local copy). Pure value edits pass. Override
+  intentionally with `ALLOW_WORKBOOK_REMOVALS=true`.
 - Managed workbooks are tracked in `config.yml` under `workbooks:`, mirroring
-  `data_models:`.
+  `data_models:`. Duplicate workbook names are disambiguated with a short id
+  suffix so no file silently overwrites another.
 
 ### Enable it
 
@@ -170,31 +177,31 @@ This is **off by default** and scoped deliberately:
 # config.yml
 manage_workbooks: true
 workbook_folders:
-  - Inventory Workbooks   # display path(s) new spec workbooks live in (scope guard)
+  - Inventory Workbooks       # pull every workbook under these folder paths
+  - My Documents/Test         # (prefix match, includes subfolders)
 ```
 
 ### The flow
 
 ```bash
-# 1. Author a workbook spec (or copy workbooks/_template.json), commit it.
-#    On push to main, sync-to-sigma creates it via POST /v2/workbooks/spec
-#    and records its ID in config.yml.
+# 1. Pull every workbook spec in the configured folders into workbooks/.
+python scripts/pull_workbooks_from_sigma.py
+python scripts/pull_workbooks_from_sigma.py --folder "My Documents/Test"  # one-off folder
+python scripts/pull_workbooks_from_sigma.py --id <workbookId>             # one workbook
 
-# 2. Edit the spec in git and push → sync-to-sigma PUTs the update.
+# 2. Review/edit a workbook spec in git and push → sync-to-sigma PUTs the
+#    update, after the round-trip guard confirms it removes nothing live.
 
-# 3. The daily pull-from-sigma refreshes the spec of every *tracked* workbook
-#    (changes made in the Sigma UI flow back to git). It does NOT discover
-#    new workbooks.
+# 3. The daily pull-from-sigma re-pulls the configured folders (+ refreshes
+#    anything already tracked), so Sigma-side changes flow back to git.
 
-# Local equivalents:
+# Push a single file locally:
 python scripts/sync_workbooks_to_sigma.py workbooks/my-workbook.json
-python scripts/pull_workbooks_from_sigma.py            # refresh all tracked
-python scripts/pull_workbooks_from_sigma.py --id <id>  # adopt a spec-created workbook
 ```
 
 The `pull-from-sigma` workflow can also be dispatched manually with
-**`include_workbooks: true`** to force a one-off workbook refresh without
-flipping `manage_workbooks` in config.
+**`include_workbooks: true`** to force a one-off folder pull without flipping
+`manage_workbooks` in config.
 
 ## Data Model JSON Structure
 
