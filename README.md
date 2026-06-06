@@ -1,6 +1,6 @@
-# Sigma Data Models
+# Sigma GitOps
 
-Manage Sigma Computing data models as code with version control, code review, and automated deployment.
+GitOps for Sigma Computing — manage data models and workbooks as code, with version control, code review, drift checks, and automated deployment.
 
 ## Overview
 
@@ -25,8 +25,8 @@ Manage Sigma Computing data models as code with version control, code review, an
 ### 1. Clone and Setup
 
 ```bash
-git clone https://github.com/YOUR_ORG/sigma-data-models.git
-cd sigma-data-models
+git clone https://github.com/YOUR_ORG/sigma-gitops.git
+cd sigma-gitops
 pip install requests pyyaml
 ```
 
