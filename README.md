@@ -1,6 +1,6 @@
 # Sigma GitOps
 
-GitOps for Sigma Computing — manage data models and workbooks as code, with version control, code review, drift checks, and automated deployment.
+GitOps for Sigma Computing. Manage data models and workbooks as code, with version control, code review, drift checks, and automated deployment.
 
 ## Overview
 
@@ -148,20 +148,24 @@ git commit -m "Sync changes from Sigma UI"
 git push
 ```
 
-## Workbooks as code (optional)
+## Workbooks as code (limited private beta)
 
-The same pull/sync mechanics work for **workbooks** — Sigma exposes a workbook
+> 🧪 **Workbooks as code is in a limited private beta.** The workbook spec API
+> doesn't cover everything yet. To get added to the access list, reach out to
+> your CSM with your use case. Data models as code is generally available.
+
+The same pull/sync mechanics work for **workbooks**. Sigma exposes a workbook
 spec via `GET /v2/workbooks/{id}/spec` and accepts one via `POST /v2/workbooks/spec`
-(create) / `PUT /v2/workbooks/{id}/spec` (update), exactly mirroring data models.
+(create) and `PUT /v2/workbooks/{id}/spec` (update). It mirrors data models.
 
 This is **off by default** and scoped deliberately:
 
 - **Folder selection is the trust boundary.** Sigma exposes no "created via API
-  vs UI" flag, so discovery is folder-scoped: `pull_workbooks_from_sigma.py`
+  vs UI" flag, so discovery is folder-scoped. `pull_workbooks_from_sigma.py`
   pulls every workbook whose folder path is within one of your
   `workbook_folders`. Point it only at folders you know are built through the
-  spec — UI-only features (trellis, tooltip, …) don't round-trip through the
-  spec API.
+  spec. UI-only features (trellis, tooltip, and so on) don't round-trip through
+  the spec API.
 - **A round-trip guard protects post-back.** On update, `sync_workbooks_to_sigma.py`
   fetches the live spec and **blocks the push if it would remove pages,
   elements, or top-level fields present in the live workbook** (the signature of
