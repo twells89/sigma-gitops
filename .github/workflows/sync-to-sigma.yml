@@ -189,10 +189,10 @@ jobs:
       - name: Sync changed files to Sigma
         run: |
           # Collect changed files into bash arrays. Keeping them in arrays (not a
-          # space-joined string interpolated via ${{ }}) means filenames with "(",
-          # "&" or spaces — e.g. "channel-report-(qlik)-sigma.json" — are passed
-          # safely instead of being parsed as shell syntax. --diff-filter=ACMR
-          # skips deletions, which have nothing to sync.
+          # space-joined string spliced into the command line) means filenames
+          # with "(", "&" or spaces, e.g. "channel-report-(qlik)-sigma.json", are
+          # passed safely instead of being parsed as shell syntax.
+          # --diff-filter=ACMR skips deletions, which have nothing to sync.
           CHANGED=(); CHANGED_WB=()
           if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
             while IFS= read -r f; do CHANGED+=("$f");    done < <(ls data-models/*.json 2>/dev/null | grep -v '_template.json')
