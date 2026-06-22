@@ -54,10 +54,10 @@ workbooks:
     path: My Documents/Test/ThoughtSpot Migrations
     last_pulled: '2026-06-06T16:43:05.566719Z'
   62df6f0e-54fe-4427-8fb0-52e9bc4b8f5e:
-    file: category-insights-(qlik)-sigma.json
+    file: category-insights-qlik-sigma.json
     name: "Category Insights (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-06-06T16:43:05.910452Z'
+    last_synced: '2026-06-22T22:36:14.257559Z'
   67f3076c-3906-47f2-aa8b-b0f78fec17be:
     file: time-trends-(from-thoughtspot).json
     name: Time Trends (from ThoughtSpot)
