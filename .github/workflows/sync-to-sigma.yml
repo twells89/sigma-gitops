@@ -186,28 +186,30 @@ jobs:
       - name: Install dependencies
         run: pip install requests pyyaml
 
-      - name: Get changed files
-        id: changed
+      - name: Sync changed files to Sigma
         run: |
+          # Collect changed files into bash arrays. Keeping them in arrays (not a
+          # space-joined string interpolated via ${{ }}) means filenames with "(",
+          # "&" or spaces — e.g. "channel-report-(qlik)-sigma.json" — are passed
+          # safely instead of being parsed as shell syntax. --diff-filter=ACMR
+          # skips deletions, which have nothing to sync.
+          CHANGED=(); CHANGED_WB=()
           if [ "${{ github.event.inputs.sync_all }}" == "true" ]; then
-            CHANGED=$(ls data-models/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
-            CHANGED_WB=$(ls workbooks/*.json 2>/dev/null | grep -v '_template.json' | tr '\n' ' ')
+            while IFS= read -r f; do CHANGED+=("$f");    done < <(ls data-models/*.json 2>/dev/null | grep -v '_template.json')
+            while IFS= read -r f; do CHANGED_WB+=("$f"); done < <(ls workbooks/*.json   2>/dev/null | grep -v '_template.json')
           else
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json' | tr '\n' ' ')
-            CHANGED_WB=$(git diff --name-only HEAD~1 HEAD -- 'workbooks/*.json' | grep -v '_template.json' | tr '\n' ' ')
+            while IFS= read -r f; do CHANGED+=("$f");    done < <(git diff --name-only --diff-filter=ACMR HEAD~1 HEAD -- 'data-models/*.json' | grep -v '_template.json')
+            while IFS= read -r f; do CHANGED_WB+=("$f"); done < <(git diff --name-only --diff-filter=ACMR HEAD~1 HEAD -- 'workbooks/*.json'   | grep -v '_template.json')
           fi
-          echo "changed_files=$CHANGED" >> "$GITHUB_OUTPUT"
-          echo "changed_workbooks=$CHANGED_WB" >> "$GITHUB_OUTPUT"
-          echo "Changed data models: $CHANGED"
-          echo "Changed workbooks: $CHANGED_WB"
+          echo "Changed data models: ${CHANGED[*]:-(none)}"
+          echo "Changed workbooks:   ${CHANGED_WB[*]:-(none)}"
 
-      - name: Sync data models to Sigma
-        if: steps.changed.outputs.changed_files != ''
-        run: python scripts/sync_to_sigma.py ${{ steps.changed.outputs.changed_files }}
-
-      - name: Sync workbooks to Sigma (spec-created only)
-        if: steps.changed.outputs.changed_workbooks != ''
-        run: python scripts/sync_workbooks_to_sigma.py ${{ steps.changed.outputs.changed_workbooks }}
+          if [ ${#CHANGED[@]} -gt 0 ]; then
+            python scripts/sync_to_sigma.py "${CHANGED[@]}"
+          fi
+          if [ ${#CHANGED_WB[@]} -gt 0 ]; then
+            python scripts/sync_workbooks_to_sigma.py "${CHANGED_WB[@]}"
+          fi
 
       - name: Commit updates from Sigma
         run: |
