@@ -26,7 +26,7 @@
           "columns": [
             {
               "id": "b-THM_REO8",
-              "formula": "[Plugs Sales Data/Restricted]"
+              "formula": "[Plugs Sales Data/Transaction Type]"
             },
             {
               "id": "fnnetrJrEH",
@@ -86,7 +86,7 @@
             },
             {
               "id": "kwROvNVoj1",
-              "formula": "[Plugs Sales Data/Age Group]"
+              "formula": "[Plugs Sales Data/Restricted]"
             },
             {
               "id": "5qtauHapHT",
@@ -172,7 +172,7 @@
             },
             {
               "id": "MGiNqDcWvp",
-              "formula": "[Plugs Sales -TJ/Restricted]"
+              "formula": "[Plugs Sales -TJ/Transaction Type]"
             },
             {
               "id": "MmzafnlrV2",
@@ -220,7 +220,7 @@
             },
             {
               "id": "4ydSplRGM4",
-              "formula": "[Plugs Sales -TJ/Age Group]"
+              "formula": "[Plugs Sales -TJ/Restricted]"
             },
             {
               "id": "H7DWjWhq3U",
