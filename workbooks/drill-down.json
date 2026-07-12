@@ -26,7 +26,7 @@
           "columns": [
             {
               "id": "b-THM_REO8",
-              "formula": "[Plugs Sales Data/Restricted]"
+              "formula": "[Plugs Sales Data/Transaction Type]"
             },
             {
               "id": "fnnetrJrEH",
@@ -86,7 +86,7 @@
             },
             {
               "id": "kwROvNVoj1",
-              "formula": "[Plugs Sales Data/Age Group]"
+              "formula": "[Plugs Sales Data/Restricted]"
             },
             {
               "id": "5qtauHapHT",
@@ -145,7 +145,26 @@
               "id": "b-THM_REO8"
             }
           ],
-          "name": "Pivot Table"
+          "name": "Pivot Table",
+          "actions": [
+            {
+              "trigger": "on-select",
+              "effects": [
+                {
+                  "effect": "set-control-value",
+                  "control": "Transaction-Type",
+                  "value": {
+                    "type": "column",
+                    "column": "b-THM_REO8"
+                  }
+                },
+                {
+                  "effect": "open-overlay",
+                  "overlayId": "_MSOwwUtlU"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -172,7 +191,7 @@
             },
             {
               "id": "MGiNqDcWvp",
-              "formula": "[Plugs Sales -TJ/Restricted]"
+              "formula": "[Plugs Sales -TJ/Transaction Type]"
             },
             {
               "id": "MmzafnlrV2",
@@ -220,7 +239,7 @@
             },
             {
               "id": "4ydSplRGM4",
-              "formula": "[Plugs Sales -TJ/Age Group]"
+              "formula": "[Plugs Sales -TJ/Restricted]"
             },
             {
               "id": "H7DWjWhq3U",
@@ -343,5 +362,5 @@
       ]
     }
   ],
-  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"Gi_rBVTMjD\">\n  <LayoutElement elementId=\"SlOhDA0FPR\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"e_VofoUjaE\">\n  <LayoutElement elementId=\"hpv3y3Ijfy\" gridColumn=\"1 / 13\" gridRow=\"1 / 21\"/>\n  <LayoutElement elementId=\"OSMzEJJpUwcon\" gridColumn=\"1 / 9\" gridRow=\"21 / 24\"/>\n</Page>\n"
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"Gi_rBVTMjD\">\n  <LayoutElement elementId=\"SlOhDA0FPR\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(12, 1fr)\" gridTemplateRows=\"auto\" id=\"_MSOwwUtlU\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"e_VofoUjaE\">\n  <LayoutElement elementId=\"hpv3y3Ijfy\" gridColumn=\"1 / 13\" gridRow=\"1 / 21\"/>\n  <LayoutElement elementId=\"OSMzEJJpUwcon\" gridColumn=\"1 / 9\" gridRow=\"21 / 24\"/>\n</Page>\n"
 }
