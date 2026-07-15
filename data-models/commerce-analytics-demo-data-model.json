@@ -2,20 +2,218 @@
   "dataModelId": "0f5c482b-1ecd-4df9-9578-3f66b04499d8",
   "name": "Commerce Analytics Demo Data Model",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Commerce-Analytics-Demo-Data-Model-sZ3Aona7xsN9OKziuzwgM",
-  "documentVersion": 3,
-  "latestDocumentVersion": 3,
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
   "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
-  "folderId": "57e59735-86b9-40b0-b029-217205406f57",
+  "folderId": "ac1bd2c6-3806-48a2-b308-bafac94a7df5",
   "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
   "createdAt": "2025-04-24T15:08:33.868Z",
-  "updatedAt": "2025-04-24T16:11:18.721Z",
+  "updatedAt": "2026-05-02T13:18:39.911Z",
   "schemaVersion": 1,
   "pages": [
     {
       "id": "MMhmiPxxKJ",
       "name": "Page 1",
       "elements": [
+        {
+          "id": "yVUuEE6sPX",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "opportunities"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/opp_id",
+              "formula": "[opportunities/Opp Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/account_id",
+              "formula": "[opportunities/Account Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
+              "formula": "[opportunities/Owner User Id]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/stage",
+              "formula": "[opportunities/Stage]"
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
+              "formula": "[opportunities/Amount Usd]",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f",
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/created_date",
+              "formula": "[opportunities/Created Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            },
+            {
+              "id": "inode-4UU8aisuLZD5de894iPo2S/close_date",
+              "formula": "[opportunities/Close Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            }
+          ],
+          "order": [
+            "inode-4UU8aisuLZD5de894iPo2S/opp_id",
+            "inode-4UU8aisuLZD5de894iPo2S/account_id",
+            "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
+            "inode-4UU8aisuLZD5de894iPo2S/stage",
+            "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
+            "inode-4UU8aisuLZD5de894iPo2S/created_date",
+            "inode-4UU8aisuLZD5de894iPo2S/close_date"
+          ]
+        },
+        {
+          "id": "mmLlW0KK5_",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "invoices"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
+              "formula": "[invoices/Invoice Id]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
+              "formula": "[invoices/Sub Id]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
+              "formula": "[invoices/Issued Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
+              "formula": "[invoices/Amount Usd]",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
+              "formula": "[invoices/Paid]"
+            },
+            {
+              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
+              "formula": "[invoices/Due Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            },
+            {
+              "id": "1LLEZU-K3m",
+              "formula": "If([Paid] = False, DateDiff(\"day\", Today(), [Due Date]), Null)",
+              "name": "Invoice Aging"
+            }
+          ],
+          "order": [
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
+            "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
+            "1LLEZU-K3m"
+          ]
+        },
+        {
+          "id": "-05pFrBNfh",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
+            "kind": "warehouse-table",
+            "path": [
+              "personal-project-wells",
+              "demo",
+              "subscriptions"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+              "formula": "[subscriptions/Sub Id]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
+              "formula": "[subscriptions/Account Id]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
+              "formula": "[subscriptions/Plan Tier]"
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
+              "formula": "[subscriptions/Start Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
+              "formula": "[subscriptions/End Date]",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%m/%d/%Y"
+              }
+            },
+            {
+              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/status",
+              "formula": "[subscriptions/Status]"
+            }
+          ],
+          "relationships": [
+            {
+              "id": "vPjshHUs_T",
+              "targetElementId": "mmLlW0KK5_",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+                  "targetColumnId": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id"
+                }
+              ],
+              "name": "Subs Invoices"
+            }
+          ],
+          "order": [
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
+            "inode-1RjeSpA6O3raL1oSsmxZmZ/status"
+          ]
+        },
         {
           "id": "4LrW5KWdoR",
           "kind": "table",
@@ -173,204 +371,6 @@
             "D5PZ9XhxD0",
             "-sUo-By4-F",
             "Z7zWMcL3eh"
-          ]
-        },
-        {
-          "id": "-05pFrBNfh",
-          "kind": "table",
-          "source": {
-            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
-            "kind": "warehouse-table",
-            "path": [
-              "personal-project-wells",
-              "demo",
-              "subscriptions"
-            ]
-          },
-          "columns": [
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
-              "formula": "[subscriptions/Sub Id]"
-            },
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
-              "formula": "[subscriptions/Account Id]"
-            },
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
-              "formula": "[subscriptions/Plan Tier]"
-            },
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
-              "formula": "[subscriptions/Start Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            },
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
-              "formula": "[subscriptions/End Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            },
-            {
-              "id": "inode-1RjeSpA6O3raL1oSsmxZmZ/status",
-              "formula": "[subscriptions/Status]"
-            }
-          ],
-          "relationships": [
-            {
-              "id": "vPjshHUs_T",
-              "targetElementId": "mmLlW0KK5_",
-              "keys": [
-                {
-                  "sourceColumnId": "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
-                  "targetColumnId": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id"
-                }
-              ],
-              "name": "Subs Invoices"
-            }
-          ],
-          "order": [
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/sub_id",
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/account_id",
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/plan_tier",
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/start_date",
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/end_date",
-            "inode-1RjeSpA6O3raL1oSsmxZmZ/status"
-          ]
-        },
-        {
-          "id": "yVUuEE6sPX",
-          "kind": "table",
-          "source": {
-            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
-            "kind": "warehouse-table",
-            "path": [
-              "personal-project-wells",
-              "demo",
-              "opportunities"
-            ]
-          },
-          "columns": [
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/opp_id",
-              "formula": "[opportunities/Opp Id]"
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/account_id",
-              "formula": "[opportunities/Account Id]"
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
-              "formula": "[opportunities/Owner User Id]"
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/stage",
-              "formula": "[opportunities/Stage]"
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
-              "formula": "[opportunities/Amount Usd]",
-              "format": {
-                "kind": "number",
-                "formatString": "$,.2f",
-                "currencySymbol": "$"
-              }
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/created_date",
-              "formula": "[opportunities/Created Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            },
-            {
-              "id": "inode-4UU8aisuLZD5de894iPo2S/close_date",
-              "formula": "[opportunities/Close Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            }
-          ],
-          "order": [
-            "inode-4UU8aisuLZD5de894iPo2S/opp_id",
-            "inode-4UU8aisuLZD5de894iPo2S/account_id",
-            "inode-4UU8aisuLZD5de894iPo2S/owner_user_id",
-            "inode-4UU8aisuLZD5de894iPo2S/stage",
-            "inode-4UU8aisuLZD5de894iPo2S/amount_usd",
-            "inode-4UU8aisuLZD5de894iPo2S/created_date",
-            "inode-4UU8aisuLZD5de894iPo2S/close_date"
-          ]
-        },
-        {
-          "id": "mmLlW0KK5_",
-          "kind": "table",
-          "source": {
-            "connectionId": "bc534032-c1f8-465a-b126-eef011115eed",
-            "kind": "warehouse-table",
-            "path": [
-              "personal-project-wells",
-              "demo",
-              "invoices"
-            ]
-          },
-          "columns": [
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
-              "formula": "[invoices/Invoice Id]"
-            },
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
-              "formula": "[invoices/Sub Id]"
-            },
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
-              "formula": "[invoices/Issued Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            },
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
-              "formula": "[invoices/Amount Usd]",
-              "format": {
-                "kind": "number",
-                "formatString": "$,.0f"
-              }
-            },
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
-              "formula": "[invoices/Paid]"
-            },
-            {
-              "id": "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
-              "formula": "[invoices/Due Date]",
-              "format": {
-                "kind": "datetime",
-                "formatString": "%m/%d/%Y"
-              }
-            },
-            {
-              "id": "1LLEZU-K3m",
-              "formula": "If([Paid] = False, DateDiff(\"day\", Today(), [Due Date]), Null)",
-              "name": "Invoice Aging"
-            }
-          ],
-          "order": [
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/invoice_id",
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/sub_id",
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/issued_date",
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/amount_usd",
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/paid",
-            "inode-4d6nTCrpkHtO1wzhO1MI5a/due_date",
-            "1LLEZU-K3m"
           ]
         }
       ]
