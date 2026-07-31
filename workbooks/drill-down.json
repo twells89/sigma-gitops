@@ -26,7 +26,7 @@
           "columns": [
             {
               "id": "b-THM_REO8",
-              "formula": "[Plugs Sales Data/Restricted]"
+              "formula": "[Plugs Sales Data/Transaction Type]"
             },
             {
               "id": "fnnetrJrEH",
@@ -86,7 +86,7 @@
             },
             {
               "id": "kwROvNVoj1",
-              "formula": "[Plugs Sales Data/Age Group]"
+              "formula": "[Plugs Sales Data/Restricted]"
             },
             {
               "id": "5qtauHapHT",
@@ -145,16 +145,54 @@
               "id": "b-THM_REO8"
             }
           ],
-          "name": "Pivot Table"
+          "name": "Pivot Table",
+          "folders": [
+            {
+              "id": "Ar-4i3K_CD",
+              "name": "Customer Data",
+              "items": [
+                "fTwwiX3oDG",
+                "p9tQftxgNo",
+                "XjmnCaddvx",
+                "ww_m1s__tg",
+                "Rw-ZoreKBJ",
+                "3_xVDRGbNg",
+                "wN5I8PbL5-",
+                "SUmw7tHkFH",
+                "k4UtSJXFeR"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "id": "yECj4oUZKL",
+              "trigger": "on-select",
+              "effects": [
+                {
+                  "effect": "set-control-value",
+                  "control": "Transaction-Type",
+                  "value": {
+                    "type": "column",
+                    "column": "b-THM_REO8"
+                  }
+                },
+                {
+                  "effect": "open-overlay",
+                  "overlayId": "_MSOwwUtlU"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "e_VofoUjaE",
-      "name": "Data",
+      "id": "_MSOwwUtlU",
+      "type": "modal",
+      "name": "Drill Down",
       "elements": [
         {
-          "id": "hpv3y3Ijfy",
+          "id": "7i5hKwKUDt",
           "kind": "table",
           "source": {
             "dataModelId": "6d07a964-df89-4b5c-b597-702218d80f2a",
@@ -172,7 +210,7 @@
             },
             {
               "id": "MGiNqDcWvp",
-              "formula": "[Plugs Sales -TJ/Restricted]"
+              "formula": "[Plugs Sales -TJ/Transaction Type]"
             },
             {
               "id": "MmzafnlrV2",
@@ -220,7 +258,177 @@
             },
             {
               "id": "4ydSplRGM4",
-              "formula": "[Plugs Sales -TJ/Age Group]"
+              "formula": "[Plugs Sales -TJ/Restricted]"
+            },
+            {
+              "id": "H7DWjWhq3U",
+              "formula": "[Plugs Sales -TJ/Restricted]"
+            },
+            {
+              "id": "yulfi6Pqhk",
+              "formula": "[Plugs Sales -TJ/Loyalty Program]"
+            },
+            {
+              "id": "u3gnkIQjUt",
+              "formula": "[Plugs Sales -TJ/Cust Json Field]"
+            },
+            {
+              "id": "55s4xPH_sg",
+              "formula": "[Plugs Sales -TJ/Updated At]"
+            },
+            {
+              "id": "-PJKOT1Utn",
+              "formula": "[Plugs Sales -TJ/Updated By]"
+            },
+            {
+              "id": "1Y69vF-DV5",
+              "formula": "[Plugs Sales -TJ/Order Number (F_POINT_OF_SALE)]"
+            },
+            {
+              "id": "1-Hnvi-u4P",
+              "formula": "[Plugs Sales -TJ/Product Key Test]"
+            },
+            {
+              "id": "EG3qnRZ-XH",
+              "formula": "[Plugs Sales -TJ/Sales Quantity]"
+            },
+            {
+              "id": "nv0XLYRDcW",
+              "formula": "[Plugs Sales -TJ/Sales Amount]"
+            },
+            {
+              "id": "VxhakL2fbh",
+              "formula": "[Plugs Sales -TJ/Cost Amount]"
+            },
+            {
+              "id": "w1fHsVDr-z",
+              "formula": "[Plugs Sales -TJ/Revenue]"
+            },
+            {
+              "id": "zObabMlRTF",
+              "formula": "[Plugs Sales -TJ/Profit]"
+            }
+          ],
+          "folders": [
+            {
+              "id": "Ar-4i3K_CD",
+              "name": "Customer Data",
+              "items": [
+                "csnSAUn2IR",
+                "A8L1Q2-NDu",
+                "UV6sr5fKIe",
+                "FoyUsmT7Yu",
+                "bcyLogYcLI",
+                "W_R4X0RvS_",
+                "8YZhJfcJGI",
+                "24plDhk_HI",
+                "96dhiIDr_l"
+              ]
+            }
+          ],
+          "order": [
+            "u6liL3RHST",
+            "u68LWdAZ4P",
+            "MGiNqDcWvp",
+            "MmzafnlrV2",
+            "x5XPOADJu1",
+            "Ar-4i3K_CD",
+            "4ydSplRGM4",
+            "H7DWjWhq3U",
+            "yulfi6Pqhk",
+            "u3gnkIQjUt",
+            "55s4xPH_sg",
+            "-PJKOT1Utn",
+            "1Y69vF-DV5",
+            "1-Hnvi-u4P",
+            "EG3qnRZ-XH",
+            "nv0XLYRDcW",
+            "VxhakL2fbh",
+            "w1fHsVDr-z",
+            "zObabMlRTF"
+          ],
+          "visibleAsSource": false
+        }
+      ],
+      "modal": {
+        "width": "x-large",
+        "header": {
+          "title": "Drill Down"
+        }
+      }
+    },
+    {
+      "id": "e_VofoUjaE",
+      "name": "Data",
+      "elements": [
+        {
+          "id": "hpv3y3Ijfy",
+          "kind": "table",
+          "source": {
+            "dataModelId": "6d07a964-df89-4b5c-b597-702218d80f2a",
+            "elementId": "xlTXCBG-SO",
+            "kind": "data-model"
+          },
+          "columns": [
+            {
+              "id": "u6liL3RHST",
+              "formula": "[Plugs Sales -TJ/Order Number]"
+            },
+            {
+              "id": "u68LWdAZ4P",
+              "formula": "[Plugs Sales -TJ/Store Key]"
+            },
+            {
+              "id": "MGiNqDcWvp",
+              "formula": "[Plugs Sales -TJ/Transaction Type]"
+            },
+            {
+              "id": "MmzafnlrV2",
+              "formula": "[Plugs Sales -TJ/Date]"
+            },
+            {
+              "id": "x5XPOADJu1",
+              "formula": "[Plugs Sales -TJ/Purchase Method]"
+            },
+            {
+              "id": "csnSAUn2IR",
+              "formula": "[Plugs Sales -TJ/Cust City]"
+            },
+            {
+              "id": "A8L1Q2-NDu",
+              "formula": "[Plugs Sales -TJ/Cust State]"
+            },
+            {
+              "id": "UV6sr5fKIe",
+              "formula": "[Plugs Sales -TJ/Cust Zip Code]"
+            },
+            {
+              "id": "FoyUsmT7Yu",
+              "formula": "[Plugs Sales -TJ/Cust County]"
+            },
+            {
+              "id": "bcyLogYcLI",
+              "formula": "[Plugs Sales -TJ/Cust Region]"
+            },
+            {
+              "id": "W_R4X0RvS_",
+              "formula": "[Plugs Sales -TJ/Cust Since]"
+            },
+            {
+              "id": "8YZhJfcJGI",
+              "formula": "[Plugs Sales -TJ/Cust Type -1]"
+            },
+            {
+              "id": "24plDhk_HI",
+              "formula": "[Plugs Sales -TJ/Cust Gender]"
+            },
+            {
+              "id": "96dhiIDr_l",
+              "formula": "[Plugs Sales -TJ/Cust Age]"
+            },
+            {
+              "id": "4ydSplRGM4",
+              "formula": "[Plugs Sales -TJ/Restricted]"
             },
             {
               "id": "H7DWjWhq3U",
@@ -343,5 +551,6 @@
       ]
     }
   ],
-  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"Gi_rBVTMjD\">\n  <LayoutElement elementId=\"SlOhDA0FPR\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"e_VofoUjaE\">\n  <LayoutElement elementId=\"hpv3y3Ijfy\" gridColumn=\"1 / 13\" gridRow=\"1 / 21\"/>\n  <LayoutElement elementId=\"OSMzEJJpUwcon\" gridColumn=\"1 / 9\" gridRow=\"21 / 24\"/>\n</Page>\n"
+  "kind": "workbook",
+  "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"Gi_rBVTMjD\">\n  <LayoutElement elementId=\"SlOhDA0FPR\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(12, 1fr)\" gridTemplateRows=\"auto\" id=\"_MSOwwUtlU\">\n  <LayoutElement elementId=\"7i5hKwKUDt\" gridColumn=\"1 / 13\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"e_VofoUjaE\">\n  <LayoutElement elementId=\"hpv3y3Ijfy\" gridColumn=\"1 / 13\" gridRow=\"1 / 21\"/>\n  <LayoutElement elementId=\"OSMzEJJpUwcon\" gridColumn=\"1 / 9\" gridRow=\"21 / 24\"/>\n</Page>\n"
 }

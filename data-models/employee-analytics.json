@@ -1,0 +1,152 @@
+{
+  "dataModelId": "8a15cfc3-7265-44c7-bc13-3f9fe9aa1863",
+  "name": "Employee Analytics",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Employee-Analytics-4cyUmmdYvF2GKNAn01YwRt",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "a3e588f9-25b1-4916-851a-5a65b3ded0e0",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-05-06T15:59:22.641Z",
+  "updatedAt": "2026-05-06T15:59:22.641Z",
+  "description": "Employee data model with compensation, department, and employment status analytics",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "kVDsiZLN0z",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "XFwJJhpKX_",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "EMPLOYEES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "FxAg8YJ8po",
+              "formula": "[EMPLOYEES/Employee Id]",
+              "name": "EMPLOYEE_ID"
+            },
+            {
+              "id": "Zb8FhZrO4s",
+              "formula": "[EMPLOYEES/First Name]",
+              "name": "FIRST_NAME"
+            },
+            {
+              "id": "3ayZhglBI8",
+              "formula": "[EMPLOYEES/Last Name]",
+              "name": "LAST_NAME"
+            },
+            {
+              "id": "Zlj4eMQZHB",
+              "formula": "[EMPLOYEES/Email]",
+              "name": "EMAIL"
+            },
+            {
+              "id": "vxYvqw0fj0",
+              "formula": "[EMPLOYEES/Hire Date]",
+              "name": "HIRE_DATE"
+            },
+            {
+              "id": "g9GEa7flqG",
+              "formula": "[EMPLOYEES/Termination Date]",
+              "name": "TERMINATION_DATE"
+            },
+            {
+              "id": "v1lx61p3gR",
+              "formula": "[EMPLOYEES/Termination Reason]",
+              "name": "TERMINATION_REASON"
+            },
+            {
+              "id": "MFxEx6lHMz",
+              "formula": "[EMPLOYEES/Department]",
+              "name": "DEPARTMENT"
+            },
+            {
+              "id": "YcADRbsC-A",
+              "formula": "[EMPLOYEES/Role]",
+              "name": "ROLE"
+            },
+            {
+              "id": "3nn-Bl-doL",
+              "formula": "[EMPLOYEES/Location]",
+              "name": "LOCATION"
+            },
+            {
+              "id": "xML330v5SN",
+              "formula": "[EMPLOYEES/Status]",
+              "name": "STATUS"
+            },
+            {
+              "id": "RUFaQSnEQL",
+              "formula": "[EMPLOYEES/Employment Type]",
+              "name": "EMPLOYMENT_TYPE"
+            },
+            {
+              "id": "4vgsp1-Pkp",
+              "formula": "[EMPLOYEES/Shift]",
+              "name": "SHIFT"
+            },
+            {
+              "id": "C5OcyNvaUp",
+              "formula": "[EMPLOYEES/Manager Id]",
+              "name": "MANAGER_ID"
+            },
+            {
+              "id": "OQsEG59VfD",
+              "formula": "[EMPLOYEES/Annual Salary]",
+              "name": "ANNUAL_SALARY"
+            }
+          ],
+          "name": "Employees",
+          "metrics": [
+            {
+              "id": "vg04NXn3Au",
+              "formula": "Count([EMPLOYEE_ID])",
+              "name": "Total Employees",
+              "description": "Count of all employees"
+            },
+            {
+              "id": "mqsPudXtMD",
+              "formula": "Sum([ANNUAL_SALARY])",
+              "name": "Total Annual Salary",
+              "description": "Sum of all employee compensation"
+            },
+            {
+              "id": "unqzQdAZvR",
+              "formula": "Avg([ANNUAL_SALARY])",
+              "name": "Average Salary",
+              "description": "Mean compensation per employee"
+            }
+          ],
+          "order": [
+            "FxAg8YJ8po",
+            "Zb8FhZrO4s",
+            "3ayZhglBI8",
+            "Zlj4eMQZHB",
+            "vxYvqw0fj0",
+            "g9GEa7flqG",
+            "v1lx61p3gR",
+            "MFxEx6lHMz",
+            "YcADRbsC-A",
+            "3nn-Bl-doL",
+            "xML330v5SN",
+            "RUFaQSnEQL",
+            "4vgsp1-Pkp",
+            "C5OcyNvaUp",
+            "OQsEG59VfD"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
