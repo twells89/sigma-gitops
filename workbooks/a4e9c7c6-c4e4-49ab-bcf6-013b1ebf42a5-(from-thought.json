@@ -23,5 +23,6 @@
       "elements": []
     }
   ],
+  "kind": "workbook",
   "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\"/>\n"
 }

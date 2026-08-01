@@ -1,0 +1,167 @@
+{
+  "dataModelId": "13ae488b-56c8-4a7c-8d36-76c181bca909",
+  "name": "test_cross_el_calc",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/test_cross_el_calc-B8v7rWjoWlpOY540BL8zn",
+  "documentVersion": 2,
+  "latestDocumentVersion": 2,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "ac1bd2c6-3806-48a2-b308-bafac94a7df5",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-04-28T12:58:30.401Z",
+  "updatedAt": "2026-05-04T23:43:59.438Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "zE2iJ5lY07",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "K-QVfGWQlA",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "CUSTOMER_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "3dVVtmKCrJ",
+              "formula": "[CUSTOMER_DIM/Customer Key]"
+            },
+            {
+              "id": "HWKYV_KOPp",
+              "formula": "[CUSTOMER_DIM/Customer Segment]"
+            },
+            {
+              "id": "Xo_EC0cEIJ",
+              "formula": "[CUSTOMER_DIM/Region]"
+            }
+          ],
+          "name": "CUSTOMER_DIM",
+          "order": [
+            "3dVVtmKCrJ",
+            "HWKYV_KOPp",
+            "Xo_EC0cEIJ"
+          ]
+        },
+        {
+          "id": "8YC5aTTPJr",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ORDER_FACT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "_FARsGoJd9",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "tDcFbMwdwJ",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "7355ei8JQf",
+              "formula": "[ORDER_FACT/Gross Profit]"
+            },
+            {
+              "id": "_BhzbaJD7R",
+              "formula": "[ORDER_FACT/Customer Key]"
+            },
+            {
+              "id": "nwxC1q64XZ",
+              "formula": "Round([Gross Revenue] / [Gross Profit] * 100, 2)",
+              "name": "Gross Margin Pct"
+            }
+          ],
+          "name": "ORDER_FACT",
+          "relationships": [
+            {
+              "id": "tgdng25VC4",
+              "targetElementId": "K-QVfGWQlA",
+              "keys": [
+                {
+                  "sourceColumnId": "_BhzbaJD7R",
+                  "targetColumnId": "3dVVtmKCrJ"
+                }
+              ],
+              "name": "CUSTOMER_DIM"
+            }
+          ],
+          "order": [
+            "_FARsGoJd9",
+            "tDcFbMwdwJ",
+            "7355ei8JQf",
+            "_BhzbaJD7R",
+            "nwxC1q64XZ"
+          ]
+        },
+        {
+          "id": "TrU7kdTvIt",
+          "kind": "table",
+          "source": {
+            "elementId": "8YC5aTTPJr",
+            "kind": "table"
+          },
+          "columns": [
+            {
+              "id": "WF-BM0k6gE",
+              "formula": "[ORDER_FACT/Order Id]"
+            },
+            {
+              "id": "JmtVCFhNj4",
+              "formula": "[ORDER_FACT/Gross Revenue]"
+            },
+            {
+              "id": "OJ6XAO5UjT",
+              "formula": "[ORDER_FACT/Gross Profit]"
+            },
+            {
+              "id": "0fsSyv9ulE",
+              "formula": "[ORDER_FACT/Customer Key]"
+            },
+            {
+              "id": "71VQIy2h7_",
+              "formula": "[ORDER_FACT/CUSTOMER_DIM/Customer Key]"
+            },
+            {
+              "id": "BPf9h3uYOR",
+              "formula": "[ORDER_FACT/CUSTOMER_DIM/Customer Segment]"
+            },
+            {
+              "id": "JJmZu6i2_Q",
+              "formula": "[ORDER_FACT/CUSTOMER_DIM/Region]"
+            },
+            {
+              "id": "ccRxnKavuO",
+              "formula": "Concat([Customer Segment], \" - \", [Region])",
+              "name": "Customer Label"
+            }
+          ],
+          "name": "ORDER_FACT",
+          "order": [
+            "WF-BM0k6gE",
+            "JmtVCFhNj4",
+            "OJ6XAO5UjT",
+            "0fsSyv9ulE",
+            "71VQIy2h7_",
+            "BPf9h3uYOR",
+            "JJmZu6i2_Q",
+            "ccRxnKavuO"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
