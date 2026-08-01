@@ -51,5 +51,6 @@
       ]
     }
   ],
+  "kind": "workbook",
   "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-dash\">\n  <LayoutElement elementId=\"ctrl-05bmgm6z\" gridColumn=\"1 / 9\" gridRow=\"16 / 19\"/>\n</Page>\n"
 }
