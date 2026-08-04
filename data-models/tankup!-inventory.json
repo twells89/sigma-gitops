@@ -2,20 +2,21 @@
   "dataModelId": "e3a5f320-394e-46d6-9718-038d2abe0994",
   "name": "TankUp! Inventory ",
   "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/TankUp-Inventory-6Vz62CoUbLipmEZSpbAs72",
-  "documentVersion": 2,
-  "latestDocumentVersion": 2,
-  "schemaVersion": 1,
+  "documentVersion": 4,
+  "latestDocumentVersion": 4,
   "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
   "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
   "createdAt": "2025-03-23T11:03:42.068Z",
-  "updatedAt": "2025-03-23T11:08:48.466Z",
+  "updatedAt": "2026-01-12T18:57:16.694Z",
+  "schemaVersion": 1,
   "pages": [
     {
-      "id": "_QxPIcU4Kx",
+      "id": "yEUZfMbtkH",
       "name": "Page 1",
       "elements": []
     }
-  ]
+  ],
+  "kind": "data-model"
 }
