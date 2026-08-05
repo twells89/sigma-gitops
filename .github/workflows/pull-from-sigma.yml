@@ -103,7 +103,19 @@ jobs:
               echo ""
               echo "## Sigma CI — Model Health"
               echo ""
-              echo "$SIGMA_REPORT"
+              # GitHub caps PR bodies at 65536 characters; a large drift report
+              # (many models, many broken references) can exceed that on its own
+              # and fail PR creation outright (run 30990020275, 2026-08-05).
+              # Truncate defensively and point at the full report in the run logs.
+              REPORT_LIMIT=40000
+              if [ "${#SIGMA_REPORT}" -gt "$REPORT_LIMIT" ]; then
+                echo "${SIGMA_REPORT:0:$REPORT_LIMIT}"
+                echo ""
+                echo "_… truncated ($(( ${#SIGMA_REPORT} - REPORT_LIMIT )) more characters.
+          See the [full drift report](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) in this run's logs (\"Run Sigma CI drift check\" step)._"
+              else
+                echo "$SIGMA_REPORT"
+              fi
               echo ""
               if [ "$HAS_DRIFT" = "true" ]; then
                 echo "> ⚠️  **Schema drift found.** Consider fixing drift before merging."
@@ -114,6 +126,16 @@ jobs:
             echo ""
             echo "_Automatically created by the Pull Changes from Sigma workflow._"
           } > pr_body.md
+
+          # Final defensive backstop in case other sections (e.g. a very large
+          # changed-files list) also grow unbounded over time.
+          BODY_LIMIT=60000
+          if [ "$(wc -c < pr_body.md)" -gt "$BODY_LIMIT" ]; then
+            head -c "$BODY_LIMIT" pr_body.md > pr_body.trunc.md
+            printf '\n\n_… body truncated to fit GitHub'"'"'s PR size limit. See the [full run](%s/%s/actions/runs/%s) for complete output._\n' \
+              "${{ github.server_url }}" "${{ github.repository }}" "${{ github.run_id }}" >> pr_body.trunc.md
+            mv pr_body.trunc.md pr_body.md
+          fi
 
           echo "body_file=pr_body.md" >> "$GITHUB_OUTPUT"
 
