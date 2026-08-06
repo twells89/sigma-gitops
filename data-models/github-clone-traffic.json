@@ -1,0 +1,584 @@
+{
+  "dataModelId": "a8f744bb-fcab-42d0-a997-07abff1eed8f",
+  "name": "GitHub Clone Traffic",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/GitHub-Clone-Traffic-58PIcAd33nJLFsS4EKramb",
+  "documentVersion": 3,
+  "latestDocumentVersion": 3,
+  "ownerId": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "folderId": "9ead6d13-0577-4ff5-bfc2-70e70ddc29fe",
+  "createdBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "updatedBy": "d25zjgNIQ46yIz3sfAWLQibaRigy9",
+  "createdAt": "2026-06-10T15:54:24.802Z",
+  "updatedAt": "2026-06-11T00:06:46.476Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "uSvkxOrxYU",
+      "name": "Main",
+      "elements": [
+        {
+          "id": "kihxznv4QJ",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_CLONE_TRAFFIC"
+            ]
+          },
+          "columns": [
+            {
+              "id": "PL9LTZrY2R",
+              "formula": "[GITHUB_CLONE_TRAFFIC/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "50MPc2u-V7",
+              "formula": "[GITHUB_CLONE_TRAFFIC/Clone Date]",
+              "name": "Clone Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "D4_aQ5xJmp",
+              "formula": "[GITHUB_CLONE_TRAFFIC/Clones]",
+              "name": "Clones"
+            },
+            {
+              "id": "uv011HBCFo",
+              "formula": "[GITHUB_CLONE_TRAFFIC/Unique Cloners]",
+              "name": "Unique Cloners"
+            },
+            {
+              "id": "bInjprgm3z",
+              "formula": "[GITHUB_CLONE_TRAFFIC/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "rrDx11njzs",
+              "formula": "Replace([GITHUB_CLONE_TRAFFIC/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_CLONE_TRAFFIC",
+          "metrics": [
+            {
+              "id": "-f1EM2v9ej",
+              "formula": "Sum([Clones])",
+              "name": "Total Clones",
+              "description": "Total git clones across the period",
+              "timeline": {
+                "dateColumnId": "50MPc2u-V7",
+                "truncation": "day",
+                "comparison": {
+                  "comparisonPeriod": "week",
+                  "direction": "higher-is-better"
+                }
+              }
+            },
+            {
+              "id": "8izR6UcWYC",
+              "formula": "Sum([Unique Cloners])",
+              "name": "Unique Cloners",
+              "description": "Sum of daily unique cloners (not deduped across days)",
+              "timeline": {
+                "dateColumnId": "50MPc2u-V7",
+                "truncation": "day",
+                "comparison": {
+                  "comparisonPeriod": "week",
+                  "direction": "higher-is-better"
+                }
+              }
+            },
+            {
+              "id": "F-xYVQCzCz",
+              "formula": "CountDistinct([Repo])",
+              "name": "Repos Cloned",
+              "description": "Distinct repos with at least one clone"
+            }
+          ],
+          "order": [
+            "PL9LTZrY2R",
+            "50MPc2u-V7",
+            "D4_aQ5xJmp",
+            "uv011HBCFo",
+            "bInjprgm3z",
+            "rrDx11njzs"
+          ]
+        },
+        {
+          "id": "F7njmnzgXq",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_VIEW_TRAFFIC"
+            ]
+          },
+          "columns": [
+            {
+              "id": "hhLAx8RumC",
+              "formula": "[GITHUB_VIEW_TRAFFIC/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "vX4rQGno7-",
+              "formula": "[GITHUB_VIEW_TRAFFIC/View Date]",
+              "name": "View Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "0QND29wM3P",
+              "formula": "[GITHUB_VIEW_TRAFFIC/Views]",
+              "name": "Views"
+            },
+            {
+              "id": "QOFy1GU_ZP",
+              "formula": "[GITHUB_VIEW_TRAFFIC/Unique Visitors]",
+              "name": "Unique Visitors"
+            },
+            {
+              "id": "qbZKi5ykio",
+              "formula": "[GITHUB_VIEW_TRAFFIC/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "2mJCoCLrXT",
+              "formula": "Replace([GITHUB_VIEW_TRAFFIC/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_VIEW_TRAFFIC",
+          "metrics": [
+            {
+              "id": "s6hLL4HC54",
+              "formula": "Sum([Views])",
+              "name": "Total Views",
+              "description": "Total repo page views across the period",
+              "timeline": {
+                "dateColumnId": "vX4rQGno7-",
+                "truncation": "day",
+                "comparison": {
+                  "comparisonPeriod": "week",
+                  "direction": "higher-is-better"
+                }
+              }
+            },
+            {
+              "id": "x96Vs9Lki5",
+              "formula": "Sum([Unique Visitors])",
+              "name": "Total Unique Visitors"
+            }
+          ],
+          "order": [
+            "hhLAx8RumC",
+            "vX4rQGno7-",
+            "0QND29wM3P",
+            "QOFy1GU_ZP",
+            "qbZKi5ykio",
+            "2mJCoCLrXT"
+          ]
+        },
+        {
+          "id": "Z_muO4V788",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_REFERRERS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "hVHOuPLpYl",
+              "formula": "[GITHUB_REFERRERS/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "g9C45NwrP3",
+              "formula": "[GITHUB_REFERRERS/Snapshot Date]",
+              "name": "Snapshot Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "rIv_fS7dr7",
+              "formula": "[GITHUB_REFERRERS/Referrer]",
+              "name": "Referrer"
+            },
+            {
+              "id": "DK8xaHRJJm",
+              "formula": "[GITHUB_REFERRERS/Count]",
+              "name": "Count"
+            },
+            {
+              "id": "lhloh5LSlW",
+              "formula": "[GITHUB_REFERRERS/Uniques]",
+              "name": "Uniques"
+            },
+            {
+              "id": "4xAl2H0SbY",
+              "formula": "[GITHUB_REFERRERS/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "riYR8tm83E",
+              "formula": "Replace([GITHUB_REFERRERS/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_REFERRERS",
+          "metrics": [
+            {
+              "id": "PAoTnKXSrJ",
+              "formula": "Sum([Count])",
+              "name": "Total Referral Views"
+            }
+          ],
+          "order": [
+            "hVHOuPLpYl",
+            "g9C45NwrP3",
+            "rIv_fS7dr7",
+            "DK8xaHRJJm",
+            "lhloh5LSlW",
+            "4xAl2H0SbY",
+            "riYR8tm83E"
+          ]
+        },
+        {
+          "id": "HbTh3X5SUy",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_POPULAR_PATHS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "9Qck4FQcga",
+              "formula": "[GITHUB_POPULAR_PATHS/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "9S4l8zucQ8",
+              "formula": "[GITHUB_POPULAR_PATHS/Snapshot Date]",
+              "name": "Snapshot Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "bqmADnW8wc",
+              "formula": "[GITHUB_POPULAR_PATHS/Path]",
+              "name": "Path"
+            },
+            {
+              "id": "c3C1LRSkHc",
+              "formula": "[GITHUB_POPULAR_PATHS/Title]",
+              "name": "Title"
+            },
+            {
+              "id": "zP00TzKVmy",
+              "formula": "[GITHUB_POPULAR_PATHS/Count]",
+              "name": "Count"
+            },
+            {
+              "id": "b0B0I4_mQ6",
+              "formula": "[GITHUB_POPULAR_PATHS/Uniques]",
+              "name": "Uniques"
+            },
+            {
+              "id": "DEBJbv9eoA",
+              "formula": "[GITHUB_POPULAR_PATHS/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "POyH17N3Qt",
+              "formula": "Replace([GITHUB_POPULAR_PATHS/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_POPULAR_PATHS",
+          "metrics": [
+            {
+              "id": "RPHZ7fDMZv",
+              "formula": "Sum([Count])",
+              "name": "Total Path Views"
+            }
+          ],
+          "order": [
+            "9Qck4FQcga",
+            "9S4l8zucQ8",
+            "bqmADnW8wc",
+            "c3C1LRSkHc",
+            "zP00TzKVmy",
+            "b0B0I4_mQ6",
+            "DEBJbv9eoA",
+            "POyH17N3Qt"
+          ]
+        },
+        {
+          "id": "ZEINFGEgp1",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_REPO_SNAPSHOT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "k6mytADem5",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "rxVrAnD5Oq",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Snapshot Date]",
+              "name": "Snapshot Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "7Mq0MOx51V",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Stars]",
+              "name": "Stars"
+            },
+            {
+              "id": "Rwu3_H_2yN",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Forks]",
+              "name": "Forks"
+            },
+            {
+              "id": "KJwhas_aPB",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Watchers]",
+              "name": "Watchers"
+            },
+            {
+              "id": "V36OV7WA33",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Open Issues]",
+              "name": "Open Issues"
+            },
+            {
+              "id": "InhEcE8Fa_",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Size Kb]",
+              "name": "Size Kb"
+            },
+            {
+              "id": "qjr8EXhkBd",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Primary Language]",
+              "name": "Primary Language"
+            },
+            {
+              "id": "qWNgzAOT68",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Is Private]",
+              "name": "Is Private"
+            },
+            {
+              "id": "wziFqP2suG",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Is Archived]",
+              "name": "Is Archived"
+            },
+            {
+              "id": "SDEDyZFmMX",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Created At]",
+              "name": "Created At",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "ZNf26QYSxF",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Pushed At]",
+              "name": "Pushed At",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "S7ZHRgJvUP",
+              "formula": "[GITHUB_REPO_SNAPSHOT/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "D2qA69RHSh",
+              "formula": "Replace([GITHUB_REPO_SNAPSHOT/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_REPO_SNAPSHOT",
+          "order": [
+            "k6mytADem5",
+            "rxVrAnD5Oq",
+            "7Mq0MOx51V",
+            "Rwu3_H_2yN",
+            "KJwhas_aPB",
+            "V36OV7WA33",
+            "InhEcE8Fa_",
+            "qjr8EXhkBd",
+            "qWNgzAOT68",
+            "wziFqP2suG",
+            "SDEDyZFmMX",
+            "ZNf26QYSxF",
+            "S7ZHRgJvUP",
+            "D2qA69RHSh"
+          ]
+        },
+        {
+          "id": "YSCQ-bXeXI",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_COMMIT_ACTIVITY"
+            ]
+          },
+          "columns": [
+            {
+              "id": "WYGaVHawTA",
+              "formula": "[GITHUB_COMMIT_ACTIVITY/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "U5w1D3w9B0",
+              "formula": "[GITHUB_COMMIT_ACTIVITY/Commit Date]",
+              "name": "Commit Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "gohVDKB1lg",
+              "formula": "[GITHUB_COMMIT_ACTIVITY/Commits]",
+              "name": "Commits"
+            },
+            {
+              "id": "-6_llOTybl",
+              "formula": "[GITHUB_COMMIT_ACTIVITY/Authors]",
+              "name": "Authors"
+            },
+            {
+              "id": "2Nc-_SqNwJ",
+              "formula": "[GITHUB_COMMIT_ACTIVITY/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "wx-9SnaIwc",
+              "formula": "Replace([GITHUB_COMMIT_ACTIVITY/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_COMMIT_ACTIVITY",
+          "metrics": [
+            {
+              "id": "OCd-Or0_zP",
+              "formula": "Sum([Commits])",
+              "name": "Total Commits",
+              "description": "Total commits across the period",
+              "timeline": {
+                "dateColumnId": "U5w1D3w9B0",
+                "truncation": "day",
+                "comparison": {
+                  "comparisonPeriod": "week",
+                  "direction": "higher-is-better"
+                }
+              }
+            }
+          ],
+          "order": [
+            "WYGaVHawTA",
+            "U5w1D3w9B0",
+            "gohVDKB1lg",
+            "-6_llOTybl",
+            "2Nc-_SqNwJ",
+            "wx-9SnaIwc"
+          ]
+        },
+        {
+          "id": "RKOGnJDCdT",
+          "kind": "table",
+          "source": {
+            "connectionId": "bc0319f8-9fe0-4315-aea3-6a2d1eef0623",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "GITHUB_STAR_EVENTS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "cpscxTTZKN",
+              "formula": "[GITHUB_STAR_EVENTS/Repo]",
+              "name": "Repo"
+            },
+            {
+              "id": "AAQYV7ONS_",
+              "formula": "[GITHUB_STAR_EVENTS/User Login]",
+              "name": "User Login"
+            },
+            {
+              "id": "lOmf4NTsqO",
+              "formula": "[GITHUB_STAR_EVENTS/Starred At]",
+              "name": "Starred At",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%Y-%m-%d"
+              }
+            },
+            {
+              "id": "8CckNvEHBM",
+              "formula": "[GITHUB_STAR_EVENTS/Loaded At]",
+              "name": "Loaded At"
+            },
+            {
+              "id": "kGk6Bljmvg",
+              "formula": "Replace([GITHUB_STAR_EVENTS/Repo], \"twells89/\", \"\")",
+              "name": "Repo Name"
+            }
+          ],
+          "name": "GITHUB_STAR_EVENTS",
+          "order": [
+            "cpscxTTZKN",
+            "AAQYV7ONS_",
+            "lOmf4NTsqO",
+            "8CckNvEHBM",
+            "kGk6Bljmvg"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
