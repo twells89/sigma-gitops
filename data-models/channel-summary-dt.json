@@ -14,7 +14,7 @@
   "pages": [
     {
       "id": "XPmtK7uyNQ",
-      "name": "Page 1",
+      "name": "Page 2",
       "elements": [
         {
           "id": "IBYQ45g5oj",
@@ -28,7 +28,7 @@
             {
               "id": "NiwyDwI8bT",
               "formula": "[Custom SQL/ORDER_CHANNEL]",
-              "name": "Order Channel"
+              "name": "Order Channel test"
             },
             {
               "id": "mtQZmyRJvN",
