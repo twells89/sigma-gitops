@@ -12,194 +12,192 @@
   "updatedAt": "2026-06-05T20:07:52.546Z",
   "document": {
     "schemaVersion": 1,
-    "pages": [
+    "elements": [
       {
-        "id": "p-data",
-        "name": "Data",
-        "elements": [
+        "id": "m-ofv",
+        "kind": "table",
+        "source": {
+          "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+          "elementId": "9goVoIu3vD",
+          "kind": "data-model"
+        },
+        "columns": [
           {
-            "id": "m-ofv",
-            "kind": "table",
-            "source": {
-              "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
-              "elementId": "9goVoIu3vD",
-              "kind": "data-model"
-            },
-            "columns": [
-              {
-                "id": "ofv-0",
-                "formula": "[Order Fact View/Store Type (STORE_DIM)]",
-                "name": "Store Type"
-              },
-              {
-                "id": "ofv-1",
-                "formula": "[Order Fact View/Net Revenue]",
-                "name": "Net Revenue"
-              },
-              {
-                "id": "ofv-2",
-                "formula": "[Order Fact View/Store Name (STORE_DIM)]",
-                "name": "Store Name"
-              },
-              {
-                "id": "ofv-3",
-                "formula": "[Order Fact View/Gross Profit]",
-                "name": "Gross Profit"
-              }
-            ],
-            "name": "OFV",
-            "order": [
-              "ofv-0",
-              "ofv-1",
-              "ofv-2",
-              "ofv-3"
-            ]
+            "id": "ofv-0",
+            "formula": "[Order Fact View/Store Type (STORE_DIM)]",
+            "name": "Store Type"
+          },
+          {
+            "id": "ofv-1",
+            "formula": "[Order Fact View/Net Revenue]",
+            "name": "Net Revenue"
+          },
+          {
+            "id": "ofv-2",
+            "formula": "[Order Fact View/Store Name (STORE_DIM)]",
+            "name": "Store Name"
+          },
+          {
+            "id": "ofv-3",
+            "formula": "[Order Fact View/Gross Profit]",
+            "name": "Gross Profit"
           }
+        ],
+        "name": "OFV",
+        "order": [
+          "ofv-0",
+          "ofv-1",
+          "ofv-2",
+          "ofv-3"
         ]
       },
       {
-        "id": "p-main",
-        "name": "Store Operations",
-        "elements": [
+        "id": "el-msebm2z5",
+        "kind": "kpi-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
           {
-            "id": "el-msebm2z5",
-            "kind": "kpi-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "c-gxlz28ff-v",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "value": {
-              "columnId": "c-gxlz28ff-v"
-            },
-            "name": "Total Net Revenue"
+            "id": "c-gxlz28ff-v",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "value": {
+          "columnId": "c-gxlz28ff-v"
+        },
+        "name": "Total Net Revenue"
+      },
+      {
+        "id": "el-nrhf799f",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-k72rbu1r",
+            "formula": "[OFV/Store Type]",
+            "name": "Store Type"
           },
           {
-            "id": "el-nrhf799f",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-k72rbu1r",
-                "formula": "[OFV/Store Type]",
-                "name": "Store Type"
-              },
-              {
-                "id": "y-sty0rx1t",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-sty0rx1t"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-k72rbu1r"
-            },
-            "name": "Revenue by Store Type"
+            "id": "y-sty0rx1t",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-sty0rx1t"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-k72rbu1r"
+        },
+        "name": "Revenue by Store Type"
+      },
+      {
+        "id": "el-pd47n2w6",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-mhmpee5o",
+            "formula": "[OFV/Store Name]",
+            "name": "Store Name"
           },
           {
-            "id": "el-pd47n2w6",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-mhmpee5o",
-                "formula": "[OFV/Store Name]",
-                "name": "Store Name"
-              },
-              {
-                "id": "y-02sh3pxh",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-02sh3pxh"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-mhmpee5o"
-            },
-            "name": "Revenue by Store"
+            "id": "y-02sh3pxh",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-02sh3pxh"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-mhmpee5o"
+        },
+        "name": "Revenue by Store"
+      },
+      {
+        "id": "el-cwq6zq32",
+        "kind": "table",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "d-1yksautr",
+            "formula": "[OFV/Store Type]",
+            "name": "Store Type"
           },
           {
-            "id": "el-cwq6zq32",
-            "kind": "table",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "d-1yksautr",
-                "formula": "[OFV/Store Type]",
-                "name": "Store Type"
-              },
-              {
-                "id": "m-abpxhwvo",
-                "formula": "Sum([OFV/Gross Profit])",
-                "name": "Gross Profit",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              },
-              {
-                "id": "m-lcbei1dr",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
+            "id": "m-abpxhwvo",
+            "formula": "Sum([OFV/Gross Profit])",
+            "name": "Gross Profit",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          },
+          {
+            "id": "m-lcbei1dr",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "name": "Store Type Detail",
+        "groupings": [
+          {
+            "id": "el-nohq6pep",
+            "groupBy": [
+              "d-1yksautr"
             ],
-            "name": "Store Type Detail",
-            "groupings": [
-              {
-                "id": "el-nohq6pep",
-                "groupBy": [
-                  "d-1yksautr"
-                ],
-                "calculations": [
-                  "m-abpxhwvo",
-                  "m-lcbei1dr"
-                ]
-              }
+            "calculations": [
+              "m-abpxhwvo",
+              "m-lcbei1dr"
             ]
           }
         ]
       }
     ],
+    "pages": [
+      {
+        "id": "p-data",
+        "name": "Data"
+      },
+      {
+        "id": "p-main",
+        "name": "Store Operations"
+      }
+    ],
     "kind": "workbook",
-    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-msebm2z5\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-nrhf799f\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-pd47n2w6\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-cwq6zq32\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <Element elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <Element elementId=\"el-msebm2z5\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <Element elementId=\"el-nrhf799f\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-pd47n2w6\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-cwq6zq32\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
   }
 }
