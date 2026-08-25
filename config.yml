@@ -7,132 +7,132 @@ workbooks:
     file: retail-orders-overview-(from-qlik).json
     name: "Retail Orders \u2014 Overview (from Qlik)"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:03.677004Z'
+    last_pulled: '2026-08-25T06:13:49.509403Z'
   025246e7-72f7-474c-a613-21ea13089ad0:
     file: store-operations-(from-thoughtspot).json
     name: Store Operations (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:04.044630Z'
+    last_pulled: '2026-08-25T06:13:49.957165Z'
   2657e965-cf4a-46d8-9d3d-2250e272ff35:
     file: exec-overview-(qlik)-sigma.json
     name: "Exec Overview (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:04.351546Z'
+    last_pulled: '2026-08-25T06:13:50.240680Z'
   2c4e5d07-940c-420b-a0a1-9465aebddd3f:
     file: retail-orders-overview-(from-qlik)-2c4e5d07.json
     name: "Retail Orders \u2014 Overview (from Qlik)"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:04.734002Z'
+    last_pulled: '2026-08-25T06:13:50.665578Z'
   34c84faa-a877-4635-be2c-2ca297924c6a:
     file: a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5-(from-thought.json
     name: a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5 (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:04.979303Z'
+    last_pulled: '2026-08-25T06:13:50.896146Z'
   34e16b0c-60ab-40db-b6b3-661a64030ef8:
     file: retail-orders-(qliksigma).json
     name: "Retail Orders (Qlik\u2192Sigma)"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:05.237905Z'
+    last_pulled: '2026-08-25T06:13:51.141704Z'
   38122b15-6b76-48a8-ba1f-e480810ac774:
     file: sales-overview-(from-thoughtspot).json
     name: Sales Overview (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:05.559286Z'
+    last_pulled: '2026-08-25T06:13:51.488781Z'
   384651d2-e801-445d-b40c-4ebfab8caabb:
     file: regional-sales-(qlik)-sigma.json
     name: "Regional Sales (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:05.900505Z'
+    last_pulled: '2026-08-25T06:13:51.765117Z'
   53df581d-f74a-46d5-8da7-cfade1155eb2:
     file: customer-insights-(from-thoughtspot).json
     name: Customer Insights (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:06.243644Z'
+    last_pulled: '2026-08-25T06:13:52.061956Z'
   5fb4f075-6802-4086-a9ce-b7bf0cd27536:
     file: promotions-(from-thoughtspot).json
     name: Promotions (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:06.706499Z'
+    last_pulled: '2026-08-25T06:13:52.363214Z'
   62df6f0e-54fe-4427-8fb0-52e9bc4b8f5e:
     file: category-insights-qlik-sigma.json
     name: "Category Insights (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:06.975444Z'
+    last_pulled: '2026-08-25T06:13:53.019746Z'
   67f3076c-3906-47f2-aa8b-b0f78fec17be:
     file: time-trends-(from-thoughtspot).json
     name: Time Trends (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:07.260431Z'
+    last_pulled: '2026-08-25T06:13:54.718875Z'
   697f3521-76ab-4270-a3d4-e3bedfcae44d:
     file: csa-tj-demo-(from-looker).json
     name: CSA TJ Demo (from Looker)
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:07.517202Z'
+    last_pulled: '2026-08-25T06:13:54.935367Z'
   6b46f6bb-9651-4c1d-9d81-0b725f926e1d:
     file: inventory-snapshot-(qlik)-sigma.json
     name: "Inventory Snapshot (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:08.202187Z'
+    last_pulled: '2026-08-25T06:13:57.154204Z'
   70040e4b-fcb7-4426-af5c-aad3f2b0d66f:
     file: drill-down.json
     name: Drill down
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:08.928804Z'
+    last_pulled: '2026-08-25T06:13:57.439680Z'
   7cbb68b6-82d6-4f29-a29a-ec614645e406:
     file: channel-report-qlik-sigma.json
     name: "Channel Report (Qlik) \u2192 Sigma"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:09.640035Z'
+    last_pulled: '2026-08-25T06:13:57.757656Z'
   9270993c-8a84-48aa-9ae6-1f35cc1444ff:
     file: returns-&-quality-(from-thoughtspot).json
     name: Returns & Quality (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:09.964574Z'
+    last_pulled: '2026-08-25T06:13:58.060730Z'
   9674f92d-78fa-4f81-aebf-f7e5b00ee8cc:
     file: retail-orders-(qliksigma)-9674f92d.json
     name: "Retail Orders (Qlik\u2192Sigma)"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:10.249001Z'
+    last_pulled: '2026-08-25T06:13:58.311879Z'
   9b5d8e9b-0823-4f36-b17e-f109f5d7d633:
     file: 6e52edc8-1811-4dd9-b6e7-eeb9b60d6b13-(from-thought.json
     name: 6e52edc8-1811-4dd9-b6e7-eeb9b60d6b13 (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:10.851054Z'
+    last_pulled: '2026-08-25T06:13:58.669518Z'
   ba6b2d3b-c95a-4b47-b96f-5ec9601f54d2:
     file: executive-kpis-(from-thoughtspot).json
     name: Executive KPIs (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:11.220269Z'
+    last_pulled: '2026-08-25T06:13:58.997119Z'
   cc5c9e73-50b7-40eb-b51a-60cbf54aa9c2:
     file: regional-sales-(from-thoughtspot).json
     name: Regional Sales (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:11.536048Z'
+    last_pulled: '2026-08-25T06:13:59.891784Z'
   d658ebbe-c044-4e69-893f-b4af93627635:
     file: loyalty-&-segments-(from-thoughtspot).json
     name: Loyalty & Segments (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:11.828800Z'
+    last_pulled: '2026-08-25T06:14:00.176519Z'
   db5697ed-a997-4083-bd24-9ba663b75da2:
     file: retail-analytics-(from-qlik)-4-themes.json
     name: "Retail Analytics (from Qlik) \u2014 4 Themes"
     path: My Documents/Test
-    last_pulled: '2026-08-05T08:41:12.670032Z'
+    last_pulled: '2026-08-25T06:14:00.495933Z'
   dd480479-ea4e-4d09-8da9-0e43834cb3a0:
     file: retail-analytics-(from-thoughtspot).json
     name: Retail Analytics (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:12.970569Z'
+    last_pulled: '2026-08-25T06:14:01.903228Z'
   e19eff3a-b4aa-46f6-8a76-ec9372b919c8:
     file: channel-analysis-(from-thoughtspot).json
     name: Channel Analysis (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:13.918942Z'
+    last_pulled: '2026-08-25T06:14:02.287715Z'
   f642de9c-ae28-4704-a694-ba7f89c1fe5a:
     file: product-performance-(from-thoughtspot).json
     name: Product Performance (from ThoughtSpot)
     path: My Documents/Test/ThoughtSpot Migrations
-    last_pulled: '2026-08-05T08:41:14.911979Z'
+    last_pulled: '2026-08-25T06:14:02.598285Z'
 data_models:
   07b52947-2f01-41ff-b3f4-331938ed3823:
     file: data-model-quickstart-copy-test.json
@@ -141,7 +141,7 @@ data_models:
   6d07a964-df89-4b5c-b597-702218d80f2a:
     file: data-model-quickstart.json
     name: Data Model QuickStart
-    last_pulled: '2026-08-05T08:40:56.012560Z'
+    last_pulled: '2026-08-25T06:13:37.596884Z'
   8c6e32eb-e650-41a3-b45d-0ae47e394108:
     file: csa-tj-order-analysis-carine.json
     name: CSA.TJ Order Analysis - Carine
@@ -153,7 +153,7 @@ data_models:
   339130f6-cb22-4900-bfb8-69936a4aec3b:
     file: dbt-semantic-models-2.json
     name: Dbt Semantic Models 2
-    last_pulled: '2026-08-05T08:40:57.822421Z'
+    last_pulled: '2026-08-25T06:13:40.445124Z'
   138248c1-3bfe-4d2e-b254-460b46875db4:
     file: my-data-model.json
     name: My Data Model
@@ -189,7 +189,7 @@ data_models:
   85e4d156-f529-46db-b8a2-474b2258527f:
     file: test-2.json
     name: Test 2
-    last_pulled: '2026-08-05T08:40:59.743849Z'
+    last_pulled: '2026-08-25T06:13:42.878352Z'
   eee771b0-a22b-4960-8276-d618a363977a:
     file: twohop.json
     name: twohop
@@ -197,64 +197,96 @@ data_models:
   08df90e7-0ec4-46b5-b312-7ce09bfad6e8:
     file: my-data-model.json
     name: My Data Model
-    last_pulled: '2026-08-05T08:40:56.253191Z'
+    last_pulled: '2026-08-25T06:13:38.146674Z'
   0f5c482b-1ecd-4df9-9578-3f66b04499d8:
     file: commerce-analytics-demo-data-model.json
     name: Commerce Analytics Demo Data Model
-    last_pulled: '2026-08-05T08:40:56.593153Z'
+    last_pulled: '2026-08-25T06:13:38.716782Z'
   13ae488b-56c8-4a7c-8d36-76c181bca909:
     file: test-cross-el-calc.json
     name: test_cross_el_calc
-    last_pulled: '2026-08-05T08:40:56.881626Z'
+    last_pulled: '2026-08-25T06:13:39.213990Z'
   2e743cc2-b92a-48b9-8ed2-a15a7d9638bf:
     file: chicago-crime.json
     name: chicago-crime
-    last_pulled: '2026-08-05T08:40:57.130295Z'
+    last_pulled: '2026-08-25T06:13:39.450760Z'
   33894412-e886-489b-a6d4-1f50b73d7b97:
     file: order-fact-lookml-test.json
     name: Order Fact LookML Test
-    last_pulled: '2026-08-05T08:40:57.486017Z'
+    last_pulled: '2026-08-25T06:13:39.938171Z'
   36430f60-2064-457c-8b52-ba7f3927438a:
     file: looker.json
     name: Looker
-    last_pulled: '2026-08-05T08:40:58.545394Z'
+    last_pulled: '2026-08-25T06:13:41.045414Z'
   3ab29163-47b3-458b-be89-a027f6153730:
     file: retail-analytics-sv-test-2.json
     name: Retail Analytics Sv Test 2
-    last_pulled: '2026-08-05T08:40:59.112346Z'
+    last_pulled: '2026-08-25T06:13:41.359318Z'
   62d86a35-c6e4-4f9c-930b-77a97c49209f:
     file: d-customer.json
     name: D_CUSTOMER
-    last_pulled: '2026-08-05T08:40:59.486609Z'
+    last_pulled: '2026-08-25T06:13:41.998153Z'
   86cfe63c-99a8-4512-924d-60c51f8589d3:
     file: test.json
     name: Test
-    last_pulled: '2026-08-05T08:41:00.114883Z'
+    last_pulled: '2026-08-25T06:13:43.097913Z'
   8a15cfc3-7265-44c7-bc13-3f9fe9aa1863:
     file: employee-analytics.json
     name: Employee Analytics
-    last_pulled: '2026-08-05T08:41:00.913087Z'
+    last_pulled: '2026-08-25T06:13:43.357367Z'
   a8f744bb-fcab-42d0-a997-07abff1eed8f:
     file: github-clone-traffic.json
     name: GitHub Clone Traffic
-    last_pulled: '2026-08-05T08:41:01.269026Z'
+    last_pulled: '2026-08-25T06:13:45.972872Z'
   ca2c2619-bc35-4e45-bcfa-a538a016b5cf:
     file: relationship-rls-bug?.json
     name: Relationship RLS Bug?
-    last_pulled: '2026-08-05T08:41:01.504613Z'
+    last_pulled: '2026-08-25T06:13:46.831861Z'
   d85439d2-a41a-4647-b100-784bddc7cca5:
     file: erica.json
     name: Erica
-    last_pulled: '2026-08-05T08:41:01.724870Z'
+    last_pulled: '2026-08-25T06:13:47.501489Z'
   dceb0813-3822-4071-9591-84f58df591f6:
     file: sales-analytics.json
     name: Sales Analytics
-    last_pulled: '2026-08-05T08:41:01.969079Z'
+    last_pulled: '2026-08-25T06:13:47.742456Z'
   e3a5f320-394e-46d6-9718-038d2abe0994:
     file: tankup!-inventory.json
     name: 'TankUp! Inventory '
-    last_pulled: '2026-08-05T08:41:02.206266Z'
+    last_pulled: '2026-08-25T06:13:47.980651Z'
   eedef070-f7f3-42fa-b456-9455173aae78:
     file: sales-analytics-2.json
     name: Sales Analytics 2
-    last_pulled: '2026-08-05T08:41:02.432741Z'
+    last_pulled: '2026-08-25T06:13:48.527583Z'
+  04792c63-63f8-413a-913c-2829c49cb1ae:
+    file: retail-performance-overview-order-fact.json
+    name: Retail Performance Overview Order Fact
+    last_pulled: '2026-08-25T06:13:37.858245Z'
+  35f7f91f-6779-41f2-8543-1c08b701e56d:
+    file: retail-data-model-2026.json
+    name: Retail Data Model 2026
+    last_pulled: '2026-08-25T06:13:40.729197Z'
+  400fb3f6-88d2-49c4-8547-3a689f98a3e1:
+    file: timesheet-entries.json
+    name: Timesheet Entries
+    last_pulled: '2026-08-25T06:13:41.768162Z'
+  66bfcb17-35db-404f-aea9-11835b451a05:
+    file: executive-financial-analysis-(mstr).json
+    name: Executive Financial Analysis (MSTR)
+    last_pulled: '2026-08-25T06:13:42.639619Z'
+  ae60b1cd-0903-4cee-8130-8b27871f297d:
+    file: retail-insights-(mstr).json
+    name: Retail Insights (MSTR)
+    last_pulled: '2026-08-25T06:13:46.170596Z'
+  c1b4f94b-b23a-4afd-bdcf-8a9d1e5d953f:
+    file: retail-performance-&-trends-dm-(from-power-bi).json
+    name: Retail Performance & Trends DM (from Power BI)
+    last_pulled: '2026-08-25T06:13:46.487818Z'
+  d396dd61-8b04-46ff-b04e-dcd0b9d69a8a:
+    file: employee-workforce-model.json
+    name: Employee Workforce Model
+    last_pulled: '2026-08-25T06:13:47.135826Z'
+  eac07569-19bc-422c-9c6b-d181987004d7:
+    file: order-fact.json
+    name: Order Fact
+    last_pulled: '2026-08-25T06:13:48.291854Z'

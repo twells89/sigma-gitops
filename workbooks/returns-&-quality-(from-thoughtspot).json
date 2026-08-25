@@ -12,194 +12,192 @@
   "updatedAt": "2026-06-05T20:08:03.186Z",
   "document": {
     "schemaVersion": 1,
-    "pages": [
+    "elements": [
       {
-        "id": "p-data",
-        "name": "Data",
-        "elements": [
+        "id": "m-ofv",
+        "kind": "table",
+        "source": {
+          "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+          "elementId": "9goVoIu3vD",
+          "kind": "data-model"
+        },
+        "columns": [
           {
-            "id": "m-ofv",
-            "kind": "table",
-            "source": {
-              "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
-              "elementId": "9goVoIu3vD",
-              "kind": "data-model"
-            },
-            "columns": [
-              {
-                "id": "ofv-0",
-                "formula": "[Order Fact View/Quantity Returned]",
-                "name": "Quantity Returned"
-              },
-              {
-                "id": "ofv-1",
-                "formula": "[Order Fact View/Category (PRODUCT_DIM)]",
-                "name": "Category"
-              },
-              {
-                "id": "ofv-2",
-                "formula": "[Order Fact View/Region (CUSTOMER_DIM)]",
-                "name": "Region"
-              },
-              {
-                "id": "ofv-3",
-                "formula": "[Order Fact View/Quantity Ordered]",
-                "name": "Quantity Ordered"
-              }
-            ],
-            "name": "OFV",
-            "order": [
-              "ofv-0",
-              "ofv-1",
-              "ofv-2",
-              "ofv-3"
-            ]
+            "id": "ofv-0",
+            "formula": "[Order Fact View/Quantity Returned]",
+            "name": "Quantity Returned"
+          },
+          {
+            "id": "ofv-1",
+            "formula": "[Order Fact View/Category (PRODUCT_DIM)]",
+            "name": "Category"
+          },
+          {
+            "id": "ofv-2",
+            "formula": "[Order Fact View/Region (CUSTOMER_DIM)]",
+            "name": "Region"
+          },
+          {
+            "id": "ofv-3",
+            "formula": "[Order Fact View/Quantity Ordered]",
+            "name": "Quantity Ordered"
           }
+        ],
+        "name": "OFV",
+        "order": [
+          "ofv-0",
+          "ofv-1",
+          "ofv-2",
+          "ofv-3"
         ]
       },
       {
-        "id": "p-main",
-        "name": "Returns & Quality",
-        "elements": [
+        "id": "el-gb5u2yh1",
+        "kind": "kpi-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
           {
-            "id": "el-gb5u2yh1",
-            "kind": "kpi-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "c-p4h1vx5c-v",
-                "formula": "Sum([OFV/Quantity Returned])",
-                "name": "Quantity Returned",
-                "format": {
-                  "kind": "number",
-                  "formatString": ",.0f"
-                }
-              }
-            ],
-            "value": {
-              "columnId": "c-p4h1vx5c-v"
-            },
-            "name": "Total Quantity Returned"
+            "id": "c-p4h1vx5c-v",
+            "formula": "Sum([OFV/Quantity Returned])",
+            "name": "Quantity Returned",
+            "format": {
+              "kind": "number",
+              "formatString": ",.0f"
+            }
+          }
+        ],
+        "value": {
+          "columnId": "c-p4h1vx5c-v"
+        },
+        "name": "Total Quantity Returned"
+      },
+      {
+        "id": "el-z4xjgpbk",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-8ylndvqw",
+            "formula": "[OFV/Category]",
+            "name": "Category"
           },
           {
-            "id": "el-z4xjgpbk",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-8ylndvqw",
-                "formula": "[OFV/Category]",
-                "name": "Category"
-              },
-              {
-                "id": "y-m0q3ge1t",
-                "formula": "Sum([OFV/Quantity Returned])",
-                "name": "Quantity Returned",
-                "format": {
-                  "kind": "number",
-                  "formatString": ",.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-m0q3ge1t"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-8ylndvqw"
-            },
-            "name": "Returns by Category"
+            "id": "y-m0q3ge1t",
+            "formula": "Sum([OFV/Quantity Returned])",
+            "name": "Quantity Returned",
+            "format": {
+              "kind": "number",
+              "formatString": ",.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-m0q3ge1t"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-8ylndvqw"
+        },
+        "name": "Returns by Category"
+      },
+      {
+        "id": "el-cvgtebcf",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-6mtzst49",
+            "formula": "[OFV/Region]",
+            "name": "Region"
           },
           {
-            "id": "el-cvgtebcf",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-6mtzst49",
-                "formula": "[OFV/Region]",
-                "name": "Region"
-              },
-              {
-                "id": "y-0u2l4hng",
-                "formula": "Sum([OFV/Quantity Returned])",
-                "name": "Quantity Returned",
-                "format": {
-                  "kind": "number",
-                  "formatString": ",.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-0u2l4hng"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-6mtzst49"
-            },
-            "name": "Returns by Region"
+            "id": "y-0u2l4hng",
+            "formula": "Sum([OFV/Quantity Returned])",
+            "name": "Quantity Returned",
+            "format": {
+              "kind": "number",
+              "formatString": ",.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-0u2l4hng"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-6mtzst49"
+        },
+        "name": "Returns by Region"
+      },
+      {
+        "id": "el-kbpg9q87",
+        "kind": "table",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "d-6d0660v0",
+            "formula": "[OFV/Category]",
+            "name": "Category"
           },
           {
-            "id": "el-kbpg9q87",
-            "kind": "table",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "d-6d0660v0",
-                "formula": "[OFV/Category]",
-                "name": "Category"
-              },
-              {
-                "id": "m-dy1kfkd9",
-                "formula": "Sum([OFV/Quantity Ordered])",
-                "name": "Quantity Ordered",
-                "format": {
-                  "kind": "number",
-                  "formatString": ",.0f"
-                }
-              },
-              {
-                "id": "m-ykcl3icy",
-                "formula": "Sum([OFV/Quantity Returned])",
-                "name": "Quantity Returned",
-                "format": {
-                  "kind": "number",
-                  "formatString": ",.0f"
-                }
-              }
+            "id": "m-dy1kfkd9",
+            "formula": "Sum([OFV/Quantity Ordered])",
+            "name": "Quantity Ordered",
+            "format": {
+              "kind": "number",
+              "formatString": ",.0f"
+            }
+          },
+          {
+            "id": "m-ykcl3icy",
+            "formula": "Sum([OFV/Quantity Returned])",
+            "name": "Quantity Returned",
+            "format": {
+              "kind": "number",
+              "formatString": ",.0f"
+            }
+          }
+        ],
+        "name": "Ordered vs Returned by Category",
+        "groupings": [
+          {
+            "id": "el-egzord31",
+            "groupBy": [
+              "d-6d0660v0"
             ],
-            "name": "Ordered vs Returned by Category",
-            "groupings": [
-              {
-                "id": "el-egzord31",
-                "groupBy": [
-                  "d-6d0660v0"
-                ],
-                "calculations": [
-                  "m-dy1kfkd9",
-                  "m-ykcl3icy"
-                ]
-              }
+            "calculations": [
+              "m-dy1kfkd9",
+              "m-ykcl3icy"
             ]
           }
         ]
       }
     ],
+    "pages": [
+      {
+        "id": "p-data",
+        "name": "Data"
+      },
+      {
+        "id": "p-main",
+        "name": "Returns & Quality"
+      }
+    ],
     "kind": "workbook",
-    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-gb5u2yh1\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-z4xjgpbk\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-cvgtebcf\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-kbpg9q87\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <Element elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <Element elementId=\"el-gb5u2yh1\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <Element elementId=\"el-z4xjgpbk\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-cvgtebcf\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-kbpg9q87\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
   }
 }
