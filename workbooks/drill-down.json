@@ -174,7 +174,7 @@
                     "control": "Transaction-Type",
                     "value": {
                       "type": "column",
-                      "column": "b-THM_REO8"
+                      "columnId": "b-THM_REO8"
                     }
                   },
                   {

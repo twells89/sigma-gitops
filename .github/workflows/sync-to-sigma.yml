@@ -42,6 +42,14 @@ jobs:
           done
           echo "✅ All JSON files are valid"
 
+      - name: Lint action identifier fields (Sigma 2026-08-26 rename)
+        # json.tool above checks SYNTAX only. Every spec here was pulled
+        # 2026-08-05, before Sigma renamed action identifier fields to a *Id
+        # shape, so a pushed spec can carry a dead key. Most 400 -- but
+        # clear-control scope `page` returns 200 OK, drops the key, and the
+        # button silently clears nothing, so a status check cannot catch it.
+        run: python3 scripts/lint_action_fields.py
+
   # ── 2. Sigma CI — drift + blast radius (PRs only) ────────────────────────────
   sigma-validate:
     name: "Sigma CI — Drift & Blast Radius"
