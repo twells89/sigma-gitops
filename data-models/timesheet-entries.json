@@ -1,0 +1,199 @@
+{
+  "dataModelId": "400fb3f6-88d2-49c4-8547-3a689f98a3e1",
+  "name": "Timesheet Entries",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Timesheet-Entries-1WSGtWzbZRsXLQkD4GBzj3",
+  "documentVersion": 9,
+  "latestDocumentVersion": 9,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-08-17T15:26:13.135Z",
+  "updatedAt": "2026-08-17T17:55:12.837Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-main",
+      "name": "Main",
+      "elements": [
+        {
+          "id": "src-emp",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "EMPLOYEES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "em-id",
+              "formula": "[EMPLOYEES/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "em-first",
+              "formula": "[EMPLOYEES/First Name]",
+              "name": "First Name"
+            },
+            {
+              "id": "em-last",
+              "formula": "[EMPLOYEES/Last Name]",
+              "name": "Last Name"
+            },
+            {
+              "id": "em-role",
+              "formula": "[EMPLOYEES/Role]",
+              "name": "Role"
+            },
+            {
+              "id": "em-status",
+              "formula": "[EMPLOYEES/Status]",
+              "name": "Status"
+            }
+          ],
+          "name": "Employees",
+          "order": [
+            "em-id",
+            "em-first",
+            "em-last",
+            "em-role",
+            "em-status"
+          ]
+        },
+        {
+          "id": "src-entries",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "TIME_ENTRIES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "te-entry",
+              "formula": "[TIME_ENTRIES/Entry Id]",
+              "name": "Entry Id"
+            },
+            {
+              "id": "te-emp",
+              "formula": "[TIME_ENTRIES/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "te-date",
+              "formula": "[TIME_ENTRIES/Date]",
+              "name": "Date"
+            },
+            {
+              "id": "te-week",
+              "formula": "DateTrunc(\"week\", [Date])",
+              "name": "Week"
+            },
+            {
+              "id": "te-sched",
+              "formula": "[TIME_ENTRIES/Scheduled Hours]",
+              "name": "Scheduled Hours"
+            },
+            {
+              "id": "te-actual",
+              "formula": "[TIME_ENTRIES/Actual Hours]",
+              "name": "Actual Hours"
+            },
+            {
+              "id": "te-ot",
+              "formula": "[TIME_ENTRIES/Overtime Hours]",
+              "name": "Overtime Hours"
+            },
+            {
+              "id": "te-loc",
+              "formula": "[TIME_ENTRIES/Location]",
+              "name": "Location"
+            },
+            {
+              "id": "te-dept",
+              "formula": "[TIME_ENTRIES/Department]",
+              "name": "Department"
+            },
+            {
+              "id": "te-empname",
+              "formula": "Lookup([EMPLOYEES/First Name], [Employee Id], [EMPLOYEES/Employee Id]) & \" \" & Lookup([EMPLOYEES/Last Name], [Employee Id], [EMPLOYEES/Employee Id])",
+              "name": "Employee"
+            },
+            {
+              "id": "te-role",
+              "formula": "Lookup([EMPLOYEES/Role], [Employee Id], [EMPLOYEES/Employee Id])",
+              "name": "Role"
+            }
+          ],
+          "name": "Time Entries",
+          "relationships": [
+            {
+              "id": "rel-entry-emp",
+              "targetElementId": "src-emp",
+              "keys": [
+                {
+                  "sourceColumnId": "te-emp",
+                  "targetColumnId": "em-id"
+                }
+              ],
+              "name": "Time Entries to Employees",
+              "description": "Each time entry belongs to one employee."
+            }
+          ],
+          "order": [
+            "te-entry",
+            "te-emp",
+            "te-date",
+            "te-week",
+            "te-sched",
+            "te-actual",
+            "te-ot",
+            "te-loc",
+            "te-dept",
+            "te-empname",
+            "te-role"
+          ]
+        },
+        {
+          "id": "src-date",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "DATE_DIM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "dd-date",
+              "formula": "[DATE_DIM/Full Date]",
+              "name": "Full Date"
+            },
+            {
+              "id": "dd-week",
+              "formula": "DateTrunc(\"week\", [DATE_DIM/Full Date])",
+              "name": "Week"
+            }
+          ],
+          "name": "Date Dim",
+          "order": [
+            "dd-date",
+            "dd-week"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
