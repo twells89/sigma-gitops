@@ -1,0 +1,194 @@
+{
+  "dataModelId": "66bfcb17-35db-404f-aea9-11835b451a05",
+  "name": "Executive Financial Analysis (MSTR)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Executive-Financial-Analysis-MSTR-37SRLjdqjh4dEfEuWDxxsh",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "ceefd797-4e9e-46f3-8c08-09742f6cf817",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-08-24T17:44:57.872Z",
+  "updatedAt": "2026-08-24T17:44:57.872Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Model",
+      "elements": [
+        {
+          "id": "el-fs",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT STATEMENT_TYPE AS \"Statement Type\", GROUP_NAME AS \"Group\", CATEGORY AS \"Category\", ACTIVITY AS \"Activity\", TYPE_NAME AS \"Type\", DESCRIPTION AS \"Description\", YEAR AS \"Year\", QUARTER AS \"Quarter\", AMOUNT_K AS \"Amount ($K)\" FROM CSA.TJ.EXEC_FIN_FINANCIAL_STATEMENTS",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "c-fs-0",
+              "formula": "[Custom SQL/Statement Type]",
+              "name": "Statement Type"
+            },
+            {
+              "id": "c-fs-1",
+              "formula": "[Custom SQL/Group]",
+              "name": "Group"
+            },
+            {
+              "id": "c-fs-2",
+              "formula": "[Custom SQL/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "c-fs-3",
+              "formula": "[Custom SQL/Activity]",
+              "name": "Activity"
+            },
+            {
+              "id": "c-fs-4",
+              "formula": "[Custom SQL/Type]",
+              "name": "Type"
+            },
+            {
+              "id": "c-fs-5",
+              "formula": "[Custom SQL/Description]",
+              "name": "Description"
+            },
+            {
+              "id": "c-fs-6",
+              "formula": "[Custom SQL/Year]",
+              "name": "Year"
+            },
+            {
+              "id": "c-fs-7",
+              "formula": "[Custom SQL/Quarter]",
+              "name": "Quarter"
+            },
+            {
+              "id": "c-fs-8",
+              "formula": "[Custom SQL/Amount ($K)]",
+              "name": "Amount ($K)"
+            }
+          ],
+          "name": "Financial Statements",
+          "metrics": [
+            {
+              "id": "m-rev",
+              "formula": "Sum(If([Statement Type] = \"Income Statement\" and [Category] = \"Revenues\", [Amount ($K)], 0))",
+              "name": "Revenue ($K)"
+            },
+            {
+              "id": "m-cost",
+              "formula": "Sum(If([Statement Type] = \"Income Statement\" and In([Category], \"Cost of Revenues\", \"Operating Expenses\"), [Amount ($K)], 0))",
+              "name": "Cost ($K)"
+            },
+            {
+              "id": "m-oi",
+              "formula": "Sum(If([Statement Type] = \"Income Statement\" and In([Category], \"Revenues\", \"Cost of Revenues\", \"Operating Expenses\"), [Amount ($K)], 0))",
+              "name": "Operating Income ($K)"
+            },
+            {
+              "id": "m-oipct",
+              "formula": "(Sum(If([Statement Type] = \"Income Statement\" and In([Category], \"Revenues\", \"Cost of Revenues\", \"Operating Expenses\"), [Amount ($K)], 0))) / (Sum(If([Statement Type] = \"Income Statement\" and [Category] = \"Revenues\", [Amount ($K)], 0)))",
+              "name": "Operating Income %"
+            }
+          ],
+          "order": [
+            "c-fs-0",
+            "c-fs-1",
+            "c-fs-2",
+            "c-fs-3",
+            "c-fs-4",
+            "c-fs-5",
+            "c-fs-6",
+            "c-fs-7",
+            "c-fs-8"
+          ]
+        },
+        {
+          "id": "el-hc",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT YEAR AS \"Year\", QUARTER AS \"Quarter\", CONSULTING AS \"Consulting\", EDUCATION AS \"Education\", GENERAL_ADMINISTRATIVE AS \"General & Administrative\", PRODUCT_SUPPORT AS \"Product Support\", RESEARCH_DEVELOPMENT AS \"Research & Development\", SALES_MARKETING AS \"Sales & Marketing\", SUBSCRIPTION_SERVICES AS \"Subscription Services\", TOTAL_HEADCOUNT AS \"Total Headcount\" FROM CSA.TJ.EXEC_FIN_HEADCOUNT",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "c-hc-0",
+              "formula": "[Custom SQL/Year]",
+              "name": "Year"
+            },
+            {
+              "id": "c-hc-1",
+              "formula": "[Custom SQL/Quarter]",
+              "name": "Quarter"
+            },
+            {
+              "id": "c-hc-2",
+              "formula": "[Custom SQL/Consulting]",
+              "name": "Consulting"
+            },
+            {
+              "id": "c-hc-3",
+              "formula": "[Custom SQL/Education]",
+              "name": "Education"
+            },
+            {
+              "id": "c-hc-4",
+              "formula": "[Custom SQL/General & Administrative]",
+              "name": "General & Administrative"
+            },
+            {
+              "id": "c-hc-5",
+              "formula": "[Custom SQL/Product Support]",
+              "name": "Product Support"
+            },
+            {
+              "id": "c-hc-6",
+              "formula": "[Custom SQL/Research & Development]",
+              "name": "Research & Development"
+            },
+            {
+              "id": "c-hc-7",
+              "formula": "[Custom SQL/Sales & Marketing]",
+              "name": "Sales & Marketing"
+            },
+            {
+              "id": "c-hc-8",
+              "formula": "[Custom SQL/Subscription Services]",
+              "name": "Subscription Services"
+            },
+            {
+              "id": "c-hc-9",
+              "formula": "[Custom SQL/Total Headcount]",
+              "name": "Total Headcount"
+            }
+          ],
+          "name": "Headcount",
+          "metrics": [
+            {
+              "id": "m-tothc",
+              "formula": "Sum([Total Headcount])",
+              "name": "Total Headcount"
+            }
+          ],
+          "order": [
+            "c-hc-0",
+            "c-hc-1",
+            "c-hc-2",
+            "c-hc-3",
+            "c-hc-4",
+            "c-hc-5",
+            "c-hc-6",
+            "c-hc-7",
+            "c-hc-8",
+            "c-hc-9"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
