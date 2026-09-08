@@ -12,47 +12,46 @@
   "updatedAt": "2026-06-04T23:06:01.234Z",
   "document": {
     "schemaVersion": 1,
+    "elements": [
+      {
+        "kind": "control",
+        "controlId": "region",
+        "id": "ctrl-05bmgm6z",
+        "name": "Region",
+        "filters": [
+          {
+            "source": {
+              "kind": "table",
+              "elementId": "m-master"
+            },
+            "columnId": "col-hc1tctoi"
+          }
+        ],
+        "controlType": "list",
+        "mode": "include",
+        "selectionMode": "multiple",
+        "values": [],
+        "source": {
+          "kind": "source",
+          "source": {
+            "kind": "table",
+            "elementId": "m-master"
+          },
+          "columnId": "col-hc1tctoi"
+        }
+      }
+    ],
     "pages": [
       {
         "id": "page-data",
-        "name": "Data",
-        "elements": []
+        "name": "Data"
       },
       {
         "id": "page-dash",
-        "name": "CSA TJ Demo",
-        "elements": [
-          {
-            "kind": "control",
-            "controlId": "region",
-            "id": "ctrl-05bmgm6z",
-            "name": "Region",
-            "filters": [
-              {
-                "source": {
-                  "kind": "table",
-                  "elementId": "m-master"
-                },
-                "columnId": "col-hc1tctoi"
-              }
-            ],
-            "controlType": "list",
-            "mode": "include",
-            "selectionMode": "multiple",
-            "values": [],
-            "source": {
-              "kind": "source",
-              "source": {
-                "kind": "table",
-                "elementId": "m-master"
-              },
-              "columnId": "col-hc1tctoi"
-            }
-          }
-        ]
+        "name": "CSA TJ Demo"
       }
     ],
     "kind": "workbook",
-    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-dash\">\n  <LayoutElement elementId=\"ctrl-05bmgm6z\" gridColumn=\"1 / 9\" gridRow=\"16 / 19\"/>\n</Page>\n"
+    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-data\"/>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"page-dash\">\n  <Element elementId=\"ctrl-05bmgm6z\" gridColumn=\"1 / 9\" gridRow=\"16 / 19\"/>\n</Page>\n"
   }
 }
