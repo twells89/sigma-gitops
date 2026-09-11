@@ -12,181 +12,179 @@
   "updatedAt": "2026-06-05T20:07:57.676Z",
   "document": {
     "schemaVersion": 1,
-    "pages": [
+    "elements": [
       {
-        "id": "p-data",
-        "name": "Data",
-        "elements": [
+        "id": "m-ofv",
+        "kind": "table",
+        "source": {
+          "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
+          "elementId": "9goVoIu3vD",
+          "kind": "data-model"
+        },
+        "columns": [
           {
-            "id": "m-ofv",
-            "kind": "table",
-            "source": {
-              "dataModelId": "0b7be9a0-3d26-4732-91b1-0a67542ddbee",
-              "elementId": "9goVoIu3vD",
-              "kind": "data-model"
-            },
-            "columns": [
-              {
-                "id": "ofv-0",
-                "formula": "[Order Fact View/Customer Segment (CUSTOMER_DIM)]",
-                "name": "Customer Segment"
-              },
-              {
-                "id": "ofv-1",
-                "formula": "[Order Fact View/Net Revenue]",
-                "name": "Net Revenue"
-              },
-              {
-                "id": "ofv-2",
-                "formula": "[Order Fact View/Loyalty Tier (CUSTOMER_DIM)]",
-                "name": "Loyalty Tier"
-              },
-              {
-                "id": "ofv-3",
-                "formula": "[Order Fact View/Acquisition Channel (CUSTOMER_DIM)]",
-                "name": "Acquisition Channel"
-              }
-            ],
-            "name": "OFV",
-            "order": [
-              "ofv-0",
-              "ofv-1",
-              "ofv-2",
-              "ofv-3"
-            ]
+            "id": "ofv-0",
+            "formula": "[Order Fact View/Customer Segment (CUSTOMER_DIM)]",
+            "name": "Customer Segment"
+          },
+          {
+            "id": "ofv-1",
+            "formula": "[Order Fact View/Net Revenue]",
+            "name": "Net Revenue"
+          },
+          {
+            "id": "ofv-2",
+            "formula": "[Order Fact View/Loyalty Tier (CUSTOMER_DIM)]",
+            "name": "Loyalty Tier"
+          },
+          {
+            "id": "ofv-3",
+            "formula": "[Order Fact View/Acquisition Channel (CUSTOMER_DIM)]",
+            "name": "Acquisition Channel"
           }
+        ],
+        "name": "OFV",
+        "order": [
+          "ofv-0",
+          "ofv-1",
+          "ofv-2",
+          "ofv-3"
         ]
       },
       {
-        "id": "p-main",
-        "name": "Customer Insights",
-        "elements": [
+        "id": "el-7ttv7i2q",
+        "kind": "kpi-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
           {
-            "id": "el-7ttv7i2q",
-            "kind": "kpi-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "c-nrzp9i2c-v",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "value": {
-              "columnId": "c-nrzp9i2c-v"
-            },
-            "name": "Total Net Revenue"
-          },
-          {
-            "id": "el-yqrb68wv",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-qwzopxmc",
-                "formula": "[OFV/Customer Segment]",
-                "name": "Customer Segment"
-              },
-              {
-                "id": "y-6z4e5tpu",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-6z4e5tpu"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-qwzopxmc"
-            },
-            "name": "Revenue by Segment"
-          },
-          {
-            "id": "el-pp1kbtd2",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-bpeh0pm0",
-                "formula": "[OFV/Loyalty Tier]",
-                "name": "Loyalty Tier"
-              },
-              {
-                "id": "y-h9qzjo0i",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-h9qzjo0i"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-bpeh0pm0"
-            },
-            "name": "Revenue by Loyalty Tier"
-          },
-          {
-            "id": "el-hlzcksxz",
-            "kind": "bar-chart",
-            "source": {
-              "elementId": "m-ofv",
-              "kind": "table"
-            },
-            "columns": [
-              {
-                "id": "x-5oats4n8",
-                "formula": "[OFV/Acquisition Channel]",
-                "name": "Acquisition Channel"
-              },
-              {
-                "id": "y-f121yvmp",
-                "formula": "Sum([OFV/Net Revenue])",
-                "name": "Net Revenue",
-                "format": {
-                  "kind": "number",
-                  "formatString": "$,.0f"
-                }
-              }
-            ],
-            "yAxis": {
-              "columnIds": [
-                "y-f121yvmp"
-              ]
-            },
-            "xAxis": {
-              "columnId": "x-5oats4n8"
-            },
-            "name": "Revenue by Acquisition Channel"
+            "id": "c-nrzp9i2c-v",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
           }
-        ]
+        ],
+        "value": {
+          "columnId": "c-nrzp9i2c-v"
+        },
+        "name": "Total Net Revenue"
+      },
+      {
+        "id": "el-yqrb68wv",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-qwzopxmc",
+            "formula": "[OFV/Customer Segment]",
+            "name": "Customer Segment"
+          },
+          {
+            "id": "y-6z4e5tpu",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-6z4e5tpu"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-qwzopxmc"
+        },
+        "name": "Revenue by Segment"
+      },
+      {
+        "id": "el-pp1kbtd2",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-bpeh0pm0",
+            "formula": "[OFV/Loyalty Tier]",
+            "name": "Loyalty Tier"
+          },
+          {
+            "id": "y-h9qzjo0i",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-h9qzjo0i"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-bpeh0pm0"
+        },
+        "name": "Revenue by Loyalty Tier"
+      },
+      {
+        "id": "el-hlzcksxz",
+        "kind": "bar-chart",
+        "source": {
+          "elementId": "m-ofv",
+          "kind": "table"
+        },
+        "columns": [
+          {
+            "id": "x-5oats4n8",
+            "formula": "[OFV/Acquisition Channel]",
+            "name": "Acquisition Channel"
+          },
+          {
+            "id": "y-f121yvmp",
+            "formula": "Sum([OFV/Net Revenue])",
+            "name": "Net Revenue",
+            "format": {
+              "kind": "number",
+              "formatString": "$,.0f"
+            }
+          }
+        ],
+        "yAxis": {
+          "columnIds": [
+            "y-f121yvmp"
+          ]
+        },
+        "xAxis": {
+          "columnId": "x-5oats4n8"
+        },
+        "name": "Revenue by Acquisition Channel"
+      }
+    ],
+    "pages": [
+      {
+        "id": "p-data",
+        "name": "Data"
+      },
+      {
+        "id": "p-main",
+        "name": "Customer Insights"
       }
     ],
     "kind": "workbook",
-    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <LayoutElement elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <LayoutElement elementId=\"el-7ttv7i2q\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <LayoutElement elementId=\"el-yqrb68wv\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-pp1kbtd2\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <LayoutElement elementId=\"el-hlzcksxz\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
+    "layout": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-data\">\n  <Element elementId=\"m-ofv\" gridColumn=\"1 / 25\" gridRow=\"1 / 21\"/>\n</Page>\n<Page type=\"grid\" gridTemplateColumns=\"repeat(24, 1fr)\" gridTemplateRows=\"auto\" id=\"p-main\">\n  <Element elementId=\"el-7ttv7i2q\" gridColumn=\"1 / 25\" gridRow=\"1 / 6\"/>\n  <Element elementId=\"el-yqrb68wv\" gridColumn=\"1 / 13\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-pp1kbtd2\" gridColumn=\"13 / 25\" gridRow=\"6 / 17\"/>\n  <Element elementId=\"el-hlzcksxz\" gridColumn=\"1 / 25\" gridRow=\"17 / 28\"/>\n</Page>\n"
   }
 }
