@@ -12,16 +12,15 @@
   "updatedAt": "2026-06-05T20:07:54.346Z",
   "document": {
     "schemaVersion": 1,
+    "elements": [],
     "pages": [
       {
         "id": "p-data",
-        "name": "Data",
-        "elements": []
+        "name": "Data"
       },
       {
         "id": "p-main",
-        "name": "a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5",
-        "elements": []
+        "name": "a4e9c7c6-c4e4-49ab-bcf6-013b1ebf42a5"
       }
     ],
     "kind": "workbook",
