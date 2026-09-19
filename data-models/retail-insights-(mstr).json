@@ -1,0 +1,238 @@
+{
+  "dataModelId": "ae60b1cd-0903-4cee-8130-8b27871f297d",
+  "name": "Retail Insights (MSTR)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Retail-Insights-MSTR-5j2QYoAMwwPzhuf9AP3XC5",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "ceefd797-4e9e-46f3-8c08-09742f6cf817",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-08-24T19:35:27.472Z",
+  "updatedAt": "2026-08-24T19:35:27.472Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "name": "Model",
+      "elements": [
+        {
+          "id": "el-retail",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT BRAND AS \"Brand\", DATE_FIRST_AVAILABLE AS \"Date First Available\", TO_DATE(REPORT_DATE,'MM/DD/YYYY') AS \"Date\", YEAR(TO_DATE(REPORT_DATE,'MM/DD/YYYY')) AS \"Year\", 'Q'||QUARTER(TO_DATE(REPORT_DATE,'MM/DD/YYYY')) AS \"Quarter\", MONTHNAME(TO_DATE(REPORT_DATE,'MM/DD/YYYY')) AS \"Month\", STORE_LOCATION AS \"Store Location\", PRODUCT_COLOR AS \"Product Color\", PRODUCT_DESCRIPTION AS \"Product Description\", PRODUCT_SKU AS \"Product SKU\", PRODUCT_IMAGE AS \"Product Image\", PRODUCT_LINE AS \"Product Line\", PRODUCT_LINK AS \"Product Link\", PRODUCT_NAME AS \"Product Name\", PRODUCT_SIZE AS \"Product Size\", PRODUCT_TYPE AS \"Product Type\", RANKING_IN_PRODUCT_LINE AS \"Ranking in Product Line\", ORDER_QUANTITY AS \"Order Quantity\", AVG_UNIT_SOLD AS \"Avg Unit Sold\", INVENTORY AS \"Inventory\", INVENTORY_CAPACITY AS \"Inventory Capacity\", PRODUCT_COST AS \"Product Cost\", PRODUCT_INVENTORY AS \"Product Inventory\", PRODUCT_LIST_PRICE AS \"Product List Price\", PRODUCT_RATING AS \"Product Rating\", PRODUCT_YTD_REVENUE AS \"Product YTD Revenue\", PRODUCT_YTD_SALES AS \"Product YTD Sales\", OVERSTOCK_PERCENTAGE AS \"Overstock Percentage\", TOTAL_SALES AS \"Total Sales\" FROM CSA.TJ.RETAIL_INSIGHTS",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "c0",
+              "formula": "[Custom SQL/Brand]",
+              "name": "Brand"
+            },
+            {
+              "id": "c1",
+              "formula": "[Custom SQL/Date First Available]",
+              "name": "Date First Available"
+            },
+            {
+              "id": "c2",
+              "formula": "[Custom SQL/Date]",
+              "name": "Date"
+            },
+            {
+              "id": "c3",
+              "formula": "[Custom SQL/Year]",
+              "name": "Year"
+            },
+            {
+              "id": "c4",
+              "formula": "[Custom SQL/Quarter]",
+              "name": "Quarter"
+            },
+            {
+              "id": "c5",
+              "formula": "[Custom SQL/Month]",
+              "name": "Month"
+            },
+            {
+              "id": "c6",
+              "formula": "[Custom SQL/Store Location]",
+              "name": "Store Location"
+            },
+            {
+              "id": "c7",
+              "formula": "[Custom SQL/Product Color]",
+              "name": "Product Color"
+            },
+            {
+              "id": "c8",
+              "formula": "[Custom SQL/Product Description]",
+              "name": "Product Description"
+            },
+            {
+              "id": "c9",
+              "formula": "[Custom SQL/Product SKU]",
+              "name": "Product SKU"
+            },
+            {
+              "id": "c10",
+              "formula": "[Custom SQL/Product Image]",
+              "name": "Product Image"
+            },
+            {
+              "id": "c11",
+              "formula": "[Custom SQL/Product Line]",
+              "name": "Product Line"
+            },
+            {
+              "id": "c12",
+              "formula": "[Custom SQL/Product Link]",
+              "name": "Product Link"
+            },
+            {
+              "id": "c13",
+              "formula": "[Custom SQL/Product Name]",
+              "name": "Product Name"
+            },
+            {
+              "id": "c14",
+              "formula": "[Custom SQL/Product Size]",
+              "name": "Product Size"
+            },
+            {
+              "id": "c15",
+              "formula": "[Custom SQL/Product Type]",
+              "name": "Product Type"
+            },
+            {
+              "id": "c16",
+              "formula": "[Custom SQL/Ranking in Product Line]",
+              "name": "Ranking in Product Line"
+            },
+            {
+              "id": "c17",
+              "formula": "[Custom SQL/Order Quantity]",
+              "name": "Order Quantity"
+            },
+            {
+              "id": "c18",
+              "formula": "[Custom SQL/Avg Unit Sold]",
+              "name": "Avg Unit Sold"
+            },
+            {
+              "id": "c19",
+              "formula": "[Custom SQL/Inventory]",
+              "name": "Inventory"
+            },
+            {
+              "id": "c20",
+              "formula": "[Custom SQL/Inventory Capacity]",
+              "name": "Inventory Capacity"
+            },
+            {
+              "id": "c21",
+              "formula": "[Custom SQL/Product Cost]",
+              "name": "Product Cost"
+            },
+            {
+              "id": "c22",
+              "formula": "[Custom SQL/Product Inventory]",
+              "name": "Product Inventory"
+            },
+            {
+              "id": "c23",
+              "formula": "[Custom SQL/Product List Price]",
+              "name": "Product List Price"
+            },
+            {
+              "id": "c24",
+              "formula": "[Custom SQL/Product Rating]",
+              "name": "Product Rating"
+            },
+            {
+              "id": "c25",
+              "formula": "[Custom SQL/Product YTD Revenue]",
+              "name": "Product YTD Revenue"
+            },
+            {
+              "id": "c26",
+              "formula": "[Custom SQL/Product YTD Sales]",
+              "name": "Product YTD Sales"
+            },
+            {
+              "id": "c27",
+              "formula": "[Custom SQL/Overstock Percentage]",
+              "name": "Overstock Percentage"
+            },
+            {
+              "id": "c28",
+              "formula": "[Custom SQL/Total Sales]",
+              "name": "Total Sales"
+            }
+          ],
+          "name": "Retail",
+          "metrics": [
+            {
+              "id": "m-sales",
+              "formula": "Sum([Total Sales])",
+              "name": "Total Sales"
+            },
+            {
+              "id": "m-inv",
+              "formula": "Sum([Inventory])",
+              "name": "Inventory"
+            },
+            {
+              "id": "m-invcap",
+              "formula": "Sum([Inventory Capacity])",
+              "name": "Inventory Capacity"
+            },
+            {
+              "id": "m-ytd",
+              "formula": "Sum([Product YTD Sales])",
+              "name": "Product YTD Sales"
+            },
+            {
+              "id": "m-cost",
+              "formula": "Sum([Product Cost])",
+              "name": "Product Cost"
+            }
+          ],
+          "order": [
+            "c0",
+            "c1",
+            "c2",
+            "c3",
+            "c4",
+            "c5",
+            "c6",
+            "c7",
+            "c8",
+            "c9",
+            "c10",
+            "c11",
+            "c12",
+            "c13",
+            "c14",
+            "c15",
+            "c16",
+            "c17",
+            "c18",
+            "c19",
+            "c20",
+            "c21",
+            "c22",
+            "c23",
+            "c24",
+            "c25",
+            "c26",
+            "c27",
+            "c28"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
