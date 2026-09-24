@@ -1,0 +1,843 @@
+{
+  "dataModelId": "35f7f91f-6779-41f2-8543-1c08b701e56d",
+  "name": "Retail Data Model 2026",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Retail-Data-Model-2026-1DPUSmWe71sVjJj4GWai2p",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "57e59735-86b9-40b0-b029-217205406f57",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-08-18T16:04:56.940Z",
+  "updatedAt": "2026-08-18T16:04:56.940Z",
+  "description": "Star schema over the CSA.TJ RETAIL_* family. Fact grain is verified unique on Scenario Id + Reporting Period Id + Item Id + Location Id (923,371 rows). All dimension joins verified m:1 with zero orphan fact rows. Scenario 1 = Actual, Scenario 2 = Plan.",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "pageRetail",
+      "name": "Retail Star",
+      "elements": [
+        {
+          "id": "dimItem",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "RETAIL_ITEM"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-1BPfabsBTsRSsVPT9vAs5J/ITEM_ID",
+              "formula": "[RETAIL_ITEM/Item Id]",
+              "name": "Item Id",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-1BPfabsBTsRSsVPT9vAs5J/SEGMENT",
+              "formula": "[RETAIL_ITEM/Segment]",
+              "name": "Segment"
+            },
+            {
+              "id": "inode-1BPfabsBTsRSsVPT9vAs5J/CATEGORY",
+              "formula": "[RETAIL_ITEM/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "inode-1BPfabsBTsRSsVPT9vAs5J/BUYER",
+              "formula": "[RETAIL_ITEM/Buyer]",
+              "name": "Buyer"
+            },
+            {
+              "id": "inode-1BPfabsBTsRSsVPT9vAs5J/FAMILY_NANE",
+              "formula": "[RETAIL_ITEM/Family Nane]",
+              "name": "Family Name",
+              "description": "Source column is misspelled FAMILY_NANE in the warehouse; display name corrected here."
+            }
+          ],
+          "name": "Item Dimension",
+          "description": "Item master: segment, category, buyer, family.",
+          "metrics": [
+            {
+              "id": "mItemCount",
+              "formula": "CountDistinct([Item Id])",
+              "name": "Item Count",
+              "description": "364,184 items in the full dimension.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mCatCount",
+              "formula": "CountDistinct([Category])",
+              "name": "Category Count",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mSegCount",
+              "formula": "CountDistinct([Segment])",
+              "name": "Segment Count",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "order": [
+            "inode-1BPfabsBTsRSsVPT9vAs5J/ITEM_ID",
+            "inode-1BPfabsBTsRSsVPT9vAs5J/SEGMENT",
+            "inode-1BPfabsBTsRSsVPT9vAs5J/CATEGORY",
+            "inode-1BPfabsBTsRSsVPT9vAs5J/BUYER",
+            "inode-1BPfabsBTsRSsVPT9vAs5J/FAMILY_NANE"
+          ]
+        },
+        {
+          "id": "dimTime",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "RETAIL_TIME"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-6aIqTo3AtWpcnDIhetSQos/REPORTING_PERIOD_ID",
+              "formula": "[RETAIL_TIME/Reporting Period Id]",
+              "name": "Reporting Period Id",
+              "description": "YYYYMMDD key joined from the fact.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6aIqTo3AtWpcnDIhetSQos/MONTH",
+              "formula": "[RETAIL_TIME/Month]",
+              "name": "Month",
+              "description": "True date column - use this for trending, not the integer keys.",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %Y"
+              }
+            },
+            {
+              "id": "inode-6aIqTo3AtWpcnDIhetSQos/FISCAL_YEAR",
+              "formula": "[RETAIL_TIME/Fiscal Year]",
+              "name": "Fiscal Year",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6aIqTo3AtWpcnDIhetSQos/FISCAL_MONTH",
+              "formula": "[RETAIL_TIME/Fiscal Month]",
+              "name": "Fiscal Month"
+            },
+            {
+              "id": "inode-6aIqTo3AtWpcnDIhetSQos/PERIOD",
+              "formula": "[RETAIL_TIME/Period]",
+              "name": "Period",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "name": "Time Dimension",
+          "description": "Fiscal reporting period calendar.",
+          "metrics": [
+            {
+              "id": "mPeriodCount",
+              "formula": "CountDistinct([Reporting Period Id])",
+              "name": "Period Count",
+              "description": "734 periods in the dimension; the fact currently covers 8.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mFyCount",
+              "formula": "CountDistinct([Fiscal Year])",
+              "name": "Fiscal Year Count",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "order": [
+            "inode-6aIqTo3AtWpcnDIhetSQos/REPORTING_PERIOD_ID",
+            "inode-6aIqTo3AtWpcnDIhetSQos/MONTH",
+            "inode-6aIqTo3AtWpcnDIhetSQos/FISCAL_YEAR",
+            "inode-6aIqTo3AtWpcnDIhetSQos/FISCAL_MONTH",
+            "inode-6aIqTo3AtWpcnDIhetSQos/PERIOD"
+          ]
+        },
+        {
+          "id": "dimDistrict",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "RETAIL_DISTRICT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/DISTRICT_ID",
+              "formula": "[RETAIL_DISTRICT/District Id]",
+              "name": "District Id",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/DISTRICT",
+              "formula": "[RETAIL_DISTRICT/District]",
+              "name": "District"
+            },
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/DM",
+              "formula": "[RETAIL_DISTRICT/Dm]",
+              "name": "District Manager"
+            },
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/DM_PIC",
+              "formula": "[RETAIL_DISTRICT/Dm Pic]",
+              "name": "District Manager Pic"
+            },
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/DM_PIC_FL",
+              "formula": "[RETAIL_DISTRICT/Dm Pic Fl]",
+              "name": "District Manager Pic Fl"
+            },
+            {
+              "id": "inode-4Vq1GRRjl8jyEsHYRsGX55/BUSINESS_UNIT_ID",
+              "formula": "[RETAIL_DISTRICT/Business Unit Id]",
+              "name": "Business Unit Id",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "name": "District Dimension",
+          "description": "District rollup, snowflaked off Store Dimension.",
+          "metrics": [
+            {
+              "id": "mDistCount",
+              "formula": "CountDistinct([District Id])",
+              "name": "District Count",
+              "description": "9 districts.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mBuCount",
+              "formula": "CountDistinct([Business Unit Id])",
+              "name": "Business Unit Count",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "order": [
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/DISTRICT_ID",
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/DISTRICT",
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/DM",
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/DM_PIC",
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/DM_PIC_FL",
+            "inode-4Vq1GRRjl8jyEsHYRsGX55/BUSINESS_UNIT_ID"
+          ]
+        },
+        {
+          "id": "dimStore",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "RETAIL_STORE"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/LOCATION_ID",
+              "formula": "[RETAIL_STORE/Location Id]",
+              "name": "Location Id",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/NAME",
+              "formula": "[RETAIL_STORE/Name]",
+              "name": "Store Name"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/STORE_NUMBER",
+              "formula": "[RETAIL_STORE/Store Number]",
+              "name": "Store Number",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/STORE_NUMBER_NAME",
+              "formula": "[RETAIL_STORE/Store Number Name]",
+              "name": "Store Number Name"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/STORE_TYPE",
+              "formula": "[RETAIL_STORE/Store Type]",
+              "name": "Store Type"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/CHAIN",
+              "formula": "[RETAIL_STORE/Chain]",
+              "name": "Chain"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/CITY",
+              "formula": "[RETAIL_STORE/City]",
+              "name": "City"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/CITY_NAME",
+              "formula": "[RETAIL_STORE/City Name]",
+              "name": "City Name"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/TERRITORY",
+              "formula": "[RETAIL_STORE/Territory]",
+              "name": "Territory"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/POSTAL_CODE",
+              "formula": "[RETAIL_STORE/Postal Code]",
+              "name": "Postal Code"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/DISTRICT_ID",
+              "formula": "[RETAIL_STORE/District Id]",
+              "name": "District Id",
+              "description": "Joins to District Dimension (snowflake leg).",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/DISTRICT_NAME",
+              "formula": "[RETAIL_STORE/District Name]",
+              "name": "District Name"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/DM",
+              "formula": "[RETAIL_STORE/Dm]",
+              "name": "District Manager"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/DM_PIC",
+              "formula": "[RETAIL_STORE/Dm Pic]",
+              "name": "District Manager Pic"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/SELLING_AREA_SIZE",
+              "formula": "[RETAIL_STORE/Selling Area Size]",
+              "name": "Selling Area Size",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_DATE",
+              "formula": "[RETAIL_STORE/Open Date]",
+              "name": "Open Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_YEAR",
+              "formula": "[RETAIL_STORE/Open Year]",
+              "name": "Open Year",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_MONTH",
+              "formula": "[RETAIL_STORE/Open Month]",
+              "name": "Open Month"
+            },
+            {
+              "id": "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_MONTH_NO",
+              "formula": "[RETAIL_STORE/Open Month No]",
+              "name": "Open Month No",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "name": "Store Dimension",
+          "description": "Store master with geography, selling area, and district attributes.",
+          "metrics": [
+            {
+              "id": "mStoreCount",
+              "formula": "CountDistinct([Location Id])",
+              "name": "Store Count",
+              "description": "104 stores in the dimension.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mSellArea",
+              "formula": "Sum([Selling Area Size])",
+              "name": "Total Selling Area",
+              "description": "Sum of selling area. Pair with Sum of Total Sales for sales per square foot.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mAvgSellArea",
+              "formula": "Avg([Selling Area Size])",
+              "name": "Average Selling Area",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mDistrictCt",
+              "formula": "CountDistinct([District Id])",
+              "name": "District Count",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "relStoreDist",
+              "targetElementId": "dimDistrict",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-5OTKoPv8CNvOfVFr5DB264/DISTRICT_ID",
+                  "targetColumnId": "inode-4Vq1GRRjl8jyEsHYRsGX55/DISTRICT_ID"
+                }
+              ],
+              "name": "Store to District",
+              "description": "Snowflake leg - district attributes hang off Store, not the fact. Verified m:1, zero orphans."
+            }
+          ],
+          "order": [
+            "inode-5OTKoPv8CNvOfVFr5DB264/LOCATION_ID",
+            "inode-5OTKoPv8CNvOfVFr5DB264/NAME",
+            "inode-5OTKoPv8CNvOfVFr5DB264/STORE_NUMBER",
+            "inode-5OTKoPv8CNvOfVFr5DB264/STORE_NUMBER_NAME",
+            "inode-5OTKoPv8CNvOfVFr5DB264/STORE_TYPE",
+            "inode-5OTKoPv8CNvOfVFr5DB264/CHAIN",
+            "inode-5OTKoPv8CNvOfVFr5DB264/CITY",
+            "inode-5OTKoPv8CNvOfVFr5DB264/CITY_NAME",
+            "inode-5OTKoPv8CNvOfVFr5DB264/TERRITORY",
+            "inode-5OTKoPv8CNvOfVFr5DB264/POSTAL_CODE",
+            "inode-5OTKoPv8CNvOfVFr5DB264/DISTRICT_ID",
+            "inode-5OTKoPv8CNvOfVFr5DB264/DISTRICT_NAME",
+            "inode-5OTKoPv8CNvOfVFr5DB264/DM",
+            "inode-5OTKoPv8CNvOfVFr5DB264/DM_PIC",
+            "inode-5OTKoPv8CNvOfVFr5DB264/SELLING_AREA_SIZE",
+            "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_DATE",
+            "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_YEAR",
+            "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_MONTH",
+            "inode-5OTKoPv8CNvOfVFr5DB264/OPEN_MONTH_NO"
+          ]
+        },
+        {
+          "id": "factSales",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "RETAIL_SALES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SCENARIO_ID",
+              "formula": "[RETAIL_SALES/Scenario Id]",
+              "name": "Scenario Id",
+              "description": "Degenerate dimension: 1 = Actual, 2 = Plan. No scenario table exists in CSA.TJ.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/REPORTING_PERIOD_ID",
+              "formula": "[RETAIL_SALES/Reporting Period Id]",
+              "name": "Reporting Period Id",
+              "description": "YYYYMMDD grain key. Joins to Time Dimension.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/MONTH_ID",
+              "formula": "[RETAIL_SALES/Month Id]",
+              "name": "Month Id",
+              "description": "YYYYMM. Redundant with Reporting Period Id (strict 1:1 across all 8 periods) - kept for reference.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/ITEM_ID",
+              "formula": "[RETAIL_SALES/Item Id]",
+              "name": "Item Id",
+              "description": "Joins to Item Dimension.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/LOCATION_ID",
+              "formula": "[RETAIL_SALES/Location Id]",
+              "name": "Location Id",
+              "description": "Joins to Store Dimension.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_REGULAR_SALES_DOLLARS",
+              "formula": "[RETAIL_SALES/Sum Regular Sales Dollars]",
+              "name": "Regular Sales Dollars",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_MARKDOWN_SALES_DOLLARS",
+              "formula": "[RETAIL_SALES/Sum Markdown Sales Dollars]",
+              "name": "Markdown Sales Dollars",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_REGULAR_SALES_UNITS",
+              "formula": "[RETAIL_SALES/Sum Regular Sales Units]",
+              "name": "Regular Sales Units",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_MARKDOWN_SALES_UNITS",
+              "formula": "[RETAIL_SALES/Sum Markdown Sales Units]",
+              "name": "Markdown Sales Units",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_GROSS_MARGIN_AMOUNT",
+              "formula": "[RETAIL_SALES/Sum Gross Margin Amount]",
+              "name": "Gross Margin Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            },
+            {
+              "id": "colTotSalAmt",
+              "formula": "[Regular Sales Dollars] + [Markdown Sales Dollars]",
+              "name": "Total Sales Amount",
+              "description": "Regular + markdown sales dollars.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            },
+            {
+              "id": "colTotSalUnt",
+              "formula": "[Regular Sales Units] + [Markdown Sales Units]",
+              "name": "Total Sales Units",
+              "description": "Regular + markdown units.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "colScenLabel",
+              "formula": "If([Scenario Id] = 1, \"Actual\", [Scenario Id] = 2, \"Plan\", \"Unknown\")",
+              "name": "Scenario",
+              "description": "Readable label for the Scenario Id degenerate dimension."
+            }
+          ],
+          "name": "Retail Sales Fact",
+          "description": "Monthly item x store sales fact, actual and plan scenarios.",
+          "metrics": [
+            {
+              "id": "mTotalSales",
+              "formula": "Sum([Total Sales Amount])",
+              "name": "Sum of Total Sales",
+              "description": "All-scenario sales dollars. Filter by Scenario for actual-only.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mRegSales",
+              "formula": "Sum([Regular Sales Dollars])",
+              "name": "Sum of Regular Sales",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mMkdSales",
+              "formula": "Sum([Markdown Sales Dollars])",
+              "name": "Sum of Markdown Sales",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mUnits",
+              "formula": "Sum([Total Sales Units])",
+              "name": "Sum of Units Sold",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mGrossMgn",
+              "formula": "Sum([Gross Margin Amount])",
+              "name": "Sum of Gross Margin",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mGmRate",
+              "formula": "Sum([Gross Margin Amount]) / Sum([Total Sales Amount])",
+              "name": "Gross Margin Rate",
+              "description": "Gross margin as a percent of total sales dollars.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            },
+            {
+              "id": "mMkdRate",
+              "formula": "Sum([Markdown Sales Dollars]) / Sum([Total Sales Amount])",
+              "name": "Markdown Rate",
+              "description": "Share of sales dollars coming from markdown - core retail health KPI.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            },
+            {
+              "id": "mAsp",
+              "formula": "Sum([Total Sales Amount]) / Sum([Total Sales Units])",
+              "name": "Average Selling Price",
+              "description": "Total sales dollars per unit sold.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f"
+              }
+            },
+            {
+              "id": "mActSales",
+              "formula": "SumIf([Total Sales Amount], [Scenario Id] = 1)",
+              "name": "Actual Sales",
+              "description": "Scenario 1 sales dollars.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mPlanSales",
+              "formula": "SumIf([Total Sales Amount], [Scenario Id] = 2)",
+              "name": "Plan Sales",
+              "description": "Scenario 2 sales dollars.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mAttain",
+              "formula": "SumIf([Total Sales Amount], [Scenario Id] = 1) / SumIf([Total Sales Amount], [Scenario Id] = 2)",
+              "name": "Plan Attainment",
+              "description": "Actual sales divided by plan sales.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.1%"
+              }
+            },
+            {
+              "id": "mVsPlan",
+              "formula": "SumIf([Total Sales Amount], [Scenario Id] = 1) - SumIf([Total Sales Amount], [Scenario Id] = 2)",
+              "name": "Sales vs Plan",
+              "description": "Actual minus plan sales dollars.",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mActUnits",
+              "formula": "SumIf([Total Sales Units], [Scenario Id] = 1)",
+              "name": "Actual Units",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mActGm",
+              "formula": "SumIf([Gross Margin Amount], [Scenario Id] = 1)",
+              "name": "Actual Gross Margin",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "mSellStores",
+              "formula": "CountDistinct([Location Id])",
+              "name": "Selling Store Count",
+              "description": "Distinct stores with sales in context.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "mItemsSold",
+              "formula": "CountDistinct([Item Id])",
+              "name": "Items Sold Count",
+              "description": "Distinct items with sales in context.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "relSalesItem",
+              "targetElementId": "dimItem",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-6CrHVi5U1aHwYlXBrysRiv/ITEM_ID",
+                  "targetColumnId": "inode-1BPfabsBTsRSsVPT9vAs5J/ITEM_ID"
+                }
+              ],
+              "name": "Retail Sales to Item",
+              "description": "Verified m:1, zero orphans across 923,371 fact rows."
+            },
+            {
+              "id": "relSalesTime",
+              "targetElementId": "dimTime",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-6CrHVi5U1aHwYlXBrysRiv/REPORTING_PERIOD_ID",
+                  "targetColumnId": "inode-6aIqTo3AtWpcnDIhetSQos/REPORTING_PERIOD_ID"
+                }
+              ],
+              "name": "Retail Sales to Time",
+              "description": "Verified m:1 on REPORTING_PERIOD_ID, zero orphans."
+            },
+            {
+              "id": "relSalesStore",
+              "targetElementId": "dimStore",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-6CrHVi5U1aHwYlXBrysRiv/LOCATION_ID",
+                  "targetColumnId": "inode-5OTKoPv8CNvOfVFr5DB264/LOCATION_ID"
+                }
+              ],
+              "name": "Retail Sales to Store",
+              "description": "Verified m:1, zero orphans across 923,371 fact rows."
+            }
+          ],
+          "order": [
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SCENARIO_ID",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/REPORTING_PERIOD_ID",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/MONTH_ID",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/ITEM_ID",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/LOCATION_ID",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_REGULAR_SALES_DOLLARS",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_MARKDOWN_SALES_DOLLARS",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_REGULAR_SALES_UNITS",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_MARKDOWN_SALES_UNITS",
+            "inode-6CrHVi5U1aHwYlXBrysRiv/SUM_GROSS_MARGIN_AMOUNT",
+            "colTotSalAmt",
+            "colTotSalUnt",
+            "colScenLabel"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
