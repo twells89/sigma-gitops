@@ -1,0 +1,827 @@
+{
+  "dataModelId": "d396dd61-8b04-46ff-b04e-dcd0b9d69a8a",
+  "name": "Employee Workforce Model",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Employee-Workforce-Model-6rgkeD4dSey9G9taXErs7w",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "f2f3b1d5-ed0e-46e6-ae46-7c5ad3e6151f",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-08-13T23:00:08.472Z",
+  "updatedAt": "2026-08-13T23:00:08.472Z",
+  "description": "Employee hub from CSA.TJ with absence, safety, and time-entry facts related on Employee Id.",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Workforce",
+      "elements": [
+        {
+          "id": "table-employees",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "EMPLOYEES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYEE_ID",
+              "formula": "[EMPLOYEES/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/FIRST_NAME",
+              "formula": "[EMPLOYEES/First Name]",
+              "name": "First Name"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/LAST_NAME",
+              "formula": "[EMPLOYEES/Last Name]",
+              "name": "Last Name"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/EMAIL",
+              "formula": "[EMPLOYEES/Email]",
+              "name": "Email"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/DEPARTMENT",
+              "formula": "[EMPLOYEES/Department]",
+              "name": "Department"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/ROLE",
+              "formula": "[EMPLOYEES/Role]",
+              "name": "Role"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/LOCATION",
+              "formula": "[EMPLOYEES/Location]",
+              "name": "Location"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/CITY",
+              "formula": "[EMPLOYEES/City]",
+              "name": "City"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/STATE",
+              "formula": "[EMPLOYEES/State]",
+              "name": "State"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/ZIP",
+              "formula": "[EMPLOYEES/Zip]",
+              "name": "Zip"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYMENT_TYPE",
+              "formula": "[EMPLOYEES/Employment Type]",
+              "name": "Employment Type"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/SHIFT",
+              "formula": "[EMPLOYEES/Shift]",
+              "name": "Shift"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/MANAGER_ID",
+              "formula": "[EMPLOYEES/Manager Id]",
+              "name": "Manager Id"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/STATUS",
+              "formula": "[EMPLOYEES/Status]",
+              "name": "Status"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/HIRE_DATE",
+              "formula": "[EMPLOYEES/Hire Date]",
+              "name": "Hire Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/TERMINATION_DATE",
+              "formula": "[EMPLOYEES/Termination Date]",
+              "name": "Termination Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/TERMINATION_REASON",
+              "formula": "[EMPLOYEES/Termination Reason]",
+              "name": "Termination Reason"
+            },
+            {
+              "id": "inode-1sgayrzCcHIibq5XBuYbQC/ANNUAL_SALARY",
+              "formula": "[EMPLOYEES/Annual Salary]",
+              "name": "Annual Salary",
+              "format": {
+                "kind": "number",
+                "formatString": "$.0f",
+                "decimalSymbol": ".",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ],
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "col-full-name",
+              "formula": "[First Name] & \" \" & [Last Name]",
+              "name": "Full Name",
+              "description": "First and last name concatenated."
+            },
+            {
+              "id": "col-is-active",
+              "formula": "IsNull([Termination Date])",
+              "name": "Is Active",
+              "description": "True when the employee has no termination date."
+            },
+            {
+              "id": "col-tenure-years",
+              "formula": "DateDiff(\"day\", [Hire Date], Coalesce([Termination Date], Today())) / 365.25",
+              "name": "Tenure Years",
+              "description": "Years between hire date and termination date (or today if still active).",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            }
+          ],
+          "name": "Employees",
+          "metrics": [
+            {
+              "id": "metric-headcount",
+              "formula": "CountDistinct([Employee Id])",
+              "name": "Headcount",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-active-headcount",
+              "formula": "CountDistinct(If([Is Active], [Employee Id], Null))",
+              "name": "Active Headcount",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-terminations",
+              "formula": "Count([Termination Date])",
+              "name": "Terminations",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-attrition-rate",
+              "formula": "Count([Termination Date]) / CountDistinct([Employee Id])",
+              "name": "Attrition Rate",
+              "format": {
+                "kind": "number",
+                "formatString": ".1%"
+              }
+            },
+            {
+              "id": "metric-total-payroll",
+              "formula": "Sum([Annual Salary])",
+              "name": "Total Annual Payroll",
+              "format": {
+                "kind": "number",
+                "formatString": "$.0f",
+                "decimalSymbol": ".",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ],
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "metric-avg-salary",
+              "formula": "Avg([Annual Salary])",
+              "name": "Average Annual Salary",
+              "format": {
+                "kind": "number",
+                "formatString": "$.0f",
+                "decimalSymbol": ".",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ],
+                "currencySymbol": "$"
+              }
+            },
+            {
+              "id": "metric-avg-tenure",
+              "formula": "Avg([Tenure Years])",
+              "name": "Average Tenure Years",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "metric-hires",
+              "formula": "CountDistinct([Employee Id])",
+              "name": "Hires",
+              "description": "Employees counted on their hire date.",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              },
+              "timeline": {
+                "dateColumnId": "inode-1sgayrzCcHIibq5XBuYbQC/HIRE_DATE",
+                "truncation": "month",
+                "comparison": {
+                  "comparisonPeriod": "year",
+                  "direction": "higher-is-better"
+                }
+              }
+            }
+          ],
+          "order": [
+            "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYEE_ID",
+            "inode-1sgayrzCcHIibq5XBuYbQC/FIRST_NAME",
+            "inode-1sgayrzCcHIibq5XBuYbQC/LAST_NAME",
+            "inode-1sgayrzCcHIibq5XBuYbQC/EMAIL",
+            "inode-1sgayrzCcHIibq5XBuYbQC/DEPARTMENT",
+            "inode-1sgayrzCcHIibq5XBuYbQC/ROLE",
+            "inode-1sgayrzCcHIibq5XBuYbQC/LOCATION",
+            "inode-1sgayrzCcHIibq5XBuYbQC/CITY",
+            "inode-1sgayrzCcHIibq5XBuYbQC/STATE",
+            "inode-1sgayrzCcHIibq5XBuYbQC/ZIP",
+            "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYMENT_TYPE",
+            "inode-1sgayrzCcHIibq5XBuYbQC/SHIFT",
+            "inode-1sgayrzCcHIibq5XBuYbQC/MANAGER_ID",
+            "inode-1sgayrzCcHIibq5XBuYbQC/STATUS",
+            "inode-1sgayrzCcHIibq5XBuYbQC/HIRE_DATE",
+            "inode-1sgayrzCcHIibq5XBuYbQC/TERMINATION_DATE",
+            "inode-1sgayrzCcHIibq5XBuYbQC/TERMINATION_REASON",
+            "inode-1sgayrzCcHIibq5XBuYbQC/ANNUAL_SALARY",
+            "col-full-name",
+            "col-is-active",
+            "col-tenure-years"
+          ]
+        },
+        {
+          "id": "table-absence",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "ABSENCE_RECORDS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/ABSENCE_ID",
+              "formula": "[ABSENCE_RECORDS/Absence Id]",
+              "name": "Absence Id"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/EMPLOYEE_ID",
+              "formula": "[ABSENCE_RECORDS/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/DATE",
+              "formula": "[ABSENCE_RECORDS/Date]",
+              "name": "Absence Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/ABSENCE_TYPE",
+              "formula": "[ABSENCE_RECORDS/Absence Type]",
+              "name": "Absence Type"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/HOURS",
+              "formula": "[ABSENCE_RECORDS/Hours]",
+              "name": "Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/APPROVED",
+              "formula": "[ABSENCE_RECORDS/Approved]",
+              "name": "Approved"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/DAY_OF_WEEK",
+              "formula": "[ABSENCE_RECORDS/Day of Week]",
+              "name": "Day Of Week"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/DEPARTMENT",
+              "formula": "[ABSENCE_RECORDS/Department]",
+              "name": "Department"
+            },
+            {
+              "id": "inode-6PvmoLNXXdI1BOO4ypzwGo/LOCATION",
+              "formula": "[ABSENCE_RECORDS/Location]",
+              "name": "Location"
+            }
+          ],
+          "name": "Absence Records",
+          "metrics": [
+            {
+              "id": "metric-absence-hours",
+              "formula": "Sum([Hours])",
+              "name": "Absence Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              },
+              "timeline": {
+                "dateColumnId": "inode-6PvmoLNXXdI1BOO4ypzwGo/DATE",
+                "truncation": "month",
+                "comparison": {
+                  "comparisonPeriod": "year",
+                  "direction": "lower-is-better"
+                }
+              }
+            },
+            {
+              "id": "metric-absence-events",
+              "formula": "Count([Absence Id])",
+              "name": "Absence Events",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-unapproved-absences",
+              "formula": "Count(If([Approved], Null, [Absence Id]))",
+              "name": "Unapproved Absences",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-avg-absence-hours",
+              "formula": "Avg([Hours])",
+              "name": "Average Absence Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "rel-absence-employees",
+              "targetElementId": "table-employees",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-6PvmoLNXXdI1BOO4ypzwGo/EMPLOYEE_ID",
+                  "targetColumnId": "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYEE_ID"
+                }
+              ],
+              "name": "Absence Records \u2192 Employees"
+            }
+          ],
+          "order": [
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/ABSENCE_ID",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/EMPLOYEE_ID",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/DATE",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/ABSENCE_TYPE",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/HOURS",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/APPROVED",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/DAY_OF_WEEK",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/DEPARTMENT",
+            "inode-6PvmoLNXXdI1BOO4ypzwGo/LOCATION"
+          ]
+        },
+        {
+          "id": "table-safety",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "SAFETY_INCIDENTS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/INCIDENT_ID",
+              "formula": "[SAFETY_INCIDENTS/Incident Id]",
+              "name": "Incident Id"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/EMPLOYEE_ID",
+              "formula": "[SAFETY_INCIDENTS/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/DATE",
+              "formula": "[SAFETY_INCIDENTS/Date]",
+              "name": "Incident Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/INCIDENT_TYPE",
+              "formula": "[SAFETY_INCIDENTS/Incident Type]",
+              "name": "Incident Type"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/SEVERITY",
+              "formula": "[SAFETY_INCIDENTS/Severity]",
+              "name": "Severity"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/DESCRIPTION",
+              "formula": "[SAFETY_INCIDENTS/Description]",
+              "name": "Description"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/DEPARTMENT",
+              "formula": "[SAFETY_INCIDENTS/Department]",
+              "name": "Department"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/LOCATION",
+              "formula": "[SAFETY_INCIDENTS/Location]",
+              "name": "Location"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/OVERTIME_ON_DAY",
+              "formula": "[SAFETY_INCIDENTS/Overtime on Day]",
+              "name": "Overtime On Day"
+            },
+            {
+              "id": "inode-5bbwLD33GjZPnPJ2Fpw9rf/HOURS_WORKED_BEFORE_INCIDENT",
+              "formula": "[SAFETY_INCIDENTS/Hours Worked Before Incident]",
+              "name": "Hours Worked Before Incident",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            }
+          ],
+          "name": "Safety Incidents",
+          "metrics": [
+            {
+              "id": "metric-incidents",
+              "formula": "Count([Incident Id])",
+              "name": "Safety Incidents",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              },
+              "timeline": {
+                "dateColumnId": "inode-5bbwLD33GjZPnPJ2Fpw9rf/DATE",
+                "truncation": "month",
+                "comparison": {
+                  "comparisonPeriod": "year",
+                  "direction": "lower-is-better"
+                }
+              }
+            },
+            {
+              "id": "metric-ot-incidents",
+              "formula": "Count(If([Overtime On Day], [Incident Id], Null))",
+              "name": "Incidents On Overtime Days",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-avg-hours-before-incident",
+              "formula": "Avg([Hours Worked Before Incident])",
+              "name": "Average Hours Worked Before Incident",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "metric-employees-with-incidents",
+              "formula": "CountDistinct([Employee Id])",
+              "name": "Employees With Incidents",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "rel-safety-employees",
+              "targetElementId": "table-employees",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-5bbwLD33GjZPnPJ2Fpw9rf/EMPLOYEE_ID",
+                  "targetColumnId": "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYEE_ID"
+                }
+              ],
+              "name": "Safety Incidents \u2192 Employees"
+            }
+          ],
+          "order": [
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/INCIDENT_ID",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/EMPLOYEE_ID",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/DATE",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/INCIDENT_TYPE",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/SEVERITY",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/DESCRIPTION",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/DEPARTMENT",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/LOCATION",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/OVERTIME_ON_DAY",
+            "inode-5bbwLD33GjZPnPJ2Fpw9rf/HOURS_WORKED_BEFORE_INCIDENT"
+          ]
+        },
+        {
+          "id": "table-time",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "TJ",
+              "TIME_ENTRIES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/ENTRY_ID",
+              "formula": "[TIME_ENTRIES/Entry Id]",
+              "name": "Entry Id"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/EMPLOYEE_ID",
+              "formula": "[TIME_ENTRIES/Employee Id]",
+              "name": "Employee Id"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/DATE",
+              "formula": "[TIME_ENTRIES/Date]",
+              "name": "Work Date",
+              "format": {
+                "kind": "datetime",
+                "formatString": "%b %d, %Y"
+              }
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/CLOCK_IN",
+              "formula": "[TIME_ENTRIES/Clock In]",
+              "name": "Clock In"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/CLOCK_OUT",
+              "formula": "[TIME_ENTRIES/Clock Out]",
+              "name": "Clock Out"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/SCHEDULED_HOURS",
+              "formula": "[TIME_ENTRIES/Scheduled Hours]",
+              "name": "Scheduled Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/ACTUAL_HOURS",
+              "formula": "[TIME_ENTRIES/Actual Hours]",
+              "name": "Actual Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/OVERTIME_HOURS",
+              "formula": "[TIME_ENTRIES/Overtime Hours]",
+              "name": "Overtime Hours",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/BREAK_TAKEN",
+              "formula": "[TIME_ENTRIES/Break Taken]",
+              "name": "Break Taken"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/DEPARTMENT",
+              "formula": "[TIME_ENTRIES/Department]",
+              "name": "Department"
+            },
+            {
+              "id": "inode-3WFA9yYjxzWd6f0t4hB91p/LOCATION",
+              "formula": "[TIME_ENTRIES/Location]",
+              "name": "Location"
+            },
+            {
+              "id": "col-hours-variance",
+              "formula": "[Actual Hours] - [Scheduled Hours]",
+              "name": "Hours Variance",
+              "description": "Actual hours worked minus scheduled hours.",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            }
+          ],
+          "name": "Time Entries",
+          "metrics": [
+            {
+              "id": "metric-actual-hours",
+              "formula": "Sum([Actual Hours])",
+              "name": "Actual Hours Worked",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-scheduled-hours",
+              "formula": "Sum([Scheduled Hours])",
+              "name": "Scheduled Hours Total",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-overtime-hours",
+              "formula": "Sum([Overtime Hours])",
+              "name": "Overtime Hours Total",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              },
+              "timeline": {
+                "dateColumnId": "inode-3WFA9yYjxzWd6f0t4hB91p/DATE",
+                "truncation": "month",
+                "comparison": {
+                  "comparisonPeriod": "year",
+                  "direction": "lower-is-better"
+                }
+              }
+            },
+            {
+              "id": "metric-overtime-rate",
+              "formula": "Sum([Overtime Hours]) / Sum([Actual Hours])",
+              "name": "Overtime Rate",
+              "format": {
+                "kind": "number",
+                "formatString": ".1%"
+              }
+            },
+            {
+              "id": "metric-days-worked",
+              "formula": "Count([Entry Id])",
+              "name": "Days Worked",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f",
+                "digitGroupingSymbol": ",",
+                "digitGroupingSize": [
+                  3
+                ]
+              }
+            },
+            {
+              "id": "metric-avg-hours-per-day",
+              "formula": "Avg([Actual Hours])",
+              "name": "Average Hours Per Day",
+              "format": {
+                "kind": "number",
+                "formatString": ".1f",
+                "decimalSymbol": "."
+              }
+            }
+          ],
+          "relationships": [
+            {
+              "id": "rel-time-employees",
+              "targetElementId": "table-employees",
+              "keys": [
+                {
+                  "sourceColumnId": "inode-3WFA9yYjxzWd6f0t4hB91p/EMPLOYEE_ID",
+                  "targetColumnId": "inode-1sgayrzCcHIibq5XBuYbQC/EMPLOYEE_ID"
+                }
+              ],
+              "name": "Time Entries \u2192 Employees"
+            }
+          ],
+          "order": [
+            "inode-3WFA9yYjxzWd6f0t4hB91p/ENTRY_ID",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/EMPLOYEE_ID",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/DATE",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/CLOCK_IN",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/CLOCK_OUT",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/SCHEDULED_HOURS",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/ACTUAL_HOURS",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/OVERTIME_HOURS",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/BREAK_TAKEN",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/DEPARTMENT",
+            "inode-3WFA9yYjxzWd6f0t4hB91p/LOCATION",
+            "col-hours-variance"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
