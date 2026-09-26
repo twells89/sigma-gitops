@@ -1,0 +1,637 @@
+{
+  "dataModelId": "79c1385b-9399-48f9-a780-9556b6d3f0fb",
+  "name": "PC - Controls",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/PC-Controls-3HKn9qklrwR5b24OLhaHNh",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "1f97d6a8-0aa1-4dff-8b25-15ad860f68dc",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-09-24T09:46:39.637Z",
+  "updatedAt": "2026-09-24T09:46:39.637Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "name": "Model",
+      "elements": [
+        {
+          "id": "exceptions",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_EXCEPTIONS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_ID",
+              "formula": "[V_EXCEPTIONS/Exception Id]",
+              "name": "Exception Id"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_TYPE",
+              "formula": "[V_EXCEPTIONS/Exception Type]",
+              "name": "Exception Type"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/DESK",
+              "formula": "[V_EXCEPTIONS/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/BUSINESS_LINE",
+              "formula": "[V_EXCEPTIONS/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/BOOK",
+              "formula": "[V_EXCEPTIONS/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/LEGAL_ENTITY_NAME",
+              "formula": "[V_EXCEPTIONS/Legal Entity Name]",
+              "name": "Legal Entity Name"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/CONTROLLER",
+              "formula": "[V_EXCEPTIONS/Controller]",
+              "name": "Controller"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_DATE",
+              "formula": "[V_EXCEPTIONS/Exception Date]",
+              "name": "Exception Date"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_DATE_LABEL",
+              "formula": "[V_EXCEPTIONS/Exception Date Label]",
+              "name": "Exception Date Label"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/MONTH_END_DATE",
+              "formula": "[V_EXCEPTIONS/Month End Date]",
+              "name": "Month End Date"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/AMOUNT_USD",
+              "formula": "[V_EXCEPTIONS/Amount Usd]",
+              "name": "Amount Usd"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/ABS_AMOUNT_USD",
+              "formula": "[V_EXCEPTIONS/Abs Amount Usd]",
+              "name": "Abs Amount Usd"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/MATERIALITY_THRESHOLD_USD",
+              "formula": "[V_EXCEPTIONS/Materiality Threshold Usd]",
+              "name": "Materiality Threshold Usd"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/MATERIALITY_RATIO",
+              "formula": "[V_EXCEPTIONS/Materiality Ratio]",
+              "name": "Materiality Ratio"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/ZSCORE",
+              "formula": "[V_EXCEPTIONS/Zscore]",
+              "name": "Zscore"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/AGE_DAYS",
+              "formula": "[V_EXCEPTIONS/Age Days]",
+              "name": "Age Days"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/OCCURRENCES_LAST_YEAR",
+              "formula": "[V_EXCEPTIONS/Occurrences Last Year]",
+              "name": "Occurrences Last Year"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/FREQUENCY_WEIGHT",
+              "formula": "[V_EXCEPTIONS/Frequency Weight]",
+              "name": "Frequency Weight"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/HISTORY_WEIGHT",
+              "formula": "[V_EXCEPTIONS/History Weight]",
+              "name": "History Weight"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/RISK_SCORE",
+              "formula": "[V_EXCEPTIONS/Risk Score]",
+              "name": "Risk Score"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/TIER",
+              "formula": "[V_EXCEPTIONS/Tier]",
+              "name": "Tier"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/TIER_RANK",
+              "formula": "[V_EXCEPTIONS/Tier Rank]",
+              "name": "Tier Rank"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/DESCRIPTION",
+              "formula": "[V_EXCEPTIONS/Description]",
+              "name": "Description"
+            },
+            {
+              "id": "33dd81c6-086c-4a69-9a67-ba540483ad73/FACTS_TEXT",
+              "formula": "[V_EXCEPTIONS/Facts Text]",
+              "name": "Facts Text"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Exceptions",
+          "metrics": [
+            {
+              "id": "m-exceptions",
+              "formula": "Count([Exception Id])",
+              "name": "Exceptions",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "m-highexceptions",
+              "formula": "Sum(If([Tier] = \"High\", 1, 0))",
+              "name": "High Exceptions",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            },
+            {
+              "id": "m-highriskamount",
+              "formula": "Sum(If([Tier] = \"High\", [Abs Amount Usd], 0))",
+              "name": "High Risk Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_ID",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_TYPE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/DESK",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/BUSINESS_LINE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/BOOK",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/LEGAL_ENTITY_NAME",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/CONTROLLER",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_DATE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/EXCEPTION_DATE_LABEL",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/MONTH_END_DATE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/AMOUNT_USD",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/ABS_AMOUNT_USD",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/MATERIALITY_THRESHOLD_USD",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/MATERIALITY_RATIO",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/ZSCORE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/AGE_DAYS",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/OCCURRENCES_LAST_YEAR",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/FREQUENCY_WEIGHT",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/HISTORY_WEIGHT",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/RISK_SCORE",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/TIER",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/TIER_RANK",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/DESCRIPTION",
+            "33dd81c6-086c-4a69-9a67-ba540483ad73/FACTS_TEXT",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "adjustments",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_ADJUSTMENTS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/ADJUSTMENT_ID",
+              "formula": "[V_ADJUSTMENTS/Adjustment Id]",
+              "name": "Adjustment Id"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BOOK",
+              "formula": "[V_ADJUSTMENTS/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BUSINESS_DATE",
+              "formula": "[V_ADJUSTMENTS/Business Date]",
+              "name": "Business Date"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/ADJUSTMENT_TYPE",
+              "formula": "[V_ADJUSTMENTS/Adjustment Type]",
+              "name": "Adjustment Type"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/AMOUNT_USD",
+              "formula": "[V_ADJUSTMENTS/Amount Usd]",
+              "name": "Amount Usd"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/REASON",
+              "formula": "[V_ADJUSTMENTS/Reason]",
+              "name": "Reason"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/PREPARER",
+              "formula": "[V_ADJUSTMENTS/Preparer]",
+              "name": "Preparer"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/APPROVER",
+              "formula": "[V_ADJUSTMENTS/Approver]",
+              "name": "Approver"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/DESK",
+              "formula": "[V_ADJUSTMENTS/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BUSINESS_LINE",
+              "formula": "[V_ADJUSTMENTS/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Adjustments",
+          "metrics": [
+            {
+              "id": "m-adjustmentamount",
+              "formula": "Sum([Amount Usd])",
+              "name": "Adjustment Amount",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/ADJUSTMENT_ID",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BOOK",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BUSINESS_DATE",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/ADJUSTMENT_TYPE",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/AMOUNT_USD",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/REASON",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/PREPARER",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/APPROVER",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/DESK",
+            "9d52ef92-cbe5-480b-9c83-9531e8b7e914/BUSINESS_LINE",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "reserves",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_RESERVES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/BOOK",
+              "formula": "[V_RESERVES/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/MONTH_END_DATE",
+              "formula": "[V_RESERVES/Month End Date]",
+              "name": "Month End Date"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/RESERVE_TYPE",
+              "formula": "[V_RESERVES/Reserve Type]",
+              "name": "Reserve Type"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/RESERVE_BALANCE_USD",
+              "formula": "[V_RESERVES/Reserve Balance Usd]",
+              "name": "Reserve Balance Usd"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/MOVEMENT_USD",
+              "formula": "[V_RESERVES/Movement Usd]",
+              "name": "Movement Usd"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/DESK",
+              "formula": "[V_RESERVES/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/BUSINESS_LINE",
+              "formula": "[V_RESERVES/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Reserves",
+          "metrics": [
+            {
+              "id": "m-reservemovement",
+              "formula": "Sum([Movement Usd])",
+              "name": "Reserve Movement",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/BOOK",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/MONTH_END_DATE",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/RESERVE_TYPE",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/RESERVE_BALANCE_USD",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/MOVEMENT_USD",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/DESK",
+            "2566cb4f-db32-4918-a82d-d2e7a1a7c2f3/BUSINESS_LINE",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "breaks",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_BREAKS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/BREAK_ID",
+              "formula": "[V_BREAKS/Break Id]",
+              "name": "Break Id"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/BOOK",
+              "formula": "[V_BREAKS/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/OPENED_DATE",
+              "formula": "[V_BREAKS/Opened Date]",
+              "name": "Opened Date"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/CLOSED_DATE",
+              "formula": "[V_BREAKS/Closed Date]",
+              "name": "Closed Date"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/BREAK_TYPE",
+              "formula": "[V_BREAKS/Break Type]",
+              "name": "Break Type"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/STATUS",
+              "formula": "[V_BREAKS/Status]",
+              "name": "Status"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/AMOUNT_USD",
+              "formula": "[V_BREAKS/Amount Usd]",
+              "name": "Amount Usd"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/DESCRIPTION",
+              "formula": "[V_BREAKS/Description]",
+              "name": "Description"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/DESK",
+              "formula": "[V_BREAKS/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/BUSINESS_LINE",
+              "formula": "[V_BREAKS/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "c6e073cf-5548-49ff-a084-3048882da7c4/AGE_DAYS",
+              "formula": "[V_BREAKS/Age Days]",
+              "name": "Age Days"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Breaks",
+          "metrics": [
+            {
+              "id": "m-openbreaks",
+              "formula": "Sum(If([Status] = \"Open\", 1, 0))",
+              "name": "Open Breaks",
+              "format": {
+                "kind": "number",
+                "formatString": ",.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "c6e073cf-5548-49ff-a084-3048882da7c4/BREAK_ID",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/BOOK",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/OPENED_DATE",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/CLOSED_DATE",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/BREAK_TYPE",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/STATUS",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/AMOUNT_USD",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/DESCRIPTION",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/DESK",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/BUSINESS_LINE",
+            "c6e073cf-5548-49ff-a084-3048882da7c4/AGE_DAYS",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "controltrends",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_ADJ_RESERVE_TRENDS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/DESK",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/BUSINESS_LINE",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/MONTH_END_DATE",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Month End Date]",
+              "name": "Month End Date"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/MONTH_LABEL",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Month Label]",
+              "name": "Month Label"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/ADJUSTMENT_COUNT",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Adjustment Count]",
+              "name": "Adjustment Count"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/MANUAL_ADJUSTMENT_COUNT",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Manual Adjustment Count]",
+              "name": "Manual Adjustment Count"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/ADJUSTMENT_ABS_USD",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Adjustment Abs Usd]",
+              "name": "Adjustment Abs Usd"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/RESERVE_MOVEMENT_USD",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Reserve Movement Usd]",
+              "name": "Reserve Movement Usd"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/RESERVE_BALANCE_USD",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Reserve Balance Usd]",
+              "name": "Reserve Balance Usd"
+            },
+            {
+              "id": "216bdc05-4958-4268-985d-a10d771be63e/BREAKS_OPENED",
+              "formula": "[V_ADJ_RESERVE_TRENDS/Breaks Opened]",
+              "name": "Breaks Opened"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Control Trends",
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "216bdc05-4958-4268-985d-a10d771be63e/DESK",
+            "216bdc05-4958-4268-985d-a10d771be63e/BUSINESS_LINE",
+            "216bdc05-4958-4268-985d-a10d771be63e/MONTH_END_DATE",
+            "216bdc05-4958-4268-985d-a10d771be63e/MONTH_LABEL",
+            "216bdc05-4958-4268-985d-a10d771be63e/ADJUSTMENT_COUNT",
+            "216bdc05-4958-4268-985d-a10d771be63e/MANUAL_ADJUSTMENT_COUNT",
+            "216bdc05-4958-4268-985d-a10d771be63e/ADJUSTMENT_ABS_USD",
+            "216bdc05-4958-4268-985d-a10d771be63e/RESERVE_MOVEMENT_USD",
+            "216bdc05-4958-4268-985d-a10d771be63e/RESERVE_BALANCE_USD",
+            "216bdc05-4958-4268-985d-a10d771be63e/BREAKS_OPENED",
+            "desk-access"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
