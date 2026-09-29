@@ -1,0 +1,591 @@
+{
+  "dataModelId": "b250d7bc-9ac8-444e-ade6-7aa76bb11f4c",
+  "name": "PC - P&L",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/PC-P-and-L-5qtzVkyhE5FC3Deb8fJhnK",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "1f97d6a8-0aa1-4dff-8b25-15ad860f68dc",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-09-24T09:46:17.629Z",
+  "updatedAt": "2026-09-24T09:46:17.629Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "name": "Model",
+      "elements": [
+        {
+          "id": "pnldaily",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_PNL_DAILY"
+            ]
+          },
+          "columns": [
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_DATE",
+              "formula": "[V_PNL_DAILY/Business Date]",
+              "name": "Business Date"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_DATE_LABEL",
+              "formula": "[V_PNL_DAILY/Business Date Label]",
+              "name": "Business Date Label"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/MONTH_END_DATE",
+              "formula": "[V_PNL_DAILY/Month End Date]",
+              "name": "Month End Date"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/DESK",
+              "formula": "[V_PNL_DAILY/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_LINE",
+              "formula": "[V_PNL_DAILY/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/LEGAL_ENTITY_NAME",
+              "formula": "[V_PNL_DAILY/Legal Entity Name]",
+              "name": "Legal Entity Name"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BOOK",
+              "formula": "[V_PNL_DAILY/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/PRODUCT",
+              "formula": "[V_PNL_DAILY/Product]",
+              "name": "Product"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/PNL_VERSION",
+              "formula": "[V_PNL_DAILY/Pnl Version]",
+              "name": "Pnl Version"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/MARKET_MOVE",
+              "formula": "[V_PNL_DAILY/Market Move]",
+              "name": "Market Move"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/NEW_TRADES",
+              "formula": "[V_PNL_DAILY/New Trades]",
+              "name": "New Trades"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/CARRY",
+              "formula": "[V_PNL_DAILY/Carry]",
+              "name": "Carry"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FX_TRANSLATION",
+              "formula": "[V_PNL_DAILY/Fx Translation]",
+              "name": "Fx Translation"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FEES_COMMISSIONS",
+              "formula": "[V_PNL_DAILY/Fees Commissions]",
+              "name": "Fees Commissions"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/ADJUSTMENTS",
+              "formula": "[V_PNL_DAILY/Adjustments]",
+              "name": "Adjustments"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/TOTAL_PNL",
+              "formula": "[V_PNL_DAILY/Total Pnl]",
+              "name": "Total Pnl"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/VALIDATED_PNL",
+              "formula": "[V_PNL_DAILY/Validated Pnl]",
+              "name": "Validated Pnl"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FLASH_PNL",
+              "formula": "[V_PNL_DAILY/Flash Pnl]",
+              "name": "Flash Pnl"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_LATEST_BUSINESS_DAY",
+              "formula": "[V_PNL_DAILY/Is Latest Business Day]",
+              "name": "Is Latest Business Day"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_CURRENT_MONTH",
+              "formula": "[V_PNL_DAILY/Is Current Month]",
+              "name": "Is Current Month"
+            },
+            {
+              "id": "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_CURRENT_YEAR",
+              "formula": "[V_PNL_DAILY/Is Current Year]",
+              "name": "Is Current Year"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "PnL Daily",
+          "metrics": [
+            {
+              "id": "m-validatedpl",
+              "formula": "Sum([Validated Pnl])",
+              "name": "Validated P&L",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-flashpl",
+              "formula": "Sum([Flash Pnl])",
+              "name": "Flash P&L",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-flashvsvalidated",
+              "formula": "Sum([Flash Pnl]) - Sum([Validated Pnl])",
+              "name": "Flash vs Validated",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_DATE",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_DATE_LABEL",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/MONTH_END_DATE",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/DESK",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BUSINESS_LINE",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/LEGAL_ENTITY_NAME",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/BOOK",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/PRODUCT",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/PNL_VERSION",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/MARKET_MOVE",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/NEW_TRADES",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/CARRY",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FX_TRANSLATION",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FEES_COMMISSIONS",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/ADJUSTMENTS",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/TOTAL_PNL",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/VALIDATED_PNL",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/FLASH_PNL",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_LATEST_BUSINESS_DAY",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_CURRENT_MONTH",
+            "1b24f0f0-d870-4dac-b347-af3a2fe8121a/IS_CURRENT_YEAR",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "pnlbyperiod",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_PNL_PERIOD_BOOK"
+            ]
+          },
+          "columns": [
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_TYPE",
+              "formula": "[V_PNL_PERIOD_BOOK/Period Type]",
+              "name": "Period Type"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_DATE",
+              "formula": "[V_PNL_PERIOD_BOOK/Period Date]",
+              "name": "Period Date"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_LABEL",
+              "formula": "[V_PNL_PERIOD_BOOK/Period Label]",
+              "name": "Period Label"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/BOOK",
+              "formula": "[V_PNL_PERIOD_BOOK/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/DESK",
+              "formula": "[V_PNL_PERIOD_BOOK/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/BUSINESS_LINE",
+              "formula": "[V_PNL_PERIOD_BOOK/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/LEGAL_ENTITY_NAME",
+              "formula": "[V_PNL_PERIOD_BOOK/Legal Entity Name]",
+              "name": "Legal Entity Name"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/MARKET_MOVE",
+              "formula": "[V_PNL_PERIOD_BOOK/Market Move]",
+              "name": "Market Move"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/NEW_TRADES",
+              "formula": "[V_PNL_PERIOD_BOOK/New Trades]",
+              "name": "New Trades"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/CARRY",
+              "formula": "[V_PNL_PERIOD_BOOK/Carry]",
+              "name": "Carry"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/FX_TRANSLATION",
+              "formula": "[V_PNL_PERIOD_BOOK/Fx Translation]",
+              "name": "Fx Translation"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/FEES_COMMISSIONS",
+              "formula": "[V_PNL_PERIOD_BOOK/Fees Commissions]",
+              "name": "Fees Commissions"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/ADJUSTMENTS",
+              "formula": "[V_PNL_PERIOD_BOOK/Adjustments]",
+              "name": "Adjustments"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/TOTAL_PNL",
+              "formula": "[V_PNL_PERIOD_BOOK/Total Pnl]",
+              "name": "Total Pnl"
+            },
+            {
+              "id": "a0fea288-53f1-466d-b6d7-63ee8024200c/FLASH_PNL",
+              "formula": "[V_PNL_PERIOD_BOOK/Flash Pnl]",
+              "name": "Flash Pnl"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "PnL By Period",
+          "metrics": [
+            {
+              "id": "m-periodpl",
+              "formula": "Sum([Total Pnl])",
+              "name": "Period P&L",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_TYPE",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_DATE",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/PERIOD_LABEL",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/BOOK",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/DESK",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/BUSINESS_LINE",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/LEGAL_ENTITY_NAME",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/MARKET_MOVE",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/NEW_TRADES",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/CARRY",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/FX_TRANSLATION",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/FEES_COMMISSIONS",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/ADJUSTMENTS",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/TOTAL_PNL",
+            "a0fea288-53f1-466d-b6d7-63ee8024200c/FLASH_PNL",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "commentaryinput",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_COMMENTARY_INPUT"
+            ]
+          },
+          "columns": [
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_TYPE",
+              "formula": "[V_COMMENTARY_INPUT/Period Type]",
+              "name": "Period Type"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_DATE",
+              "formula": "[V_COMMENTARY_INPUT/Period Date]",
+              "name": "Period Date"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_LABEL",
+              "formula": "[V_COMMENTARY_INPUT/Period Label]",
+              "name": "Period Label"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/DESK",
+              "formula": "[V_COMMENTARY_INPUT/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/BUSINESS_LINE",
+              "formula": "[V_COMMENTARY_INPUT/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/MARKET_MOVE",
+              "formula": "[V_COMMENTARY_INPUT/Market Move]",
+              "name": "Market Move"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/NEW_TRADES",
+              "formula": "[V_COMMENTARY_INPUT/New Trades]",
+              "name": "New Trades"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/CARRY",
+              "formula": "[V_COMMENTARY_INPUT/Carry]",
+              "name": "Carry"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FX_TRANSLATION",
+              "formula": "[V_COMMENTARY_INPUT/Fx Translation]",
+              "name": "Fx Translation"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FEES_COMMISSIONS",
+              "formula": "[V_COMMENTARY_INPUT/Fees Commissions]",
+              "name": "Fees Commissions"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/ADJUSTMENTS",
+              "formula": "[V_COMMENTARY_INPUT/Adjustments]",
+              "name": "Adjustments"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOTAL_PNL",
+              "formula": "[V_COMMENTARY_INPUT/Total Pnl]",
+              "name": "Total Pnl"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FLASH_PNL",
+              "formula": "[V_COMMENTARY_INPUT/Flash Pnl]",
+              "name": "Flash Pnl"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PRIOR_TOTAL_PNL",
+              "formula": "[V_COMMENTARY_INPUT/Prior Total Pnl]",
+              "name": "Prior Total Pnl"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TYPICAL_ABS_PNL",
+              "formula": "[V_COMMENTARY_INPUT/Typical Abs Pnl]",
+              "name": "Typical Abs Pnl"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/RECENCY_RANK",
+              "formula": "[V_COMMENTARY_INPUT/Recency Rank]",
+              "name": "Recency Rank"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOP_BOOK",
+              "formula": "[V_COMMENTARY_INPUT/Top Book]",
+              "name": "Top Book"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOP_BOOK_PNL",
+              "formula": "[V_COMMENTARY_INPUT/Top Book Pnl]",
+              "name": "Top Book Pnl"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/HIGH_EXCEPTIONS",
+              "formula": "[V_COMMENTARY_INPUT/High Exceptions]",
+              "name": "High Exceptions"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/IS_RECENT",
+              "formula": "[V_COMMENTARY_INPUT/Is Recent]",
+              "name": "Is Recent"
+            },
+            {
+              "id": "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FACTS_TEXT",
+              "formula": "[V_COMMENTARY_INPUT/Facts Text]",
+              "name": "Facts Text"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Commentary Input",
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_TYPE",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_DATE",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PERIOD_LABEL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/DESK",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/BUSINESS_LINE",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/MARKET_MOVE",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/NEW_TRADES",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/CARRY",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FX_TRANSLATION",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FEES_COMMISSIONS",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/ADJUSTMENTS",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOTAL_PNL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FLASH_PNL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/PRIOR_TOTAL_PNL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TYPICAL_ABS_PNL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/RECENCY_RANK",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOP_BOOK",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/TOP_BOOK_PNL",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/HIGH_EXCEPTIONS",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/IS_RECENT",
+            "8ae9abb3-abe9-43df-90ab-8c0d5484e143/FACTS_TEXT",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "driverbridge",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_COMMENTARY_DRIVERS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_TYPE",
+              "formula": "[V_COMMENTARY_DRIVERS/Period Type]",
+              "name": "Period Type"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_DATE",
+              "formula": "[V_COMMENTARY_DRIVERS/Period Date]",
+              "name": "Period Date"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_LABEL",
+              "formula": "[V_COMMENTARY_DRIVERS/Period Label]",
+              "name": "Period Label"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/DESK",
+              "formula": "[V_COMMENTARY_DRIVERS/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/BUSINESS_LINE",
+              "formula": "[V_COMMENTARY_DRIVERS/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/DRIVER",
+              "formula": "[V_COMMENTARY_DRIVERS/Driver]",
+              "name": "Driver"
+            },
+            {
+              "id": "bec83714-11fe-4d02-91d6-206c9e1f1577/AMOUNT_USD",
+              "formula": "[V_COMMENTARY_DRIVERS/Amount Usd]",
+              "name": "Amount Usd"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Driver Bridge",
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_TYPE",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_DATE",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/PERIOD_LABEL",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/DESK",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/BUSINESS_LINE",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/DRIVER",
+            "bec83714-11fe-4d02-91d6-206c9e1f1577/AMOUNT_USD",
+            "desk-access"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}

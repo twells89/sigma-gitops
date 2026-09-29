@@ -1,0 +1,507 @@
+{
+  "dataModelId": "d2d934b7-09c0-4b9b-b194-f34532db190c",
+  "name": "Spark Electronics - Sales Dashboard (Qlik\u2192Sigma)",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/Spark-Electronics-Sales-Dashboard-Qlik-Sigma-6pREqtz6awImm669WTzGRS",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "ceefd797-4e9e-46f3-8c08-09742f6cf817",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-09-24T13:12:15.346Z",
+  "updatedAt": "2026-09-24T13:12:15.346Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "pg-dm",
+      "name": "Page 1",
+      "elements": [
+        {
+          "id": "AAAAAAAAAB",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "QLIK_SPARK_ELECTRONICS",
+              "SALES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "AAAAAAAAAC",
+              "formula": "[SALES/Transactionid]",
+              "name": "Transactionid"
+            },
+            {
+              "id": "AAAAAAAAAD",
+              "formula": "[SALES/Date]",
+              "name": "Date"
+            },
+            {
+              "id": "AAAAAAAAAE",
+              "formula": "[SALES/Date Monthlabel]",
+              "name": "Date Monthlabel"
+            },
+            {
+              "id": "AAAAAAAAAF",
+              "formula": "[SALES/Date Quarterlabel]",
+              "name": "Date Quarterlabel"
+            },
+            {
+              "id": "AAAAAAAAAG",
+              "formula": "[SALES/Date Yearmonth]",
+              "name": "Monthyear"
+            },
+            {
+              "id": "AAAAAAAAAH",
+              "formula": "[SALES/Date Year]",
+              "name": "Date Year"
+            },
+            {
+              "id": "AAAAAAAAAI",
+              "formula": "[SALES/Storeid]",
+              "name": "Storeid"
+            },
+            {
+              "id": "AAAAAAAAAJ",
+              "formula": "[SALES/Productid]",
+              "name": "Productid"
+            },
+            {
+              "id": "AAAAAAAAAK",
+              "formula": "[SALES/Employeeid]",
+              "name": "Employeeid"
+            },
+            {
+              "id": "AAAAAAAAAL",
+              "formula": "[SALES/Quantity]",
+              "name": "Quantity"
+            },
+            {
+              "id": "AAAAAAAAAM",
+              "formula": "[SALES/Unitprice]",
+              "name": "Unitprice"
+            },
+            {
+              "id": "AAAAAAAAAN",
+              "formula": "[SALES/Discountpct]",
+              "name": "Discountpct"
+            },
+            {
+              "id": "AAAAAAAAAO",
+              "formula": "[SALES/Totalamount]",
+              "name": "Totalamount"
+            },
+            {
+              "id": "AAAAAAAAAP",
+              "formula": "[SALES/Paymentmethod]",
+              "name": "Paymentmethod"
+            }
+          ],
+          "name": "Sales",
+          "order": [
+            "AAAAAAAAAC",
+            "AAAAAAAAAD",
+            "AAAAAAAAAE",
+            "AAAAAAAAAF",
+            "AAAAAAAAAG",
+            "AAAAAAAAAH",
+            "AAAAAAAAAI",
+            "AAAAAAAAAJ",
+            "AAAAAAAAAK",
+            "AAAAAAAAAL",
+            "AAAAAAAAAM",
+            "AAAAAAAAAN",
+            "AAAAAAAAAO",
+            "AAAAAAAAAP"
+          ]
+        },
+        {
+          "id": "AAAAAAAAAQ",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "QLIK_SPARK_ELECTRONICS",
+              "PRODUCTS"
+            ]
+          },
+          "columns": [
+            {
+              "id": "AAAAAAAAAR",
+              "formula": "[PRODUCTS/Productid]",
+              "name": "Productid"
+            },
+            {
+              "id": "AAAAAAAAAS",
+              "formula": "[PRODUCTS/Productname]",
+              "name": "Productname"
+            },
+            {
+              "id": "AAAAAAAAAT",
+              "formula": "[PRODUCTS/Category]",
+              "name": "Category"
+            },
+            {
+              "id": "AAAAAAAAAU",
+              "formula": "[PRODUCTS/Subcategory]",
+              "name": "Subcategory"
+            },
+            {
+              "id": "AAAAAAAAAV",
+              "formula": "[PRODUCTS/Brand]",
+              "name": "Brand"
+            },
+            {
+              "id": "AAAAAAAAAW",
+              "formula": "[PRODUCTS/Unitcost]",
+              "name": "Unitcost"
+            },
+            {
+              "id": "AAAAAAAAAX",
+              "formula": "[PRODUCTS/Retailprice]",
+              "name": "Retailprice"
+            },
+            {
+              "id": "AAAAAAAAAY",
+              "formula": "[PRODUCTS/Marginpct]",
+              "name": "Marginpct"
+            },
+            {
+              "id": "AAAAAAAAAZ",
+              "formula": "[PRODUCTS/Supplier]",
+              "name": "Supplier"
+            },
+            {
+              "id": "AAAAAAAABY",
+              "formula": "[Category]",
+              "name": "Category -> Sub Category"
+            },
+            {
+              "id": "AAAAAAAABZ",
+              "formula": "[Category]",
+              "name": "Category"
+            }
+          ],
+          "name": "Products",
+          "relationships": [
+            {
+              "id": "AAAAAAAAAk",
+              "targetElementId": "AAAAAAAAAB",
+              "keys": [
+                {
+                  "sourceColumnId": "AAAAAAAAAR",
+                  "targetColumnId": "AAAAAAAAAJ"
+                }
+              ],
+              "name": "SALES"
+            }
+          ],
+          "order": [
+            "AAAAAAAAAR",
+            "AAAAAAAAAS",
+            "AAAAAAAAAT",
+            "AAAAAAAAAU",
+            "AAAAAAAAAV",
+            "AAAAAAAAAW",
+            "AAAAAAAAAX",
+            "AAAAAAAAAY",
+            "AAAAAAAAAZ",
+            "AAAAAAAABY",
+            "AAAAAAAABZ"
+          ]
+        },
+        {
+          "id": "AAAAAAAAAa",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "QLIK_SPARK_ELECTRONICS",
+              "STORES"
+            ]
+          },
+          "columns": [
+            {
+              "id": "AAAAAAAAAb",
+              "formula": "[STORES/Storeid]",
+              "name": "Storeid"
+            },
+            {
+              "id": "AAAAAAAAAc",
+              "formula": "[STORES/Storename]",
+              "name": "Storename"
+            },
+            {
+              "id": "AAAAAAAAAd",
+              "formula": "[STORES/City]",
+              "name": "City"
+            },
+            {
+              "id": "AAAAAAAAAe",
+              "formula": "[STORES/State]",
+              "name": "State"
+            },
+            {
+              "id": "AAAAAAAAAf",
+              "formula": "[STORES/Region]",
+              "name": "Region"
+            },
+            {
+              "id": "AAAAAAAAAg",
+              "formula": "[STORES/Storetype]",
+              "name": "Storetype"
+            },
+            {
+              "id": "AAAAAAAAAh",
+              "formula": "[STORES/Squarefootage]",
+              "name": "Squarefootage"
+            },
+            {
+              "id": "AAAAAAAAAi",
+              "formula": "[STORES/Storemanager]",
+              "name": "Storemanager"
+            },
+            {
+              "id": "AAAAAAAABX",
+              "formula": "[Region]",
+              "name": "Region Drill-down"
+            }
+          ],
+          "name": "Stores",
+          "relationships": [
+            {
+              "id": "AAAAAAAAAj",
+              "targetElementId": "AAAAAAAAAB",
+              "keys": [
+                {
+                  "sourceColumnId": "AAAAAAAAAb",
+                  "targetColumnId": "AAAAAAAAAI"
+                }
+              ],
+              "name": "SALES"
+            }
+          ],
+          "order": [
+            "AAAAAAAAAb",
+            "AAAAAAAAAc",
+            "AAAAAAAAAd",
+            "AAAAAAAAAe",
+            "AAAAAAAAAf",
+            "AAAAAAAAAg",
+            "AAAAAAAAAh",
+            "AAAAAAAAAi",
+            "AAAAAAAABX"
+          ]
+        },
+        {
+          "id": "eOq9xTgf4O",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "statement": "SELECT\n  f.TRANSACTIONID AS TransactionID,\n  f.DATE AS Date,\n  f.DATE_MONTHLABEL AS Date_monthLabel,\n  f.DATE_QUARTERLABEL AS Date_quarterLabel,\n  f.DATE_YEARMONTH AS MonthYear,\n  f.DATE_YEAR AS Date_year,\n  f.STOREID AS StoreID,\n  f.PRODUCTID AS ProductID,\n  f.EMPLOYEEID AS EmployeeID,\n  f.QUANTITY AS Quantity,\n  f.UNITPRICE AS UnitPrice,\n  f.DISCOUNTPCT AS DiscountPct,\n  f.TOTALAMOUNT AS TotalAmount,\n  f.PAYMENTMETHOD AS PaymentMethod,\n  a.PRODUCTNAME AS ProductName,\n  a.CATEGORY AS Category,\n  a.SUBCATEGORY AS SubCategory,\n  a.BRAND AS Brand,\n  a.UNITCOST AS UnitCost,\n  a.RETAILPRICE AS RetailPrice,\n  a.MARGINPCT AS MarginPct,\n  a.SUPPLIER AS Supplier,\n  b.STORENAME AS StoreName,\n  b.CITY AS City,\n  b.STATE AS State,\n  b.REGION AS Region,\n  b.STORETYPE AS StoreType,\n  b.SQUAREFOOTAGE AS SquareFootage,\n  b.STOREMANAGER AS StoreManager\nFROM CSA.QLIK_SPARK_ELECTRONICS.SALES f\nLEFT JOIN CSA.QLIK_SPARK_ELECTRONICS.PRODUCTS a ON f.PRODUCTID = a.PRODUCTID\nLEFT JOIN CSA.QLIK_SPARK_ELECTRONICS.STORES b ON f.STOREID = b.STOREID",
+            "kind": "sql"
+          },
+          "columns": [
+            {
+              "id": "t9ZXpchtem",
+              "formula": "[Custom SQL/TRANSACTIONID]",
+              "name": "Transactionid"
+            },
+            {
+              "id": "BntqZ2Qc33",
+              "formula": "[Custom SQL/DATE]",
+              "name": "Date"
+            },
+            {
+              "id": "kh2ULEAhf3",
+              "formula": "[Custom SQL/DATE_MONTHLABEL]",
+              "name": "Date Monthlabel"
+            },
+            {
+              "id": "zOJQeQ1x0N",
+              "formula": "[Custom SQL/DATE_QUARTERLABEL]",
+              "name": "Date Quarterlabel"
+            },
+            {
+              "id": "Zui6D2T6xx",
+              "formula": "[Custom SQL/MONTHYEAR]",
+              "name": "Monthyear"
+            },
+            {
+              "id": "03v2eaNlWS",
+              "formula": "[Custom SQL/DATE_YEAR]",
+              "name": "Date Year"
+            },
+            {
+              "id": "9fWF6DOrsB",
+              "formula": "[Custom SQL/STOREID]",
+              "name": "Storeid"
+            },
+            {
+              "id": "fThEt6tofG",
+              "formula": "[Custom SQL/PRODUCTID]",
+              "name": "Productid"
+            },
+            {
+              "id": "c4qRZqlPnj",
+              "formula": "[Custom SQL/EMPLOYEEID]",
+              "name": "Employeeid"
+            },
+            {
+              "id": "csFAurWKEp",
+              "formula": "[Custom SQL/QUANTITY]",
+              "name": "Quantity"
+            },
+            {
+              "id": "0C5JJ4aqyc",
+              "formula": "[Custom SQL/UNITPRICE]",
+              "name": "Unitprice"
+            },
+            {
+              "id": "nuz7BSmMpG",
+              "formula": "[Custom SQL/DISCOUNTPCT]",
+              "name": "Discountpct"
+            },
+            {
+              "id": "kTFiWpnCG3",
+              "formula": "[Custom SQL/TOTALAMOUNT]",
+              "name": "Totalamount"
+            },
+            {
+              "id": "nVOgMAWYaK",
+              "formula": "[Custom SQL/PAYMENTMETHOD]",
+              "name": "Paymentmethod"
+            },
+            {
+              "id": "t1Qr4FgVan",
+              "formula": "[Custom SQL/PRODUCTNAME]",
+              "name": "Productname"
+            },
+            {
+              "id": "JxsIpZCVKL",
+              "formula": "[Custom SQL/CATEGORY]",
+              "name": "Category"
+            },
+            {
+              "id": "JQOfwW7DN0",
+              "formula": "[Custom SQL/SUBCATEGORY]",
+              "name": "Subcategory"
+            },
+            {
+              "id": "TnlyTrS6ze",
+              "formula": "[Custom SQL/BRAND]",
+              "name": "Brand"
+            },
+            {
+              "id": "mI3qtaSU9g",
+              "formula": "[Custom SQL/UNITCOST]",
+              "name": "Unitcost"
+            },
+            {
+              "id": "57WNHSgHxe",
+              "formula": "[Custom SQL/RETAILPRICE]",
+              "name": "Retailprice"
+            },
+            {
+              "id": "JSsMy7bMIo",
+              "formula": "[Custom SQL/MARGINPCT]",
+              "name": "Marginpct"
+            },
+            {
+              "id": "iX8rPViiVf",
+              "formula": "[Custom SQL/SUPPLIER]",
+              "name": "Supplier"
+            },
+            {
+              "id": "nQ4CrRQRhD",
+              "formula": "[Custom SQL/STORENAME]",
+              "name": "Storename"
+            },
+            {
+              "id": "ahNaQURkT2",
+              "formula": "[Custom SQL/CITY]",
+              "name": "City"
+            },
+            {
+              "id": "GP3Uq8LDt4",
+              "formula": "[Custom SQL/STATE]",
+              "name": "State"
+            },
+            {
+              "id": "P3XssS0VVV",
+              "formula": "[Custom SQL/REGION]",
+              "name": "Region"
+            },
+            {
+              "id": "U6tkmWVfN3",
+              "formula": "[Custom SQL/STORETYPE]",
+              "name": "Storetype"
+            },
+            {
+              "id": "nsRkWYGvrq",
+              "formula": "[Custom SQL/SQUAREFOOTAGE]",
+              "name": "Squarefootage"
+            },
+            {
+              "id": "FNSoPSku2A",
+              "formula": "[Custom SQL/STOREMANAGER]",
+              "name": "Storemanager"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "AAAAAAAAAl",
+              "formula": "Sum([Totalamount])",
+              "name": "Total Revenue",
+              "description": "Qlik: Sum(TotalAmount)",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.2f",
+                "currencySymbol": "$"
+              }
+            }
+          ],
+          "order": [
+            "t9ZXpchtem",
+            "BntqZ2Qc33",
+            "kh2ULEAhf3",
+            "zOJQeQ1x0N",
+            "Zui6D2T6xx",
+            "03v2eaNlWS",
+            "9fWF6DOrsB",
+            "fThEt6tofG",
+            "c4qRZqlPnj",
+            "csFAurWKEp",
+            "0C5JJ4aqyc",
+            "nuz7BSmMpG",
+            "kTFiWpnCG3",
+            "nVOgMAWYaK",
+            "t1Qr4FgVan",
+            "JxsIpZCVKL",
+            "JQOfwW7DN0",
+            "TnlyTrS6ze",
+            "mI3qtaSU9g",
+            "57WNHSgHxe",
+            "JSsMy7bMIo",
+            "iX8rPViiVf",
+            "nQ4CrRQRhD",
+            "ahNaQURkT2",
+            "GP3Uq8LDt4",
+            "P3XssS0VVV",
+            "U6tkmWVfN3",
+            "nsRkWYGvrq",
+            "FNSoPSku2A"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
