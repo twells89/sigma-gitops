@@ -1,0 +1,258 @@
+{
+  "dataModelId": "b549af63-b777-4c75-96bc-c422d4468161",
+  "name": "PC - Balance Sheet & Inventory",
+  "url": "https://app.sigmacomputing.com/tj-wells-1989/data-model/PC-Balance-Sheet-and-Inventory-5w5hGZbyUCWHziB1GFO87f",
+  "documentVersion": 1,
+  "latestDocumentVersion": 1,
+  "ownerId": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "folderId": "1f97d6a8-0aa1-4dff-8b25-15ad860f68dc",
+  "createdBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "updatedBy": "Or3utqE3hK4BzHGk5lRTRGLZdNxlw",
+  "createdAt": "2026-09-24T09:46:29.716Z",
+  "updatedAt": "2026-09-24T09:46:29.716Z",
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "name": "Model",
+      "elements": [
+        {
+          "id": "balancesheet",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_BALANCE_SHEET"
+            ]
+          },
+          "columns": [
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_END_DATE",
+              "formula": "[V_BALANCE_SHEET/Month End Date]",
+              "name": "Month End Date"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_END_LABEL",
+              "formula": "[V_BALANCE_SHEET/Month End Label]",
+              "name": "Month End Label"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/DESK",
+              "formula": "[V_BALANCE_SHEET/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BUSINESS_LINE",
+              "formula": "[V_BALANCE_SHEET/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/LEGAL_ENTITY_NAME",
+              "formula": "[V_BALANCE_SHEET/Legal Entity Name]",
+              "name": "Legal Entity Name"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BOOK",
+              "formula": "[V_BALANCE_SHEET/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BS_LINE",
+              "formula": "[V_BALANCE_SHEET/Bs Line]",
+              "name": "Bs Line"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BS_SIDE",
+              "formula": "[V_BALANCE_SHEET/Bs Side]",
+              "name": "Bs Side"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BALANCE_USD",
+              "formula": "[V_BALANCE_SHEET/Balance Usd]",
+              "name": "Balance Usd"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/PRIOR_BALANCE_USD",
+              "formula": "[V_BALANCE_SHEET/Prior Balance Usd]",
+              "name": "Prior Balance Usd"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MOM_CHANGE_USD",
+              "formula": "[V_BALANCE_SHEET/Mom Change Usd]",
+              "name": "Mom Change Usd"
+            },
+            {
+              "id": "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_RECENCY_RANK",
+              "formula": "[V_BALANCE_SHEET/Month Recency Rank]",
+              "name": "Month Recency Rank"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Balance Sheet",
+          "metrics": [
+            {
+              "id": "m-balance",
+              "formula": "Sum([Balance Usd])",
+              "name": "Balance",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            },
+            {
+              "id": "m-momchange",
+              "formula": "Sum([Mom Change Usd])",
+              "name": "MoM Change",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_END_DATE",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_END_LABEL",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/DESK",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BUSINESS_LINE",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/LEGAL_ENTITY_NAME",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BOOK",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BS_LINE",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BS_SIDE",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/BALANCE_USD",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/PRIOR_BALANCE_USD",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MOM_CHANGE_USD",
+            "808e7e4e-39ff-4883-b0f4-d3f3eda509d3/MONTH_RECENCY_RANK",
+            "desk-access"
+          ]
+        },
+        {
+          "id": "inventory",
+          "kind": "table",
+          "source": {
+            "connectionId": "cb2f5180-641f-47bd-8efa-da9d590d855a",
+            "kind": "warehouse-table",
+            "path": [
+              "CSA",
+              "PRODUCT_CONTROL",
+              "V_INVENTORY"
+            ]
+          },
+          "columns": [
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_DATE",
+              "formula": "[V_INVENTORY/Business Date]",
+              "name": "Business Date"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_DATE_LABEL",
+              "formula": "[V_INVENTORY/Business Date Label]",
+              "name": "Business Date Label"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/DESK",
+              "formula": "[V_INVENTORY/Desk]",
+              "name": "Desk"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_LINE",
+              "formula": "[V_INVENTORY/Business Line]",
+              "name": "Business Line"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BOOK",
+              "formula": "[V_INVENTORY/Book]",
+              "name": "Book"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/PRODUCT",
+              "formula": "[V_INVENTORY/Product]",
+              "name": "Product"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/NOTIONAL_USD",
+              "formula": "[V_INVENTORY/Notional Usd]",
+              "name": "Notional Usd"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/MARKET_VALUE_USD",
+              "formula": "[V_INVENTORY/Market Value Usd]",
+              "name": "Market Value Usd"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/PRICE_SOURCE",
+              "formula": "[V_INVENTORY/Price Source]",
+              "name": "Price Source"
+            },
+            {
+              "id": "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/IS_LATEST_BUSINESS_DAY",
+              "formula": "[V_INVENTORY/Is Latest Business Day]",
+              "name": "Is Latest Business Day"
+            },
+            {
+              "id": "desk-access",
+              "formula": "(CurrentUserAttributeText(\"pc_desk\") = \"ALL\") or Contains(CurrentUserAttributeText(\"pc_desk\"), [Desk])",
+              "name": "Desk Access",
+              "hidden": true
+            }
+          ],
+          "name": "Inventory",
+          "metrics": [
+            {
+              "id": "m-marketvalue",
+              "formula": "Sum([Market Value Usd])",
+              "name": "Market Value",
+              "format": {
+                "kind": "number",
+                "formatString": "$,.0f"
+              }
+            }
+          ],
+          "filters": [
+            {
+              "id": "rls",
+              "columnId": "desk-access",
+              "kind": "list",
+              "mode": "include",
+              "values": [
+                true
+              ]
+            }
+          ],
+          "order": [
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_DATE",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_DATE_LABEL",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/DESK",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BUSINESS_LINE",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/BOOK",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/PRODUCT",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/NOTIONAL_USD",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/MARKET_VALUE_USD",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/PRICE_SOURCE",
+            "207b5c2b-5db4-45fd-a3b6-9ab74d176fbf/IS_LATEST_BUSINESS_DAY",
+            "desk-access"
+          ]
+        }
+      ]
+    }
+  ],
+  "kind": "data-model"
+}
